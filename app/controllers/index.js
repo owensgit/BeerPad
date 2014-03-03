@@ -42,8 +42,6 @@ $.beersTable.addEventListener("click", function(event) {
     if (OS_ANDROID) { 
        view.open(); 
     }
-    
-    alert('Yo');
 });
 
 
