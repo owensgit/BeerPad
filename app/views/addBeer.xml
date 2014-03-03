@@ -1,0 +1,25 @@
+<Alloy>
+	<Window id="addBeerWin" title="Add a beer" modal="true" class="container">
+	    <ScrollView layout="vertical">
+	        
+	        <Button id="close">close</Button>
+	        
+	        <Label id="title" text="Add a beer"></Label>
+	        
+	        <View id="imageView" top="20" height="130" width="130" backgroundColor="yellow">
+	            <ImageView id="beerImage" height="130" width="130"></ImageView>
+	            <Label text="Add image"></Label>
+	        </View>
+	        
+            <TextField id="name" hintText="Title..."></TextField>
+            <TextField id="brewery" hintText="Author..."></TextField>
+            <TextField id="rating" hintText="Rating..."></TextField>
+            <TextField id="establishment" hintText="Establishment..."></TextField>
+            <TextField id="location" hintText="Location..."></TextField>
+            <TextField id="notes" hintText="Notes..."></TextField>
+            
+            <Button id="addBeerButton">Add</Button>
+            
+        </ScrollView>
+	</Window>
+</Alloy>

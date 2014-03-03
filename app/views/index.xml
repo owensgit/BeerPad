@@ -1,0 +1,16 @@
+<Alloy>
+    <Collection src="beers"/>
+    <Window class="container">
+        <TableView id="beersTable" dataCollection="beers">
+            <TableViewRow 
+                id="{alloy_id}" 
+                title="{name}"  
+                brewery="{brewery}" 
+                rating="{rating}" 
+                establishment="{establishment}" 
+                location="{location}" 
+                notes="{notes}">
+            </TableViewRow>
+        </TableView>
+    </Window>
+</Alloy> 

@@ -1,0 +1,19 @@
+<Alloy>
+    <Collection src="beers"/>
+    <NavigationWindow id="navGroupWin">
+        <Window id="beerListWin" class="container" title="BeerDiary">
+            <TableView id="beersTable" dataCollection="beers" editable="true" allowsSelectionDuringEditing="true">
+                <TableViewRow 
+                    hasChild="true" 
+                    beerId="{alloy_id}" 
+                    title="{name}"  
+                    brewery="{brewery}" 
+                    rating="{rating}" 
+                    establishment="{establishment}" 
+                    location="{location}" 
+                    notes="{notes}">
+                </TableViewRow>
+            </TableView>
+        </Window>
+    </NavigationWindow>
+</Alloy> 

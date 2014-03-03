@@ -1,0 +1,10 @@
+<Alloy> 
+   <Window class="container" layout="vertical"> 
+      <Label id="name"></Label>
+      <Label id="brewery"></Label>
+      <Label id="rating"></Label>
+      <Label id="establishment"></Label>
+      <Label id="location"></Label>
+      <Label id="notes"></Label>
+   </Window> 
+</Alloy>

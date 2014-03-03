@@ -1,0 +1,22 @@
+
+"#close" : {
+    top: "30dp"
+},
+
+"#title" : {
+    top: "10dp",
+    font: {
+        fontSize: "28dp"
+    }
+},
+
+"TextField" : {
+    top: "20dp"
+},
+
+"#addBeerButton" : {
+    top: "40dp",
+    font: {
+        fontSize: "18dp"
+    }
+}
