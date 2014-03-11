@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+iosLaunchConfigurationAttributes/ATTR_MINIFY=true
+iosLaunchConfigurationAttributes/ATTR_PROJECT_NAME=BeerDiary
+iosLaunchConfigurationAttributes/appid=com.owenevans.beerdiary
+iosLaunchConfigurationAttributes/certificate=Owen Evans (9DWEJR45ZE)
+iosLaunchConfigurationAttributes/keychain=
+iosLaunchConfigurationAttributes/sdk_version=7.0.3
+iosLaunchConfigurationAttributes/uuid=6A5981C1-170F-4379-91D5-44BBFC6EB9C7
+provisioning_profiles/development/276DEAEB-2877-4DEA-97E8-6CDE19AFDFC4/appid=com.owenevans.BeerDiary
+provisioning_profiles/development/276DEAEB-2877-4DEA-97E8-6CDE19AFDFC4/name=BeerDiary Development
+provisioning_profiles/development/276DEAEB-2877-4DEA-97E8-6CDE19AFDFC4/uuid=276DEAEB-2877-4DEA-97E8-6CDE19AFDFC4
+provisioning_profiles/development/6A5981C1-170F-4379-91D5-44BBFC6EB9C7/appid=*
+provisioning_profiles/development/6A5981C1-170F-4379-91D5-44BBFC6EB9C7/name=iOS Team Provisioning Profile\: *
+provisioning_profiles/development/6A5981C1-170F-4379-91D5-44BBFC6EB9C7/uuid=6A5981C1-170F-4379-91D5-44BBFC6EB9C7
+provisioning_profiles/development/6E23159F-7D75-4618-8729-19CB9E5EAA77/appid=com.uktv.mobilevodapp
+provisioning_profiles/development/6E23159F-7D75-4618-8729-19CB9E5EAA77/name=Owens Dev Profile
+provisioning_profiles/development/6E23159F-7D75-4618-8729-19CB9E5EAA77/uuid=6E23159F-7D75-4618-8729-19CB9E5EAA77

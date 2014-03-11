@@ -1,7 +1,6 @@
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
-
-
+    
 // Set of defaults to load if no current data is present
 
 var default_beers = [
@@ -90,7 +89,7 @@ if (OS_IOS) {
       
       setTimeout(function () {
           var beersCollection = Alloy.Collections.beers;
-          var beer = beersCollection.get(event.source.beerId);
+          var beer = beersCollection.get(event.source.alloy_id);
           beer.destroy();
       }, 500);
    });

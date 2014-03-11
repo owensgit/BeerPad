@@ -16,7 +16,7 @@
             <TextField id="rating" hintText="Rating..."></TextField>
             <TextField id="establishment" hintText="Establishment..."></TextField>
             <TextField id="location" hintText="Location..."></TextField>
-            <TextField id="notes" hintText="Notes..."></TextField>
+            <TextField height="Ti.UI.SIZE" id="notes" hintText="Notes..." width="Ti.Platform.displayCaps.platformWidth"></TextField>
             
             <Button id="addBeerButton">Add</Button>
             

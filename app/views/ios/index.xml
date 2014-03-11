@@ -5,7 +5,8 @@
             <TableView id="beersTable" dataCollection="beers" editable="true" allowsSelectionDuringEditing="true">
                 <TableViewRow 
                     hasChild="true" 
-                    beerId="{alloy_id}" 
+                    leftImage="" 
+                    alloy_id="{alloy_id}" 
                     title="{name}"  
                     brewery="{brewery}" 
                     rating="{rating}" 

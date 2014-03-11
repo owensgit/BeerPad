@@ -9,8 +9,11 @@ function Controller() {
             var __alloyId4 = models[i];
             __alloyId4.__transform = {};
             var __alloyId6 = Ti.UI.createTableViewRow({
+                selectedBackgroundColor: "#f8ac12",
+                selectedColor: "#FFFFFF",
                 hasChild: "true",
-                beerId: "undefined" != typeof __alloyId4.__transform["alloy_id"] ? __alloyId4.__transform["alloy_id"] : __alloyId4.get("alloy_id"),
+                leftImage: "",
+                alloy_id: "undefined" != typeof __alloyId4.__transform["alloy_id"] ? __alloyId4.__transform["alloy_id"] : __alloyId4.get("alloy_id"),
                 title: "undefined" != typeof __alloyId4.__transform["name"] ? __alloyId4.__transform["name"] : __alloyId4.get("name"),
                 brewery: "undefined" != typeof __alloyId4.__transform["brewery"] ? __alloyId4.__transform["brewery"] : __alloyId4.get("brewery"),
                 rating: "undefined" != typeof __alloyId4.__transform["rating"] ? __alloyId4.__transform["rating"] : __alloyId4.get("rating"),
@@ -32,6 +35,11 @@ function Controller() {
     Alloy.Collections.instance("beers");
     $.__views.beerListWin = Ti.UI.createWindow({
         backgroundColor: "white",
+        barColor: "#f8ac12",
+        backButtonTitle: "Back",
+        titleAttributes: {
+            color: "#FFFFFF"
+        },
         id: "beerListWin",
         title: "BeerDiary"
     });
@@ -44,6 +52,10 @@ function Controller() {
     var __alloyId7 = Alloy.Collections["beers"] || beers;
     __alloyId7.on("fetch destroy change add remove reset", __alloyId8);
     $.__views.navGroupWin = Ti.UI.iOS.createNavigationWindow({
+        tintColor: "#FFFFFF",
+        titleAttributes: {
+            color: "#FFFFFF"
+        },
         window: $.__views.beerListWin,
         id: "navGroupWin"
     });
@@ -127,7 +139,7 @@ function Controller() {
         this.title = "Edit";
         setTimeout(function() {
             var beersCollection = Alloy.Collections.beers;
-            var beer = beersCollection.get(event.source.beerId);
+            var beer = beersCollection.get(event.source.alloy_id);
             beer.destroy();
         }, 500);
     });

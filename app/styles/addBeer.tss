@@ -20,3 +20,7 @@
         fontSize: "18dp"
     }
 }
+
+"#notes": {
+    clearOnEdit: "true"
+}

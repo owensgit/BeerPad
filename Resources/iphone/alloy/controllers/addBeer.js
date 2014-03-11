@@ -8,6 +8,11 @@ function Controller() {
     var exports = {};
     $.__views.addBeerWin = Ti.UI.createWindow({
         backgroundColor: "white",
+        barColor: "#f8ac12",
+        backButtonTitle: "Back",
+        titleAttributes: {
+            color: "#FFFFFF"
+        },
         id: "addBeerWin",
         title: "Add a beer",
         modal: "true"
@@ -19,6 +24,7 @@ function Controller() {
     });
     $.__views.addBeerWin.add($.__views.__alloyId0);
     $.__views.close = Ti.UI.createButton({
+        color: "#f8ac12",
         top: "30dp",
         title: "close",
         id: "close"
@@ -84,11 +90,15 @@ function Controller() {
     $.__views.__alloyId0.add($.__views.location);
     $.__views.notes = Ti.UI.createTextField({
         top: "20dp",
+        clearOnEdit: "true",
+        height: Ti.UI.SIZE,
         id: "notes",
-        hintText: "Notes..."
+        hintText: "Notes...",
+        width: Ti.Platform.displayCaps.platformWidth
     });
     $.__views.__alloyId0.add($.__views.notes);
     $.__views.addBeerButton = Ti.UI.createButton({
+        color: "#f8ac12",
         top: "40dp",
         font: {
             fontSize: "18dp"
@@ -99,10 +109,29 @@ function Controller() {
     $.__views.__alloyId0.add($.__views.addBeerButton);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    var args = arguments[0] || {};
     var theBeers = Alloy.Collections.beers;
-    $.addBeerWin.addEventListener("open", function() {
+    theBeers.fetch();
+    if (args.edit) {
+        var editBeer = theBeers.where({
+            alloy_id: args.alloy_id
+        })[0];
+        $.title.text = "Edit " + args.title;
+        console.log(editBeer.toJSON());
+        editBeer.set({
+            name: "Happy juice"
+        });
+        editBeer.save();
+        $.name.value = args.title;
+        $.brewery.value = args.brewery || "";
+        $.rating.value = args.rating || "";
+        $.establishment.value = args.establishment || "";
+        $.location.value = args.location || "";
+        args.notes && ($.notes.value = args.notes);
+    } else $.addBeerWin.addEventListener("open", function() {
         $.name.focus();
     });
+    var theImage;
     $.close.addEventListener("click", function() {
         $.addBeerWin.close();
     });
@@ -125,25 +154,38 @@ function Controller() {
         });
         theBeers.add(beer);
         beer.save();
+        var alloy_id = beer.get("alloy_id");
+        var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + ".jpg");
+        f.write(theImage);
         $.addBeerWin.close();
     });
-    var camera = {
+    var cameraMethods = {
         onSuccess: function(e) {
-            e.mediaType === Ti.Media.MEDIA_TYPE_PHOTO && ($.beerImage.image = e.media);
+            if (e.mediaType === Ti.Media.MEDIA_TYPE_PHOTO) {
+                $.beerImage.image = e.media;
+                theImage = e.media;
+            }
         },
-        onCancel: function() {},
-        onError: function() {}
+        onCancel: function() {
+            console.log("Action was cancelled");
+        },
+        onError: function() {
+            console.log("An error happened");
+        }
     };
     $.imageView.addEventListener("click", function() {
         $.beerImage;
-        Ti.Media.showCamera({
-            success: camrea.onSuccess,
-            cancel: camrea.onCancel,
-            error: camera.onError,
+        Titanium.Media.showCamera({
+            success: cameraMethods.onSuccess,
+            cancel: cameraMethods.onCancel,
+            error: cameraMethods.onError,
             allowEditing: true,
-            mediaTypes: [ Ti.Media.MEDIA_TYPE_PHOTO ],
-            videoQuality: Ti.Media.QUALITY_HIGH
+            mediaTypes: [ Titanium.Media.MEDIA_TYPE_PHOTO ],
+            videoQuality: Titanium.Media.QUALITY_HIGH
         });
+    });
+    $.addBeerWin.addEventListener("close", function() {
+        $.destroy();
     });
     _.extend($, exports);
 }

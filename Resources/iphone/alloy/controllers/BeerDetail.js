@@ -8,10 +8,19 @@ function Controller() {
     var exports = {};
     $.__views.BeerDetail = Ti.UI.createWindow({
         backgroundColor: "white",
+        barColor: "#f8ac12",
+        backButtonTitle: "Back",
+        titleAttributes: {
+            color: "#FFFFFF"
+        },
         layout: "vertical",
         id: "BeerDetail"
     });
     $.__views.BeerDetail && $.addTopLevelView($.__views.BeerDetail);
+    $.__views.image = Ti.UI.createImageView({
+        id: "image"
+    });
+    $.__views.BeerDetail.add($.__views.image);
     $.__views.name = Ti.UI.createLabel({
         id: "name"
     });
@@ -39,12 +48,29 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
+    var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, args.alloy_id + ".jpg");
+    var contents = f.read();
+    $.BeerDetail.setTitle(args.title);
+    $.image.image = contents;
     $.name.text = args.title;
     $.brewery.text = args.brewery;
     $.rating.text = args.rating;
     $.establishment.text = args.establishment;
     $.location.text = args.location;
     $.notes.text = args.notes;
+    var editButton = Ti.UI.createButton({
+        title: "Edit"
+    });
+    $.BeerDetail.setRightNavButton(editButton);
+    editButton.addEventListener("click", function() {
+        args.edit = true;
+        var window = Alloy.createController("addBeer", args).getView();
+        window.open({
+            modal: true,
+            modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+            modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+        });
+    });
     _.extend($, exports);
 }
 

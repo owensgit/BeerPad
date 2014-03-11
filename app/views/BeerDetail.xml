@@ -1,5 +1,6 @@
 <Alloy> 
    <Window class="container" layout="vertical"> 
+      <ImageView id="image"></ImageView>
       <Label id="name"></Label>
       <Label id="brewery"></Label>
       <Label id="rating"></Label>

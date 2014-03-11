@@ -1,3 +1,28 @@
 ".container" : { 
-   backgroundColor: 'white' 
+   backgroundColor: 'white',
+   barColor: '#f8ac12',
+   backButtonTitle: 'Back',
+   titleAttributes: {
+       color: '#FFFFFF'
+   }
+},
+
+"Button": {
+    color: "#f8ac12"
+},
+
+"#navGroupWin" : { 
+   tintColor: '#FFFFFF',
+   titleAttributes: {
+       color: '#FFFFFF'
+   }
+},
+
+"#beerListWin": {
+   barColor: '#f8ac12',
+},
+
+"TableViewRow": {
+    selectedBackgroundColor: '#f8ac12',
+    selectedColor: '#FFFFFF'
 }
