@@ -8,6 +8,7 @@
                     leftImage="" 
                     alloy_id="{alloy_id}" 
                     title="{name}"  
+                    name="{name}" 
                     brewery="{brewery}" 
                     rating="{rating}" 
                     establishment="{establishment}" 

@@ -26,13 +26,15 @@ if (_.isEmpty(theBeers.toJSON())) {
 
 $.beersTable.addEventListener("click", function(event) {
     var selectedBeer = event.row;
-    
+      
     var args = {};
     
     _.each(selectedBeer, function(value, key) {
        args[key] = value; // store all info to pass to the view
     });
-
+    
+    args.model = theBeers.get(event.row.alloy_id);
+    
     var view = Alloy.createController("BeerDetail", args).getView();
     
     if (OS_IOS) { 

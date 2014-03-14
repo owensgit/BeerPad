@@ -6,22 +6,17 @@ theBeers.fetch();
 if (args.edit) {
     var editBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
     $.title.text = "Edit " + args.title;
-    console.log(editBeer.toJSON());
-
-    editBeer.set({name: "Happy juice"});
-    editBeer.save();
+    //console.log(editBeer.toJSON());
     
-    $.name.value = args.title;
+    $.name.value = args.name;
     $.brewery.value = args.brewery || "";
     $.rating.value = args.rating || "";
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
     if (args.notes) $.notes.value = args.notes;
     
-} else {
-    $.addBeerWin.addEventListener("open", function() {
-        $.name.focus();
-    });  
+    $.addBeerButton.title = "Save beer";
+    
 }
 
 var theImage; // used to store image blob when camera has taken photo
@@ -34,31 +29,48 @@ $.close.addEventListener("click", function () {
 
 var storedImage;
 
+function mapArgs() {
+    return {
+        name: $.name.value,
+        brewery: $.brewery.value,
+        rating: $.rating.value,
+        establishment: $.establishment.value,
+        location: $.location.value,
+        notes: $.notes.value
+    };
+};
+
 $.addBeerButton.addEventListener("click", function () {
     if (!$.name.value) {
         var dialog = Ti.UI.createAlertDialog({
-            message: 'Had one beer too many?\nYou forgot to add a name!',
-            ok: 'Okay',
-            title: 'Missing Name'
+            message: 'You forgot to add a name!\n',
+            ok: 'Whoops!',
+            title: 'Had one beer too many?'
         }).show();
         return;
+    } else if (args.edit) {
+        editBeer.set(mapArgs());
+        editBeer.save();
+        Ti.App.fireEvent("app:updateBeer");
+        var alloy_id = editBeer.get('alloy_id');        
+        var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
+        f.write(theImage);
+        $.addBeerWin.close();
     } else {
-        var beer = Alloy.createModel('beers', {
-            name: $.name.value,
-            brewery: $.brewery.value,
-            rating: $.rating.value,
-            establishment: $.establishment.value,
-            location: $.location.value,
-            notes: $.notes.value
-        });
+        var beer = Alloy.createModel('beers', mapArgs());
         
         theBeers.add(beer);
         beer.save();       
         
-        var alloy_id = beer.get('alloy_id');
+        if (theImage) {
+            alert("There's an image");
+            var alloy_id = beer.get('alloy_id');
+            var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
+            f.write(theImage);   
+        } else {
+            alert("No Image");
+        }
         
-        var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
-        f.write(theImage);
 
         $.addBeerWin.close();
     }

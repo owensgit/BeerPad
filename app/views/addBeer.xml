@@ -2,23 +2,27 @@
 	<Window id="addBeerWin" title="Add a beer" modal="true" class="container">
 	    <ScrollView layout="vertical">
 	        
-	        <Button id="close">close</Button>
+	        <Button id="close">Cancel</Button>
 	        
-	        <Label id="title" text="Add a beer"></Label>
+	        <Label id="title" class="dense" text="ADD A BEER"></Label>
 	        
-	        <View id="imageView" top="20" height="130" width="130" backgroundColor="yellow">
-	            <ImageView id="beerImage" height="130" width="130"></ImageView>
-	            <Label text="Add image"></Label>
+	        <View id="imageView">
+	            <ImageView id="beerImage"></ImageView>
+	            <ImageView id="cameraImage" image="camera.png" height="35" width="35"></ImageView>
+	            <!-- <Label id="addImageText" text="photograph"></Label> -->
 	        </View>
 	        
+	        
             <TextField id="name" hintText="Title..."></TextField>
-            <TextField id="brewery" hintText="Author..."></TextField>
+            <TextField id="brewery" hintText="Brewery..."></TextField>
             <TextField id="rating" hintText="Rating..."></TextField>
             <TextField id="establishment" hintText="Establishment..."></TextField>
             <TextField id="location" hintText="Location..."></TextField>
-            <TextField height="Ti.UI.SIZE" id="notes" hintText="Notes..." width="Ti.Platform.displayCaps.platformWidth"></TextField>
             
-            <Button id="addBeerButton">Add</Button>
+            <Label id="notesLabel" text="Notes:"></Label>
+            <TextArea id="notes" />
+            
+            <Button id="addBeerButton" class="button">Add this beer</Button>
             
         </ScrollView>
 	</Window>

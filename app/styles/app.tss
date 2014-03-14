@@ -25,4 +25,12 @@
 "TableViewRow": {
     selectedBackgroundColor: '#f8ac12',
     selectedColor: '#FFFFFF'
+},
+
+".button": {
+    backgroundColor: '#f8ac12',
+    color: '#FFFFFF',
+    height: "60dp",
+    width: "280dp",
+    borderRadius: "5dp"
 }

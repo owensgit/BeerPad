@@ -1,26 +1,67 @@
 
 "#close" : {
-    top: "30dp"
+    borderColor: "#f8ac12",
+    borderWidth: "1dp",
+    borderRadius: "3dp",
+    top: "30dp",
+    right: "6dp",
+    height: "26dp",
+    width: "65dp",
+    font: {
+        fontSize: "13dp"
+    } 
 },
 
 "#title" : {
     top: "10dp",
     font: {
-        fontSize: "28dp"
-    }
+        fontSize: "55dp",
+        fontFamily: 'Dense-Regular'
+    }  
+},
+
+"#imageView": {
+    top: "10dp", bottom: "5dp",
+    backgroundColor: "#f8ac12",
+    height: "90dp", width: "90dp",
+    borderRadius: "45dp"  
+},
+
+"#beerImage": {
+    height: "90dp", width: "90dp"
+},
+
+"#cameraImage": {
+    height: "35dp", width: "35dp"  
 },
 
 "TextField" : {
-    top: "20dp"
+    top: "5dp", bottom: "5dp",
+    height: "35dp",
+    width: "200dp",
+    
+},
+
+"#notesLabel": {
+    top: "15dp",
+    color: "#f8ac12"
+},
+"TextArea": {
+    top: "10dp", bottom: "5dp",
+    borderWidth: "1dp",
+    borderColor: "#ececec",
+    height: "80dp",
+    width: "200dp",
+    font: {
+        fontSize: "17dp"
+    }
 },
 
 "#addBeerButton" : {
     top: "40dp",
+    bottom: "60dp",
+    width: "202dp",
     font: {
         fontSize: "18dp"
     }
-}
-
-"#notes": {
-    clearOnEdit: "true"
 }

@@ -1,4 +1,27 @@
 
 ".container" : {
   
+},
+
+"#image": {
+    height: "140dp",
+    width: "140dp",
+    borderRadius: "70dp",
+    top: "15dp"
+},
+
+"Label": {
+    width: "260dp", 
+},
+"#name": {
+    top: "10dp",
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    font: {
+        fontSize: "50dp",
+        fontFamily: 'Dense-Regular'
+    }   
+},
+"#brewery": {
+    top: "2dp",
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
 }
