@@ -1,44 +1,51 @@
 var args = arguments[0] || {};
 
+var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
+
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
+
+
+// Edit Mode
 
 if (args.edit) {
     var editBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
     $.title.text = "Edit " + args.title;
-    //console.log(editBeer.toJSON());
     
     $.name.value = args.name;
     $.brewery.value = args.brewery || "";
-    $.rating.value = args.rating || "";
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
     if (args.notes) $.notes.value = args.notes;
+
+    $.addBeerButton.title = "Save beer"; 
     
-    $.addBeerButton.title = "Save beer";
-    
+    applyRating(args.rating);  
 }
 
+
+// Stored values for use
+
 var theImage; // used to store image blob when camera has taken photo
-
-
-
-$.close.addEventListener("click", function () {
-    $.addBeerWin.close();
-});
-
 var storedImage;
+var rating;
+
+
+// Func to map args to modal
 
 function mapArgs() {
     return {
         name: $.name.value,
         brewery: $.brewery.value,
-        rating: $.rating.value,
+        rating: rating, // set by applyRating() func below
         establishment: $.establishment.value,
         location: $.location.value,
         notes: $.notes.value
     };
 };
+
+
+// Add Beer Function
 
 $.addBeerButton.addEventListener("click", function () {
     if (!$.name.value) {
@@ -77,6 +84,9 @@ $.addBeerButton.addEventListener("click", function () {
     
 });
 
+
+// Add Image
+
 var cameraMethods = {
     onSuccess: function (e, imageViewID) {
         if (e.mediaType === Ti.Media.MEDIA_TYPE_PHOTO) {
@@ -107,6 +117,35 @@ $.imageView.addEventListener("click", function (e) {
 });
 
 
+/*
+ *  STAR RATING
+ *  -----------
+ */
+
+
+function applyRating(number) {
+    rating = number;
+    for (var i = 0; i < number; i++) {
+        starArray[i].setImage('ratingStarON.png');
+    }
+    for (var i = number; i < 5; i++) {
+        starArray[i].setImage('ratingStar.png');
+    }
+}
+
+for (var i = 0; i < 5; i++) {
+   starArray[i].addEventListener("click", function () {
+       applyRating(starArray.indexOf(this) + 1);
+   }); 
+};
+
+
+
 $.addBeerWin.addEventListener("close", function() {
     $.destroy();
+});
+
+
+$.close.addEventListener("click", function () {
+    $.addBeerWin.close();
 });

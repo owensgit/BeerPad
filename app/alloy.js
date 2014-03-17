@@ -15,9 +15,16 @@ Alloy.Globals.mapLabelText = function($, object) {
 
     $.name.text = object.name.toUpperCase();
     $.brewery.text = object.brewery;
-    $.rating.text = object.rating;
-    $.establishment.text = object.establishment;
-    $.location.text = object.location;
+    $.establishment.text = object.establishment || "No establishment set";
+    $.location.text = object.location || "No location set";
     $.notes.text = object.notes;
 
+    if (!object.establishment) {
+        $.buildingIcon.setImage('buildingGrey.png');
+        $.establishment.setColor('#b9b9b9');
+    };
+    if (!object.location) {
+        $.locationIcon.setImage('locationGrey.png');
+        $.location.setColor('#b9b9b9');
+    }
 };

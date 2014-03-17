@@ -34,3 +34,27 @@
     width: "280dp",
     borderRadius: "5dp"
 }
+
+".buttonOutline": {
+    borderColor: "#f8ac12",
+    borderWidth: "1dp",
+    borderRadius: "3dp",
+}
+
+".ratingButtons": {
+    top: "12dp",
+    height: "35dp",
+    layout: "horizontal",
+    width: "215dp",
+    left: "55dp"
+}
+
+".starImage": {
+    backgroundColor: "lime",
+    width: "35dp", height: "35dp",
+    left: "7dp"
+}
+
+"#establishment": {
+    top: "18dp"
+}

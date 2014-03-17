@@ -4,10 +4,12 @@ theBeers.fetch();
 // Set of defaults to load if no current data is present
 
 var default_beers = [
-    { name: "London Pride", brewery: "Fullers", rating: 80, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { name: "Oat Milk Stout", brewery: "Clarence & Fredericks", rating: 95, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong too. Could only drink one or two pints as it's quite heavy, but it's very tasty." },
-    { name: "Hob Goblin", brewery: "Wychwood Brewery Company", rating: 75, establishment: "", location: "", notes: "" },
-    { name: "Greene King IPA", brewery: "Greene King", rating: 70, establishment: "", location: "", notes: "" }
+    { name: "Test Beer 2", brewery: "Fullers", rating: 0, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { name: "Test Beer 1", brewery: "Fullers", rating: 1, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { name: "London Pride", brewery: "Fullers", rating: 2, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { name: "Oat Milk Stout", brewery: "Clarence & Fredericks", rating: 3, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong too. Could only drink one or two pints as it's quite heavy, but it's very tasty." },
+    { name: "Hob Goblin", brewery: "Wychwood Brewery Company", rating: 4, establishment: "", location: "", notes: "" },
+    { name: "Greene King IPA", brewery: "Greene King", rating: 5, establishment: "", location: "", notes: "" }
 ];
 
 
@@ -55,7 +57,7 @@ if (OS_IOS) {
 
    // Left & Right buttons in title bar: Edit & New
    
-   var addButton = Ti.UI.createButton({ title: "Add" });
+   var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
    var editButton = Ti.UI.createButton({ title: "Edit" });
    
    $.beerListWin.setRightNavButton(addButton);

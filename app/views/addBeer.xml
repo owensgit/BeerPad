@@ -15,7 +15,15 @@
 	        
             <TextField id="name" hintText="Title..."></TextField>
             <TextField id="brewery" hintText="Brewery..."></TextField>
-            <TextField id="rating" hintText="Rating..."></TextField>
+            
+            <View class="ratingButtons">
+                <ImageView id="star1" image="ratingStar.png" class="starImage"></ImageView>
+                <ImageView id="star2" image="ratingStar.png" class="starImage"></ImageView>
+                <ImageView id="star3" image="ratingStar.png" class="starImage"></ImageView>
+                <ImageView id="star4" image="ratingStar.png" class="starImage"></ImageView>
+                <ImageView id="star5" image="ratingStar.png" class="starImage"></ImageView>
+            </View>
+            
             <TextField id="establishment" hintText="Establishment..."></TextField>
             <TextField id="location" hintText="Location..."></TextField>
             

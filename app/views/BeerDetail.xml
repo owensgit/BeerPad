@@ -1,11 +1,33 @@
 <Alloy> 
-   <Window class="container" layout="vertical"> 
-      <ImageView id="image"></ImageView>
-      <Label id="name"></Label>
-      <Label id="brewery"></Label>
-      <Label id="rating"></Label>
-      <Label id="establishment"></Label>
-      <Label id="location"></Label>
-      <Label id="notes"></Label>
+   <Window class="container">
+      <ScrollView showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true" layout="vertical">
+          <ImageView id="image" image="dafaultBeerImage.png"></ImageView>
+          
+          <Label id="name"></Label>
+          <Label id="brewery"></Label>
+          
+          <View class="ratingButtons">
+            <ImageView id="star1" image="ratingStar.png" class="starImage"></ImageView>
+            <ImageView id="star2" image="ratingStar.png" class="starImage"></ImageView>
+            <ImageView id="star3" image="ratingStar.png" class="starImage"></ImageView>
+            <ImageView id="star4" image="ratingStar.png" class="starImage"></ImageView>
+            <ImageView id="star5" image="ratingStar.png" class="starImage"></ImageView>
+         </View>
+          
+          <View class="iconItem">
+            <ImageView class="icon" id="buildingIcon" image="building.png" height="20dp" width="20dp"></ImageView>
+            <Label class="iconTitle" id="establishment"></Label>
+          </View>
+              
+          <View class="iconItem">
+            <ImageView class="icon" id="locationIcon" image="location.png" height="20dp" width="20dp"></ImageView>
+            <Label class="iconTitle" id="location"></Label>
+          </View>
+          
+          <Label id="notes"></Label>
+
+          <Button class="buttonOutline" id="share" title="Share this beer" />
+
+      </ScrollView>
    </Window> 
 </Alloy>

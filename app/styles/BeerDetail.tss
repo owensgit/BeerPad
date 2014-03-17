@@ -11,10 +11,11 @@
 },
 
 "Label": {
-    width: "260dp", 
+    width: "220dp", 
 },
 "#name": {
     top: "10dp",
+    width: "270dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
     font: {
         fontSize: "50dp",
@@ -24,4 +25,30 @@
 "#brewery": {
     top: "2dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
+}
+
+".iconItem": {
+    top: "20dp",
+    layout: "composite",
+    height: Ti.UI.SIZE,
+    width: "220dp"
+}
+
+".icon": {
+    left: "0dp", top: "2dp"
+},
+
+".iconTitle": {
+    width: "180dp",
+    left: "30dp", top: "0dp"
+}
+
+"#notes": {
+    top: "20dp"
+}
+
+"#share": {
+    top: "20dp",
+    height: "40dp",
+    width: "140dp"
 }
