@@ -3,16 +3,24 @@ var beersCollection = Alloy.createCollection('beers');
 beersCollection.fetch();
 
 
+// The Image
+
 function getImage() {
     var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, args.alloy_id + '.jpg');  
     return f.read();  
 }
-
-$.BeerDetail.setTitle(args.title);
-
 if (getImage()) $.image.image = getImage();
 
+
+
+// The Details
+
+$.BeerDetail.setTitle(args.title);
 Alloy.Globals.mapLabelText($, args);
+
+
+
+// Navigation Bar Button
 
 if (OS_IOS) {
     var editButton = Ti.UI.createButton({ title: "Edit" });
@@ -29,6 +37,10 @@ if (OS_IOS) {
     });
 }
 
+
+
+// Update Beer after edit event fired in addBeer.js
+
 Ti.App.addEventListener("app:updateBeer", function(e) {
     beersCollection.fetch();
     var test = beersCollection.where({"alloy_id": args.alloy_id})[0].toJSON();
@@ -42,6 +54,9 @@ Ti.App.addEventListener("app:updateBeer", function(e) {
     args = test;
 });
 
+
+
+// Apply Star Ratings
 
 var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 

@@ -13,15 +13,15 @@
             <ImageView id="star4" image="ratingStar.png" class="starImage"></ImageView>
             <ImageView id="star5" image="ratingStar.png" class="starImage"></ImageView>
          </View>
-          
-          <View class="iconItem">
-            <ImageView class="icon" id="buildingIcon" image="building.png" height="20dp" width="20dp"></ImageView>
-            <Label class="iconTitle" id="establishment"></Label>
-          </View>
               
           <View class="iconItem">
-            <ImageView class="icon" id="locationIcon" image="location.png" height="20dp" width="20dp"></ImageView>
-            <Label class="iconTitle" id="location"></Label>
+            <ImageView class="icon" id="locationIcon" image="location.png" />
+            <Label class="iconTitle" id="pub" />
+          </View>
+          
+          <View class="iconItem">
+            <ImageView class="icon" image="building.png" />
+            <Label class="iconTitle" id="location" />
           </View>
           
           <Label id="notes"></Label>

@@ -42,6 +42,17 @@
     
 },
 
+".ratingButtons": {
+    top: "12dp",
+    height: "35dp",
+    width: "215dp",
+    left: "55dp"
+}
+
+".starImage": {
+    width: "35dp", height: "35dp",
+}
+
 "#notesLabel": {
     top: "15dp",
     color: "#f8ac12"

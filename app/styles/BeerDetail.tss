@@ -14,7 +14,7 @@
     width: "220dp", 
 },
 "#name": {
-    top: "10dp",
+    top: "8dp",
     width: "270dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
     font: {
@@ -23,23 +23,35 @@
     }   
 },
 "#brewery": {
-    top: "2dp",
+    top: "1dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
+}
+
+".ratingButtons": {
+    top: "-1dp",
+    height: "22dp",
+    width: "145dp",
+    left: "86dp"
+}
+".starImage": {
+    height: "22dp",
+    width: "22dp"
 }
 
 ".iconItem": {
     top: "20dp",
     layout: "composite",
     height: Ti.UI.SIZE,
-    width: "220dp"
+    width: "230dp"
 }
 
 ".icon": {
+    width: "20dp", height: "20dp",
     left: "0dp", top: "2dp"
 },
 
 ".iconTitle": {
-    width: "180dp",
+    width: "200dp",
     left: "30dp", top: "0dp"
 }
 

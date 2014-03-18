@@ -1,9 +1,13 @@
 var args = arguments[0] || {};
+var theBeers = Alloy.Collections.beers;
+theBeers.fetch();
+
+
+
+// Array of Star Images for use in applyRating() below
 
 var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 
-var theBeers = Alloy.Collections.beers;
-theBeers.fetch();
 
 
 // Edit Mode
@@ -24,11 +28,12 @@ if (args.edit) {
 }
 
 
+
 // Stored values for use
 
-var theImage; // used to store image blob when camera has taken photo
-var storedImage;
+var theImage;
 var rating;
+
 
 
 // Func to map args to modal
@@ -43,6 +48,7 @@ function mapArgs() {
         notes: $.notes.value
     };
 };
+
 
 
 // Add Beer Function
@@ -70,19 +76,15 @@ $.addBeerButton.addEventListener("click", function () {
         beer.save();       
         
         if (theImage) {
-            alert("There's an image");
             var alloy_id = beer.get('alloy_id');
             var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
             f.write(theImage);   
-        } else {
-            alert("No Image");
         }
         
-
         $.addBeerWin.close();
-    }
-    
+    }    
 });
+
 
 
 // Add Image
@@ -117,11 +119,8 @@ $.imageView.addEventListener("click", function (e) {
 });
 
 
-/*
- *  STAR RATING
- *  -----------
- */
 
+// Rating
 
 function applyRating(number) {
     rating = number;
@@ -140,6 +139,8 @@ for (var i = 0; i < 5; i++) {
 };
 
 
+
+// Misc
 
 $.addBeerWin.addEventListener("close", function() {
     $.destroy();

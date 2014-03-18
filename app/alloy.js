@@ -15,7 +15,7 @@ Alloy.Globals.mapLabelText = function($, object) {
 
     $.name.text = object.name.toUpperCase();
     $.brewery.text = object.brewery;
-    $.establishment.text = object.establishment || "No establishment set";
+    $.pub.text = object.establishment || "No establishment set";
     $.location.text = object.location || "No location set";
     $.notes.text = object.notes;
 
