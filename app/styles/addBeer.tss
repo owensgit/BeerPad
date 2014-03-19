@@ -38,8 +38,7 @@
 "TextField" : {
     top: "5dp", bottom: "5dp",
     height: "35dp",
-    width: "200dp",
-    
+    width: "200dp" 
 },
 
 ".ratingButtons": {
@@ -51,6 +50,10 @@
 
 ".starImage": {
     width: "35dp", height: "35dp",
+}
+
+"#percent": {
+    top: "18dp"
 }
 
 "#notesLabel": {

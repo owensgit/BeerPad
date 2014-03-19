@@ -6,6 +6,13 @@
        color: '#FFFFFF'
    }
 },
+".toolbar": {
+   barColor: '#f8ac12',
+   backButtonTitle: 'Back',
+   titleAttributes: {
+       color: '#FFFFFF'
+   }  
+}
 
 "Button": {
     color: "#f8ac12"
@@ -47,8 +54,4 @@
 
 ".starImage": {
     left: "7dp"
-}
-
-"#establishment": {
-    top: "18dp"
 }

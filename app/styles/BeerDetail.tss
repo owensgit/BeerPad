@@ -18,7 +18,7 @@
     width: "270dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
     font: {
-        fontSize: "50dp",
+        fontSize: "52dp",
         fontFamily: 'Dense-Regular'
     }   
 },
@@ -28,10 +28,10 @@
 }
 
 ".ratingButtons": {
-    top: "-1dp",
+    top: "14dp",
     height: "22dp",
     width: "145dp",
-    left: "86dp"
+    left: "84dp"
 }
 ".starImage": {
     height: "22dp",
@@ -42,7 +42,7 @@
     top: "20dp",
     layout: "composite",
     height: Ti.UI.SIZE,
-    width: "230dp"
+    width: "220dp"
 }
 
 ".icon": {
@@ -51,8 +51,8 @@
 },
 
 ".iconTitle": {
-    width: "200dp",
-    left: "30dp", top: "0dp"
+    width: "190dp",
+    left: "28dp", top: "1dp"
 }
 
 "#notes": {

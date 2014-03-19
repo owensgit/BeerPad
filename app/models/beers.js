@@ -4,6 +4,7 @@ exports.definition = {
 		    "name": "text",
 		    "brewery": "text",
 		    "rating": "integer",
+		    "percent": "integer",
 		    "establishment": "text",
 		    "location": "text",
             "notes": "text"		    

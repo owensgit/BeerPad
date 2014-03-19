@@ -24,7 +24,8 @@
                 <ImageView id="star5" image="ratingStar.png" class="starImage"></ImageView>
             </View>
             
-            <TextField id="establishment" hintText="Establishment..."></TextField>
+            <TextField id="percent" hintText="Percent %..." keyboardType="Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION"></TextField>
+            <TextField id="establishment" hintText="Pub or Establishment..."></TextField>
             <TextField id="location" hintText="Location..."></TextField>
             
             <Label id="notesLabel" text="Notes:"></Label>

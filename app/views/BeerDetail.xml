@@ -15,18 +15,16 @@
          </View>
               
           <View class="iconItem">
-            <ImageView class="icon" id="locationIcon" image="location.png" />
+            <ImageView class="icon" id="locationIcon" image="building.png" />
             <Label class="iconTitle" id="pub" />
           </View>
           
           <View class="iconItem">
-            <ImageView class="icon" image="building.png" />
+            <ImageView class="icon" id="buildingIcon" image="location.png" />
             <Label class="iconTitle" id="location" />
           </View>
           
           <Label id="notes"></Label>
-
-          <Button class="buttonOutline" id="share" title="Share this beer" />
 
       </ScrollView>
    </Window> 

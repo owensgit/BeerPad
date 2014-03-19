@@ -5,17 +5,48 @@
             <TableView id="beersTable" dataCollection="beers" editable="true" allowsSelectionDuringEditing="true">
                 <TableViewRow 
                     hasChild="true" 
-                    leftImage="" 
-                    alloy_id="{alloy_id}" 
-                    title="{name}"  
+                    alloy_id="{alloy_id}"  
                     name="{name}" 
                     brewery="{brewery}" 
                     rating="{rating}" 
+                    percent="{percent}"
                     establishment="{establishment}" 
                     location="{location}" 
                     notes="{notes}">
+                    
+                    <View class="tableRow">
+                        <Label id="tableRowName" text="{name}"></Label>
+                        <Label id="tableRowBrewery" text="{brewery}" defaultText="No brewery"></Label>
+                    </View>
+                    
                 </TableViewRow>
             </TableView>
+            
+            <!--Toolbar platform="ios" bottom="0" class="toolbar" borderTop="true" borderBottom="false">
+                <Items>
+                    <Button id="send" title="Send" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
+                    <FlexSpace/>
+                    <Button id="camera" systemButton="Ti.UI.iPhone.SystemButton.CAMERA" />
+                    <FlexSpace/>
+                    <Button id="cancel" systemButton="Ti.UI.iPhone.SystemButton.ORGANIZE" />
+                </Items>
+            </Toolbar-->
+            
+            <OptionDialog id="filterDialog" title="Filter those beers!">
+                <Options>
+                    <Option>Date added</Option>
+                    <Option>Rating - high first</Option>
+                    <Option>Rating - low first</Option>
+                    <Option>Percentage</Option>
+                    <Option>Cancel</Option>
+                </Options>  
+                <!-- The ButtonNames tag sets the Android-only buttonNames property. -->
+                <!--ButtonNames>
+                    <ButtonName>Help</ButtonName>
+                </ButtonNames-->
+                <!-- Add a View for the androidView property here. -->
+            </OptionDialog>   
+                     
         </Window>
     </NavigationWindow>
 </Alloy> 

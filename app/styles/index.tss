@@ -1,13 +1,27 @@
 "Window": {
 	backgroundColor: "#fff"
 },
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000",
-	font: {
-		fontSize: 20,
-		fontFamily: 'Helvetica Neue'
-	},
-	textAlign: 'center'
+
+".tableRow": {
+    height: "60dp",
+    layout: "vertical"
+},
+
+"#tableRowName": {
+    top: "10dp",
+    left: "16dp",
+    textAlign: 'left',
+    font: {
+        fontSize: "18dp"
+    } 
 } 
+"#tableRowBrewery": {
+    color: "#aaaaaa",
+    top: "0dp",
+    left: "16dp",
+    //bottom: "5dp",
+    textAlign: 'left' ,
+    font: {
+        fontSize: "12dp"
+    } 
+}

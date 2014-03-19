@@ -14,10 +14,11 @@ var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 
 if (args.edit) {
     var editBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
-    $.title.text = "Edit " + args.title;
+    $.title.text = "Edit this beer";
     
     $.name.value = args.name;
     $.brewery.value = args.brewery || "";
+    $.percent.value = args.percent || "";
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
     if (args.notes) $.notes.value = args.notes;
@@ -43,6 +44,7 @@ function mapArgs() {
         name: $.name.value,
         brewery: $.brewery.value,
         rating: rating, // set by applyRating() func below
+        percent: $.percent.value,
         establishment: $.establishment.value,
         location: $.location.value,
         notes: $.notes.value

@@ -46,9 +46,9 @@ Ti.App.addEventListener("app:updateBeer", function(e) {
     var test = beersCollection.where({"alloy_id": args.alloy_id})[0].toJSON();
     
     $.BeerDetail.setTitle(test.title);
-    
-    $.image.image = getImage();
-    
+        
+    if (getImage()) $.image.image = getImage();
+
     Alloy.Globals.mapLabelText($, test);
     
     args = test;

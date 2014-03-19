@@ -14,17 +14,25 @@
 Alloy.Globals.mapLabelText = function($, object) { 
 
     $.name.text = object.name.toUpperCase();
-    $.brewery.text = object.brewery;
+    
+    var breweryAndPercentText = object.percent ? object.brewery + " | " + object.percent + "%" : object.brewery;
+    
+    $.brewery.text = breweryAndPercentText;
     $.pub.text = object.establishment || "No establishment set";
     $.location.text = object.location || "No location set";
     $.notes.text = object.notes;
 
     if (!object.establishment) {
         $.buildingIcon.setImage('buildingGrey.png');
-        $.establishment.setColor('#b9b9b9');
+        $.pub.setColor('#b9b9b9');
     };
     if (!object.location) {
         $.locationIcon.setImage('locationGrey.png');
         $.location.setColor('#b9b9b9');
     }
+};
+
+Alloy.Globals.getImage = function(alloy_id) {
+    var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');  
+    return f.read();  
 };

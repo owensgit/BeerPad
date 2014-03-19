@@ -4,12 +4,12 @@ theBeers.fetch();
 // Set of defaults to load if no current data is present
 
 var default_beers = [
-    { name: "Test Beer 2", brewery: "Fullers", rating: 0, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { name: "Test Beer 1", brewery: "Fullers", rating: 1, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { name: "London Pride", brewery: "Fullers", rating: 2, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { name: "Oat Milk Stout", brewery: "Clarence & Fredericks", rating: 3, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong too. Could only drink one or two pints as it's quite heavy, but it's very tasty." },
-    { name: "Hob Goblin", brewery: "Wychwood Brewery Company", rating: 4, establishment: "", location: "", notes: "" },
-    { name: "Greene King IPA", brewery: "Greene King", rating: 5, establishment: "", location: "", notes: "" }
+    { name: "Test Beer 2", brewery: "Fullers", rating: 0, percent: 4.1, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { name: "Test Beer 1", brewery: "Fullers", rating: 1, percent: 5.2, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { name: "London Pride", brewery: "Fullers", rating: 2, percent: 3.4, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { name: "Oat Milk Stout", brewery: "Clarence & Fredericks", percent: 6.2, rating: 3, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong too. Could only drink one or two pints as it's quite heavy, but it's very tasty." },
+    { name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 4, establishment: "", location: "", notes: "" },
+    { name: "Greene King IPA", brewery: "Greene King", rating: 5, percent: 2.2, establishment: "", location: "", notes: "" }
 ];
 
 
@@ -49,6 +49,7 @@ $.beersTable.addEventListener("click", function(event) {
 
 
 
+
 /*
  *  iOS Only
  *  --------
@@ -58,7 +59,7 @@ if (OS_IOS) {
    // Left & Right buttons in title bar: Edit & New
    
    var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
-   var editButton = Ti.UI.createButton({ title: "Edit" });
+   var editButton = Ti.UI.createButton({ title: "Filter" });
    
    $.beerListWin.setRightNavButton(addButton);
    $.beerListWin.setLeftNavButton(editButton);
@@ -77,8 +78,10 @@ if (OS_IOS) {
    
    
    // Edit the table & delete a row
-   
    editButton.addEventListener("click", function(event) {
+       $.filterDialog.show();
+   });
+   /*editButton.addEventListener("click", function(event) {
         if (!$.beersTable.editing) {
             $.beersTable.editing = true;
             this.title = "Cancel";
@@ -86,14 +89,11 @@ if (OS_IOS) {
             $.beersTable.editing = false;
             this.title = "Edit";
         }
-   });
+   });*/
    $.beersTable.addEventListener("delete", function(event) {
-      $.beersTable.editing = false;
-      this.title = "Edit"; 
-      
       setTimeout(function () {
           var beersCollection = Alloy.Collections.beers;
-          var beer = beersCollection.get(event.source.alloy_id);
+          var beer = beersCollection.get(event.rowData.alloy_id);
           beer.destroy();
       }, 500);
    });
@@ -103,8 +103,6 @@ if (OS_IOS) {
    
    $.navGroupWin.open();
 } 
-
-
 
 /*
  *  Androind Only
