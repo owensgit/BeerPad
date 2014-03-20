@@ -11,11 +11,13 @@ function getImage() {
 }
 if (getImage()) $.image.image = getImage();
 
-
+var date = new Date(args.date);
+console.log(date);
 
 // The Details
 
-$.BeerDetail.setTitle(args.title);
+$.BeerDetail.setTitle(args.name);
+
 Alloy.Globals.mapLabelText($, args);
 
 
@@ -71,3 +73,16 @@ function applyRating(number) {
 }
 
 applyRating(args.rating);
+
+
+
+// View Image
+
+function viewImage() {
+    var beerImage = Alloy.createController("BeerImage");
+    beerImage.image.image = $.image.image;
+    beerImageView = beerImage.getView();
+    Alloy.Globals.navGroupWin.openWindow(beerImageView);    
+}
+
+

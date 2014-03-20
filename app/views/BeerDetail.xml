@@ -1,7 +1,8 @@
 <Alloy> 
    <Window class="container">
       <ScrollView showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true" layout="vertical">
-          <ImageView id="image" image="dafaultBeerImage.png"></ImageView>
+          
+          <ImageView id="image" onClick="viewImage" image="dafaultBeerImage.png"></ImageView>
           
           <Label id="name"></Label>
           <Label id="brewery"></Label>

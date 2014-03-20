@@ -52,6 +52,18 @@ function mapArgs() {
 };
 
 
+function percentIsNumber(percent) {
+    var regEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
+    if (percent.match(regEx)) {
+        return true;   
+    }
+}
+function percentIsValid(percent) {
+    percent = parseInt(percent, 10);
+    if (percent <= 100) {
+        return true;
+    }
+}
 
 // Add Beer Function
 
@@ -63,7 +75,25 @@ $.addBeerButton.addEventListener("click", function () {
             title: 'Had one beer too many?'
         }).show();
         return;
-    } else if (args.edit) {
+    }
+    if (!percentIsNumber($.percent.value)) {
+        var dialog = Ti.UI.createAlertDialog({
+            message: 'You can use decimals too\n',
+            ok: 'Change percentage',
+            title: 'Percent not a number!'
+        }).show();
+        return;    
+    }
+    if (!percentIsValid($.percent.value)) {
+        var dialog = Ti.UI.createAlertDialog({
+            message: 'You can\'t have a beer with a percentage higher than 100!\n',
+            ok: 'Change percentage',
+            title: 'More than 100%!'
+        }).show();
+        return;    
+    }
+    
+    if (args.edit) {
         editBeer.set(mapArgs());
         editBeer.save();
         Ti.App.fireEvent("app:updateBeer");

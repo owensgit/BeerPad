@@ -26,7 +26,7 @@
 },
 
 "#beerListWin": {
-   barColor: '#f8ac12',
+   barColor: '#f8ac12'
 },
 
 "TableViewRow": {
@@ -55,3 +55,8 @@
 ".starImage": {
     left: "7dp"
 }
+
+"OptionDialog": {
+    color: "#f8ac12"
+}
+

@@ -1,15 +1,17 @@
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
-    
+
+Alloy.Globals.navGroupWin = $.navGroupWin;
+
 // Set of defaults to load if no current data is present
 
 var default_beers = [
-    { name: "Test Beer 2", brewery: "Fullers", rating: 0, percent: 4.1, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { name: "Test Beer 1", brewery: "Fullers", rating: 1, percent: 5.2, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { name: "London Pride", brewery: "Fullers", rating: 2, percent: 3.4, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { name: "Oat Milk Stout", brewery: "Clarence & Fredericks", percent: 6.2, rating: 3, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong too. Could only drink one or two pints as it's quite heavy, but it's very tasty." },
-    { name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 4, establishment: "", location: "", notes: "" },
-    { name: "Greene King IPA", brewery: "Greene King", rating: 5, percent: 2.2, establishment: "", location: "", notes: "" }
+    { date: "1395265283743", name: "Ultra Weak", brewery: "Fullers", rating: 0, percent: 0.1, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { date: "1393537283743", name: "Super Strength", brewery: "Fullers", rating: 1, percent: 10.5, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { date: "1391377283743", name: "London Pride", brewery: "Fullers", rating: 2, percent: 3.4, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { date: "1392068483743", name: "Oat Milk Stout", brewery: "Clarence & Fredericks", percent: 6.2, rating: 3, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong too. Could only drink one or two pints as it's quite heavy, but it's very tasty." },
+    { date: "1393537283743", name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 4, establishment: "", location: "", notes: "" },
+    { date: "1395265283743", name: "Greene King IPA", brewery: "Greene King", rating: 5, percent: 2.2, establishment: "", location: "", notes: "" }
 ];
 
 
@@ -49,6 +51,37 @@ $.beersTable.addEventListener("click", function(event) {
 
 
 
+$.filterDialog.addEventListener("click", function (e) {
+    if (e.index === 0) {
+        theBeers.setSortField("date", "DESC");
+        theBeers.sort();   
+    }
+    if (e.index === 1) {
+        theBeers.setSortField("date", "ASC");
+        theBeers.sort();
+    }
+    if (e.index === 2) {
+        theBeers.setSortField("date", "DESC");
+        theBeers.sort();
+    }
+    if (e.index === 3) {
+        theBeers.setSortField("date", "ASC");
+        theBeers.sort();
+    }
+    if (e.index === 4) {
+        theBeers.setSortField("percent", "DESC");
+        theBeers.sort();
+    }
+    if (e.index === 5) {
+        theBeers.setSortField("percent", "ASC");
+        theBeers.sort();
+    }
+    if (e.index === 6) {
+        theBeers.setSortField("percent", "DESC");
+        theBeers.sort();
+    }
+});
+
 
 /*
  *  iOS Only
@@ -59,7 +92,7 @@ if (OS_IOS) {
    // Left & Right buttons in title bar: Edit & New
    
    var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
-   var editButton = Ti.UI.createButton({ title: "Filter" });
+   var editButton = Ti.UI.createButton({ title: "Sort" });
    
    $.beerListWin.setRightNavButton(addButton);
    $.beerListWin.setLeftNavButton(editButton);

@@ -12,7 +12,8 @@
                     percent="{percent}"
                     establishment="{establishment}" 
                     location="{location}" 
-                    notes="{notes}">
+                    notes="{notes}"
+                    date="{date}">
                     
                     <View class="tableRow">
                         <Label id="tableRowName" text="{name}"></Label>
@@ -32,12 +33,16 @@
                 </Items>
             </Toolbar-->
             
-            <OptionDialog id="filterDialog" title="Filter those beers!">
+            <OptionDialog id="filterDialog" title="Sort those beers!">
                 <Options>
-                    <Option>Date added</Option>
-                    <Option>Rating - high first</Option>
-                    <Option>Rating - low first</Option>
-                    <Option>Percentage</Option>
+                    <Option>Newest</Option>
+                    <Option>Oldest</Option>
+                    <Option>Rating - Highest</Option>
+                    <Option>Rating - Lowest</Option>
+                    <Option>Percentage - Highest</Option>
+                    <Option>Percentage - Lowest</Option>
+                    <Option>Name - Ascending</Option>
+                    <Option>Name - Descending</Option>
                     <Option>Cancel</Option>
                 </Options>  
                 <!-- The ButtonNames tag sets the Android-only buttonNames property. -->
