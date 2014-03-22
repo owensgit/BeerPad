@@ -51,33 +51,54 @@ $.beersTable.addEventListener("click", function(event) {
 
 
 
+function transformFunction (modal) {
+    var secValue = Alloy.Globals.beerListSecondaryValue;
+    var result = modal.toJSON();
+    result.percent = result.percent + "%";
+    result.secondaryInfo = result[secValue];
+    return result;
+}
+
+$.filterDialog.cancel = 8;
 $.filterDialog.addEventListener("click", function (e) {
     if (e.index === 0) {
+        Alloy.Globals.beerListSecondaryValue = "date";
         theBeers.setSortField("date", "DESC");
         theBeers.sort();   
     }
     if (e.index === 1) {
+        Alloy.Globals.beerListSecondaryValue = "date";
         theBeers.setSortField("date", "ASC");
         theBeers.sort();
     }
     if (e.index === 2) {
-        theBeers.setSortField("date", "DESC");
+        Alloy.Globals.beerListSecondaryValue = "rating";
+        theBeers.setSortField("rating", "DESC");
         theBeers.sort();
     }
     if (e.index === 3) {
-        theBeers.setSortField("date", "ASC");
+        Alloy.Globals.beerListSecondaryValue = "rating";
+        theBeers.setSortField("rating", "ASC");
         theBeers.sort();
     }
     if (e.index === 4) {
+        Alloy.Globals.beerListSecondaryValue = "percent";
         theBeers.setSortField("percent", "DESC");
         theBeers.sort();
     }
     if (e.index === 5) {
+        Alloy.Globals.beerListSecondaryValue = "percent";
         theBeers.setSortField("percent", "ASC");
         theBeers.sort();
     }
     if (e.index === 6) {
-        theBeers.setSortField("percent", "DESC");
+        Alloy.Globals.beerListSecondaryValue = "brewery";
+        theBeers.setSortField("name", "ASC");
+        theBeers.sort();
+    }
+    if (e.index === 7) {
+        Alloy.Globals.beerListSecondaryValue = "brewery";
+        theBeers.setSortField("name", "DESC");
         theBeers.sort();
     }
 });

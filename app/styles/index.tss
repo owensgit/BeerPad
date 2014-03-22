@@ -15,13 +15,18 @@
         fontSize: "18dp"
     } 
 } 
-"#tableRowBrewery": {
-    color: "#aaaaaa",
-    top: "0dp",
+"#secondaryInfo": {
+    height: "16dp",
+    top: "3dp",
     left: "16dp",
-    //bottom: "5dp",
-    textAlign: 'left' ,
+    layout: "vertical"    
+},
+
+"#secondaryLabel": {
+    color: "#aaaaaa",
+    textAlign: 'left',
+    left: "0dp",
     font: {
         fontSize: "12dp"
-    } 
+    }
 }

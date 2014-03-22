@@ -2,7 +2,7 @@
     <Collection src="beers"/>
     <NavigationWindow id="navGroupWin">
         <Window id="beerListWin" class="container" title="BeerDiary">
-            <TableView id="beersTable" dataCollection="beers" editable="true" allowsSelectionDuringEditing="true">
+            <TableView id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
                 <TableViewRow 
                     hasChild="true" 
                     alloy_id="{alloy_id}"  
@@ -17,32 +17,24 @@
                     
                     <View class="tableRow">
                         <Label id="tableRowName" text="{name}"></Label>
-                        <Label id="tableRowBrewery" text="{brewery}" defaultText="No brewery"></Label>
+                        <View id="secondaryInfo">
+                            <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery"></Label>
+                        </View> 
                     </View>
                     
                 </TableViewRow>
             </TableView>
             
-            <!--Toolbar platform="ios" bottom="0" class="toolbar" borderTop="true" borderBottom="false">
-                <Items>
-                    <Button id="send" title="Send" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
-                    <FlexSpace/>
-                    <Button id="camera" systemButton="Ti.UI.iPhone.SystemButton.CAMERA" />
-                    <FlexSpace/>
-                    <Button id="cancel" systemButton="Ti.UI.iPhone.SystemButton.ORGANIZE" />
-                </Items>
-            </Toolbar-->
-            
             <OptionDialog id="filterDialog" title="Sort those beers!">
                 <Options>
                     <Option>Newest</Option>
                     <Option>Oldest</Option>
-                    <Option>Rating - Highest</Option>
-                    <Option>Rating - Lowest</Option>
-                    <Option>Percentage - Highest</Option>
-                    <Option>Percentage - Lowest</Option>
-                    <Option>Name - Ascending</Option>
-                    <Option>Name - Descending</Option>
+                    <Option>Rated High</Option>
+                    <Option>Rated Low</Option>
+                    <Option>Strongest</Option>
+                    <Option>Weakest</Option>
+                    <Option>Name Asc.</Option>
+                    <Option>Name Desc.</Option>
                     <Option>Cancel</Option>
                 </Options>  
                 <!-- The ButtonNames tag sets the Android-only buttonNames property. -->

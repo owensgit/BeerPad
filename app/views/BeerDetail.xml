@@ -28,5 +28,6 @@
           <Label id="notes"></Label>
 
       </ScrollView>
+        
    </Window> 
 </Alloy>

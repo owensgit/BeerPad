@@ -52,18 +52,23 @@ function mapArgs() {
 };
 
 
+
+// Percentage validation functions for use in Add Beer Function
+
 function percentIsNumber(percent) {
     var regEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
-    if (percent.match(regEx)) {
+    if (percent.match(regEx) || percent === "") {
         return true;   
     }
 }
 function percentIsValid(percent) {
     percent = parseInt(percent, 10);
-    if (percent <= 100) {
+    if (percent <= 100 || percent === "") {
         return true;
     }
 }
+
+
 
 // Add Beer Function
 
@@ -119,13 +124,23 @@ $.addBeerButton.addEventListener("click", function () {
 
 
 
-// Add Image
+
+
+/*
+ *  Add a Photo
+ *  -----------
+ *  Use Titanium meida API to access device camrea or gallery. On success: 
+ *   1. Put the image in the $.beerImage ImageView for the user to see
+ *   2. Store the image in global variable 'theImage' (defined above)
+ *   3. 'theImage' is used in the Add Beer event listener to save the image to local file system
+ */
 
 var cameraMethods = {
     onSuccess: function (e, imageViewID) {
         if (e.mediaType === Ti.Media.MEDIA_TYPE_PHOTO) {
             $.beerImage.image = e.media;
             theImage = e.media;
+            $.cameraImage.opacity = 0.6;
         }
     },
     onCancel: function (e) {
@@ -136,19 +151,43 @@ var cameraMethods = {
     }        
 };
 
-$.imageView.addEventListener("click", function (e) {
-   
-    var imageViewID = $.beerImage;
+$.imageView.addEventListener("click", function (e) { 
+      
+    var opts = {
+      cancel: 2,
+      options: ['Take Photo', 'Choose from gallery', 'Cancel'],
+      destructive: 0,
+      title: 'Fire up those beer goggles!'
+    };
     
-    Titanium.Media.showCamera({
-        success: cameraMethods.onSuccess,
-        cancel: cameraMethods.onCancel,
-        error: cameraMethods.onError,
-        allowEditing: true,
-        mediaTypes: [Titanium.Media.MEDIA_TYPE_PHOTO],
-        videoQuality: Titanium.Media.QUALITY_HIGH
+    var dialog = Ti.UI.createOptionDialog(opts);
+    
+    dialog.addEventListener("click", function (event) {
+        if (event.index === 0) {
+            Titanium.Media.showCamera({
+                success: cameraMethods.onSuccess,
+                cancel: cameraMethods.onCancel,
+                error: cameraMethods.onError,
+                allowEditing: true,
+                mediaTypes: [Titanium.Media.MEDIA_TYPE_PHOTO],
+                videoQuality: Titanium.Media.QUALITY_HIGH
+            });  
+        }
+        if (event.index === 1) {
+            Titanium.Media.openPhotoGallery({
+                success: cameraMethods.onSuccess,
+                cancel: cameraMethods.onCancel,
+                error: cameraMethods.onError,
+                allowEditing: true,
+                mediaTypes: [Titanium.Media.MEDIA_TYPE_PHOTO],
+                videoQuality: Titanium.Media.QUALITY_HIGH
+            });  
+        }   
+        $.addBeerWin.remove(dialog);          
     });
-});
+    
+    dialog.show();
+}); 
 
 
 

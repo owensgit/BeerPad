@@ -11,6 +11,8 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 
+Alloy.Globals.beerListSecondaryValue = 'brewery';
+
 Alloy.Globals.mapLabelText = function($, object) { 
 
     $.name.text = object.name.toUpperCase();
