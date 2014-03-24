@@ -44,7 +44,7 @@ function mapArgs() {
         name: $.name.value,
         brewery: $.brewery.value,
         rating: rating, // set by applyRating() func below
-        percent: $.percent.value,
+        percent: $.percent.value.replace(/%$/, ""),
         establishment: $.establishment.value,
         location: $.location.value,
         notes: $.notes.value
@@ -57,6 +57,7 @@ function mapArgs() {
 
 function percentIsNumber(percent) {
     var regEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
+    var percent = $.percent.value.replace(/%$/, "");
     if (percent.match(regEx) || percent === "") {
         return true;   
     }
@@ -110,15 +111,17 @@ $.addBeerButton.addEventListener("click", function () {
         var beer = Alloy.createModel('beers', mapArgs());
         
         theBeers.add(beer);
-        beer.save();       
+        beer.save();           
         
-        if (theImage) {
-            var alloy_id = beer.get('alloy_id');
-            var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
-            f.write(theImage);   
-        }
-        
-        $.addBeerWin.close();
+        setTimeout(function () {
+            if (theImage) {
+                var alloy_id = beer.get('alloy_id');
+                var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
+                f.write(theImage);   
+            }    
+        }, 0);
+               
+        $.addBeerWin.close();  
     }    
 });
 

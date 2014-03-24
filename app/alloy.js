@@ -17,7 +17,7 @@ Alloy.Globals.mapLabelText = function($, object) {
 
     $.name.text = object.name.toUpperCase();
     
-    var breweryAndPercentText = object.percent ? object.brewery + " | " + object.percent + "%" : object.brewery;
+    var breweryAndPercentText = object.percent ? object.brewery + " | " + object.percent : object.brewery;
     
     $.brewery.text = breweryAndPercentText;
     $.pub.text = object.establishment || "No establishment set";
