@@ -9,7 +9,7 @@
 	        <View id="imageView">
 	            <ImageView id="beerImage"></ImageView>
 	            <ImageView id="cameraImage" image="camera.png" height="35" width="35"></ImageView>
-	            <!-- <Label id="addImageText" text="photograph"></Label> -->
+	            <!-- <Label id="addImageText" text="photograph"></Label> -->s
 	        </View>
 	        
 	        

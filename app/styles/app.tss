@@ -18,6 +18,12 @@
     color: "#f8ac12"
 },
 
+".star": {
+    font: {
+        fontFamily: "FontAwesome"
+    }
+},
+
 "#navGroupWin" : { 
    tintColor: '#FFFFFF',
    titleAttributes: {

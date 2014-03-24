@@ -2,6 +2,7 @@
     <Collection src="beers"/>
     <NavigationWindow id="navGroupWin">
         <Window id="beerListWin" class="container" title="BeerDiary">
+            <Label id="test" />
             <TableView id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
                 <TableViewRow 
                     hasChild="true" 
@@ -37,11 +38,6 @@
                     <Option>Name Desc.</Option>
                     <Option>Cancel</Option>
                 </Options>  
-                <!-- The ButtonNames tag sets the Android-only buttonNames property. -->
-                <!--ButtonNames>
-                    <ButtonName>Help</ButtonName>
-                </ButtonNames-->
-                <!-- Add a View for the androidView property here. -->
             </OptionDialog>   
                      
         </Window>

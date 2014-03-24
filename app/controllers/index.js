@@ -19,6 +19,11 @@ var default_beers = [
 
 if (_.isEmpty(theBeers.toJSON())) {
     _.each(default_beers, function (item) {
+        var date = new Date(parseInt(item.date, 10));  
+        var thisYear = new Date().getFullYear();
+        var date_string = date.toDateString();
+        if (date.getFullYear() === thisYear) date_string = date_string.substring(0, date_string.length - 5);
+        item.date_string = date_string;
         var beer = Alloy.createModel('beers', item);
         theBeers.add(beer);    
         beer.save();
@@ -49,22 +54,39 @@ $.beersTable.addEventListener("click", function(event) {
     }
 });
 
-
+function drawSmallStars (rating) {
+    var starView = Ti.UI.createView({ height: "12dp", width: "70dp", layout: "horizontal"});
+    function createStar(onOff) {
+        var star = Ti.UI.createImage();
+        star.image = "ratingStarSmall" + onOff + ".png";
+        return star;
+    }
+    for (var i = 0; i < rating; i++) {
+        starView.add(createStar("ON"));
+    }
+    for (var i = 0; rating < 5; i++) {
+        starView.add(createStar(""));
+    }
+    return starView;
+}
 
 function transformFunction (modal) {
     var secValue = Alloy.Globals.beerListSecondaryValue;
     var result = modal.toJSON();
     result.percent = result.percent + "%";
+    result.rating = result.rating + " stars";
+    result.date = result.date_string; 
     result.secondaryInfo = result[secValue];
     return result;
 }
+
 
 $.filterDialog.cancel = 8;
 $.filterDialog.addEventListener("click", function (e) {
     if (e.index === 0) {
         Alloy.Globals.beerListSecondaryValue = "date";
         theBeers.setSortField("date", "DESC");
-        theBeers.sort();   
+        theBeers.sort();  
     }
     if (e.index === 1) {
         Alloy.Globals.beerListSecondaryValue = "date";
