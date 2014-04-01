@@ -2,14 +2,25 @@
 	backgroundColor: "#fff"
 },
 
+"TableViewRow": {
+    left: "50dp"
+}
+
 ".tableRow": {
-    height: "60dp",
-    layout: "vertical"
+    height: "65dp"
 },
 
+"#listImage": {
+    top: "7dp",
+    left: "11dp",
+    height: "50dp",
+    width: "50dp",
+    borderRadius: "25dp"
+}
+
 "#tableRowName": {
-    top: "10dp",
-    left: "16dp",
+    top: "12dp",
+    left: "73dp",
     textAlign: 'left',
     font: {
         fontSize: "18dp"
@@ -17,8 +28,8 @@
 } 
 "#secondaryInfo": {
     height: "16dp",
-    top: "3dp",
-    left: "16dp",
+    top: "36dp",
+    left: "73dp",
     layout: "vertical"    
 },
 

@@ -1,5 +1,10 @@
 {
-	"global": {}, 
+	"global": {
+	   "twitter": {
+	       "consumerSecret" : "DF9weYDAcYBcDr08KUWFlhbc7qWZzVSorSForVfKp4",
+	       "consumerKey" : "mWHfHTn41qM8qH4Or8jnHA"
+	   }
+	}, 
 	"env:development": {}, 
 	"env:test": {}, 
 	"env:production": {}, 

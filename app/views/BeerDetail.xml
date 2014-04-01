@@ -27,7 +27,17 @@
           
           <Label id="notes"></Label>
 
+          <View id="spacer"></View>
       </ScrollView>
+      
+      <Toolbar id="toolbar" platform="ios" bottom="0" borderTop="true" borderBottom="false">
+          <Items>
+            <Button id="shareBtn" onClick="share" title="Share" style="Ti.UI.iPhone.SystemButton.ACTION" />
+            <FlexSpace/>
+            <FlexSpace/>
+            <Button id="deleteBtn" title="Delete" systemButton="Ti.UI.iPhone.SystemButton.TRASH" />
+          </Items>
+      </Toolbar>
         
    </Window> 
 </Alloy>

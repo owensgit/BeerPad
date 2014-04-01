@@ -25,7 +25,7 @@ if (args.edit) {
 
     $.addBeerButton.title = "Save beer"; 
     
-    applyRating(args.rating);  
+    applyRating(args.rating === null ? 0 : args.rating);  
 }
 
 
@@ -40,32 +40,35 @@ var rating;
 // Func to map args to modal
 
 function mapArgs() {
-    return {
+    args = {
         name: $.name.value,
         brewery: $.brewery.value,
         rating: rating, // set by applyRating() func below
-        percent: $.percent.value.replace(/%$/, ""),
+        percent: $.percent.value,
         establishment: $.establishment.value,
         location: $.location.value,
-        notes: $.notes.value
+        notes: $.notes.value,
+        beer_image: true
     };
+    if (theImage) args.beer_image = theImage;
+    return args;
 };
 
 
 
 // Percentage validation functions for use in Add Beer Function
 
-function percentIsNumber(percent) {
+function percentNotANumber(percent) {
     var regEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
     var percent = $.percent.value.replace(/%$/, "");
     if (percent.match(regEx) || percent === "") {
-        return true;   
+        return false;   
     }
 }
-function percentIsValid(percent) {
-    percent = parseInt(percent, 10);
-    if (percent <= 100 || percent === "") {
-        return true;
+function percentNotValid(percent) {
+    var percent = parseInt(percent.replace(/%$/, ""), 10);
+    if (percent <= 100) {
+        return false;
     }
 }
 
@@ -74,28 +77,34 @@ function percentIsValid(percent) {
 // Add Beer Function
 
 $.addBeerButton.addEventListener("click", function () {
+    
+    this.touchEnabled = false;
+    
     if (!$.name.value) {
         var dialog = Ti.UI.createAlertDialog({
             message: 'You forgot to add a name!\n',
             ok: 'Whoops!',
             title: 'Had one beer too many?'
         }).show();
+        this.touchEnabled = true;
         return;
     }
-    if (!percentIsNumber($.percent.value)) {
+    if (percentNotANumber($.percent.value)) {
         var dialog = Ti.UI.createAlertDialog({
             message: 'You can use decimals too\n',
             ok: 'Change percentage',
             title: 'Percent not a number!'
         }).show();
+        this.touchEnabled = true;
         return;    
     }
-    if (!percentIsValid($.percent.value)) {
+    if (percentNotValid($.percent.value)) {
         var dialog = Ti.UI.createAlertDialog({
             message: 'You can\'t have a beer with a percentage higher than 100!\n',
             ok: 'Change percentage',
             title: 'More than 100%!'
         }).show();
+        this.touchEnabled = true;
         return;    
     }
     
@@ -103,29 +112,30 @@ $.addBeerButton.addEventListener("click", function () {
         editBeer.set(mapArgs());
         editBeer.save();
         Ti.App.fireEvent("app:updateBeer");
-        var alloy_id = editBeer.get('alloy_id');        
+        /*var alloy_id = editBeer.get('alloy_id');        
         var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
-        f.write(theImage);
+        f.write(theImage);*/
         $.addBeerWin.close();
+        this.touchEnabled = true;
     } else {
         var beer = Alloy.createModel('beers', mapArgs());
         
         theBeers.add(beer);
         beer.save();           
         
-        setTimeout(function () {
+        /*setTimeout(function () {
             if (theImage) {
                 var alloy_id = beer.get('alloy_id');
                 var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
                 f.write(theImage);   
             }    
-        }, 0);
+        }, 0);*/
                
-        $.addBeerWin.close();  
-    }    
+        $.addBeerWin.close();          
+        this.touchEnabled = true;
+    }
+    
 });
-
-
 
 
 

@@ -10,7 +10,6 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
-
 Alloy.Globals.beerListSecondaryValue = 'brewery';
 
 Alloy.Globals.mapLabelText = function($, object) { 
@@ -19,10 +18,17 @@ Alloy.Globals.mapLabelText = function($, object) {
     
     var breweryAndPercentText = object.percent ? object.brewery + " | " + object.percent : object.brewery;
     
+    if (!object.percent  &&  object.brewery) breweryAndPercentText = object.brewery;
+    if ( object.percent  &&  object.brewery) breweryAndPercentText = object.brewery + " | " + object.percent + "%";
+    if ( object.percent  && !object.brewery) breweryAndPercentText = object.percent + "%";
+    
     $.brewery.text = breweryAndPercentText;
     $.pub.text = object.establishment || "No establishment set";
     $.location.text = object.location || "No location set";
     $.notes.text = object.notes;
+    
+    if (object.beer_image) { $.image.image = object.beer_image; }
+
 
     if (!object.establishment) {
         $.buildingIcon.setImage('buildingGrey.png');

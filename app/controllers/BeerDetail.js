@@ -5,14 +5,15 @@ beersCollection.fetch();
 
 // The Image
 
-function getImage() {
+/*function getImage() {
     var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, args.alloy_id + '.jpg');  
     return f.read();  
 }
-if (getImage()) $.image.image = getImage();
+if (getImage()) $.image.image = getImage();*/
+
+if (args.beer_image) { $.image.image = args.beer_image; }
 
 var date = new Date(args.date);
-console.log(date);
 
 // The Details
 
@@ -49,7 +50,9 @@ Ti.App.addEventListener("app:updateBeer", function(e) {
     
     $.BeerDetail.setTitle(test.title);
         
-    if (getImage()) $.image.image = getImage();
+    //if (getImage()) $.image.image = getImage();
+    
+    applyRating(test.rating);
 
     Alloy.Globals.mapLabelText($, test);
     
@@ -72,7 +75,7 @@ function applyRating(number) {
     }
 }
 
-applyRating(args.rating);
+applyRating(args.rating === null ? 0 : args.rating);
 
 
 
@@ -86,3 +89,20 @@ function viewImage() {
 }
 
 
+// Share Dialog
+
+function share() {
+
+   var Social = require('dk.napp.social');
+   
+   Ti.API.info("module is => " + Social);   
+   Ti.API.info("Twitter available: " + Social.isTwitterSupported());
+   Ti.API.info("Facebook available: " + Social.isFacebookSupported());
+   
+   Social.activityView({
+        text: "Just tried this beer called " + args.name,
+        image: args.beer_image,
+        removeIcons:"airdrop,print,copy,contact,camera"
+    });
+   
+}

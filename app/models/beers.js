@@ -8,7 +8,9 @@ exports.definition = {
 		    "establishment": "text",
 		    "location": "text",
             "notes": "text",
-            "date": "text"	    
+            "date": "text",
+            "date_string": "text",
+            "beer_image": "blob"    
 		},
 		adapter: {
 			type: "sql",

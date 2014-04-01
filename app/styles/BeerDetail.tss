@@ -64,3 +64,14 @@
     height: "40dp",
     width: "140dp"
 }
+
+"#toolbar": {
+    color: "#000",
+    backgroundColor: "#f8ac12",
+    barColor: "#f8ac12"
+}
+
+"#spacer": {
+    height: 0,
+    top: "80dp"
+}

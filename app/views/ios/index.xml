@@ -2,7 +2,7 @@
     <Collection src="beers"/>
     <NavigationWindow id="navGroupWin">
         <Window id="beerListWin" class="container" title="BeerDiary">
-            <Label id="test" />
+           
             <TableView id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
                 <TableViewRow 
                     hasChild="true" 
@@ -17,10 +17,11 @@
                     date="{date}">
                     
                     <View class="tableRow">
+                        <ImageView id="listImage" image="{beer_image}"></ImageView>
                         <Label id="tableRowName" text="{name}"></Label>
                         <View id="secondaryInfo">
                             <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery"></Label>
-                        </View> 
+                        </View>
                     </View>
                     
                 </TableViewRow>

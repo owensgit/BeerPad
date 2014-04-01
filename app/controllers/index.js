@@ -24,6 +24,7 @@ if (_.isEmpty(theBeers.toJSON())) {
         var date_string = date.toDateString();
         if (date.getFullYear() === thisYear) date_string = date_string.substring(0, date_string.length - 5);
         item.date_string = date_string;
+        item.beer_image = null;
         var beer = Alloy.createModel('beers', item);
         theBeers.add(beer);    
         beer.save();
@@ -71,12 +72,32 @@ function drawSmallStars (rating) {
 }
 
 function transformFunction (modal) {
-    var secValue = Alloy.Globals.beerListSecondaryValue;
+        
     var result = modal.toJSON();
-    result.percent = result.percent + "%";
-    result.rating = result.rating + " stars";
-    result.date = result.date_string; 
-    result.secondaryInfo = result[secValue];
+    
+    function getImage() {
+        var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, result.alloy_id + '.jpg');  
+        return f.read();  
+    }
+    var theImage = getImage();
+    result.beer_image = theImage || "dafaultListImage.png";
+   
+    if (!result.beer_image) { 
+        result.beer_image = "dafaultListImage.png";
+    } 
+   
+    
+    var secValue = Alloy.Globals.beerListSecondaryValue;
+
+    if (secValue === "rating") {
+        result.secondaryInfo = result.rating === null ? "No rating" : result.rating + " stars";    
+    } else if (secValue === "percent") {
+        result.secondaryInfo = "" + result.percent + "%";
+    } else if (secValue === "date") {
+        result.secondaryInfo = "" + result.date_string;
+    } else {
+        result.secondaryInfo = result[secValue];    
+    }    
     return result;
 }
 
@@ -166,7 +187,7 @@ if (OS_IOS) {
             this.title = "Edit";
         }
    });*/
-   $.beersTable.addEventListener("delete", function(event) {
+  $.beersTable.addEventListener("delete", function(event) {
       setTimeout(function () {
           var beersCollection = Alloy.Collections.beers;
           var beer = beersCollection.get(event.rowData.alloy_id);
