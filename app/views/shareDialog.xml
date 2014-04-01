@@ -1,0 +1,7 @@
+<Alloy>
+	<View class="container">
+	    <Button onClick="shareEmail" title="Email"></Button>
+	    <Button onClick="shareTwitter" title="Twitter"></Button>
+	    <Button onClick="close" title="Cancel"></Button>
+	</View>
+</Alloy>
