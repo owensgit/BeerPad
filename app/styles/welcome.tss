@@ -1,0 +1,68 @@
+
+".container" : {
+    backgroundColor: "#f8ac12",
+}
+
+"#ScrollableView": {
+    top: "50dp"
+}
+
+"#close": {
+    color: "#FFFFFF",
+    borderColor: "#FFFFFF",
+    top: "25dp", right: "10dp"
+}
+
+"Label": {
+    color:"#FFF"
+}
+
+"#logo": {
+    top: "20dp"
+}
+
+".title": {
+    top: "20dp",
+    width: "80%",
+    textAlign: "center",
+    font: {
+        fontSize: "45dp",
+        fontFamily: 'Dense-Regular'
+    }
+}
+
+".text": {
+    top: "130dp",
+    width: "80%",
+    textAlign: "center",
+    font: {
+        fontSize: "18dp"
+    }
+}
+
+"#image": {
+    bottom: "-10dp"
+}
+
+"#finish": {
+    width: "60%",
+    height: "50dp",
+    top: "300dp"
+},
+
+".bullet": {
+    top: "225dp",
+    width: "80%",
+    height: Ti.UI.SIZE    
+}
+".bulletImage": {
+    width: "32dp",
+    height: "32dp",
+    top: "3dp",
+    left: "2dp"    
+}
+".bulletLabel": {
+    top: "0dp",
+    left: "42dp"    
+}
+

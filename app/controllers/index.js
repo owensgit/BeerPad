@@ -75,7 +75,7 @@ function transformFunction (modal) {
         
     var result = modal.toJSON();
     
-    function getImage() {
+    /*function getImage() {
         var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, result.alloy_id + '.jpg');  
         return f.read();  
     }
@@ -84,8 +84,13 @@ function transformFunction (modal) {
    
     if (!result.beer_image) { 
         result.beer_image = "dafaultListImage.png";
-    } 
-   
+    } */
+    
+    if (!result.beer_image) { 
+        result.list_image = "dafaultListImage.png";
+    } else {
+        result.list_image = result.beer_image;
+    }
     
     var secValue = Alloy.Globals.beerListSecondaryValue;
 
@@ -178,16 +183,7 @@ if (OS_IOS) {
    editButton.addEventListener("click", function(event) {
        $.filterDialog.show();
    });
-   /*editButton.addEventListener("click", function(event) {
-        if (!$.beersTable.editing) {
-            $.beersTable.editing = true;
-            this.title = "Cancel";
-        } else {
-            $.beersTable.editing = false;
-            this.title = "Edit";
-        }
-   });*/
-  $.beersTable.addEventListener("delete", function(event) {
+   $.beersTable.addEventListener("delete", function(event) {
       setTimeout(function () {
           var beersCollection = Alloy.Collections.beers;
           var beer = beersCollection.get(event.rowData.alloy_id);
@@ -195,10 +191,13 @@ if (OS_IOS) {
       }, 500);
    });
    
-   
    // Open the main app window
-   
-   $.navGroupWin.open();
+   var welcome = Alloy.createController("welcome").getView();
+   if (Ti.App.Properties.getString("welcomeDone") === "true") {
+       $.navGroupWin.open();  
+   } else {
+       welcome.open();
+   }
 } 
 
 /*

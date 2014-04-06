@@ -1,17 +1,3 @@
-
-"#close" : {
-    borderColor: "#f8ac12",
-    borderWidth: "1dp",
-    borderRadius: "3dp",
-    top: "30dp",
-    right: "6dp",
-    height: "26dp",
-    width: "65dp",
-    font: {
-        fontSize: "13dp"
-    } 
-},
-
 "#title" : {
     top: "10dp",
     font: {

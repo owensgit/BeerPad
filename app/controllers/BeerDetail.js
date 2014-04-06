@@ -101,8 +101,22 @@ function share() {
    
    Social.activityView({
         text: "Just tried this beer called " + args.name,
-        image: args.beer_image,
+        //image: $.image.image,
         removeIcons:"airdrop,print,copy,contact,camera"
     });
    
+};
+
+function deleteBeer() {
+    $.deleteDialog.show();   
 }
+
+function confirmDeleteBeer(e) {
+    if (e.index === 1) {
+        var beers = Alloy.Collections.beers;
+        var theBeer = beers.where({"alloy_id": args.alloy_id})[0];     
+        theBeer.destroy({success: function (model, response) {
+            $.BeerDetail.close();    
+        }});   
+    }
+};

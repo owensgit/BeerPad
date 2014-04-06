@@ -54,6 +54,13 @@
     borderRadius: "3dp",
 }
 
+".buttonOutlineWhite": {
+    borderColor: "#ffffff",
+    color: "#ffffff",
+    borderWidth: "1dp",
+    borderRadius: "3dp",
+}
+
 ".ratingButtons": {
     layout: "horizontal",
 }
@@ -64,5 +71,18 @@
 
 "OptionDialog": {
     color: "#f8ac12"
+}
+
+".modalOutline" : {
+    borderColor: "#f8ac12",
+    borderWidth: "1dp",
+    borderRadius: "3dp",
+    top: "30dp",
+    right: "6dp",
+    height: "26dp",
+    width: "65dp",
+    font: {
+        fontSize: "13dp"
+    } 
 }
 

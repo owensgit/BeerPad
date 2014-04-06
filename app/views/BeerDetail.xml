@@ -32,12 +32,22 @@
       
       <Toolbar id="toolbar" platform="ios" bottom="0" borderTop="true" borderBottom="false">
           <Items>
-            <Button id="shareBtn" onClick="share" title="Share" style="Ti.UI.iPhone.SystemButton.ACTION" />
+            <Button id="shareBtn" onClick="share" title="Share" systemButton="Ti.UI.iPhone.SystemButton.ACTION" />
             <FlexSpace/>
             <FlexSpace/>
-            <Button id="deleteBtn" title="Delete" systemButton="Ti.UI.iPhone.SystemButton.TRASH" />
+            <Button id="deleteBtn" onClick="deleteBeer" title="Delete" systemButton="Ti.UI.iPhone.SystemButton.TRASH" />
           </Items>
       </Toolbar>
+      
+      <AlertDialog id="deleteDialog" onClick="confirmDeleteBeer" title="Delete"
+            message="Ready to say good bye to this beer?" cancel="0">
+
+            <!-- The ButtonNames tag sets the buttonNames property. -->
+            <ButtonNames>
+                <ButtonName>Cancel</ButtonName>
+                <ButtonName id="confirm">Do it!</ButtonName>
+            </ButtonNames>
+        </AlertDialog>
         
    </Window> 
 </Alloy>

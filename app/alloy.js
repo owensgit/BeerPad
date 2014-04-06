@@ -29,6 +29,7 @@ Alloy.Globals.mapLabelText = function($, object) {
     
     if (object.beer_image) { $.image.image = object.beer_image; }
 
+    console.log("The beer image", object.beer_image);
 
     if (!object.establishment) {
         $.buildingIcon.setImage('buildingGrey.png');

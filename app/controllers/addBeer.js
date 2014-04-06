@@ -14,6 +14,7 @@ var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 
 if (args.edit) {
     var editBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
+    $.beerImage.image = args.beer_image;
     $.title.text = "Edit this beer";   
     $.name.value = args.name;
     $.brewery.value = args.brewery || "";
@@ -26,6 +27,8 @@ if (args.edit) {
     $.addBeerButton.title = "Save beer"; 
     
     applyRating(args.rating === null ? 0 : args.rating);  
+    
+    $.cameraImage.opacity = 0.7;
 }
 
 
@@ -47,12 +50,13 @@ function mapArgs() {
         percent: $.percent.value,
         establishment: $.establishment.value,
         location: $.location.value,
-        notes: $.notes.value,
-        beer_image: null
+        notes: $.notes.value
     };
 
     if (theImage) { 
-        args.beer_image = theImage; 
+        console.log(theImage);
+        args.beer_image = theImage;
+        console.log(args.beer_image); 
     }
 
     return args;
@@ -149,7 +153,6 @@ $.addBeerButton.addEventListener("click", function () {
  *  Use Titanium meida API to access device camrea or gallery. On success: 
  *   1. Put the image in the $.beerImage ImageView for the user to see
  *   2. Store the image in global variable 'theImage' (defined above)
- *   3. 'theImage' is used in the Add Beer event listener to save the image to local file system
  */
 
 var cameraMethods = {
@@ -157,7 +160,7 @@ var cameraMethods = {
         if (e.mediaType === Ti.Media.MEDIA_TYPE_PHOTO) {
             $.beerImage.image = e.media;
             theImage = e.media;
-            $.cameraImage.opacity = 0.6;
+            $.cameraImage.opacity = 0.7;
         }
     },
     onCancel: function (e) {
@@ -199,8 +202,7 @@ $.imageView.addEventListener("click", function (e) {
                 mediaTypes: [Titanium.Media.MEDIA_TYPE_PHOTO],
                 videoQuality: Titanium.Media.QUALITY_HIGH
             });  
-        }   
-        $.addBeerWin.remove(dialog);          
+        }             
     });
     
     dialog.show();

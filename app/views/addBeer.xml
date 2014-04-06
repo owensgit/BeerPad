@@ -2,7 +2,7 @@
 	<Window id="addBeerWin" title="Add a beer" modal="true" class="container">
 	    <ScrollView layout="vertical">
 	        
-	        <Button id="close">Cancel</Button>
+	        <Button id="close" class="modalOutline">Cancel</Button>
 	        
 	        <Label id="title" class="dense" text="ADD A BEER"></Label>
 	        

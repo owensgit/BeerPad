@@ -1,0 +1,37 @@
+<Alloy>
+	<Window class="container">
+	    <Button id="close" onClick="closeWelcome" class="modalOutline">Skip</Button>
+	    <ScrollableView id="ScrollableView" showPagingControl="true" pagingControlColor="#f8ac12" pagingControlHeight="40dp">
+	       <View id="view1">
+	           <ImageView id="logo" image="logoHorizontal.png"></ImageView>
+	           <Label class="text">Never forget that delicious beer or ale again. Keep them all in your very own BeerDiary!</Label>
+	           <ImageView id="image" image="welcome1.png" />
+	       </View> 
+	       <View id="view2">
+               <Label class="title">LESS THINKING,\n MORE DRINKING</Label>
+               <Label class="text">Sort your beers by name, date, percentage, rating, brewery, kitchen sink and gorilla.</Label>
+               <ImageView id="image" image="welcome2.png" />
+           </View>
+           <View id="view">
+               <Label class="title">FEELING KINDA \nWARM & FUZZY?</Label>
+               <Label class="text">Share that seasonal local brew with your friends using the power of the internet!</Label>
+               <ImageView id="image" image="welcome3.png" />
+           </View> 
+           <View id="view">   
+               <Label class="title">THE FIRST ROUND \nIS ON US!</Label>
+               <Label class="text">We've added a few examples to get your started, feel free to delete and add your own!</Label>
+               <ImageView id="image" image="welcome4.png" />
+           </View>  
+           <View id="view">
+               <Label class="title">NEW FEATURES \n COMING SOON</Label>
+               <Label class="text">There's heaps more features in the pipeline, so keep watching those updates!</Label>
+               <!--View class="bullet">
+                   <ImageView class="bulletImage" image="pin.png" />
+                   <Label class="bulletLabel" text="Plot your beers on a map using geo-location" />
+               </View-->
+               <Button id="finish" onClick="closeWelcome" class="buttonOutlineWhite" title="Get started" />
+               <!-- Image examples -->
+           </View>  
+	    </ScrollableView>
+	</Window>
+</Alloy>

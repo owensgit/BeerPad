@@ -14,10 +14,11 @@
                     establishment="{establishment}" 
                     location="{location}" 
                     notes="{notes}"
-                    date="{date}">
+                    date="{date}"
+                    beer_image="{beer_image}">
                     
                     <View class="tableRow">
-                        <ImageView id="listImage" image="{beer_image}"></ImageView>
+                        <ImageView id="listImage" image="{list_image}"></ImageView>
                         <Label id="tableRowName" text="{name}"></Label>
                         <View id="secondaryInfo">
                             <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery"></Label>
