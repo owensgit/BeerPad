@@ -6,12 +6,10 @@ Alloy.Globals.navGroupWin = $.navGroupWin;
 // Set of defaults to load if no current data is present
 
 var default_beers = [
-    { date: "1395265283743", name: "Ultra Weak", brewery: "Fullers", rating: 0, percent: 0.1, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { date: "1393537283743", name: "Super Strength", brewery: "Fullers", rating: 1, percent: 10.5, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { date: "1391377283743", name: "London Pride", brewery: "Fullers", rating: 2, percent: 3.4, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { date: "1392068483743", name: "Oat Milk Stout", brewery: "Clarence & Fredericks", percent: 6.2, rating: 3, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong too. Could only drink one or two pints as it's quite heavy, but it's very tasty." },
-    { date: "1393537283743", name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 4, establishment: "", location: "", notes: "" },
-    { date: "1395265283743", name: "Greene King IPA", brewery: "Greene King", rating: 5, percent: 2.2, establishment: "", location: "", notes: "" }
+    { date: "1391377283743", name: "London Pride", brewery: "Fullers", rating: 4, percent: 3.4, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
+    { date: "1392068483743", name: "Oat Milk Stout", brewery: "Clarence & Fredericks", percent: 6.2, rating: 4, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong and heavy, so perhaps better to drink by the half." },
+    { date: "1393537283743", name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 4, establishment: "The White Lion", location: "Stretham Hill", notes: "Great, full falvoured ale with lots of character. Be careful with this one, it's got a pretty high percentage!" },
+    { date: "1395265283743", name: "Greene King IPA", brewery: "Greene King", rating: 3, percent: 2.2, establishment: "The Ring", location: "Southwalk", notes: "Easy drinking, hoppy but slightly creamy pint. It simple classic avaiable pretty much anywhere." }
 ];
 
 
@@ -55,21 +53,6 @@ $.beersTable.addEventListener("click", function(event) {
     }
 });
 
-function drawSmallStars (rating) {
-    var starView = Ti.UI.createView({ height: "12dp", width: "70dp", layout: "horizontal"});
-    function createStar(onOff) {
-        var star = Ti.UI.createImage();
-        star.image = "ratingStarSmall" + onOff + ".png";
-        return star;
-    }
-    for (var i = 0; i < rating; i++) {
-        starView.add(createStar("ON"));
-    }
-    for (var i = 0; rating < 5; i++) {
-        starView.add(createStar(""));
-    }
-    return starView;
-}
 
 function transformFunction (modal) {
         

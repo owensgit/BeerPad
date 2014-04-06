@@ -7,13 +7,15 @@
           <Label id="name"></Label>
           <Label id="brewery"></Label>
           
-          <View class="ratingButtons">
+          <!--View class="ratingButtons">
             <ImageView id="star1" image="ratingStar.png" class="starImage"></ImageView>
             <ImageView id="star2" image="ratingStar.png" class="starImage"></ImageView>
             <ImageView id="star3" image="ratingStar.png" class="starImage"></ImageView>
             <ImageView id="star4" image="ratingStar.png" class="starImage"></ImageView>
             <ImageView id="star5" image="ratingStar.png" class="starImage"></ImageView>
-         </View>
+         </View-->
+         
+         <View id="ratingView" height="30dp"></View>
               
           <View class="iconItem">
             <ImageView class="icon" id="locationIcon" image="building.png" />

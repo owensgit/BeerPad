@@ -1,3 +1,5 @@
+var ratingStars = require('ratingStars');
+
 var args = arguments[0] || {};
 var beersCollection = Alloy.createCollection('beers');
 beersCollection.fetch();
@@ -75,8 +77,15 @@ function applyRating(number) {
     }
 }
 
-applyRating(args.rating === null ? 0 : args.rating);
+//applyRating(args.rating === null ? 0 : args.rating);
 
+var theStars = ratingStars.drawStars({
+    rating: args.rating,
+    starHeight: 22,
+    starWidth: 22
+});
+
+$.ratingView.add(theStars);
 
 
 // View Image
