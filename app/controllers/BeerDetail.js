@@ -48,17 +48,27 @@ if (OS_IOS) {
 
 Ti.App.addEventListener("app:updateBeer", function(e) {
     beersCollection.fetch();
-    var test = beersCollection.where({"alloy_id": args.alloy_id})[0].toJSON();
     
-    $.BeerDetail.setTitle(test.title);
+    var updatedData = beersCollection.where({"alloy_id": args.alloy_id})[0].toJSON();
+    
+    $.BeerDetail.setTitle(updatedData.title);
         
     //if (getImage()) $.image.image = getImage();
     
-    applyRating(test.rating);
-
-    Alloy.Globals.mapLabelText($, test);
+    //applyRating(updatedData.rating);
     
-    args = test;
+    var updatedStars = ratingStars.drawStars({
+        rating: updatedData.rating,
+        starHeight: 22,
+        starWidth: 22
+    });
+    
+    $.ratingView.remove(theStars);
+    $.ratingView.add(updatedStars);
+
+    Alloy.Globals.mapLabelText($, updatedData);
+    
+    args = updatedStars;
 });
 
 
@@ -110,7 +120,7 @@ function share() {
    
    Social.activityView({
         text: "Just tried this beer called " + args.name,
-        //image: $.image.image,
+        image: $.image.image,
         removeIcons:"airdrop,print,copy,contact,camera"
     });
    

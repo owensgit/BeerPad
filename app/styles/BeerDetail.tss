@@ -24,6 +24,7 @@
 },
 "#brewery": {
     top: "1dp",
+    width: "300dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
 }
 

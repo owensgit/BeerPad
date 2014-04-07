@@ -7,9 +7,9 @@ Alloy.Globals.navGroupWin = $.navGroupWin;
 
 var default_beers = [
     { date: "1391377283743", name: "London Pride", brewery: "Fullers", rating: 4, percent: 3.4, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { date: "1392068483743", name: "Oat Milk Stout", brewery: "Clarence & Fredericks", percent: 6.2, rating: 4, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour. Quite strong and heavy, so perhaps better to drink by the half." },
-    { date: "1393537283743", name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 4, establishment: "The White Lion", location: "Stretham Hill", notes: "Great, full falvoured ale with lots of character. Be careful with this one, it's got a pretty high percentage!" },
-    { date: "1395265283743", name: "Greene King IPA", brewery: "Greene King", rating: 3, percent: 2.2, establishment: "The Ring", location: "Southwalk", notes: "Easy drinking, hoppy but slightly creamy pint. It simple classic avaiable pretty much anywhere." }
+    { date: "1392068483743", name: "Red Currant Stout", brewery: "Clarence & Fredericks", percent: 5.4, rating: 4, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour with currant flavours. Quite strong and heavy, so perhaps better to drink by the half.", beer_image: "sample_redcurrantstout.jpg" },
+    { date: "1393537283743", name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 4, establishment: "The White Lion", location: "Stretham Hill", notes: "Great, full falvoured ale with lots of character. Be careful with this one, it's got a pretty high percentage!", beer_image: "sample_hobgoblin.jpg" },
+    { date: "1396815002000", name: "Doom Bar", brewery: "Sharps", rating: 4, percent: 4, establishment: "The Ship Inn", location: "Caerleon, Newport, Wales", notes: "Nice balance of hoppy, malty and bitter tastes. Available nearly everywhere near Cornwall. Always priced really well.", beer_image: "sample_doombar.jpg" }
 ];
 
 
@@ -22,7 +22,7 @@ if (_.isEmpty(theBeers.toJSON())) {
         var date_string = date.toDateString();
         if (date.getFullYear() === thisYear) date_string = date_string.substring(0, date_string.length - 5);
         item.date_string = date_string;
-        item.beer_image = null;
+        item.beer_image = item.beer_image? item.beer_image : null;
         var beer = Alloy.createModel('beers', item);
         theBeers.add(beer);    
         beer.save();
