@@ -41,7 +41,7 @@
 }
 
 "#image": {
-    bottom: "-10dp"
+    top: "250dp"
 }
 
 "#finish": {
