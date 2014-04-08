@@ -2,9 +2,9 @@
 	<Window id="addBeerWin" title="Add a beer" modal="true" class="container">
 	    <ScrollView layout="vertical">
 	        
-	        <Button id="close" class="modalOutline">Cancel</Button>
+	        <Button id="close" class="modalOutline" titleid="add_cancel" />
 	        
-	        <Label id="title" class="dense" text="ADD A BEER"></Label>
+	        <Label id="title" class="dense" textid="add_title" />
 	        
 	        <View id="imageView">
 	            <ImageView id="beerImage"></ImageView>
@@ -28,10 +28,10 @@
             <TextField id="establishment" hintText="Pub or Establishment..."></TextField>
             <TextField id="location" hintText="Location..."></TextField>
             
-            <Label id="notesLabel" text="Notes:"></Label>
+            <Label id="notesLabel" textid="add_notes" />
             <TextArea id="notes" />
             
-            <Button id="addBeerButton" class="button">Add this beer</Button>
+            <Button id="addBeerButton" class="button" titleid="add_save" />
             
         </ScrollView>
         

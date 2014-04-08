@@ -15,7 +15,7 @@ var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 if (args.edit) {
     var editBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
     $.beerImage.image = args.beer_image;
-    $.title.text = "Edit this beer";   
+    $.title.text = L("edit_title");   
     $.name.value = args.name;
     $.brewery.value = args.brewery || "";
     $.percent.value = args.percent || "";
@@ -88,27 +88,27 @@ $.addBeerButton.addEventListener("click", function () {
     
     if (!$.name.value) {
         var dialog = Ti.UI.createAlertDialog({
-            message: 'You forgot to add a name!\n',
-            ok: 'Whoops!',
-            title: 'Had one beer too many?'
+            title: L('add_error_forgot_name_title'),
+            message: L('add_error_forgot_name_msg'),
+            ok: L('add_error_forgot_name_ok'),
         }).show();
         this.touchEnabled = true;
         return;
     }
     if (percentNotANumber($.percent.value)) {
         var dialog = Ti.UI.createAlertDialog({
-            message: 'You can use decimals too\n',
-            ok: 'Change percentage',
-            title: 'Percent not a number!'
+            title: L('add_error_percent_not_num_title'),
+            message: L('add_error_percent_not_num_msg'),
+            ok: L('add_error_percent_not_num_ok')
         }).show();
         this.touchEnabled = true;
         return;    
     }
     if (percentNotValid($.percent.value)) {
         var dialog = Ti.UI.createAlertDialog({
-            message: 'You can\'t have a beer with a percentage higher than 100!\n',
-            ok: 'Change percentage',
-            title: 'More than 100%!'
+            title: L('add_error_percent_too_high_title'),
+            message: L('add_error_percent_too_high_msg'),
+            ok: L('add_error_percent_too_high_ok'),
         }).show();
         this.touchEnabled = true;
         return;    
@@ -172,9 +172,9 @@ $.imageView.addEventListener("click", function (e) {
       
     var opts = {
       cancel: 2,
-      options: ['Take Photo', 'Choose from gallery', 'Cancel'],
+      options: [L('add_photo_camera'), L('add_photo_gallery'), L('add_photo_cancel')],
       destructive: 0,
-      title: 'Fire up those beer goggles!'
+      title: L('add_photo_title')
     };
     
     var dialog = Ti.UI.createOptionDialog(opts);
