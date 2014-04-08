@@ -27,7 +27,11 @@ Alloy.Globals.mapLabelText = function($, object) {
     $.location.text = object.location || "No location set";
     $.notes.text = object.notes;
     
-    if (object.beer_image) { $.image.image = object.beer_image; }
+    //if (object.beer_image) { $.image.image = object.beer_image; }
+    
+    if (Alloy.Globals.getImage(object.alloy_id)) {
+        $.image.image = Alloy.Globals.getImage(object.alloy_id);
+    }
 
     //console.log("The beer image", object.beer_image);
 
@@ -44,4 +48,9 @@ Alloy.Globals.mapLabelText = function($, object) {
 Alloy.Globals.getImage = function(alloy_id) {
     var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');  
     return f.read();  
+};
+
+Alloy.Globals.saveImage = function(alloy_id, theImage) {
+    var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
+    f.write(theImage);  
 };

@@ -22,7 +22,7 @@ if (_.isEmpty(theBeers.toJSON())) {
         var date_string = date.toDateString();
         if (date.getFullYear() === thisYear) date_string = date_string.substring(0, date_string.length - 5);
         item.date_string = date_string;
-        item.beer_image = item.beer_image? item.beer_image : null;
+        item.beer_image = item.beer_image ? item.beer_image : null;
         var beer = Alloy.createModel('beers', item);
         theBeers.add(beer);    
         beer.save();
@@ -69,10 +69,16 @@ function transformFunction (modal) {
         result.beer_image = "dafaultListImage.png";
     } */
     
-    if (!result.beer_image) { 
+    /*if (!result.beer_image) { 
         result.list_image = "dafaultListImage.png";
     } else {
         result.list_image = result.beer_image;
+    }*/
+   
+    if (!result.beer_image) { 
+        result.list_image = "dafaultListImage.png";
+    } else {
+        result.list_image = Alloy.Globals.getImage(result.alloy_id);
     }
     
     var secValue = Alloy.Globals.beerListSecondaryValue;

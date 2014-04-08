@@ -110,16 +110,19 @@ function share() {
 
    var Social = require('dk.napp.social');
    
-   Ti.API.info("module is => " + Social);   
-   Ti.API.info("Twitter available: " + Social.isTwitterSupported());
-   Ti.API.info("Facebook available: " + Social.isFacebookSupported());
+   var theImage = Alloy.Globals.getImage(args.alloy_id);
+   
+   var theImagePath = theImage ? theImage.getNativePath() : null; 
    
    Social.activityView({
         text: "Just tried this beer called " + args.name,
-        image: $.image.image,
+        image: theImagePath,
         removeIcons:"airdrop,print,copy,contact,camera"
-    });
+   });
    
+   //Ti.API.info("module is => " + Social);   
+   //Ti.API.info("Twitter available: " + Social.isTwitterSupported());
+   //Ti.API.info("Facebook available: " + Social.isFacebookSupported());   
 };
 
 function deleteBeer() {

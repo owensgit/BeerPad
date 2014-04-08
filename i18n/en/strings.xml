@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENGLISH -->
+
+<resources>
+    <!-- App Name -->
+    <string name="app_name">BeerDiary</string>
+    <string name="app_version">1.0</string>
+    
+    <!-- Beer Index List -->
+    <string name="sort_btn">Sort</string>
+    
+    <!-- Beer Details -->
+    <string name="edit_btn">Edit</string>
+    
+    <!-- Share Dialog -->
+    <string name="share_beer_name">Just tried this beer called </string>
+    
+    <!-- Delete beer dialog -->
+    <string name="delete_beer">Ready to say good bye to this beer?</string>
+    <string name="delete_beer_yes">Do it!</string>
+    <string name="delete_beer_no">Cancel</string>
+    
+    <!-- Add or edit a beer -->
+    <string name="add_cancel">Cancel</string>
+    <string name="add_title">Add a beer</string>
+    <string name="edit_title">Edit this beer</string>
+    
+    <string name="add_name">Name</string>
+    <string name="add_brewrey">Brewery</string>
+    <string name="add_perfect">Percent</string>
+    <string name="add_pub">Pub or establishment</string>
+    <string name="add_location">Location</string>
+    <string name="add_notes">Notes</string>
+    <string name="add_save">Save beer</string>
+    
+    <string name="add_photo_title">Fire up those beer goggles!</string>
+    <string name="add_photo_camera">Take a photo</string>
+    <string name="add_photo_gallery">Choose from gallery</string>
+    <string name="add_photo_cancel">Cancel</string>
+    
+    <!-- Sort Dialog -->
+    <string name="sort_title">Sort those beers!</string>
+    <string name="sort_newest">Newest</string>
+    <string name="sort_oldest">Oldest</string>
+    <string name="sort_rated_high">Rated High</string>
+    <string name="sort_rated_low">Rated Loe</string>
+    <string name="sort_percent_desc">Strongest</string>
+    <string name="sort_percent_asc">Weakest</string>
+    <string name="sort_name_asc">Name Asc.</string>
+    <string name="sort_name_desc">Name Desc.</string>
+    <string name="sort_cancel">Cancel</string>
+</resources>

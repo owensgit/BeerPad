@@ -53,11 +53,9 @@ function mapArgs() {
         notes: $.notes.value
     };
 
-    if (theImage) { 
-        console.log(theImage);
-        args.beer_image = theImage;
-        console.log(args.beer_image); 
-    }
+    /*if (theImage) { 
+        args.beer_image = theImage; 
+    }*/
 
     return args;
 };
@@ -120,9 +118,9 @@ $.addBeerButton.addEventListener("click", function () {
         editBeer.set(mapArgs());
         editBeer.save();
         Ti.App.fireEvent("app:updateBeer");
-        /*var alloy_id = editBeer.get('alloy_id');        
-        var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
-        f.write(theImage);*/
+        Alloy.Globals.saveImage(alloy_id);
+        var alloy_id = editBeer.get('alloy_id');
+        Alloy.Globals.saveImage(alloy_id, theImage);
         $.addBeerWin.close();
         this.touchEnabled = true;
     } else {
@@ -131,13 +129,12 @@ $.addBeerButton.addEventListener("click", function () {
         theBeers.add(beer);
         beer.save();           
         
-        /*setTimeout(function () {
+        setTimeout(function () {
             if (theImage) {
                 var alloy_id = beer.get('alloy_id');
-                var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
-                f.write(theImage);   
+                Alloy.Globals.saveImage(alloy_id, theImage);  
             }    
-        }, 0);*/
+        }, 0);
                
         $.addBeerWin.close();          
         this.touchEnabled = true;
@@ -190,7 +187,7 @@ $.imageView.addEventListener("click", function (e) {
                 error: cameraMethods.onError,
                 allowEditing: true,
                 mediaTypes: [Titanium.Media.MEDIA_TYPE_PHOTO],
-                videoQuality: Titanium.Media.QUALITY_HIGH
+                videoQuality: Titanium.Media.QUALITY_MEDIUM
             });  
         }
         if (event.index === 1) {
@@ -200,7 +197,7 @@ $.imageView.addEventListener("click", function (e) {
                 error: cameraMethods.onError,
                 allowEditing: true,
                 mediaTypes: [Titanium.Media.MEDIA_TYPE_PHOTO],
-                videoQuality: Titanium.Media.QUALITY_HIGH
+                videoQuality: Titanium.Media.QUALITY_MEDIUM
             });  
         }             
     });
