@@ -7,13 +7,11 @@ beersCollection.fetch();
 
 // The Image
 
-/*function getImage() {
-    var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, args.alloy_id + '.jpg');  
-    return f.read();  
-}
-if (getImage()) $.image.image = getImage();*/
+var beerImage = Alloy.Globals.getImage(args.alloy_id);
 
-if (args.beer_image) { $.image.image = args.beer_image; }
+if (beerImage) {
+    $.image.image = beerImage;
+}
 
 var date = new Date(args.date);
 
