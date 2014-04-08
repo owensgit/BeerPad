@@ -27,8 +27,8 @@
     <string name="edit_title">EDIT THIS BEER</string> <!-- DONE -->
     
     <string name="add_name">Name</string>
-    <string name="add_brewrey">Brewery</string>
-    <string name="add_perfect">Percent</string>
+    <string name="add_brewery">Brewery</string>
+    <string name="add_percent">Percent</string>
     <string name="add_pub">Pub or establishment</string>
     <string name="add_location">Location</string>
     <string name="add_notes">Notes</string> <!-- DONE -->

@@ -41,7 +41,6 @@ var ratingStars = (function () {
             if (i === 4) { star.right = 0; }; 
             var image = onOff ? s.imageOn : s.imageOff;
             star.image = image + ".png";
-            console.log(star.right);
             return star;
         }
         for (var i = 0; i < s.rating; i++) {

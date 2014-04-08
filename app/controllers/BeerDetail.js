@@ -11,6 +11,8 @@ var beerImage = Alloy.Globals.getImage(args.alloy_id);
 
 if (beerImage) {
     $.image.image = beerImage;
+} else if (args.beer_image && args.beer_image.indexOf("sample_") === 0) {
+    $.image.image = args.beer_image;
 }
 
 var date = new Date(args.date);
@@ -110,7 +112,13 @@ function share() {
    
    var theImage = Alloy.Globals.getImage(args.alloy_id);
    
-   var theImagePath = theImage ? theImage.getNativePath() : null; 
+   if (theImage) {
+       theImagePath = theImage.getNativePath();
+   } else if (args.beer_image.indexOf("sample_") === 0) {
+      theImagePath = args.beer_image;
+   } else {
+       theImagePath = null;
+   }
    
    Social.activityView({
         text: "Just tried this beer called " + args.name,

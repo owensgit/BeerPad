@@ -9,18 +9,30 @@ theBeers.fetch();
 var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 
 
+   
+$.name.hintText = L('add_name');
+$.brewery.hintText = L('add_brewery');
+$.percent.hintText = L('add_percent');
+$.establishment.hintText = L('add_pub');
+$.location.hintText = L('add_location');
+
 
 // Edit Mode
 
 if (args.edit) {
     var editBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
-    $.beerImage.image = args.beer_image;
     $.title.text = L("edit_title");   
     $.name.value = args.name;
     $.brewery.value = args.brewery || "";
     $.percent.value = args.percent || "";
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
+    
+    if (Alloy.Globals.getImage(args.alloy_id)) {
+        $.beerImage.image = Alloy.Globals.getImage(args.alloy_id);
+    } else if (args.beer_image) {
+        $.beerImage.image = args.beer_image;
+    }
     
     if (args.notes) $.notes.value = args.notes;
 
@@ -54,7 +66,7 @@ function mapArgs() {
     };
 
     /*if (theImage) { 
-        args.beer_image = theImage; 
+        args.beer_image = "1"; 
     }*/
 
     return args;
@@ -67,14 +79,16 @@ function mapArgs() {
 function percentNotANumber(percent) {
     var regEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
     var percent = $.percent.value.replace(/%$/, "");
-    if (percent.match(regEx) || percent === "") {
-        return false;   
+    console.log(percent);
+    if (percent.match(regEx) === null && percent != "") {
+        console.log("YOU SHALL NOT PASS!");
+        return true;
     }
 }
 function percentNotValid(percent) {
     var percent = parseInt(percent.replace(/%$/, ""), 10);
-    if (percent <= 100) {
-        return false;
+    if (percent > 100) {
+        return true;
     }
 }
 
@@ -124,20 +138,19 @@ $.addBeerButton.addEventListener("click", function () {
         $.addBeerWin.close();
         this.touchEnabled = true;
     } else {
-        var beer = Alloy.createModel('beers', mapArgs());
-        
+        var beer = Alloy.createModel('beers', mapArgs());           
         theBeers.add(beer);
-        beer.save();           
+        beer.save();
         
-        setTimeout(function () {
-            if (theImage) {
-                var alloy_id = beer.get('alloy_id');
-                Alloy.Globals.saveImage(alloy_id, theImage);  
-            }    
-        }, 0);
-               
+        if (theImage) {
+            var alloy_id = beer.get('alloy_id');
+            Alloy.Globals.saveImage(alloy_id, theImage);  
+        }
+
         $.addBeerWin.close();          
         this.touchEnabled = true;
+               
+        
     }
     
 });
