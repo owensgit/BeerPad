@@ -6,48 +6,54 @@
 // or create any global variables/functions that you'd like to
 // make available throughout your app. You can easily make things
 // accessible globally by attaching them to the `Alloy.Globals`
-// object. For example:
+// args. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
 Alloy.Globals.beerListSecondaryValue = 'brewery';
 
-Alloy.Globals.mapLabelText = function($, object) { 
+Alloy.Globals.mapLabelText = function($, args) { 
 
-    $.name.text = object.name.toUpperCase();
+    $.name.text = args.name.toUpperCase();
     
-    var breweryAndPercentText = object.percent ? object.brewery + " | " + object.percent : object.brewery;
+    var breweryAndPercentText = args.percent ? args.brewery + " | " + args.percent : args.brewery;
     
-    if (!object.percent  &&  object.brewery) breweryAndPercentText = object.brewery;
-    if ( object.percent  &&  object.brewery) breweryAndPercentText = object.brewery + " | " + object.percent + "%";
-    if ( object.percent  && !object.brewery) breweryAndPercentText = object.percent + "%";
+    if (!args.percent  &&  args.brewery) breweryAndPercentText = args.brewery;
+    if ( args.percent  &&  args.brewery) breweryAndPercentText = args.brewery + " | " + args.percent + "%";
+    if ( args.percent  && !args.brewery) breweryAndPercentText = args.percent + "%";
     
     $.brewery.text = breweryAndPercentText;
-    $.pub.text = object.establishment || "No establishment set";
-    $.location.text = object.location || "No location set";
-    $.notes.text = object.notes;
+    $.pub.text = args.establishment || L("detail_no_pub");
+    $.location.text = args.location || L("detail_no_location");
+    $.notes.text = args.notes;
     
-    //if (object.beer_image) { $.image.image = object.beer_image; }
+    var theImage = Alloy.Globals.getImage(args);
     
-    if (Alloy.Globals.getImage(object.alloy_id)) {
-        $.image.image = Alloy.Globals.getImage(object.alloy_id);
+    if (theImage) {
+        $.image.image = theImage;   
     }
 
-    //console.log("The beer image", object.beer_image);
-
-    if (!object.establishment) {
+    if (!args.establishment) {
         $.buildingIcon.setImage('buildingGrey.png');
         $.pub.setColor('#b9b9b9');
     };
-    if (!object.location) {
+    if (!args.location) {
         $.locationIcon.setImage('locationGrey.png');
         $.location.setColor('#b9b9b9');
     }
 };
 
-Alloy.Globals.getImage = function(alloy_id) {
-    var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');  
-    return f.read();  
+Alloy.Globals.getImage = function(args) {
+    var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, args.alloy_id + '.jpg');  
+    var fileSystemImage = f.read();  
+    if (fileSystemImage) {
+        return fileSystemImage;
+    }
+    if (args.beer_image) {
+        if (args.beer_image.indexOf("sample_") === 0) {
+            return args.beer_image;
+        }
+    }
 };
 
 Alloy.Globals.saveImage = function(alloy_id, theImage) {

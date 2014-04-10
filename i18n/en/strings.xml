@@ -8,18 +8,20 @@
     <string name="app_version">1.0</string>
     
     <!-- Beer Index List -->
-    <string name="sort_btn">Sort</string>
+    <string name="index_sort_btn">Sort</string><!-- DONE -->
     
     <!-- Beer Details -->
-    <string name="edit_btn">Edit</string>
+    <string name="detail_edit_btn">Edit</string><!-- DONE -->
+    <string name="detail_no_pub">No establishment set</string><!-- DONE -->
+    <string name="detail_no_location">No location set</string><!-- DONE -->
     
     <!-- Share Dialog -->
-    <string name="share_beer_name">Just tried this beer called</string>
+    <string name="share_beer_name">Just tried this beer called</string><!-- DONE -->
     
     <!-- Delete beer dialog -->
-    <string name="delete_beer">Ready to say good bye to this beer?</string>
+    <string name="delete_beer">Ready to say good bye to this beer?</string><!-- DONE -->
     <string name="delete_beer_yes">Do it!</string>
-    <string name="delete_beer_no">Cancel</string>
+    <string name="delete_beer_no">No</string>
     
     <!-- Add or edit a beer -->
     <string name="add_cancel">Cancel</string> <!-- DONE -->
@@ -34,20 +36,20 @@
     <string name="add_notes">Notes</string> <!-- DONE -->
     <string name="add_save">Save beer</string> <!-- DONE -->
     
-    <string name="add_photo_title">Fire up those beer goggles!</string>
+    <string name="add_photo_title">Fire up those beer goggles!</string><!-- DONE -->
     <string name="add_photo_camera">Take a photo</string> <!-- DONE -->
     <string name="add_photo_gallery">Choose from gallery</string> <!-- DONE -->
     <string name="add_photo_cancel">Cancel</string> <!-- DONE -->
     
-    <string name="add_error_forgot_name_title">Had one beer too many?</string>
-    <string name="add_error_forgot_name_msg">You forgot to add a name!\n</string>
-    <string name="add_error_forgot_name_ok">Whoops!</string>
-    <string name="add_error_percent_not_num_title">Percent not a number!</string>
-    <string name="add_error_percent_not_num_msg">You can use decimals too\n</string>
-    <string name="add_error_percent_not_num_ok">Change percentage</string>
-    <string name="add_error_percent_too_high_title">More than 100%!?</string>
-    <string name="add_error_percent_too_high_msg">You can\'t have a beer with a percentage higher than 100!\n</string>
-    <string name="add_error_percent_too_high_ok">Change percentage</string>
+    <string name="add_error_forgot_name_title">Had one beer too many?</string><!-- DONE -->
+    <string name="add_error_forgot_name_msg">You forgot to add a name!\n</string><!-- DONE -->
+    <string name="add_error_forgot_name_ok">Whoops!</string><!-- DONE -->
+    <string name="add_error_percent_not_num_title">Percent not a number!</string><!-- DONE -->
+    <string name="add_error_percent_not_num_msg">You can use decimals too\n</string><!-- DONE -->
+    <string name="add_error_percent_not_num_ok">Change percentage</string><!-- DONE -->
+    <string name="add_error_percent_too_high_title">More than 100%!?</string><!-- DONE -->
+    <string name="add_error_percent_too_high_msg">You can\'t have a beer with a percentage higher than 100!\n</string><!-- DONE -->
+    <string name="add_error_percent_too_high_ok">Change percentage</string><!-- DONE -->
     
     <!-- Sort Dialog -->
     <string name="sort_title">Sort those beers!</string>

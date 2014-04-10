@@ -28,11 +28,9 @@ if (args.edit) {
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
     
-    if (Alloy.Globals.getImage(args.alloy_id)) {
-        $.beerImage.image = Alloy.Globals.getImage(args.alloy_id);
-    } else if (args.beer_image) {
-        $.beerImage.image = args.beer_image;
-    }
+    var beerImage = Alloy.Globals.getImage(args);
+    
+    console.log("beerImage", beerImage);
     
     if (args.notes) $.notes.value = args.notes;
 
@@ -147,7 +145,13 @@ $.addBeerButton.addEventListener("click", function () {
             Alloy.Globals.saveImage(alloy_id, theImage);  
         }
 
-        $.addBeerWin.close();          
+        
+        setTimeout(function () {
+            beer.save();    
+            $.addBeerWin.close();
+        }, 500);
+        
+                  
         this.touchEnabled = true;
                
         

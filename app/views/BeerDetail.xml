@@ -6,16 +6,9 @@
           
           <Label id="name"></Label>
           <Label id="brewery"></Label>
-          
-          <!--View class="ratingButtons">
-            <ImageView id="star1" image="ratingStar.png" class="starImage"></ImageView>
-            <ImageView id="star2" image="ratingStar.png" class="starImage"></ImageView>
-            <ImageView id="star3" image="ratingStar.png" class="starImage"></ImageView>
-            <ImageView id="star4" image="ratingStar.png" class="starImage"></ImageView>
-            <ImageView id="star5" image="ratingStar.png" class="starImage"></ImageView>
-         </View-->
          
-         <View id="ratingView" height="30dp"></View>
+          <!-- The rating stars get created in BeerDetail.js and placed in this view -->
+          <View id="ratingView" height="30dp"></View>
               
           <View class="iconItem">
             <ImageView class="icon" id="locationIcon" image="building.png" />
@@ -41,15 +34,14 @@
           </Items>
       </Toolbar>
       
-      <AlertDialog id="deleteDialog" onClick="confirmDeleteBeer" title="Delete"
+      <!--AlertDialog id="deleteDialog" onClick="confirmDeleteBeer" title="Delete"
             message="Ready to say good bye to this beer?" cancel="0">
 
-            <!-- The ButtonNames tag sets the buttonNames property. -->
             <ButtonNames>
-                <ButtonName>Cancel</ButtonName>
-                <ButtonName id="confirm">Do it!</ButtonName>
+                <ButtonName></ButtonName>
+                <ButtonName id="confirm"></ButtonName>
             </ButtonNames>
-        </AlertDialog>
+        </AlertDialog-->
         
    </Window> 
 </Alloy>

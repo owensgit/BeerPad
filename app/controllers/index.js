@@ -155,7 +155,7 @@ if (OS_IOS) {
    // Left & Right buttons in title bar: Edit & New
    
    var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
-   var editButton = Ti.UI.createButton({ title: "Sort" });
+   var editButton = Ti.UI.createButton({ titleid: "index_sort_btn" });
    
    $.beerListWin.setRightNavButton(addButton);
    $.beerListWin.setLeftNavButton(editButton);

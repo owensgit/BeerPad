@@ -20,7 +20,8 @@
 
 "#tableRowName": {
     top: "12dp",
-    left: "73dp",
+    //left: "73dp",
+    left: "18dp",
     textAlign: 'left',
     font: {
         fontSize: "18dp"
@@ -29,7 +30,8 @@
 "#secondaryInfo": {
     height: "16dp",
     top: "36dp",
-    left: "73dp",
+    //left: "73dp",
+    left: "18dp",
     layout: "vertical"    
 },
 

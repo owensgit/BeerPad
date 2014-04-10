@@ -7,14 +7,6 @@ beersCollection.fetch();
 
 // The Image
 
-var beerImage = Alloy.Globals.getImage(args.alloy_id);
-
-if (beerImage) {
-    $.image.image = beerImage;
-} else if (args.beer_image && args.beer_image.indexOf("sample_") === 0) {
-    $.image.image = args.beer_image;
-}
-
 var date = new Date(args.date);
 
 // The Details
@@ -28,7 +20,7 @@ Alloy.Globals.mapLabelText($, args);
 // Navigation Bar Button
 
 if (OS_IOS) {
-    var editButton = Ti.UI.createButton({ title: "Edit" });
+    var editButton = Ti.UI.createButton({ titleid: "detail_edit_btn" });
     $.BeerDetail.setRightNavButton(editButton);
     
     editButton.addEventListener("click", function (e) {
@@ -110,18 +102,20 @@ function share() {
 
    var Social = require('dk.napp.social');
    
-   var theImage = Alloy.Globals.getImage(args.alloy_id);
+   var theImage = Alloy.Globals.getImage(args);
    
    if (theImage) {
-       theImagePath = theImage.getNativePath();
-   } else if (args.beer_image.indexOf("sample_") === 0) {
-      theImagePath = args.beer_image;
+       if (theImage.hasOwnProperty('getNativePath')) {
+           theImagePath = theImage.getNativePath();
+       } else {
+           theImagePath = theImage;
+       }
    } else {
        theImagePath = null;
    }
    
    Social.activityView({
-        text: "Just tried this beer called " + args.name,
+        text: L("share_beer_name") + " " + args.name,
         image: theImagePath,
         removeIcons:"airdrop,print,copy,contact,camera"
    });
@@ -132,7 +126,17 @@ function share() {
 };
 
 function deleteBeer() {
-    $.deleteDialog.show();   
+    var deleteDialog = Ti.UI.createAlertDialog({
+       id: "deleteDialog",
+       title: "Delete",
+       message: L("delete_beer"),
+       cancel: "0",
+       buttomNames: [
+          {0: L("delete_beer_no") },
+          {0: L("delete_beer_yes") }
+       ] 
+    });
+    deleteDialog.show();   
 }
 
 function confirmDeleteBeer(e) {

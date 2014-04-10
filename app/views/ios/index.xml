@@ -18,7 +18,7 @@
                     beer_image="{beer_image}">
                     
                     <View class="tableRow">
-                        <ImageView id="listImage" image="{list_image}"></ImageView>
+                        <!--ImageView id="listImage" image="{list_image}"></ImageView-->
                         <Label id="tableRowName" text="{name}"></Label>
                         <View id="secondaryInfo">
                             <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery"></Label>
@@ -28,7 +28,7 @@
                 </TableViewRow>
             </TableView>
             
-            <OptionDialog id="filterDialog" title="Sort those beers!">
+            <OptionDialog id="filterDialog">
                 <Options>
                     <Option>Newest</Option>
                     <Option>Oldest</Option>
