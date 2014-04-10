@@ -30,8 +30,6 @@ if (args.edit) {
     
     var beerImage = Alloy.Globals.getImage(args);
     
-    console.log("beerImage", beerImage);
-    
     if (args.notes) $.notes.value = args.notes;
 
     $.addBeerButton.title = "Save beer"; 
@@ -77,9 +75,7 @@ function mapArgs() {
 function percentNotANumber(percent) {
     var regEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
     var percent = $.percent.value.replace(/%$/, "");
-    console.log(percent);
     if (percent.match(regEx) === null && percent != "") {
-        console.log("YOU SHALL NOT PASS!");
         return true;
     }
 }
@@ -130,32 +126,24 @@ $.addBeerButton.addEventListener("click", function () {
         editBeer.set(mapArgs());
         editBeer.save();
         Ti.App.fireEvent("app:updateBeer");
-        Alloy.Globals.saveImage(alloy_id);
-        var alloy_id = editBeer.get('alloy_id');
-        Alloy.Globals.saveImage(alloy_id, theImage);
-        $.addBeerWin.close();
-        this.touchEnabled = true;
+        
+        if (theImage) {
+            Alloy.Globals.saveImage(editBeer.get('alloy_id'), theImage);
+        }     
     } else {
         var beer = Alloy.createModel('beers', mapArgs());           
         theBeers.add(beer);
         beer.save();
         
         if (theImage) {
-            var alloy_id = beer.get('alloy_id');
-            Alloy.Globals.saveImage(alloy_id, theImage);  
+            Alloy.Globals.saveImage(beer.get('alloy_id'), theImage);  
         }
 
-        
-        setTimeout(function () {
-            beer.save();    
-            $.addBeerWin.close();
-        }, 500);
-        
-                  
-        this.touchEnabled = true;
-               
-        
+        beer.save();        
     }
+    
+    this.touchEnabled = true;
+    $.addBeerWin.close();
     
 });
 
