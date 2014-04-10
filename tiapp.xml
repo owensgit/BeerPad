@@ -48,7 +48,7 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="iphone">dk.napp.social</module>
+        <module>dk.napp.social</module>
     </modules>
     <deployment-targets>
         <target device="android">false</target>
