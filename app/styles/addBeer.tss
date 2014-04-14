@@ -42,8 +42,10 @@
     top: "18dp"
 }
 
+
+
 "#notesLabel": {
-    top: "15dp",
+    top: "20dp",
     color: "#f8ac12"
 },
 "TextArea": {
@@ -55,6 +57,17 @@
     font: {
         fontSize: "17dp"
     }
+},
+
+"#locationBox": {
+    height: Ti.UI.SIZE
+},
+
+"#use_gps": {
+    height: "30dp",
+    width: "50%",
+    top: "52dp",
+    font: { fontSize: "14dp" }
 },
 
 "#addBeerButton" : {

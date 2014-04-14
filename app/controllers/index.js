@@ -7,8 +7,8 @@ Alloy.Globals.navGroupWin = $.navGroupWin;
 
 var default_beers = [
     { date: "1391377283743", name: "London Pride", brewery: "Fullers", rating: 4, percent: 3.4, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { date: "1392068483743", name: "Red Currant Stout", brewery: "Clarence & Fredericks", percent: 5.4, rating: 4, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour with currant flavours. Quite strong and heavy, so perhaps better to drink by the half.", beer_image: "sample_redcurrantstout.jpg" },
-    { date: "1393537283743", name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 4, establishment: "The White Lion", location: "Stretham Hill", notes: "Great, full falvoured ale with lots of character. Be careful with this one, it's got a pretty high percentage!", beer_image: "sample_hobgoblin.jpg" },
+    { date: "1392068483743", name: "Red Currant Stout", brewery: "Clarence & Fredericks", percent: 5.4, rating: 5, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour with currant flavours. Quite strong and heavy, so perhaps better to drink by the half.", beer_image: "sample_redcurrantstout.jpg" },
+    { date: "1393537283743", name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 3, establishment: "The White Lion", location: "Stretham Hill", notes: "Great, full falvoured ale with lots of character. Be careful with this one, it's got a pretty high percentage!", beer_image: "sample_hobgoblin.jpg" },
     { date: "1396815002000", name: "Doom Bar", brewery: "Sharps", rating: 4, percent: 4, establishment: "The Ship Inn", location: "Caerleon, Newport, Wales", notes: "Nice balance of hoppy, malty and bitter tastes. Available nearly everywhere near Cornwall. Always priced really well.", beer_image: "sample_doombar.jpg" }
 ];
 
@@ -55,24 +55,7 @@ $.beersTable.addEventListener("click", function(event) {
 
 function transformFunction (modal) {
         
-    var result = modal.toJSON();
-    
-    /*function getImage() {
-        var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, result.alloy_id + '.jpg');  
-        return f.read();  
-    }
-    var theImage = getImage();
-    result.beer_image = theImage || "dafaultListImage.png";
-   
-    if (!result.beer_image) { 
-        result.beer_image = "dafaultListImage.png";
-    } */
-    
-    /*if (!result.beer_image) { 
-        result.list_image = "dafaultListImage.png";
-    } else {
-        result.list_image = result.beer_image;
-    }*/
+    var result = modal.toJSON();  
    
     if (!result.beer_image) { 
         result.list_image = "dafaultListImage.png";
@@ -82,9 +65,7 @@ function transformFunction (modal) {
         } else {
             result.list_image = Alloy.Globals.getImage(result.alloy_id);   
         }
-    }
-    
-    
+    }   
     
     var secValue = Alloy.Globals.beerListSecondaryValue;
 
@@ -100,9 +81,19 @@ function transformFunction (modal) {
     return result;
 }
 
+var opts = [
+    L("sort_newest"), L("sort_oldest"), L("sort_rated_high"), L("sort_rated_low"), 
+    L("sort_percent_desc"), L("sort_percent_asc"), L("sort_name_asc"), L("sort_name_desc"), L("sort_cancel") 
+];
 
-$.filterDialog.cancel = 8;
-$.filterDialog.addEventListener("click", function (e) {
+var filterDialog = Ti.UI.createOptionDialog({
+    title: L("sort_title"),
+    options: opts
+});
+
+filterDialog.cancel = 8;
+
+filterDialog.addEventListener("click", function (e) {
     if (e.index === 0) {
         Alloy.Globals.beerListSecondaryValue = "date";
         theBeers.setSortField("date", "DESC");
@@ -175,7 +166,7 @@ if (OS_IOS) {
    
    // Edit the table & delete a row
    editButton.addEventListener("click", function(event) {
-       $.filterDialog.show();
+       filterDialog.show();
    });
    $.beersTable.addEventListener("delete", function(event) {
       setTimeout(function () {

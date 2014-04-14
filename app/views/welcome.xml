@@ -1,35 +1,35 @@
 <Alloy>
 	<Window class="container">
-	    <Button id="close" onClick="closeWelcome" class="modalOutline">Skip</Button>
+	    <Button id="close" onClick="closeWelcome" class="modalOutline" titleid="welcome_skip_button" />
 	    <ScrollableView id="ScrollableView" showPagingControl="true" pagingControlColor="#f8ac12" pagingControlHeight="40dp">
 	       <View id="view1">
 	           <ImageView id="logo" image="logoHorizontal.png"></ImageView>
-	           <Label class="text">Never forget that delicious beer or ale again. Keep them all in your very own BeerDiary!</Label>
+	           <Label class="text" textid="welcome_slide1_text" />
 	           <ImageView id="image" image="welcome1.png" />
 	       </View> 
 	       <View id="view2">
-               <Label class="title">LESS THINKING,\n MORE DRINKING</Label>
-               <Label class="text">Sort your beers by name, date, percentage, rating, brewery, kitchen sink and gorilla.</Label>
+               <Label class="title" textid="welcome_slide2_title" />
+               <Label class="text" textid="welcome_slide2_text" />
                <ImageView id="image" image="welcome2.png" />
            </View>
            <View id="view">
-               <Label class="title">FEELING KINDA \nWARM & FUZZY?</Label>
-               <Label class="text">Share that seasonal local brew with your friends using the power of the internet!</Label>
+               <Label class="title" textid="welcome_slide3_title" />
+               <Label class="text" textid="welcome_slide3_text" />
                <ImageView id="image" image="welcome3.png" />
            </View> 
            <View id="view">   
-               <Label class="title">THE FIRST ROUND \nIS ON US!</Label>
-               <Label class="text">We've added a few examples to get your started, feel free to delete and add your own!</Label>
+               <Label class="title" textid="welcome_slide4_title" />
+               <Label class="text" textid="welcome_slide4_text" />
                <ImageView id="image" image="welcome4.png" />
            </View>  
            <View id="view">
-               <Label class="title">NEW FEATURES \n COMING SOON</Label>
-               <Label class="text">There's heaps more features in the pipeline, so keep watching those updates!</Label>
+               <Label class="title" textid="welcome_slide5_title" />
+               <Label class="text" textid="welcome_slide5_text" />
                <!--View class="bullet">
                    <ImageView class="bulletImage" image="pin.png" />
                    <Label class="bulletLabel" text="Plot your beers on a map using geo-location" />
                </View-->
-               <Button id="finish" onClick="closeWelcome" class="buttonOutlineWhite" title="Get started" />
+               <Button id="finish" onClick="closeWelcome" class="buttonOutlineWhite" titleid="welcome_finished_button" />
                <!-- Image examples -->
            </View>  
 	    </ScrollableView>

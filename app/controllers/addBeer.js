@@ -61,9 +61,10 @@ function mapArgs() {
         notes: $.notes.value
     };
 
-    /*if (theImage) { 
-        args.beer_image = "1"; 
-    }*/
+    if (coords) {
+        args.latitude = coords.latitude;
+        args.longitude = coords.longitude;
+    }
 
     return args;
 };
@@ -209,6 +210,69 @@ $.imageView.addEventListener("click", function (e) {
     
     dialog.show();
 }); 
+
+
+
+
+var coords;
+
+function useGPS() {
+    
+    if (Ti.Geolocation.locationServicesEnabled) {
+        
+        var activityIndicator = Ti.UI.createActivityIndicator({
+          style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.iPhone.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
+          top: "14dp", //left: "30dp",
+          height: "15dp", width: "15dp"
+        });
+        
+        $.locationBox.add(activityIndicator);
+        var locationValue = $.location.hintText;
+        $.location.hintText = "";
+        activityIndicator.show();
+        
+        Ti.Geolocation.purpose = 'Determine Current Location';
+        Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+        Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
+
+        Titanium.Geolocation.getCurrentPosition(function(e) {
+            
+            if (e.error) {
+                Ti.API.error('Error: ' + e.error);
+                alert(L("location_services_error"));
+                $.location.hintText = locationValue;
+                activityIndicator.hide();
+            } else {               
+                coords = e.coords; 
+                Ti.Geolocation.reverseGeocoder(e.coords.latitude, e.coords.longitude, function (e) {
+                    if (e.error) {
+                        alert(L("location_services_error"));
+                        $.location.hintText = locationValue;
+                        activityIndicator.hide();
+                        return;
+                    }
+                    if (e.places) {
+                        var p = e.places[0];
+                        activityIndicator.hide();
+                        $.location.value = p.city + ", " + p.country;
+                    } else {
+                        alert(L("location_services_not_found"));   
+                        $.location.hintText = locationValue;
+                        activityIndicator.hide();
+                    }
+                });  
+                           
+            }
+            
+        });
+        
+    } else {
+        alert(L("location_services_disabled"));
+    }   
+    
+}
+
+
 
 
 

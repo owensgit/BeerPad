@@ -28,7 +28,7 @@
                 </TableViewRow>
             </TableView>
             
-            <OptionDialog id="filterDialog">
+            <!--OptionDialog id="filterDialog">
                 <Options>
                     <Option>Newest</Option>
                     <Option>Oldest</Option>
@@ -40,7 +40,7 @@
                     <Option>Name Desc.</Option>
                     <Option>Cancel</Option>
                 </Options>  
-            </OptionDialog>   
+            </OptionDialog-->   
                      
         </Window>
     </NavigationWindow>

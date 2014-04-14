@@ -63,20 +63,6 @@ Ti.App.addEventListener("app:updateBeer", function(e) {
 
 // Apply Star Ratings
 
-var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
-
-function applyRating(number) {
-    rating = number;
-    for (var i = 0; i < number; i++) {
-        starArray[i].setImage('ratingStarON.png');
-    }
-    for (var i = number; i < 5; i++) {
-        starArray[i].setImage('ratingStar.png');
-    }
-}
-
-//applyRating(args.rating === null ? 0 : args.rating);
-
 var theStars = ratingStars.drawStars({
     rating: args.rating,
     starHeight: 22,
@@ -118,25 +104,28 @@ function share() {
         text: L("share_beer_name") + " " + args.name,
         image: theImagePath,
         removeIcons:"airdrop,print,copy,contact,camera"
-   });
-   
+   });  
    //Ti.API.info("module is => " + Social);   
    //Ti.API.info("Twitter available: " + Social.isTwitterSupported());
    //Ti.API.info("Facebook available: " + Social.isFacebookSupported());   
 };
 
 function deleteBeer() {
+    var yesButton = L("delete_beer_yes");
+    var cancelButton = L("delete_beer_no");
+    
     var deleteDialog = Ti.UI.createAlertDialog({
        id: "deleteDialog",
-       title: "Delete",
-       message: L("delete_beer"),
+       title: L("delete_beer_title"),
+       message: L("delete_beer_message"),
        cancel: "0",
-       buttomNames: [
-          {0: L("delete_beer_no") },
-          {0: L("delete_beer_yes") }
+       buttonNames: [
+          cancelButton, yesButton
        ] 
     });
     deleteDialog.show();   
+    
+    deleteDialog.addEventListener("click", confirmDeleteBeer);
 }
 
 function confirmDeleteBeer(e) {

@@ -26,7 +26,11 @@
             
             <TextField id="percent" keyboardType="Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION"></TextField>
             <TextField id="establishment"></TextField>
-            <TextField id="location"></TextField>
+            
+            <View id="locationBox">
+                <TextField id="location"></TextField>
+                <Button id="use_gps" class="buttonOutline" onClick="useGPS" titleid="add_location_use_gps"></Button>
+            </View>
             
             <Label id="notesLabel" textid="add_notes" />
             <TextArea id="notes" />

@@ -10,7 +10,9 @@ exports.definition = {
             "notes": "text",
             "date": "text",
             "date_string": "text",
-            "beer_image": "text"    
+            "beer_image": "text",
+            "latitude": "integer",
+            "longitude": "integer"    
 		},
 		adapter: {
 			type: "sql",
