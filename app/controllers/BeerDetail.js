@@ -1,8 +1,17 @@
 var ratingStars = require('ratingStars');
 
 var args = arguments[0] || {};
-var beersCollection = Alloy.createCollection('beers');
-beersCollection.fetch();
+
+var theBeers = Alloy.Collections.beers;
+theBeers.fetch();
+
+Ti.App.addEventListener("addToFavorites", function (e) {
+    var theBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
+    console.log(theBeer.toJSON().favourite);
+    theBeer.set({favourite: 1});
+    theBeer.save(); 
+    console.log(theBeer.toJSON().favourite);
+});
 
 
 // The Image
@@ -104,7 +113,16 @@ function share() {
         text: L("share_beer_name") + " " + args.name,
         image: theImagePath,
         removeIcons:"airdrop,print,copy,contact,camera"
-   });  
+   }, [
+        {
+            title: L("detail_add_to_favourites"),
+            type:"hello.world",
+            image:"heart.png",
+            callback: function(e) {
+                Ti.App.fireEvent("addToFavorites");
+            }
+        }
+   ]);  
    //Ti.API.info("module is => " + Social);   
    //Ti.API.info("Twitter available: " + Social.isTwitterSupported());
    //Ti.API.info("Facebook available: " + Social.isFacebookSupported());   

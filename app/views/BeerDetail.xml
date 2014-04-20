@@ -1,5 +1,5 @@
 <Alloy> 
-   <Window class="container">
+   <Window class="container" tabBarHidden="true">
       <ScrollView showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true" layout="vertical">
           
           <ImageView id="image" onClick="viewImage" image="dafaultBeerImage.png"></ImageView>

@@ -4,12 +4,12 @@
 
 <resources>
     <!-- App Name -->
-    <string name="app_name">BeerDiary</string>
+    <string name="app_name">Beer Pad</string>
     <string name="app_version">1.0</string>
     
     <!-- Welcome Screens -->
     <string name="welcome_skip_button">Skip</string>
-    <string name="welcome_slide1_text">Never forget that delicious beer or ale again. Keep them all in your very own BeerDiary!</string>
+    <string name="welcome_slide1_text">Never forget that delicious beer or ale again. Keep them all in your very own Beer Diary!</string>
     <string name="welcome_slide2_title">LESS THINKING,\n MORE DRINKING</string>
     <string name="welcome_slide2_text">Sort your beers by name, date, percentage, rating, brewery, kitchen sink and gorilla.</string>
     
@@ -23,14 +23,26 @@
     <string name="welcome_slide5_text">There's heaps more features in the pipeline, so keep watching those updates!</string>
     
     <string name="welcome_finished_button">Get started</string>    
+    
+    <!-- Tabs -->
+    <string name="tab_beers">Beers</string>
+    <string name="tab_fav">Favourites</string>
+    <string name="tab_map">Map</string>
+    <string name="tab_about">About</string>
        
     <!-- Beer Index List -->
     <string name="index_sort_btn">Sort</string>
+    
+    <!-- Favourite List -->
+    <string name="fav_title">Favourties</string>
     
     <!-- Beer Details -->
     <string name="detail_edit_btn">Edit</string>
     <string name="detail_no_pub">No establishment set</string>
     <string name="detail_no_location">No location set</string>
+    <string name="detail_add_to_favourites">Add to favourties</string>
+    <string name="detail_remove_from_favourites">Remove from favourties</string>
+    
     
     <!-- Share Dialog -->
     <string name="share_beer_name">Just tried this beer called</string>
@@ -49,7 +61,7 @@
     <string name="add_name">Name</string>
     <string name="add_brewery">Brewery</string>
     <string name="add_percent">Percent</string>
-    <string name="add_pub">Pub or establishment</string>
+    <string name="add_pub">Pub, bar or establishment</string>
     <string name="add_location">Location</string>
     <string name="add_notes">Notes</string> 
     <string name="add_save">Save beer</string> 
@@ -83,7 +95,7 @@
     <string name="sort_rated_low">Rated Low</string>
     <string name="sort_percent_desc">Strongest</string>
     <string name="sort_percent_asc">Weakest</string>
-    <string name="sort_name_asc">Name Asc.</string>
-    <string name="sort_name_desc">Name Desc.</string>
+    <string name="sort_name_asc">Name A → Z</string>
+    <string name="sort_name_desc">Name Z → A</string>
     <string name="sort_cancel">Cancel</string>
 </resources>

@@ -1,44 +1,74 @@
+"Window": {
+    backgroundColor: "#fff"
+}
 ".container" : { 
    backgroundColor: 'white',
    barColor: '#f8ac12',
+   tintColor: '#FFFFFF',
    backButtonTitle: 'Back',
    titleAttributes: {
        color: '#FFFFFF'
    }
 },
-".toolbar": {
-   barColor: '#f8ac12',
-   backButtonTitle: 'Back',
-   titleAttributes: {
-       color: '#FFFFFF'
-   }  
-}
 
 "Button": {
     color: "#f8ac12"
 },
 
-".star": {
-    font: {
-        fontFamily: "FontAwesome"
-    }
-},
-
-"#navGroupWin" : { 
+"TabGroup" : { 
+   barColor: '#FFFFFF',
+   tabsBackgroundColor: '#FFFFFF',
    tintColor: '#FFFFFF',
-   titleAttributes: {
-       color: '#FFFFFF'
-   }
+   tabsTintColor: '#f8ac12',
+   activeTabIconTint: '#f8ac12',
 },
-
-"#beerListWin": {
-   barColor: '#f8ac12'
-},
+"Tab": {
+    iconIsmask: "false",
+    tintColor: '#f8ac12',  
+}
 
 "TableViewRow": {
     selectedBackgroundColor: '#f8ac12',
     selectedColor: '#FFFFFF'
 },
+
+".tableRow": {
+    height: "65dp"
+},
+
+"#listImage": {
+    top: "7dp",
+    left: "11dp",
+    height: "50dp",
+    width: "50dp",
+    borderRadius: "25dp"
+}
+
+"#tableRowName": {
+    top: "12dp",
+    //left: "73dp",
+    left: "18dp",
+    textAlign: 'left',
+    font: {
+        fontSize: "18dp"
+    } 
+} 
+"#secondaryInfo": {
+    height: "16dp",
+    top: "36dp",
+    //left: "73dp",
+    left: "18dp",
+    layout: "vertical"    
+},
+
+"#secondaryLabel": {
+    color: "#aaaaaa",
+    textAlign: 'left',
+    left: "0dp",
+    font: {
+        fontSize: "12dp"
+    }
+}
 
 ".button": {
     backgroundColor: '#f8ac12',

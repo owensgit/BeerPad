@@ -12,7 +12,8 @@ exports.definition = {
             "date_string": "text",
             "beer_image": "text",
             "latitude": "integer",
-            "longitude": "integer"    
+            "longitude": "integer",
+            "favourite": "boolean"  
 		},
 		adapter: {
 			type: "sql",

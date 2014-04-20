@@ -1,17 +1,41 @@
 <Alloy>
     <Collection src="beers"/>
-    <Window class="container">
-        <TableView id="beersTable" dataCollection="beers">
-            <TableViewRow 
-                id="{alloy_id}" 
-                title="{name}"
-                name="{name}" 
-                brewery="{brewery}" 
-                rating="{rating}" 
-                establishment="{establishment}" 
-                location="{location}" 
-                notes="{notes}">
-            </TableViewRow>
-        </TableView>
-    </Window>
+    <TabGroup id="mainTabGroup" backgroundColor="white" >
+        <Tab id="tab1" titleid="tab_beers" icon="tabBeerIcon.png" activeIcon="tabBeerIconActive.png">
+            <Window titleid="app_name" id="beerListWin" class="container"> 
+                       
+                <TableView id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
+                    <TableViewRow 
+                        hasChild="true" alloy_id="{alloy_id}" name="{name}" brewery="{brewery}" 
+                        rating="{rating}" percent="{percent}"
+                        establishment="{establishment}" location="{location}" 
+                        notes="{notes}" date="{date}" beer_image="{beer_image}" favourite="{favourite}"> 
+                                              
+                        <View class="tableRow">
+                            <!--ImageView id="listImage" image="{list_image}"></ImageView-->
+                            <Label id="tableRowName" text="{name}"></Label>
+                            <View id="secondaryInfo">
+                                <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery"></Label>
+                            </View>
+                        </View>    
+                                            
+                    </TableViewRow>
+                </TableView>  
+                        
+            </Window>
+        </Tab>
+        <Tab id="tab2" titleid="tab_fav"  icon="tabStarIcon.png" activeIcon="tabStarIconActive.png">
+            <Require src="favourites"></Require>
+        </Tab>
+        <Tab id="tab3" titleid="tab_map" icon="tabPinIcon.png" activeIcon="tabPinIconActive.png">
+            <Window>
+                
+            </Window>
+        </Tab>
+        <Tab id="tab4" titleid="tab_about" icon="tabAboutIcon.png" activeIcon="tabAboutIconActive.png">
+            <Window>
+                
+            </Window>
+        </Tab>
+    </TabGroup>
 </Alloy> 
