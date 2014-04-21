@@ -1,0 +1,6 @@
+<Alloy>
+    <Window titleid="map_title" class="container">
+    	<View class="container">
+    	</View>
+	</Window>
+</Alloy>

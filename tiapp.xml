@@ -49,6 +49,7 @@
     </mobileweb>
     <modules>
         <module>dk.napp.social</module>
+        <module platform="iphone">ti.map</module>
     </modules>
     <deployment-targets>
         <target device="android">false</target>

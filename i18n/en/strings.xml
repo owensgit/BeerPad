@@ -33,11 +33,6 @@
     <!-- Beer Index List -->
     <string name="index_sort_btn">Sort</string>
     
-    <!-- Favourite List -->
-    <string name="fav_title">Favourties</string>
-    <string name="fav_empty_title">NO FAVOURITES</string>
-    <string name="fav_empty_text">You don't have an favourite beers! Get to the pub, right now!</string>
-    
     
     <!-- Beer Details -->
     <string name="detail_edit_btn">Edit</string>
@@ -45,8 +40,7 @@
     <string name="detail_no_location">No location set</string>
     <string name="detail_add_to_favourites">Add to favourties</string>
     <string name="detail_remove_from_favourites">Remove from favourties</string>
-    
-    
+        
     <!-- Share Dialog -->
     <string name="share_beer_name">Just tried this beer called</string>
     
@@ -55,6 +49,20 @@
     <string name="delete_beer_message">Ready to say good bye to this beer?</string>
     <string name="delete_beer_yes">Do it!</string>
     <string name="delete_beer_no">Cancel</string>
+    
+    
+    
+    <!-- Favourite List -->
+    <string name="fav_title">Favourties</string>
+    <string name="fav_empty_title">NO FAVOURITES</string>
+    <string name="fav_empty_text">You don't have an favourite beers! Get to the pub, right now!</string>
+    
+    <!-- Map View -->
+    <string name="map_title">Your Beer Map</string>
+    
+    <!-- About -->
+    <string name="about_title">About Beer Pad</string>
+    
     
     <!-- Add or edit a beer -->
     <string name="add_cancel">Cancel</string> 
