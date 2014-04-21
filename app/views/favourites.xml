@@ -1,9 +1,13 @@
 <Alloy>
     <Collection src="beers"/>
-    <NavigationWindow id="navGroupWin">
-        <Window id="beerListWin" class="container" title="BeerDiary">
-           
-            <TableView id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
+    <Window id="favListWin" titleid="fav_title" class="container">
+    	<View class="container">
+    	    <View class="emptySectionMessage">
+    	        <ImageView image="favEmpty.png"></ImageView>
+    	        <Label class="emptyTitle" textid="fav_empty_title"></Label>
+    	        <Label class="emptyText" textid="fav_empty_text"></Label>
+    	    </View>
+    	    <TableView visible="false" id="favTable" dataCollection="beers" dataFilter="filterFunction" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
                 <TableViewRow 
                     hasChild="true" 
                     alloy_id="{alloy_id}"  
@@ -15,7 +19,8 @@
                     location="{location}" 
                     notes="{notes}"
                     date="{date}"
-                    beer_image="{beer_image}">
+                    beer_image="{beer_image}"
+                    favourite="{favourite}">
                     
                     <View class="tableRow">
                         <!--ImageView id="listImage" image="{list_image}"></ImageView-->
@@ -27,21 +32,6 @@
                     
                 </TableViewRow>
             </TableView>
-            
-            <!--OptionDialog id="filterDialog">
-                <Options>
-                    <Option>Newest</Option>
-                    <Option>Oldest</Option>
-                    <Option>Rated High</Option>
-                    <Option>Rated Low</Option>
-                    <Option>Strongest</Option>
-                    <Option>Weakest</Option>
-                    <Option>Name Asc.</Option>
-                    <Option>Name Desc.</Option>
-                    <Option>Cancel</Option>
-                </Options>  
-            </OptionDialog-->   
-                     
-        </Window>
-    </NavigationWindow>
-</Alloy> 
+    	</View>
+	</Window>
+</Alloy>

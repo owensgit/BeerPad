@@ -172,4 +172,16 @@ Alloy.Globals.addToFavourites = function (alloy_id) {
     theBeer.save();  
 };
 
-
+Ti.App.addEventListener("app:addToFavorites", function (e) {
+    //console.log("e.args.favourite", e.args.favourite);
+    var theBeers = Alloy.Collections.beers;
+    var beer = theBeers.where({"alloy_id": e.args.alloy_id})[0];
+    
+    if (e.args.favourite === 1) {
+        beer.set({favourite: 0});    
+    } else {
+        beer.set({favourite: 1});    
+    }   
+    beer.save();
+    //console.log("Now set to: ", beer.toJSON().favourite);    
+});

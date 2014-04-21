@@ -35,6 +35,9 @@
     
     <!-- Favourite List -->
     <string name="fav_title">Favourties</string>
+    <string name="fav_empty_title">NO FAVOURITES</string>
+    <string name="fav_empty_text">You don't have an favourite beers! Get to the pub, right now!</string>
+    
     
     <!-- Beer Details -->
     <string name="detail_edit_btn">Edit</string>
@@ -83,7 +86,7 @@
     
     <!-- Add Beer - Determine Location -->
     <string name="add_location_use_gps">Use my location</string>
-    <string name="location_services_disabled">BeerDiary can't trianglate your location because your location services are disabled!</string>
+    <string name="location_services_disabled">Beer Pad can't trianglate your location because your location services are disabled!</string>
     <string name="location_services_error">There was an error trying to determine your location. Please check your connection or try later.</string>
     <string name="location_services_not_found">Could not determine your location. Please enter manually.</string>
     

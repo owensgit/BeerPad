@@ -5,14 +5,8 @@ var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
-Ti.App.addEventListener("addToFavorites", function (e) {
-    var theBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
-    console.log(theBeer.toJSON().favourite);
-    theBeer.set({favourite: 1});
-    theBeer.save(); 
-    console.log(theBeer.toJSON().favourite);
-});
-
+//console.log("------------------------------");
+//console.log("args.favourite", args.favourite);
 
 // The Image
 
@@ -48,9 +42,9 @@ if (OS_IOS) {
 // Update Beer after edit event fired in addBeer.js
 
 Ti.App.addEventListener("app:updateBeer", function(e) {
-    beersCollection.fetch();
+    theBeers.fetch();
     
-    var updatedData = beersCollection.where({"alloy_id": args.alloy_id})[0].toJSON();
+    var updatedData = theBeers.where({"alloy_id": args.alloy_id})[0].toJSON();
     
     $.BeerDetail.setTitle(updatedData.title);
     
@@ -108,18 +102,21 @@ function share() {
    } else {
        theImagePath = null;
    }
-   
+
    Social.activityView({
         text: L("share_beer_name") + " " + args.name,
         image: theImagePath,
         removeIcons:"airdrop,print,copy,contact,camera"
    }, [
         {
-            title: L("detail_add_to_favourites"),
+            title: args.favourite ? L("detail_remove_from_favourites") : L("detail_add_to_favourites"),
             type:"hello.world",
             image:"heart.png",
             callback: function(e) {
-                Ti.App.fireEvent("addToFavorites");
+                console.log("CALLBACK");
+                Ti.App.fireEvent("app:addToFavorites", {
+                    args: args
+                });
             }
         }
    ]);  
@@ -155,3 +152,7 @@ function confirmDeleteBeer(e) {
         }});   
     }
 };
+
+$.BeerDetail.addEventListener("close", function() {
+    $.destroy();
+});

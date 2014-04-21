@@ -4,9 +4,9 @@
 },
 
 "#image": {
-    height: "140dp",
-    width: "140dp",
-    borderRadius: "70dp",
+    height: "130dp",
+    width: "130dp",
+    borderRadius: "65dp",
     top: "15dp"
 },
 
