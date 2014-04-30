@@ -48,11 +48,11 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module>dk.napp.social</module>
+        <module platform="iphone">dk.napp.social</module>
         <module platform="iphone">ti.map</module>
     </modules>
     <deployment-targets>
-        <target device="android">false</target>
+        <target device="android">true</target>
         <target device="blackberry">false</target>
         <target device="ipad">false</target>
         <target device="iphone">true</target>

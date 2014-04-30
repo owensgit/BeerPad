@@ -2,139 +2,142 @@ var args = arguments[0] || {};
 
 var theBeers = Alloy.Collections.beers;
 
-var Map = require('ti.map');
+if (OS_IOS) {
 
-
-function goToBeer(alloy_id) {
-    var args = theBeers.where({alloy_id: alloy_id })[0].toJSON();
-    var view = Alloy.createController("BeerDetail", args).getView();    
-    Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });    
-}
-
-var longitudes = [];
-var latitudes = [];
-
-// latitude min   -90 max 90
-// longitude min -180 max 180
-
-function addPins(collection) { ;   
-    longitudes = [];
-    latitudes = [];  
-    _.each(collection.toJSON(), function (item) {      
-        if (item.latitude && item.longitude) {
-            
-            longitudes.push(item.longitude);
-            latitudes.push(item.latitude);
-            
-            var image = Alloy.Globals.getImage(item);
-
-            var buttonView = Ti.UI.createView({
-                height: "40dp", width: "40dp"    
-            });
-            
-            var annotation = Map.createAnnotation({
-                latitude: item.latitude,
-                longitude: item.longitude,
-                title: item.name,
-                subtitle: item.brewery,
-                pincolor: Map.ANNOTATION_ORANGE,
-                rightButton: "mapInfoButton.png",
-                beerId: item.alloy_id // Custom property to uniquely identify this annotation.                   
-            });
-            
-            if (image) {
-                var theImage = Ti.UI.createImageView({
-                    image: Alloy.Globals.getImage(item),
-                    height: "40dp", width: "40dp"
-                }); 
-                annotation.leftView = theImage;
+    var Map = require('ti.map');
+    
+    function goToBeer(alloy_id) {
+        var args = theBeers.where({alloy_id: alloy_id })[0].toJSON();
+        var view = Alloy.createController("BeerDetail", args).getView();    
+        Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });    
+    }
+    
+    var longitudes = [];
+    var latitudes = [];
+    
+    // latitude min   -90 max 90
+    // longitude min -180 max 180
+    
+    function addPins(collection) { ;   
+        longitudes = [];
+        latitudes = [];  
+        _.each(collection.toJSON(), function (item) {      
+            if (item.latitude && item.longitude) {
+                
+                longitudes.push(item.longitude);
+                latitudes.push(item.latitude);
+                
+                var image = Alloy.Globals.getImage(item);
+    
+                var buttonView = Ti.UI.createView({
+                    height: "40dp", width: "40dp"    
+                });
+                
+                var annotation = Map.createAnnotation({
+                    latitude: item.latitude,
+                    longitude: item.longitude,
+                    title: item.name,
+                    subtitle: item.brewery,
+                    pincolor: Map.ANNOTATION_ORANGE,
+                    rightButton: "mapInfoButton.png",
+                    beerId: item.alloy_id // Custom property to uniquely identify this annotation.                   
+                });
+                
+                if (image) {
+                    var theImage = Ti.UI.createImageView({
+                        image: Alloy.Globals.getImage(item),
+                        height: "40dp", width: "40dp"
+                    }); 
+                    annotation.leftView = theImage;
+                }
+                
+                mapview.addAnnotation(annotation);   
             }
-            
-            mapview.addAnnotation(annotation);   
-        }
-    });
-    
-    setMarkersWithCenter(mapview, latitudes, longitudes);
-}
-
-function setMarkersWithCenter(map,latiarray,longiarray) {
-    if (latiarray.length != longiarray.length) { return; }
+        });
         
-    var total_locations = latiarray.length;
-    var minLongi = null, minLati = null, maxLongi = null, maxLati = null;
-    var totalLongi = 0.0, totalLati = 0.0;
-
-    for(var i = 0; i < total_locations; i++) {
-        if(minLati == null || minLati > latiarray[i]) {
-            minLati = latiarray[i];
-        }
-        if(minLongi == null || minLongi > longiarray[i]) {
-            minLongi = longiarray[i];
-        }
-        if(maxLati == null || maxLati < latiarray[i]) {
-            maxLati = latiarray[i];
-        }
-        if(maxLongi == null || maxLongi < longiarray[i]) {
-            maxLongi = longiarray[i];
-        }
+        setMarkersWithCenter(mapview, latitudes, longitudes);
     }
-
-    var ltDiff = maxLati-minLati;
-    var lgDiff = maxLongi-minLongi;
-    var delta = ltDiff>lgDiff ? ltDiff : lgDiff;
     
-    if (total_locations>0 && delta>0) {
-        map.setLocation({
-            animate : true,
-            latitude:((maxLati+minLati)/2),
-            longitude:((maxLongi+minLongi)/2),
-            latitudeDelta:delta*2,
-            longitudeDelta:delta*2,
-        }); 
-    }
-}
-
-mapview = null;
-
-Alloy.Globals.createmap = function() {
-    mapview = Map.createView({
-        mapType:Map.NORMAL_TYPE,
-        userLocation: false
-    });
-    mapview.addEventListener('click', function(e) {
-        if (e.clicksource === "rightButton") {
-            goToBeer(e.annotation.beerId);    
+    function setMarkersWithCenter(map,latiarray,longiarray) {
+        if (latiarray.length != longiarray.length) { return; }
+            
+        var total_locations = latiarray.length;
+        var minLongi = null, minLati = null, maxLongi = null, maxLati = null;
+        var totalLongi = 0.0, totalLati = 0.0;
+    
+        for(var i = 0; i < total_locations; i++) {
+            if(minLati == null || minLati > latiarray[i]) {
+                minLati = latiarray[i];
+            }
+            if(minLongi == null || minLongi > longiarray[i]) {
+                minLongi = longiarray[i];
+            }
+            if(maxLati == null || maxLati < latiarray[i]) {
+                maxLati = latiarray[i];
+            }
+            if(maxLongi == null || maxLongi < longiarray[i]) {
+                maxLongi = longiarray[i];
+            }
         }
+    
+        var ltDiff = maxLati-minLati;
+        var lgDiff = maxLongi-minLongi;
+        var delta = ltDiff>lgDiff ? ltDiff : lgDiff;
+        
+        if (total_locations>0 && delta>0) {
+            map.setLocation({
+                animate : true,
+                latitude:((maxLati+minLati)/2),
+                longitude:((maxLongi+minLongi)/2),
+                latitudeDelta:delta*2,
+                longitudeDelta:delta*2,
+            }); 
+        }
+    }
+    
+    mapview = null;
+    
+    Alloy.Globals.createmap = function() {
+        mapview = Map.createView({
+            mapType:Map.NORMAL_TYPE,
+            userLocation: false
+        });
+        mapview.addEventListener('click', function(e) {
+            if (e.clicksource === "rightButton") {
+                goToBeer(e.annotation.beerId);    
+            }
+        });
+        theBeers.fetch();
+        addPins(theBeers);     
+        $.mapContainer.add(mapview);   
+    };
+    
+    Alloy.Globals.createmap();
+    
+    Ti.App.addEventListener("updatemap", function () {
+        mapview.removeAllAnnotations();
+        theBeers.fetch();
+        addPins(theBeers);    
     });
-    theBeers.fetch();
-    addPins(theBeers);     
-    $.mapContainer.add(mapview);   
-};
-
-Alloy.Globals.createmap();
-
-Ti.App.addEventListener("updatemap", function () {
-    mapview.removeAllAnnotations();
-    theBeers.fetch();
-    addPins(theBeers);    
-});
-
-theBeers.on("change add remove", function (e) {
-    //console.log("Map view: change, add event fired");
-    Ti.App.fireEvent("updatemap");  
-});
-
-
-
-
-var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
-$.map.setRightNavButton(addButton);
-
-addButton.addEventListener("click", function () {
-    var window = Alloy.createController('addBeer').getView();
-        window.open({
-            modal:true,
-            modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
-            modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+    
+    theBeers.on("change add remove", function (e) {
+        //console.log("Map view: change, add event fired");
+        Ti.App.fireEvent("updatemap");  
     });
-});
+    
+    
+    
+    
+    var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
+    $.map.setRightNavButton(addButton);
+    
+    addButton.addEventListener("click", function () {
+        var window = Alloy.createController('addBeer').getView();
+            window.open({
+                modal:true,
+                modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+                modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+        });
+    });
+
+} // end if OS_IOS

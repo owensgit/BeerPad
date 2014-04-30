@@ -19,9 +19,11 @@ var filterDialog = Alloy.Globals.returnSortingDialog(theBeers);
 // Left & Right buttons in title bar: Edit & New
 var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
 var sortButton = Ti.UI.createButton({ titleid: "index_sort_btn" });
-   
-$.beerListWin.setRightNavButton(addButton);
-$.beerListWin.setLeftNavButton(sortButton);
+
+if (OS_IOS) {   
+    $.beerListWin.setRightNavButton(addButton);
+    $.beerListWin.setLeftNavButton(sortButton);
+}
    
 // Add a new beer
 addButton.addEventListener("click", function () {
