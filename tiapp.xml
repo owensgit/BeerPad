@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>com.owenevans.BeerDiary</id>
-    <name>BeerDiary</name>
+    <id>com.owenevans.BeerPad</id>
+    <name>BeerPad</name>
     <version>1.0</version>
-    <publisher>owen</publisher>
+    <publisher>Owen Evans</publisher>
     <url>http://</url>
     <description>not specified</description>
-    <copyright>2014 by owen</copyright>
+    <copyright>2014 by Owen Evans</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>

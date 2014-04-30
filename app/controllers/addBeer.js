@@ -65,6 +65,13 @@ function mapArgs() {
         args.latitude = coords.latitude;
         args.longitude = coords.longitude;
     }
+    
+    if ($.location.value === "") {
+        console.log("Location removed");
+        args.latitude = null;
+        args.longitude = null;
+        args.location = null;
+    }
 
     return args;
 };
@@ -123,6 +130,13 @@ $.addBeerButton.addEventListener("click", function () {
         return;    
     }
     
+    var loadingView = Ti.UI.createView({
+        backgroundColor: "rgba(255,255,255,0.6)",
+        opacity: 0
+    });   
+    $.addBeerWin.add(loadingView);
+    loadingView.animate({ opacity: 1, duration: 400 });
+    
     if (args.edit) {
         editBeer.set(mapArgs());
         editBeer.save();
@@ -130,17 +144,15 @@ $.addBeerButton.addEventListener("click", function () {
         
         if (theImage) {
             Alloy.Globals.saveImage(editBeer.get('alloy_id'), theImage);
-        }     
+        } 
     } else {
-        var beer = Alloy.createModel('beers', mapArgs());           
+        var beer = Alloy.createModel('beers', mapArgs());
+        beer.save();           
         theBeers.add(beer);
-        beer.save();
         
         if (theImage) {
             Alloy.Globals.saveImage(beer.get('alloy_id'), theImage);  
-        }
-
-        beer.save();        
+        }        
     }
     
     this.touchEnabled = true;
@@ -227,43 +239,40 @@ function useGPS() {
         });
         
         $.locationBox.add(activityIndicator);
-        var locationValue = $.location.hintText;
-        $.location.hintText = "";
+        $.location.touchEnabled = false;
         activityIndicator.show();
         
         Ti.Geolocation.purpose = 'Determine Current Location';
         Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
         Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
 
-        Titanium.Geolocation.getCurrentPosition(function(e) {
-            
+        Titanium.Geolocation.getCurrentPosition(function(e) {           
             if (e.error) {
                 Ti.API.error('Error: ' + e.error);
                 alert(L("location_services_error"));
-                $.location.hintText = locationValue;
                 activityIndicator.hide();
             } else {               
                 coords = e.coords; 
                 Ti.Geolocation.reverseGeocoder(e.coords.latitude, e.coords.longitude, function (e) {
                     if (e.error) {
-                        alert(L("location_services_error"));
-                        $.location.hintText = locationValue;
+                        alert(L("location_services_error"));   
                         activityIndicator.hide();
                         return;
                     }
                     if (e.places) {
-                        var p = e.places[0];
                         activityIndicator.hide();
-                        $.location.value = p.city + ", " + p.country;
+                        var p = e.places[0];
+                        $.location.height = Ti.UI.SIZE;
+                        $.location.value = p.street + ", " + p.city + ", " + p.country;
+                        $.location.height = Ti.UI.SIZE;
+                        $.locationLabel.hide();
                     } else {
-                        alert(L("location_services_not_found"));   
-                        $.location.hintText = locationValue;
+                        alert(L("location_services_not_found"));
                         activityIndicator.hide();
                     }
-                });  
-                           
-            }
-            
+                });    
+                $.location.touchEnabled = true;      
+            }           
         });
         
     } else {
@@ -297,6 +306,18 @@ for (var i = 0; i < 5; i++) {
 
 
 // Misc
+
+function showHideLocationLabel() {
+    if ($.location.value === "" || $.location.value === null) {
+        $.locationLabel.show();
+    } else {
+        $.locationLabel.hide();
+    }    
+}
+showHideLocationLabel();
+$.location.addEventListener("change", function () {
+    showHideLocationLabel();
+});
 
 $.addBeerWin.addEventListener("close", function() {
     $.destroy();

@@ -3,9 +3,10 @@
     <Window id="favListWin" titleid="fav_title" class="container">
     	<View class="container">
     	    <View class="emptySectionMessage">
-    	        <ImageView image="favEmpty.png"></ImageView>
-    	        <Label class="emptyTitle" textid="fav_empty_title"></Label>
-    	        <Label class="emptyText" textid="fav_empty_text"></Label>
+    	        <ImageView image="favEmpty.png" />
+    	        <Label class="emptyTitle" textid="fav_empty_title" />
+    	        <Label class="emptyText" textid="fav_empty_text" />
+    	        <ImageView class="emptySecImage" image="shareHeart.png" />
     	    </View>
     	    <TableView visible="false" id="favTable" dataCollection="beers" dataFilter="filterFunction" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
                 <TableViewRow 

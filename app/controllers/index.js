@@ -1,31 +1,6 @@
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
-// Set of defaults to load if no current data is present
-
-var default_beers = [
-    { date: "1391377283743", name: "London Pride", brewery: "Fullers", rating: 4, percent: 3.4, establishment: "The Queens Head", location: "Hammersmith", notes: "Very tasty ale, simple and classic! Easy drinking for any occasion. Especially like the slight creamy taste." },
-    { date: "1392068483743", name: "Red Currant Stout", brewery: "Clarence & Fredericks", percent: 5.4, rating: 5, establishment: "Prats & Payne", location: "Streatham Hill", notes: "Dark, robust and full of flavour with currant flavours. Quite strong and heavy, so perhaps better to drink by the half.", beer_image: "sample_redcurrantstout.jpg" },
-    { date: "1393537283743", name: "Hob Goblin", brewery: "Wychwood Brewery Company", percent: 4.3, rating: 3, establishment: "The White Lion", location: "Stretham Hill", notes: "Great, full falvoured ale with lots of character. Be careful with this one, it's got a pretty high percentage!", beer_image: "sample_hobgoblin.jpg" },
-    { date: "1396815002000", name: "Doom Bar", brewery: "Sharps", rating: 4, percent: 4, establishment: "The Ship Inn", location: "Caerleon, Newport, Wales", notes: "Nice balance of hoppy, malty and bitter tastes. Available nearly everywhere near Cornwall. Always priced really well.", beer_image: "sample_doombar.jpg" }
-];
-
-
-// If no current data is present, load up the default data
-
-if (_.isEmpty(theBeers.toJSON())) {
-    _.each(default_beers, function (item) {
-        var date = new Date(parseInt(item.date, 10));  
-        var thisYear = new Date().getFullYear();
-        var date_string = date.toDateString();
-        if (date.getFullYear() === thisYear) date_string = date_string.substring(0, date_string.length - 5);
-        item.date_string = date_string;
-        var beer = Alloy.createModel('beers', item);
-        theBeers.add(beer);    
-        beer.save();
-    });
-}
-
 Alloy.Globals.mainTabGroup = $.mainTabGroup;
 
 

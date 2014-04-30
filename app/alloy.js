@@ -10,6 +10,9 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
+var theBeers = Alloy.createCollection("beers");
+theBeers.fetch();
+
 Alloy.Globals.beerListSecondaryValue = 'brewery';
 
 Alloy.Globals.mapLabelText = function($, args) { 
@@ -165,6 +168,7 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
 };
 
 Alloy.Globals.addToFavourites = function (alloy_id) {
+    console.log("Event fired add to favourites");
     var beerCollection = Alloy.Collections.beers;
     beerCollection.fetch();
     var theBeer = beerCollection.where({"alloy_id": alloy_id})[0];
@@ -175,13 +179,35 @@ Alloy.Globals.addToFavourites = function (alloy_id) {
 Ti.App.addEventListener("app:addToFavorites", function (e) {
     //console.log("e.args.favourite", e.args.favourite);
     var theBeers = Alloy.Collections.beers;
-    var beer = theBeers.where({"alloy_id": e.args.alloy_id})[0];
     
+    var beer = theBeers.where({"alloy_id": e.args.alloy_id})[0];
+    console.log(beer.toJSON());
     if (e.args.favourite === 1) {
         beer.set({favourite: 0});    
     } else {
         beer.set({favourite: 1});    
-    }   
+    }      
     beer.save();
-    //console.log("Now set to: ", beer.toJSON().favourite);    
+    //console.log("Now set to: ", beer.toJSON().favourite);   
 });
+
+
+// Set of defaults to load if no current data is present
+
+var sample_beers = require("samples");
+
+
+// If no current data is present, load up the default data
+
+if (_.isEmpty(theBeers.toJSON())) {
+    _.each(sample_beers, function (item) {
+        var date = new Date(parseInt(item.date, 10));  
+        var thisYear = new Date().getFullYear();
+        var date_string = date.toDateString();
+        if (date.getFullYear() === thisYear) date_string = date_string.substring(0, date_string.length - 5);
+        item.date_string = date_string;
+        var beer = Alloy.createModel('beers', item);
+        theBeers.add(beer);    
+        beer.save();
+    });
+}

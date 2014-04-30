@@ -7,14 +7,15 @@ if (!_.isEmpty(theBeers.where({favourite: 1 }))) {
     $.favTable.visible = true;
 }
 theBeers.on("change", function () {
-    console.log(!_.isEmpty(theBeers.where({favourite: 1 })));
-    if (!_.isEmpty(theBeers.where({favourite: 1 }))) {
-        Ti.App.fireEvent("toggleFavTable");        
-    } 
+    if (_.isEmpty(theBeers.where({favourite: 1 }))) {
+        Ti.App.fireEvent("toggleFavTable", { visible: false });        
+    } else {
+       Ti.App.fireEvent("toggleFavTable", { visible: true }); 
+    }
 });
 
-Ti.App.addEventListener("toggleFavTable", function () {
-    $.favTable.setVisible(true);    
+Ti.App.addEventListener("toggleFavTable", function (e) {
+    $.favTable.setVisible(e.visible);    
 });
 
 $.favTable.addEventListener("click", function(event) {
@@ -33,6 +34,18 @@ var filterDialog = Alloy.Globals.returnSortingDialog(theBeers);
 
 var sortButton = Ti.UI.createButton({ titleid: "index_sort_btn" });
 $.favListWin.setLeftNavButton(sortButton);
+
+var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
+$.favListWin.setRightNavButton(addButton);
+
+addButton.addEventListener("click", function () {
+    var window = Alloy.createController('addBeer').getView();
+        window.open({
+            modal:true,
+            modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+            modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+    });
+});
 
 sortButton.addEventListener("click", function(event) {
     filterDialog.show();

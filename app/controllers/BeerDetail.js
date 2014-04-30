@@ -43,23 +43,17 @@ if (OS_IOS) {
 
 Ti.App.addEventListener("app:updateBeer", function(e) {
     theBeers.fetch();
-    
     var updatedData = theBeers.where({"alloy_id": args.alloy_id})[0].toJSON();
-    
-    $.BeerDetail.setTitle(updatedData.title);
-    
+    $.BeerDetail.setTitle(updatedData.name);
     var updatedStars = ratingStars.drawStars({
         rating: updatedData.rating,
         starHeight: 22,
         starWidth: 22
     });
-    
     $.ratingView.remove(theStars);
     $.ratingView.add(updatedStars);
-
     Alloy.Globals.mapLabelText($, updatedData);
-    
-    args = updatedStars;
+    args = updatedData;
 });
 
 
@@ -81,7 +75,7 @@ function viewImage() {
     var beerImage = Alloy.createController("BeerImage");
     beerImage.image.image = $.image.image;
     beerImageView = beerImage.getView();
-    Alloy.Globals.navGroupWin.openWindow(beerImageView);    
+    Alloy.Globals.mainTabGroup.getActiveTab().open(beerImageView);    
 }
 
 
@@ -92,9 +86,10 @@ function share() {
    var Social = require('dk.napp.social');
    
    var theImage = Alloy.Globals.getImage(args);
+   console.log(theImage);
    
    if (theImage) {
-       if (theImage.hasOwnProperty('getNativePath')) {
+       if (typeof theImage === "object") {
            theImagePath = theImage.getNativePath();
        } else {
            theImagePath = theImage;
@@ -113,7 +108,6 @@ function share() {
             type:"hello.world",
             image:"heart.png",
             callback: function(e) {
-                console.log("CALLBACK");
                 Ti.App.fireEvent("app:addToFavorites", {
                     args: args
                 });

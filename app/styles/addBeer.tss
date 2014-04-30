@@ -24,7 +24,9 @@
 "TextField" : {
     top: "5dp", bottom: "5dp",
     height: "35dp",
-    width: "200dp" 
+    width: "200dp",
+    tintColor: "#f8ac12",
+    font: { fontSize: "16dp" }
 },
 
 ".ratingButtons": {
@@ -42,32 +44,49 @@
     top: "18dp"
 }
 
-
-
-"#notesLabel": {
-    top: "20dp",
-    color: "#f8ac12"
+"#locationBox": {
+    width: "210dp",
+    height: Ti.UI.SIZE
 },
+"#locationLabel": {
+    color: "#c8c8ce",
+    top: "11dp", left: "4dp",
+    zIndex: 2,
+    font: { fontSize: "17dp" }    
+}
+"#location": {
+    borderColor: "#FFFFFF",
+    height: Ti.UI.SIZE,
+    scrollable: false,
+    font: { fontSize: "16dp" },
+    top: "5dp", bottom: "5dp",
+    width: "210dp",
+    tintColor: "#f8ac12"
+}
+"#use_gps": {
+    height: "28dp",
+    width: "50%",
+    top: "5dp",
+    font: { fontSize: "14dp" }
+},
+
+
+".textAreaLabel": {
+    top: "20dp",
+    color: "#888888",
+    font: { fontSize: "16dp" },
+    //width: "200dp"
+},
+
 "TextArea": {
     top: "10dp", bottom: "5dp",
     borderWidth: "1dp",
-    borderColor: "#ececec",
+    borderColor: "#888888",
     height: "80dp",
     width: "200dp",
     font: {
-        fontSize: "17dp"
+        fontSize: "15dp"
     }
-},
-
-"#locationBox": {
-    height: Ti.UI.SIZE
-},
-
-"#use_gps": {
-    height: "30dp",
-    width: "50%",
-    top: "52dp",
-    font: { fontSize: "14dp" }
 },
 
 "#addBeerButton" : {

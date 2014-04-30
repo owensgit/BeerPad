@@ -1,4 +1,27 @@
 
 ".container" : {
-  
+    layout: "vertical"
+}
+
+"#logo": {
+    top: "30dp",
+    left: "30dp"
+}
+"#text": {
+    top: "25dp",
+    width: "260dp",
+    color: "#444444",
+    font: { fontSize: "15dp" }
+}
+"#feedbackButton": {
+    top: "40dp",
+    width: "190dp",
+    height: "38dp",
+    font: { fontSize: "15dp" }
+}
+"#rateButton": {
+    top: "20dp",
+    width: "190dp",
+    height: "38dp",
+    font: { fontSize: "15dp" }
 }

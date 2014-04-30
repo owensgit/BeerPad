@@ -137,3 +137,6 @@
     width: "155dp",
     font: { fontSize: "14dp" }
 }
+".emptySecImage": {
+    top: "20dp"
+}

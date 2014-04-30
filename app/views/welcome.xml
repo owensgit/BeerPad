@@ -3,7 +3,7 @@
 	    <Button id="close" onClick="closeWelcome" class="modalOutline" titleid="welcome_skip_button" />
 	    <ScrollableView id="ScrollableView" showPagingControl="true" pagingControlColor="#f8ac12" pagingControlHeight="40dp">
 	       <View id="view1">
-	           <ImageView id="logo" image="logoHorizontal.png"></ImageView>
+	           <ImageView id="logo" image="logoHorizontalWhite.png" />
 	           <Label class="text" textid="welcome_slide1_text" />
 	           <ImageView id="image" image="welcome1.png" />
 	       </View> 

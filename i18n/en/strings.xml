@@ -13,14 +13,14 @@
     <string name="welcome_slide2_title">LESS THINKING,\n MORE DRINKING</string>
     <string name="welcome_slide2_text">Sort your beers by name, date, percentage, rating, brewery, kitchen sink and gorilla.</string>
     
-    <string name="welcome_slide3_title">FEELING KINDA \nWARM & FUZZY?</string>
-    <string name="welcome_slide3_text">Share that seasonal local brew with your friends using the power of the internet!</string>
+    <string name="welcome_slide3_title">TRIANGULATE YOUR \nLOCATION ON A MAP</string>
+    <string name="welcome_slide3_text">Use geo-location to track your beer journey on a map of the world!</string>
     
-    <string name="welcome_slide4_title">THE FIRST ROUND \nIS ON US!</string>
-    <string name="welcome_slide4_text">We've added a few examples to get your started, feel free to delete and add your own!</string>
+    <string name="welcome_slide4_title">ADD TO FAVOURTIES AND SHARE</string>
+    <string name="welcome_slide4_text">Keep a list of your favourite beers and share them with your friends using the power of the internet!</string>
     
-    <string name="welcome_slide5_title">NEW FEATURES \n COMING SOON</string>
-    <string name="welcome_slide5_text">There's heaps more features in the pipeline, so keep watching those updates!</string>
+    <string name="welcome_slide5_title">THE FIRST ROUND \nIS ON US!</string>
+    <string name="welcome_slide5_text">There's a few examples to get you started, feel free to delete and add your own!</string>
     
     <string name="welcome_finished_button">Get started</string>    
     
@@ -48,20 +48,21 @@
     <string name="delete_beer_title">Delete</string>
     <string name="delete_beer_message">Ready to say good bye to this beer?</string>
     <string name="delete_beer_yes">Do it!</string>
-    <string name="delete_beer_no">Cancel</string>
-    
-    
+    <string name="delete_beer_no">Cancel</string>   
     
     <!-- Favourite List -->
     <string name="fav_title">Favourties</string>
     <string name="fav_empty_title">NO FAVOURITES</string>
-    <string name="fav_empty_text">You don't have an favourite beers! Get to the pub, right now!</string>
+    <string name="fav_empty_text">You haven't added any favourite beers. To add one, tap on a beer in your list and use the share button:</string>
     
     <!-- Map View -->
     <string name="map_title">Your Beer Map</string>
     
     <!-- About -->
     <string name="about_title">About Beer Pad</string>
+    <string name="about_text">Beer Pad is a simple app that helps you to keep track of all those amazing beers and real ales. While sampling the tastes of local breweries anywhere in the world, take a photo and jot it down in your Beer Pad. And then get straight back to enjoying it.</string>
+    <string name="about_rate_btn">Rate in the App Store</string>
+    <string name="about_feedback_btn">Send feedback</string>
     
     
     <!-- Add or edit a beer -->

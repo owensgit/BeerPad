@@ -36,7 +36,7 @@
     width: "80%",
     textAlign: "center",
     font: {
-        fontSize: "18dp"
+        fontSize: "17dp"
     }
 }
 

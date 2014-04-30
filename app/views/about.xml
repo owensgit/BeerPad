@@ -1,5 +1,8 @@
 <Alloy>
     <Window titleid="about_title" class="container">
-
+        <ImageView id="logo" image="logoHorizontal.png"></ImageView>
+        <Label id="text" textid="about_text" />
+        <Button id="feedbackButton" onClick="sendFeedback" class="buttonOutline" titleid="about_feedback_btn" />
+        <Button id="rateButton" class="buttonOutline" titleid="about_rate_btn" />
     </Window>
 </Alloy>
