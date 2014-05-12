@@ -55,16 +55,14 @@ if (OS_IOS) {
             }
         });
         
-        setMarkersWithCenter(mapview, latitudes, longitudes);
+        setTimeout(function () {  setMarkersWithCenter(mapview, latitudes, longitudes); }, 300);
     }
     
     function setMarkersWithCenter(map,latiarray,longiarray) {
-        if (latiarray.length != longiarray.length) { return; }
-            
+        if (latiarray.length != longiarray.length) { return; }            
         var total_locations = latiarray.length;
         var minLongi = null, minLati = null, maxLongi = null, maxLati = null;
-        var totalLongi = 0.0, totalLati = 0.0;
-    
+        var totalLongi = 0.0, totalLati = 0.0;   
         for(var i = 0; i < total_locations; i++) {
             if(minLati == null || minLati > latiarray[i]) {
                 minLati = latiarray[i];
@@ -78,19 +76,19 @@ if (OS_IOS) {
             if(maxLongi == null || maxLongi < longiarray[i]) {
                 maxLongi = longiarray[i];
             }
-        }
-    
+        }    
         var ltDiff = maxLati-minLati;
         var lgDiff = maxLongi-minLongi;
         var delta = ltDiff>lgDiff ? ltDiff : lgDiff;
-        
+        delta = delta * 2 > 180 ? 180 : delta * 2;
+             
         if (total_locations>0 && delta>0) {
             map.setLocation({
                 animate : true,
                 latitude:((maxLati+minLati)/2),
                 longitude:((maxLongi+minLongi)/2),
-                latitudeDelta:delta*2,
-                longitudeDelta:delta*2,
+                latitudeDelta:delta,
+                longitudeDelta:delta,
             }); 
         }
     }
@@ -117,7 +115,7 @@ if (OS_IOS) {
     Ti.App.addEventListener("updatemap", function () {
         mapview.removeAllAnnotations();
         theBeers.fetch();
-        addPins(theBeers);    
+        addPins(theBeers);
     });
     
     theBeers.on("change add remove", function (e) {

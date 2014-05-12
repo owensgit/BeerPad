@@ -493,7 +493,7 @@ var OAuthAdapter = function(pConsumerSecret, pConsumerKey, pSignatureMethod) {
 			left : 10,
 			backgroundColor : "#52D3FE",
 			border : 10,
-			borderColor : "#f8ac12",
+			borderColor : Alloy.CFG.colour.background,
 			borderRadius : 0,
 			borderWidth : 0,
 			zIndex : -1
@@ -503,8 +503,8 @@ var OAuthAdapter = function(pConsumerSecret, pConsumerKey, pSignatureMethod) {
 				fontSize : 14,
 				fontWeight : "bold"
 			},
-			backgroundColor : "#f8ac12",
-			borderColor : "#f8ac12",
+			backgroundColor : Alloy.CFG.colour.background,
+			borderColor : Alloy.CFG.colour.background,
 			color : "#fff",
 			style : 0,
 			borderRadius: 0,

@@ -62,8 +62,8 @@
 
 "#toolbar": {
     color: "#000",
-    backgroundColor: "#f8ac12",
-    barColor: "#f8ac12"
+    backgroundColor: Alloy.CFG.colour.background,
+    barColor: Alloy.CFG.colour.background
 }
 
 "#spacer": {

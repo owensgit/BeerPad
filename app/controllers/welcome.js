@@ -12,4 +12,14 @@ $.welcome.addEventListener("close", function () {
 });
 
 
-
+/*$.ScrollableView.addEventListener("scroll", function (e) {
+   if (e.currentPage === 4) {
+       $.close.animate({
+           opacity: 0
+       });
+   } else {
+      $.close.animate({
+           opacity: 1
+       }); 
+   }
+});*/

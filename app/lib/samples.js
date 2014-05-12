@@ -24,7 +24,7 @@ var samples = [{
     name: "Hob Goblin",
     brewery: "Wychwood Brewery Company",
     percent: 4.3,
-    rating: 3,
+    rating: 4,
     establishment: "The White Lion",
     location: "Stretham Hill",
     notes: "Great, full falvoured ale with lots of character. Be careful with this one, it's got a pretty high percentage!",

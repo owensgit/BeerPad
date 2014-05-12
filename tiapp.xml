@@ -48,7 +48,7 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="iphone">dk.napp.social</module>
+        <module platform="ios">dk.napp.social</module>
         <module platform="iphone">ti.map</module>
     </modules>
     <deployment-targets>

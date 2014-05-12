@@ -3,32 +3,32 @@
 }
 ".container" : { 
    backgroundColor: 'white',
-   barColor: '#f8ac12',
-   tintColor: '#FFFFFF',
+   barColor: Alloy.CFG.colour.background,
+   tintColor: Alloy.CFG.colour.tint,
    backButtonTitle: 'Back',
    titleAttributes: {
-       color: '#FFFFFF'
+       color: Alloy.CFG.colour.tint
    }
 },
 
 "Button": {
-    color: "#f8ac12"
+    color: Alloy.CFG.colour.background
 },
 
 "TabGroup" : { 
    barColor: '#FFFFFF',
    tabsBackgroundColor: '#FFFFFF',
-   tintColor: '#FFFFFF',
-   tabsTintColor: '#f8ac12',
-   activeTabIconTint: '#f8ac12',
+   tintColor: Alloy.CFG.colour.tint,
+   tabsTintColor: Alloy.CFG.colour.tabsTint,
+   activeTabIconTint: Alloy.CFG.colour.tabsTint,
 },
 "Tab": {
     iconIsmask: "false",
-    tintColor: '#f8ac12',  
+    tintColor: Alloy.CFG.colour.tabsTint,  
 }
 
 "TableViewRow": {
-    selectedBackgroundColor: '#f8ac12',
+    selectedBackgroundColor: Alloy.CFG.colour.background,
     selectedColor: '#FFFFFF'
 },
 
@@ -46,7 +46,6 @@
 
 "#tableRowName": {
     top: "12dp",
-    //left: "73dp",
     left: "18dp",
     textAlign: 'left',
     font: {
@@ -62,7 +61,7 @@
 },
 
 "#secondaryLabel": {
-    color: "#aaaaaa",
+    color: Alloy.CFG.colour.grey,
     textAlign: 'left',
     left: "0dp",
     font: {
@@ -71,7 +70,7 @@
 }
 
 ".button": {
-    backgroundColor: '#f8ac12',
+    backgroundColor: Alloy.CFG.colour.background,
     color: '#FFFFFF',
     height: "60dp",
     width: "280dp",
@@ -79,7 +78,7 @@
 }
 
 ".buttonOutline": {
-    borderColor: "#f8ac12",
+    borderColor: Alloy.CFG.colour.background,
     borderWidth: "1dp",
     borderRadius: "3dp",
 }
@@ -100,11 +99,11 @@
 }
 
 "OptionDialog": {
-    color: "#f8ac12"
+    color: Alloy.CFG.colour.background
 }
 
 ".modalOutline" : {
-    borderColor: "#f8ac12",
+    borderColor: Alloy.CFG.colour.background,
     borderWidth: "1dp",
     borderRadius: "3dp",
     top: "30dp",
@@ -120,10 +119,10 @@
 ".emptySectionMessage": {
     layout: "vertical",
     height: Ti.UI.SIZE,
-    top: "50dp"
+    top: "30dp"
 }
 ".emptyTitle": {
-    color: "#a2a2a2",
+    color: Alloy.CFG.colour.grey,
     top: "10dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
     font: {
@@ -132,11 +131,11 @@
     }
 }
 ".emptyText": {
-    color: "#a2a2a2",
+    color: Alloy.CFG.colour.grey,
     top: "10dp",
     width: "155dp",
     font: { fontSize: "14dp" }
 }
 ".emptySecImage": {
-    top: "20dp"
+    top: "10dp"
 }

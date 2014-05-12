@@ -1,10 +1,11 @@
 
-".container" : {
-    backgroundColor: "#f8ac12",
+".container" : {    
+    backgroundColor: Alloy.CFG.colour.background,
 }
 
 "#ScrollableView": {
-    top: "50dp"
+    top: "50dp",
+    pagingControlColor: "transparent"
 }
 
 "#close": {
@@ -22,7 +23,7 @@
 }
 
 ".title": {
-    top: "20dp",
+    top: "22dp",
     width: "80%",
     textAlign: "center",
     font: {
@@ -31,13 +32,17 @@
     }
 }
 
+
 ".text": {
-    top: "130dp",
-    width: "80%",
+    top: "150dp",
+    width: "75%",
     textAlign: "center",
     font: {
         fontSize: "17dp"
     }
+}
+"#text1": {
+    top: "140dp",
 }
 
 "#image": {
@@ -48,21 +53,5 @@
     width: "60%",
     height: "50dp",
     top: "300dp"
-},
-
-".bullet": {
-    top: "225dp",
-    width: "80%",
-    height: Ti.UI.SIZE    
-}
-".bulletImage": {
-    width: "32dp",
-    height: "32dp",
-    top: "3dp",
-    left: "2dp"    
-}
-".bulletLabel": {
-    top: "0dp",
-    left: "42dp"    
 }
 

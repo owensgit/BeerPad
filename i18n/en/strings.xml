@@ -9,17 +9,18 @@
     
     <!-- Welcome Screens -->
     <string name="welcome_skip_button">Skip</string>
-    <string name="welcome_slide1_text">Never forget that delicious beer or ale again. Keep them all in your very own Beer Diary!</string>
-    <string name="welcome_slide2_title">LESS THINKING,\n MORE DRINKING</string>
-    <string name="welcome_slide2_text">Sort your beers by name, date, percentage, rating, brewery, kitchen sink and gorilla.</string>
+    <string name="welcome_slide1_text">Never forget that delicious beer or ale again. Keep them all in your very own Beer Pad!</string>
     
-    <string name="welcome_slide3_title">TRIANGULATE YOUR \nLOCATION ON A MAP</string>
-    <string name="welcome_slide3_text">Use geo-location to track your beer journey on a map of the world!</string>
+    <string name="welcome_slide2_title">YOUR PERSONAL\n BEER DIARY</string>
+    <string name="welcome_slide2_text">Add new beers when you try them and see your list grow.</string>
+        
+    <string name="welcome_slide3_title">TRACK YOUR BEERS\nON A MAP</string>
+    <string name="welcome_slide3_text">Add your current location to plot them on a map.</string>
     
     <string name="welcome_slide4_title">ADD TO FAVOURTIES AND SHARE</string>
-    <string name="welcome_slide4_text">Keep a list of your favourite beers and share them with your friends using the power of the internet!</string>
+    <string name="welcome_slide4_text">Share by email, Twitter and Facebook and add to favourites.</string>
     
-    <string name="welcome_slide5_title">THE FIRST ROUND \nIS ON US!</string>
+    <string name="welcome_slide5_title">READY?</string>
     <string name="welcome_slide5_text">There's a few examples to get you started, feel free to delete and add your own!</string>
     
     <string name="welcome_finished_button">Get started</string>    
@@ -53,7 +54,7 @@
     <!-- Favourite List -->
     <string name="fav_title">Favourties</string>
     <string name="fav_empty_title">NO FAVOURITES</string>
-    <string name="fav_empty_text">You haven't added any favourite beers. To add one, tap on a beer in your list and use the share button:</string>
+    <string name="fav_empty_text">To add a favourtie, tap on the share button when you're viewing a beer and hit "add to favourites":</string>
     
     <!-- Map View -->
     <string name="map_title">Your Beer Map</string>

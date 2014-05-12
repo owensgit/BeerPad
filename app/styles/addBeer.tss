@@ -8,7 +8,7 @@
 
 "#imageView": {
     top: "10dp", bottom: "5dp",
-    backgroundColor: "#f8ac12",
+    backgroundColor: Alloy.CFG.colour.background,
     height: "90dp", width: "90dp",
     borderRadius: "45dp"  
 },
@@ -25,7 +25,7 @@
     top: "5dp", bottom: "5dp",
     height: "35dp",
     width: "200dp",
-    tintColor: "#f8ac12",
+    tintColor: Alloy.CFG.colour.tabsTint,
     font: { fontSize: "16dp" }
 },
 
@@ -60,8 +60,7 @@
     scrollable: false,
     font: { fontSize: "16dp" },
     top: "5dp", bottom: "5dp",
-    width: "210dp",
-    tintColor: "#f8ac12"
+    width: "210dp"
 }
 "#use_gps": {
     height: "28dp",
@@ -79,6 +78,7 @@
 },
 
 "TextArea": {
+    tintColor: Alloy.CFG.colour.tabsTint,
     top: "10dp", bottom: "5dp",
     borderWidth: "1dp",
     borderColor: "#888888",

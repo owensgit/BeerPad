@@ -13,5 +13,11 @@
 	"os:blackberry": {},
 	"os:ios": {},
 	"os:mobileweb": {},
-	"dependencies": {}
+	"dependencies": {},
+	"colour": {
+	   "background": "#4da843",
+	   "tint": "#FFFFFF",
+	   "tabsTint": "#4da843",
+	   "grey": "#888888"
+	}
 }
