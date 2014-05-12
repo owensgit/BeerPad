@@ -17,8 +17,8 @@
     <string name="welcome_slide3_title">TRACK YOUR BEERS\nON A MAP</string>
     <string name="welcome_slide3_text">Add your current location to plot them on a map.</string>
     
-    <string name="welcome_slide4_title">ADD TO FAVOURTIES AND SHARE</string>
-    <string name="welcome_slide4_text">Share by email, Twitter and Facebook and add to favourites.</string>
+    <string name="welcome_slide4_title">ADD TO FAVOURITES AND SHARE</string>
+    <string name="welcome_slide4_text">Share by email, Twitter, Facebook and add to a favourites list.</string>
     
     <string name="welcome_slide5_title">READY?</string>
     <string name="welcome_slide5_text">There's a few examples to get you started, feel free to delete and add your own!</string>

@@ -80,8 +80,7 @@ if (OS_IOS) {
         var ltDiff = maxLati-minLati;
         var lgDiff = maxLongi-minLongi;
         var delta = ltDiff>lgDiff ? ltDiff : lgDiff;
-        delta = delta * 2 > 180 ? 180 : delta * 2;
-             
+        delta = delta * 2 > 180 ? 180 : delta * 2;      
         if (total_locations>0 && delta>0) {
             map.setLocation({
                 animate : true,
