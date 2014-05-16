@@ -5,7 +5,10 @@ theBeers.fetch();
 
 if (!_.isEmpty(theBeers.where({favourite: 1 }))) {
     $.favTable.visible = true;
+} else {
+    $.favTable.visible = false;    
 }
+
 theBeers.on("change", function () {
     if (_.isEmpty(theBeers.where({favourite: 1 }))) {
         Ti.App.fireEvent("toggleFavTable", { visible: false });        
@@ -55,8 +58,8 @@ sortButton.addEventListener("click", function(event) {
 
 $.favTable.addEventListener("delete", function(event) {
    setTimeout(function () {
-       var beersCollection = Alloy.Collections.beers;
-       var beer = beersCollection.get(event.rowData.alloy_id);
-       beer.destroy();
+       Ti.App.fireEvent("app:addToFavorites", {
+            args: args
+        });
    }, 500);
 });
