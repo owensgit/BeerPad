@@ -144,7 +144,10 @@ $.addBeerButton.addEventListener("click", function () {
     // saving of the beer
     
     if (args.edit) {
-        editBeer.set(mapArgs());
+        var updatedArgs = mapArgs();
+        editBeer.set(updatedArgs);
+        Ti.App.fireEvent("app:updateBeer", { data: updatedArgs });
+        
         editBeer.save();
         
         if (theImage) {
@@ -161,10 +164,6 @@ $.addBeerButton.addEventListener("click", function () {
     }
     
     this.touchEnabled = true;
-    
-    if (args.edit) {
-        Ti.App.fireEvent("app:updateBeer");
-    }
     
     $.addBeerWin.close();
     
