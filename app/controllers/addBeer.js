@@ -102,6 +102,8 @@ $.addBeerButton.addEventListener("click", function () {
     
     this.touchEnabled = false;
     
+    // validation...
+    
     if (!$.name.value) {
         var dialog = Ti.UI.createAlertDialog({
             title: L('add_error_forgot_name_title'),
@@ -130,6 +132,8 @@ $.addBeerButton.addEventListener("click", function () {
         return;    
     }
     
+    // temporary overlay while beer is saved to database...
+    
     var loadingView = Ti.UI.createView({
         backgroundColor: "rgba(255,255,255,0.6)",
         opacity: 0
@@ -137,10 +141,11 @@ $.addBeerButton.addEventListener("click", function () {
     $.addBeerWin.add(loadingView);
     loadingView.animate({ opacity: 1, duration: 400 });
     
+    // saving of the beer
+    
     if (args.edit) {
         editBeer.set(mapArgs());
         editBeer.save();
-        Ti.App.fireEvent("app:updateBeer");
         
         if (theImage) {
             Alloy.Globals.saveImage(editBeer.get('alloy_id'), theImage);
@@ -156,6 +161,11 @@ $.addBeerButton.addEventListener("click", function () {
     }
     
     this.touchEnabled = true;
+    
+    if (args.edit) {
+        Ti.App.fireEvent("app:updateBeer");
+    }
+    
     $.addBeerWin.close();
     
 });

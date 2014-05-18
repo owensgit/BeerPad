@@ -11,12 +11,12 @@
           <View id="ratingView" height="30dp"></View>
               
           <View class="iconItem">
-            <ImageView class="icon" id="locationIcon" image="building.png" />
+            <ImageView class="icon" id="buildingIcon" image="building.png" />
             <Label class="iconTitle" id="pub" />
           </View>
           
           <View class="iconItem">
-            <ImageView class="icon" id="buildingIcon" image="location.png" />
+            <ImageView class="icon" id="locationIcon" image="location.png" />
             <Label class="iconTitle" id="location" />
           </View>
           
