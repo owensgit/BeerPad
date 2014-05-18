@@ -50,7 +50,7 @@ Ti.App.addEventListener("app:updateBeer", function(e) {
         starHeight: 22,
         starWidth: 22
     });
-    $.ratingView.remove(theStars);
+    if (theStars) { $.ratingView.remove(theStars); theStars = null; };
     $.ratingView.add(updatedStars);
     Alloy.Globals.mapLabelText($, updatedData);
     args = updatedData;
