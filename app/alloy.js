@@ -167,6 +167,8 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
     return filterDialog;
 };
 
+
+
 Alloy.Globals.addToFavourites = function (alloy_id) {
     console.log("Event fired add to favourites");
     var beerCollection = Alloy.Collections.beers;
@@ -175,6 +177,8 @@ Alloy.Globals.addToFavourites = function (alloy_id) {
     theBeer.set({favourite: 1});
     theBeer.save();  
 };
+
+
 
 Ti.App.addEventListener("app:addToFavorites", function (e) {
     //console.log("e.args.favourite", e.args.favourite);
@@ -195,6 +199,7 @@ Ti.App.addEventListener("app:addToFavorites", function (e) {
 // Set of defaults to load if no current data is present
 
 var sample_beers = require("samples");
+
 
 
 // If no current data is present, load up the default data
