@@ -181,11 +181,12 @@ Alloy.Globals.addToFavourites = function (alloy_id) {
 
 
 Ti.App.addEventListener("app:addToFavorites", function (e) {
-    //console.log("e.args.favourite", e.args.favourite);
+    console.log("e.args.favourite", e.args.favourite);
+    console.log("e.args.alloy_id", e.args.alloy_id);
     var theBeers = Alloy.Collections.beers;
     
     var beer = theBeers.where({"alloy_id": e.args.alloy_id})[0];
-    console.log(beer.toJSON());
+    
     if (e.args.favourite === 1) {
         beer.set({favourite: 0});    
     } else {

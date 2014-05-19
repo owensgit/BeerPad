@@ -57,9 +57,17 @@ sortButton.addEventListener("click", function(event) {
 });
 
 $.favTable.addEventListener("delete", function(event) {
-   setTimeout(function () {
-       Ti.App.fireEvent("app:addToFavorites", {
-            args: args
-        });
-   }, 500);
+   var favourites = theBeers.where({favourite: 1 });
+   var args = {
+        favourite: 1,
+        alloy_id: event.rowData.alloy_id
+   };
+   if (favourites.length === 1) {
+     Ti.App.fireEvent("app:addToFavorites", { args: args });   
+   } else {
+     setTimeout(function () {   
+       Ti.App.fireEvent("app:addToFavorites", { args: args });
+     }, 400);    
+   };
+   
 });
