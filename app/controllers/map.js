@@ -119,11 +119,10 @@ if (OS_IOS) {
     
     theBeers.on("change add remove", function (e) {
         //console.log("Map view: change, add event fired");
-        Ti.App.fireEvent("updatemap");  
+        Alloy.Globals.waitForFinalEvent(function () {   
+            Ti.App.fireEvent("updatemap");  
+        }, 300, "Update the map");
     });
-    
-    
-    
     
     var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
     $.map.setRightNavButton(addButton);
