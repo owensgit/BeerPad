@@ -150,6 +150,7 @@ $.addBeerButton.addEventListener("click", function () {
         if (theImage) {
             Alloy.Globals.saveImage(editBeer.get('alloy_id'), theImage);
         } 
+        Ti.App.fireEvent("app:updateBeer");
     } else {
         var beer = Alloy.createModel('beers', mapArgs());
         beer.save();           
@@ -161,10 +162,6 @@ $.addBeerButton.addEventListener("click", function () {
     }
     
     this.touchEnabled = true;
-    
-    if (args.edit) {
-        Ti.App.fireEvent("app:updateBeer");
-    }
     
     $.addBeerWin.close();
     
