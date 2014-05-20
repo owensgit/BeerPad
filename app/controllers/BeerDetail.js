@@ -42,7 +42,7 @@ if (OS_IOS) {
 
 Ti.App.addEventListener("app:updateBeer", function(event) {
     theBeers.fetch();
-    var updatedData = theBeers.where({"alloy_id": args.alloy_id})[0].toJSON();
+    var updatedData = event.data;
     $.BeerDetail.setTitle(updatedData.name);
     var updatedStars = ratingStars.drawStars({
         rating: updatedData.rating,

@@ -7,3 +7,4 @@ Resources
 npm-debug.log
 tmp
 .map
+.settings/com.appcelerator.titanium.ios.core.prefs
