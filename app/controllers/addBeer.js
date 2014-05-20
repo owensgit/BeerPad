@@ -68,7 +68,7 @@ function mapArgs() {
     }
     
     if ($.location.value === "") {
-        console.log("Location removed");
+        console.log("Location, latitude and longitude set to null, while adding/editing a beer");
         args.latitude = null;
         args.longitude = null;
         args.location = null;
