@@ -10,6 +10,8 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
+var utils = require("utils");
+
 var theBeers = Alloy.createCollection("beers");
 theBeers.fetch();
 
@@ -207,11 +209,7 @@ var sample_beers = require("samples");
 
 if (_.isEmpty(theBeers.toJSON())) {
     _.each(sample_beers, function (item) {
-        var date = new Date(parseInt(item.date, 10));  
-        var thisYear = new Date().getFullYear();
-        var date_string = date.toDateString();
-        if (date.getFullYear() === thisYear) date_string = date_string.substring(0, date_string.length - 5);
-        item.date_string = date_string;
+        item.date_string = utils.parseDateStringFromEpoch(item.date);
         var beer = Alloy.createModel('beers', item);
         theBeers.add(beer);    
         beer.save();

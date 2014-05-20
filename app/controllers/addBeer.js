@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
+var utils = require("utils");
 
 
 // Array of Star Images for use in applyRating() below
@@ -71,6 +72,14 @@ function mapArgs() {
         args.latitude = null;
         args.longitude = null;
         args.location = null;
+    }
+    
+    if (!args.date) {
+        var now = new Date();
+        var now_hours = now.getHours();
+        var now_epoch = Math.floor(now.setUTCHours(now_hours));
+        args.date = now_epoch; 
+        args.date_string = utils.parseDateStringFromEpoch(now_epoch);
     }
 
     return args;
