@@ -15,7 +15,7 @@ theBeers.fetch();
 
 Alloy.Globals.beerListSecondaryValue = 'brewery';
 
-Alloy.Globals.mapLabelText = function($, args) { 
+Alloy.Globals.mapLabelText = function($, args, shouldSetImage) { 
 
     $.name.text = args.name.toUpperCase();
     
@@ -32,8 +32,8 @@ Alloy.Globals.mapLabelText = function($, args) {
     
     var theImage = Alloy.Globals.getImage(args);
     
-    if (theImage) {
-        $.image.image = theImage;   
+    if (theImage && shouldSetImage) {
+        $.image.setImage(theImage);   
     }
 
     if (!args.establishment) {

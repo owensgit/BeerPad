@@ -58,6 +58,16 @@ sortButton.addEventListener("click", function(event) {
 
 $.favTable.addEventListener("delete", function(event) {
    var favourites = theBeers.where({favourite: 1 });
+   
+   if (!Ti.App.Properties.getString('seenDeleteFromFavouritesMessage')) { 
+       var dialog = Ti.UI.createAlertDialog({
+            title: L('fav_delete_alert_title'),
+            message: L('fav_delete_alert_msg'),
+            ok: L('fav_delete_alert_ok'),
+        }).show();
+       Ti.App.Properties.setString('seenDeleteFromFavouritesMessage', true);
+   }
+   
    var args = {
         favourite: 1,
         alloy_id: event.rowData.alloy_id

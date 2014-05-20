@@ -16,8 +16,7 @@ var date = new Date(args.date);
 
 $.BeerDetail.setTitle(args.name);
 
-Alloy.Globals.mapLabelText($, args);
-
+Alloy.Globals.mapLabelText($, args, true);
 
 
 // Navigation Bar Button
@@ -41,7 +40,7 @@ if (OS_IOS) {
 
 // Update Beer after edit event fired in addBeer.js
 
-Ti.App.addEventListener("app:updateBeer", function(e) {
+Ti.App.addEventListener("app:updateBeer", function(event) {
     theBeers.fetch();
     var updatedData = theBeers.where({"alloy_id": args.alloy_id})[0].toJSON();
     $.BeerDetail.setTitle(updatedData.name);
@@ -51,8 +50,10 @@ Ti.App.addEventListener("app:updateBeer", function(e) {
         starWidth: 22
     });
     if (theStars) { $.ratingView.remove(theStars); theStars = null; };
-    $.ratingView.add(updatedStars);
-    Alloy.Globals.mapLabelText($, updatedData);
+    theStars = updatedStars;
+    $.ratingView.add(theStars);
+    
+    Alloy.Globals.mapLabelText($, updatedData, event.shouldSetImage);
     args = updatedData;
 });
 

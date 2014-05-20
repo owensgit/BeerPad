@@ -149,8 +149,11 @@ $.addBeerButton.addEventListener("click", function () {
         
         if (theImage) {
             Alloy.Globals.saveImage(editBeer.get('alloy_id'), theImage);
-        } 
-        Ti.App.fireEvent("app:updateBeer");
+            theImage = null;
+            Ti.App.fireEvent("app:updateBeer", { shouldSetImage: true });
+        } else {
+            Ti.App.fireEvent("app:updateBeer", { shouldSetImage: false });    
+        }       
     } else {
         var beer = Alloy.createModel('beers', mapArgs());
         beer.save();           
@@ -158,6 +161,7 @@ $.addBeerButton.addEventListener("click", function () {
         
         if (theImage) {
             Alloy.Globals.saveImage(beer.get('alloy_id'), theImage);  
+            theImage = null;
         }        
     }
     
