@@ -54,9 +54,9 @@
     <!-- Favourite List -->
     <string name="fav_title">Favourties</string>
     <string name="fav_empty_title">NO FAVOURITES</string>
-    <string name="fav_empty_text">To add a favourtie, tap on the share button when you're viewing a beer and hit "add to favourites":</string>
+    <string name="fav_empty_text">Add a favourtie when you're viewing your beer info, hit share and then "add to favourites"</string>
     <string name="fav_delete_alert_title">Favourite removed!</string>
-    <string name="fav_delete_alert_msg">It wasn't deleted from your device, just from this list.</string>
+    <string name="fav_delete_alert_msg">It wasn't deleted from your \ndevice, just from this list.</string>
     <string name="fav_delete_alert_ok">Okay, got it!</string>
     
     <!-- Map View -->

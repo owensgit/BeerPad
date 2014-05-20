@@ -11,7 +11,9 @@
 	"env:production": {}, 
 	"os:android": {},
 	"os:blackberry": {},
-	"os:ios": {},
+	"os:ios": {
+	   "app_store_url": "itms://itunes.apple.com/us/app/beer-pad/id877781786?ls=1&mt=8"
+	},
 	"os:mobileweb": {},
 	"dependencies": {},
 	"colour": {

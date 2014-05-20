@@ -137,5 +137,5 @@
     font: { fontSize: "14dp" }
 }
 ".emptySecImage": {
-    top: "10dp"
+    top: "15dp"
 }
