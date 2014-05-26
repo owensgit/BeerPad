@@ -19,6 +19,18 @@ var samples = [/*{
     location: "Streatham Hill",
     notes: "Dark, robust and full of character with currant flavours. Deep ruby appearnce.",
     beer_image: "sample_redcurrantstout.jpg"
+}, {
+    date: "1396815002000",
+    name: "Doom Bar",
+    brewery: "Sharps",
+    rating: 4,
+    percent: 4,
+    establishment: "The Quadrant",
+    location: "Brighton",
+    notes: "Nice balance of hoppy, malty and bitter tastes. Available nearly everywhere near Cornwall.",
+    beer_image: "sample_doombar.jpg",
+    latitude: 50.8271942,
+    longitude: -0.1416676
 }/*, {
     date: "1393537283743",
     name: "Hob Goblin",
@@ -29,18 +41,6 @@ var samples = [/*{
     location: "Stretham Hill",
     notes: "Great, full falvoured ale with lots of character. Strong and bitter hoppy taste with hint of dark fruits.",
     beer_image: "sample_hobgoblin.jpg"
-}, {
-    date: "1396815002000",
-    name: "Doom Bar",
-    brewery: "Sharps",
-    rating: 4,
-    percent: 4,
-    establishment: "The Quadrant",
-    location: "Brighton, UK",
-    notes: "Nice balance of hoppy, malty and bitter tastes. Available nearly everywhere near Cornwall.",
-    beer_image: "sample_doombar.jpg",
-    latitude: 50.8271942,
-    longitude: -0.1416676
 }*/];
 
 module.exports = samples;
