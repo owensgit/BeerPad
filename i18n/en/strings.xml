@@ -5,7 +5,7 @@
 <resources>
     <!-- App Name -->
     <string name="app_name">Beer Pad</string>
-    <string name="app_version">1.0</string>
+    <string name="app_version">1.0.1</string>
     
     <!-- Welcome Screens -->
     <string name="welcome_skip_button">Skip</string>
@@ -52,7 +52,7 @@
     <string name="delete_beer_no">Cancel</string>   
     
     <!-- Favourite List -->
-    <string name="fav_title">Favourties</string>
+    <string name="fav_title">Favourites</string>
     <string name="fav_empty_title">NO FAVOURITES</string>
     <string name="fav_empty_text">Add a favourtie when you're viewing your beer info, hit share and then "add to favourites"</string>
     <string name="fav_delete_alert_title">Favourite removed!</string>

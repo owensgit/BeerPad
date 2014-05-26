@@ -13,6 +13,14 @@ var utils = (function() {
         }
     };
     
+    methods.updateObjectWithObject = function(obj1, obj2) {
+        for (key in obj2) {
+            if (obj2.hasOwnProperty(key)) {
+                obj1[key] = obj2[key];
+            }
+        }
+    };
+    
     methods.parseDateStringFromEpoch= function(date_epoch) {
         var date = new Date(parseInt(date_epoch, 10));  
         var thisYear = new Date().getFullYear();

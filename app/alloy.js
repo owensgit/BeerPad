@@ -17,6 +17,7 @@ theBeers.fetch();
 
 Alloy.Globals.beerListSecondaryValue = 'brewery';
 
+
 Alloy.Globals.mapLabelText = function($, args, shouldSetImage) { 
 
     $.name.text = args.name.toUpperCase();
@@ -33,7 +34,7 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
     $.notes.text = args.notes;
     
     var theImage = Alloy.Globals.getImage(args);
-    
+
     if (theImage && shouldSetImage) {
         $.image.setImage(theImage);   
     }
@@ -48,6 +49,7 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
     }
 };
 
+
 Alloy.Globals.getImage = function(args) {
     var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, args.alloy_id + '.jpg');  
     var fileSystemImage = f.read();  
@@ -61,10 +63,12 @@ Alloy.Globals.getImage = function(args) {
     }
 };
 
+
 Alloy.Globals.saveImage = function(alloy_id, theImage) {
     var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, alloy_id + '.jpg');
     f.write(theImage);  
 };
+
 
 Alloy.Globals.openBeerDetails = function (event, collection, target) {
     var selectedBeer = event.row;
@@ -81,6 +85,7 @@ Alloy.Globals.openBeerDetails = function (event, collection, target) {
     
     Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });      
 };
+
 
 Alloy.Globals.beerListTransform = function(modal) {
         
@@ -109,6 +114,7 @@ Alloy.Globals.beerListTransform = function(modal) {
     }    
     return result;
 };
+
 
 Alloy.Globals.returnSortingDialog = function (theBeers) {
     var opts = [

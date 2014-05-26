@@ -68,7 +68,6 @@ function mapArgs() {
     }
     
     if ($.location.value === "") {
-        console.log("Location, latitude and longitude set to null, while adding/editing a beer");
         args.latitude = null;
         args.longitude = null;
         args.location = null;
@@ -153,19 +152,19 @@ $.addBeerButton.addEventListener("click", function () {
     // saving of the beer
     
     if (args.edit) {
-        var updatedArgs = mapArgs();
-        editBeer.set(updatedArgs);
-        Ti.App.fireEvent("app:updateBeer", { data: updatedArgs });
-        
+        var updatedData = mapArgs();
+        editBeer.set(updatedData);
+        var shouldSetImage = theImage ? true : false;
         editBeer.save();
         
         if (theImage) {
             Alloy.Globals.saveImage(editBeer.get('alloy_id'), theImage);
-            theImage = null;
-            Ti.App.fireEvent("app:updateBeer", { shouldSetImage: true });
-        } else {
-            Ti.App.fireEvent("app:updateBeer", { shouldSetImage: false });    
-        }       
+        }
+
+        Ti.App.fireEvent("app:updateBeer", { 
+            updatedData: updatedData,
+            shouldSetImage: shouldSetImage 
+        });           
     } else {
         var beer = Alloy.createModel('beers', mapArgs());
         beer.save();           

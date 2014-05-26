@@ -1,4 +1,5 @@
 var ratingStars = require('ratingStars');
+var utils = require('utils');
 
 var args = arguments[0] || {};
 
@@ -42,19 +43,22 @@ if (OS_IOS) {
 
 Ti.App.addEventListener("app:updateBeer", function(event) {
     theBeers.fetch();
-    var updatedData = event.data;
-    $.BeerDetail.setTitle(updatedData.name);
+    
+    utils.updateObjectWithObject(args, event.updatedData);
+    
+    $.BeerDetail.setTitle(args.name);
+    
     var updatedStars = ratingStars.drawStars({
-        rating: updatedData.rating,
+        rating: args.rating,
         starHeight: 22,
         starWidth: 22
     });
     if (theStars) { $.ratingView.remove(theStars); theStars = null; };
     theStars = updatedStars;
-    $.ratingView.add(theStars);
     
-    Alloy.Globals.mapLabelText($, updatedData, event.shouldSetImage);
-    args = updatedData;
+    $.ratingView.add(theStars);
+       
+    Alloy.Globals.mapLabelText($, args, event.shouldSetImage);
 });
 
 
