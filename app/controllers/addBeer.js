@@ -270,37 +270,30 @@ function useGPS() {
 
         Titanium.Geolocation.getCurrentPosition(function(e) {           
             if (e.error) {
-                Ti.API.error('Error: ' + e.error);
                 alert(L("location_services_error"));
-                activityIndicator.hide();
             } else {               
                 coords = e.coords; 
                 Ti.Geolocation.reverseGeocoder(e.coords.latitude, e.coords.longitude, function (e) {
                     if (e.error) {
-                        alert(L("location_services_error"));   
-                        activityIndicator.hide();
+                        alert(L("location_services_error"));
                         return;
                     }
                     if (e.places) {
-                        activityIndicator.hide();
                         var p = e.places[0];
-                        $.location.height = Ti.UI.SIZE;
                         $.location.value = p.street + ", " + p.city + ", " + p.country;
                         $.location.height = Ti.UI.SIZE;
                         $.locationLabel.hide();
                     } else {
                         alert(L("location_services_not_found"));
-                        activityIndicator.hide();
                     }
-                });    
-                $.location.touchEnabled = true;      
-            }           
-        });
-        
+                });      
+            } 
+            $.location.touchEnabled = true;
+            activityIndicator.hide();          
+        });       
     } else {
         alert(L("location_services_disabled"));
-    }   
-    
+    }
 }
 
 
