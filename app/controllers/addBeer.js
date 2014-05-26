@@ -86,23 +86,6 @@ function mapArgs() {
 
 
 
-// Percentage validation functions for use in Add Beer Function
-
-function percentNotANumber(percent) {
-    var regEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
-    var percent = $.percent.value.replace(/%$/, "");
-    if (percent.match(regEx) === null && percent != "") {
-        return true;
-    }
-}
-function percentNotValid(percent) {
-    var percent = parseInt(percent.replace(/%$/, ""), 10);
-    if (percent > 100) {
-        return true;
-    }
-}
-
-
 
 // Add Beer Function
 
@@ -121,23 +104,10 @@ $.addBeerButton.addEventListener("click", function () {
         this.touchEnabled = true;
         return;
     }
-    if (percentNotANumber($.percent.value)) {
-        var dialog = Ti.UI.createAlertDialog({
-            title: L('add_error_percent_not_num_title'),
-            message: L('add_error_percent_not_num_msg'),
-            ok: L('add_error_percent_not_num_ok')
-        }).show();
+    
+    if (utils.perentageIsValid($.percent.value) === false) {
         this.touchEnabled = true;
-        return;    
-    }
-    if (percentNotValid($.percent.value)) {
-        var dialog = Ti.UI.createAlertDialog({
-            title: L('add_error_percent_too_high_title'),
-            message: L('add_error_percent_too_high_msg'),
-            ok: L('add_error_percent_too_high_ok'),
-        }).show();
-        this.touchEnabled = true;
-        return;    
+        return;
     }
     
     // temporary overlay while beer is saved to database...
@@ -330,6 +300,7 @@ function showHideLocationLabel() {
     }    
 }
 showHideLocationLabel();
+
 $.location.addEventListener("change", function () {
     showHideLocationLabel();
 });
@@ -337,7 +308,6 @@ $.location.addEventListener("change", function () {
 $.addBeerWin.addEventListener("close", function() {
     $.destroy();
 });
-
 
 $.close.addEventListener("click", function () {
     $.addBeerWin.close();
