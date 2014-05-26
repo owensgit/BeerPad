@@ -1,4 +1,4 @@
-var samples = [{
+var samples = [/*{
     date: "1391377283743",
     name: "London Pride",
     brewery: "Fullers",
@@ -9,7 +9,7 @@ var samples = [{
     notes: "Easy drinking English Pale Ale, smooth biscuit malt flavor and mildly hoppy.",
     latitude: 51.4960424,
     longitude: -0.2205062
-}, {
+}, */{
     date: "1392068483743",
     name: "Red Currant Stout",
     brewery: "Clarence & Fredericks",
@@ -17,9 +17,9 @@ var samples = [{
     rating: 5,
     establishment: "Prats & Payne",
     location: "Streatham Hill",
-    notes: "Dark, robust and full of flavour with currant flavours. Quite strong and heavy, so perhaps better to drink by the half.",
+    notes: "Dark, robust and full of character with currant flavours. Deep ruby appearnce.",
     beer_image: "sample_redcurrantstout.jpg"
-}, {
+}/*, {
     date: "1393537283743",
     name: "Hob Goblin",
     brewery: "Wychwood Brewery Company",
@@ -41,6 +41,6 @@ var samples = [{
     beer_image: "sample_doombar.jpg",
     latitude: 50.8271942,
     longitude: -0.1416676
-}];
+}*/];
 
 module.exports = samples;
