@@ -1,3 +1,5 @@
+var utils = require("utils");
+
 var args = arguments[0] || {};
 
 var theBeers = Alloy.Collections.beers;
@@ -5,12 +7,6 @@ var theBeers = Alloy.Collections.beers;
 if (OS_IOS) {
 
     var Map = require('ti.map');
-    
-    function goToBeer(alloy_id) {
-        var args = theBeers.where({alloy_id: alloy_id })[0].toJSON();
-        var view = Alloy.createController("BeerDetail", args).getView();    
-        Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });    
-    }
     
     var longitudes = [];
     var latitudes = [];
@@ -99,7 +95,7 @@ if (OS_IOS) {
         });
         mapview.addEventListener('click', function(e) {
             if (e.clicksource === "rightButton") {
-                goToBeer(e.annotation.beerId);    
+                utils.goToBeer(e.annotation.beerId);    
             }
         });
         theBeers.fetch();

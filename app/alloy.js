@@ -70,23 +70,6 @@ Alloy.Globals.saveImage = function(alloy_id, theImage) {
 };
 
 
-Alloy.Globals.openBeerDetails = function (event, collection, target) {
-    var selectedBeer = event.row;
-      
-    var args = {};
-    
-    _.each(selectedBeer, function(value, key) {
-       args[key] = value; // store all info to pass to the view
-    });
-    
-    args.model = collection.get(event.row.alloy_id);
-    
-    var view = Alloy.createController("BeerDetail", args).getView();
-    
-    Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });      
-};
-
-
 Alloy.Globals.beerListTransform = function(modal) {
         
     var result = modal.toJSON();  

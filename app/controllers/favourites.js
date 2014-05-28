@@ -1,3 +1,5 @@
+var utils = require("utils");
+
 var args = arguments[0] || {};
 
 var theBeers = Alloy.Collections.beers;
@@ -22,7 +24,7 @@ Ti.App.addEventListener("toggleFavTable", function (e) {
 });
 
 $.favTable.addEventListener("click", function(event) {
-    Alloy.Globals.openBeerDetails(event, theBeers);
+    utils.goToBeerFromTable(event, theBeers);
 });
 
 function transformFunction(modal) {

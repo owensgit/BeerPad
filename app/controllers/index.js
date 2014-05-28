@@ -1,3 +1,5 @@
+var utils = require("utils");
+
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
@@ -5,7 +7,7 @@ Alloy.Globals.mainTabGroup = $.mainTabGroup;
 
 
 $.beersTable.addEventListener("click", function(event) {
-    Alloy.Globals.openBeerDetails(event, theBeers, $.tab1);
+    utils.goToBeerFromTable(event, theBeers);
 });
 
 function transformFunction(modal) {

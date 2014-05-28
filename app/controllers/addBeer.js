@@ -237,12 +237,14 @@ function useGPS() {
 
         Titanium.Geolocation.getCurrentPosition(function(e) {           
             if (e.error) {
-                alert(L("location_services_error"));
+                activityIndicator.hide(); $.location.touchEnabled = true;
+                alert(L("location_services_error")); 
             } else {               
                 coords = e.coords; 
                 Ti.Geolocation.reverseGeocoder(e.coords.latitude, e.coords.longitude, function (e) {
                     if (e.error) {
                         alert(L("location_services_error"));
+                        activityIndicator.hide(); $.location.touchEnabled = true;
                         return;
                     }
                     if (e.places) {
@@ -250,15 +252,16 @@ function useGPS() {
                         $.location.value = p.street + ", " + p.city + ", " + p.country;
                         $.location.height = Ti.UI.SIZE;
                         $.locationLabel.hide();
+                        activityIndicator.hide(); $.location.touchEnabled = true;
                     } else {
+                        activityIndicator.hide(); $.location.touchEnabled = true;
                         alert(L("location_services_not_found"));
                     }
                 });      
-            } 
-            $.location.touchEnabled = true;
-            activityIndicator.hide();          
+            }           
         });       
     } else {
+        activityIndicator.hide(); $.location.touchEnabled = true;
         alert(L("location_services_disabled"));
     }
 }

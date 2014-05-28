@@ -3,6 +3,28 @@ var Alloy = require('alloy'), _ = require("alloy/underscore")._, Backbone = requ
 var utils = (function() {
     var methods = {};
     
+    methods.goToBeer = function (alloy_id) {
+        var args = theBeers.where({alloy_id: alloy_id })[0].toJSON();
+        var view = Alloy.createController("BeerDetail", args).getView();    
+        Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });    
+    };
+    
+    methods.goToBeerFromTable = function (event, collection) {
+        var selectedBeer = event.row;
+      
+        var args = {};
+        
+        _.each(selectedBeer, function(value, key) {
+           args[key] = value; // store all info to pass to the view
+        });
+        
+        args.model = collection.get(event.row.alloy_id);
+        
+        var view = Alloy.createController("BeerDetail", args).getView();
+        
+        Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });    
+    };
+     
     methods.constructTweet = function (args) {
         var string = "Tried this beer called " + args.name + ",";
         if (args.brewery) {
