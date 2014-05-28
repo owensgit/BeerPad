@@ -111,13 +111,10 @@ $.addBeerButton.addEventListener("click", function () {
     }
     
     // temporary overlay while beer is saved to database...
-    
-    var loadingView = Ti.UI.createView({
-        backgroundColor: "rgba(255,255,255,0.6)",
-        opacity: 0
-    });   
+    var loadingView = Ti.UI.createView({ backgroundColor: "rgba(255,255,255,0.6)", opacity: 0 });   
     $.addBeerWin.add(loadingView);
     loadingView.animate({ opacity: 1, duration: 400 });
+    
     
     // saving of the beer
     
@@ -267,7 +264,14 @@ function useGPS() {
 }
 
 
+/*function forwardGeocode(query) {
+    
+    Titanium.Geolocation.forwardGeocoder(query, function (e) {
+        console.log(e);
+    });   
+}
 
+forwardGeocode("2 Blakemore Road");*/
 
 
 // Rating

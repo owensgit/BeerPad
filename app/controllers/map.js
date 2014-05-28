@@ -21,17 +21,15 @@ if (OS_IOS) {
     function addPins(collection) { ;   
         longitudes = [];
         latitudes = [];  
-        _.each(collection.toJSON(), function (item) {      
-            if (item.latitude && item.longitude) {
-                
+        _.each(collection.toJSON(), function (item) { 
+                 
+            if (item.latitude && item.longitude) {  
                 longitudes.push(item.longitude);
                 latitudes.push(item.latitude);
                 
                 var image = Alloy.Globals.getImage(item);
     
-                var buttonView = Ti.UI.createView({
-                    height: "40dp", width: "40dp"    
-                });
+                var buttonView = Ti.UI.createView({ height: "40dp", width: "40dp" });
                 
                 var annotation = Map.createAnnotation({
                     latitude: item.latitude,
@@ -118,7 +116,6 @@ if (OS_IOS) {
     });
     
     theBeers.on("change add remove", function (e) {
-        //console.log("Map view: change, add event fired");
         Alloy.Globals.waitForFinalEvent(function () {   
             Ti.App.fireEvent("updatemap");  
         }, 300, "Update the map");
