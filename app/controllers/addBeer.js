@@ -52,7 +52,7 @@ var rating;
 // Func to map args to modal
 
 function mapArgs() {
-    args = {
+    var newArgs = {
         name: $.name.value,
         brewery: $.brewery.value,
         rating: rating, // set by applyRating() func below
@@ -63,25 +63,25 @@ function mapArgs() {
     };
 
     if (coords) {
-        args.latitude = coords.latitude;
-        args.longitude = coords.longitude;
+        newArgs.latitude = coords.latitude;
+        newArgs.longitude = coords.longitude;
     }
     
     if ($.location.value === "") {
-        args.latitude = null;
-        args.longitude = null;
-        args.location = null;
+        newArgs.latitude = null;
+        newArgs.longitude = null;
+        newArgs.location = null;
     }
     
     if (!args.date) {
         var now = new Date();
         var now_hours = now.getHours();
         var now_epoch = Math.floor(now.setUTCHours(now_hours));
-        args.date = now_epoch; 
-        args.date_string = utils.parseDateStringFromEpoch(now_epoch);
+        newArgs.date = now_epoch; 
+        newArgs.date_string = utils.parseDateStringFromEpoch(now_epoch);
     }
 
-    return args;
+    return newArgs;
 };
 
 
