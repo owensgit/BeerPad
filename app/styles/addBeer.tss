@@ -45,13 +45,14 @@
 }
 
 "#locationBox": {
-    width: "210dp",
+    width: "260dp",
     height: Ti.UI.SIZE
 },
 "#locationLabel": {
     color: "#c8c8ce",
-    top: "11dp", left: "4dp",
+    top: "11dp",
     zIndex: 2,
+    width: "200dp",
     font: { fontSize: "17dp" }    
 }
 "#location": {

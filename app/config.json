@@ -4,7 +4,9 @@
 	   "twitter": {
 	       "consumerSecret" : "DF9weYDAcYBcDr08KUWFlhbc7qWZzVSorSForVfKp4",
 	       "consumerKey" : "mWHfHTn41qM8qH4Or8jnHA"
-	   }
+	   },
+	   "forward_geocoding_url": "",
+	   "forward_geocoding_api_key": "AIzaSyBc_H_-GTeeoYoNoQhDRWh2E0b_8xp_yTY"
 	}, 
 	"env:development": {}, 
 	"env:test": {}, 

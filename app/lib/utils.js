@@ -57,6 +57,33 @@ var utils = (function() {
         return true;
     };
     
+    /**
+     * Wait for the final event to finish inside an event listener to avoid multiple functions from running. Useful
+     * when listening to keyboard events on user inputs, so ensure that the desired function doesn't rapidly fire many
+     * times as the user types, and only fires once, x number milliseconds after the user has finished typing. This
+     * is used on the predictive search.
+     * 
+     * Example use: ``utils.waitForFinalEvent(function () { alert("Hello!"); }, 300, "Say hello");``
+     * 
+     * @method waitForFinalEvent
+     * @param callback {Function} function to be performed when final event has been fired
+     * @param ms {Integer} number of millseconds to wait after the final event
+     * @param uniqueId {Integer} a unique string that identifies the event
+     * @return false
+     */
+    methods.waitForFinalEvent = (function () {
+      var timers = {};
+      return function (callback, ms, uniqueId) {
+        if (!uniqueId) {
+          uniqueId = "Don't call this twice without a uniqueId";
+        }
+        if (timers[uniqueId]) {
+          clearTimeout (timers[uniqueId]);
+        }
+        timers[uniqueId] = setTimeout(callback, ms);
+      };
+    })();
+    
     return methods;
 })();
 

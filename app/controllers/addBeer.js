@@ -1,8 +1,10 @@
+var utils = require("utils");
+var locationLookUp = require("locationLookUp");
+var locLookUp = new locationLookUp();
+
 var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
-
-var utils = require("utils");
 
 
 // Array of Star Images for use in applyRating() below
@@ -10,12 +12,33 @@ var utils = require("utils");
 var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 
 
+// Activity indcator used in the location box view
+
+var locActivityIndicator = Ti.UI.createActivityIndicator({
+  style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.iPhone.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
+  top: "15dp", right: "40dp",
+  height: "15dp", width: "15dp"
+});
+$.locationBox.add(locActivityIndicator);
+
+
+
+// Initial placeholder values
+
+var theImage;
+var rating;
+var coords;
+var locSearchResults = null;
+
+
+   
    
 $.name.hintText = L('add_name');
 $.brewery.hintText = L('add_brewery');
 $.percent.hintText = L('add_percent');
 $.establishment.hintText = L('add_pub');
 $.location.hintText = L('add_location');
+
 
 
 // Edit Mode
@@ -42,10 +65,7 @@ if (args.edit) {
 
 
 
-// Stored values for use
 
-var theImage;
-var rating;
 
 
 
@@ -151,13 +171,7 @@ $.addBeerButton.addEventListener("click", function () {
 
 
 
-/*
- *  Add a Photo
- *  -----------
- *  Use Titanium meida API to access device camrea or gallery. On success: 
- *   1. Put the image in the $.beerImage ImageView for the user to see
- *   2. Store the image in global variable 'theImage' (defined above)
- */
+// Add Photo
 
 var cameraMethods = {
     onSuccess: function (e, imageViewID) {
@@ -213,23 +227,86 @@ $.imageView.addEventListener("click", function (e) {
 }); 
 
 
+// Functions to show or hide location information
+
+function showHideLocationLabel() {
+    if ($.location.value === "" || $.location.value === null) {
+        $.locationLabel.show();
+    } else {
+        $.locationLabel.hide();
+    }    
+}
+showHideLocationLabel();
+
+function showHideLocSearchResults() {
+    if (locSearchResults) {
+        $.locationBox.remove(locSearchResults);
+        locSearchResults = null;     
+    } 
+}
 
 
-var coords;
+// Location Look Up
+
+$.location.addEventListener("focus", function (e) {
+    setTimeout(function() { $.scrollView.scrollTo(0, 450); }, 300);
+});
+
+$.location.addEventListener("change", function (e) {
+    var searchTerm = this.getValue();
+    
+    if (searchTerm.length >= 3) { 
+        locActivityIndicator.show(); 
+    };
+    
+    showHideLocationLabel();
+    
+    utils.waitForFinalEvent(function() {
+        if (searchTerm.length >= 3) { 
+                  
+            showHideLocSearchResults();
+                    
+            locLookUp.lookUpAddress(searchTerm, function (results) {
+                
+                if (!results) {
+                    locActivityIndicator.hide();
+                    return;
+                }
+                
+                locSearchResults = Ti.UI.createView({
+                    height: Ti.UI.SIZE, width: Ti.UI.SIZE, top: "46dp", bottom: "5dp",
+                    backgroundColor: "#FFFFFF", borderColor: "#b0b0b0", borderRadius: "5dp"
+                });
+                var resultsTable = locLookUp.createResultsTable();
+                locSearchResults.add(resultsTable);
+                
+                $.locationBox.add(locSearchResults);
+                locActivityIndicator.hide();
+                
+                resultsTable.addEventListener("click", function (e) {
+                    showHideLocSearchResults();
+                    $.location.value = e.rowData.title;
+                    coords = e.rowData.coords; 
+                });
+            });
+            
+        } else {
+            showHideLocSearchResults(); 
+            locActivityIndicator.hide();   
+        }
+    }, 600, "Perform address search");
+});
+
+
+// On click event for Use Location Services
 
 function useGPS() {
     
+    showHideLocSearchResults();
+    
     if (Ti.Geolocation.locationServicesEnabled) {
-        
-        var activityIndicator = Ti.UI.createActivityIndicator({
-          style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.iPhone.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
-          top: "14dp", //left: "30dp",
-          height: "15dp", width: "15dp"
-        });
-        
-        $.locationBox.add(activityIndicator);
         $.location.touchEnabled = false;
-        activityIndicator.show();
+        locActivityIndicator.show();
         
         Ti.Geolocation.purpose = 'Determine Current Location';
         Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
@@ -237,7 +314,7 @@ function useGPS() {
 
         Titanium.Geolocation.getCurrentPosition(function(e) {           
             if (e.error) {
-                $.location.touchEnabled = true; activityIndicator.hide();
+                $.location.touchEnabled = true; locActivityIndicator.hide();
                 alert(L("location_services_error"));
             } else {               
                 coords = e.coords; 
@@ -252,25 +329,16 @@ function useGPS() {
                     } else {
                         alert(L("location_services_not_found"));
                     }
-                    $.location.touchEnabled = true; activityIndicator.hide();
+                    $.location.touchEnabled = true; locActivityIndicator.hide();
                 });             
             }           
         });       
     } else {
-        $.location.touchEnabled = true; activityIndicator.hide();
+        $.location.touchEnabled = true; locActivityIndicator.hide();
         alert(L("location_services_disabled"));
     }
 }
 
-
-/*function forwardGeocode(query) {
-    
-    Titanium.Geolocation.forwardGeocoder(query, function (e) {
-        console.log(e);
-    });   
-}
-
-forwardGeocode("2 Blakemore Road");*/
 
 
 // Rating
@@ -294,19 +362,6 @@ for (var i = 0; i < 5; i++) {
 
 
 // Misc
-
-function showHideLocationLabel() {
-    if ($.location.value === "" || $.location.value === null) {
-        $.locationLabel.show();
-    } else {
-        $.locationLabel.hide();
-    }    
-}
-showHideLocationLabel();
-
-$.location.addEventListener("change", function () {
-    showHideLocationLabel();
-});
 
 $.addBeerWin.addEventListener("close", function() {
     $.destroy();

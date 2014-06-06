@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="addBeerWin" title="Add a beer" modal="true" class="container">
-	    <ScrollView layout="vertical">
+	    <ScrollView id="scrollView" layout="vertical" zIndex="1">
 	        
 	        <Button id="close" class="modalOutline" titleid="add_cancel" />
 	        
@@ -13,8 +13,8 @@
 	        </View>
 	        
 	        
-            <TextField id="name"></TextField>
-            <TextField id="brewery"></TextField>
+            <TextField id="name" autocorrect="false"></TextField>
+            <TextField id="brewery" autocorrect="false"></TextField>
             
             <View class="ratingButtons">
                 <ImageView id="star1" image="ratingStar.png" class="starImage"></ImageView>
@@ -25,11 +25,11 @@
             </View>
             
             <TextField id="percent" keyboardType="Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION"></TextField>
+            
             <TextField id="establishment"></TextField>
-            
-            
+                       
             <View id="locationBox">
-                <TextArea id="location"></TextArea>
+                <TextArea id="location" autocorrect="false"></TextArea>
                 <Label id="locationLabel" textid="add_location" />
             </View>
             
