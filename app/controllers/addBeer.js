@@ -273,14 +273,10 @@ $.location.addEventListener("change", function (e) {
                     return;
                 }
                 
-                locSearchResults = Ti.UI.createView({
-                    height: Ti.UI.SIZE, width: Ti.UI.SIZE, top: "46dp", bottom: "5dp",
-                    backgroundColor: "#FFFFFF", borderColor: "#b0b0b0", borderRadius: "5dp"
-                });
+                var lookUpView = utils.lookUpResultsView();
                 var resultsTable = locLookUp.createResultsTable();
-                locSearchResults.add(resultsTable);
-                
-                $.locationBox.add(locSearchResults);
+                lookUpView.add(resultsTable);
+                $.locationBox.add(lookUpView);
                 locActivityIndicator.hide();
                 
                 resultsTable.addEventListener("click", function (e) {

@@ -6,9 +6,6 @@ var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
-//console.log("------------------------------");
-//console.log("args.favourite", args.favourite);
-
 // The Image
 
 var date = new Date(args.date);

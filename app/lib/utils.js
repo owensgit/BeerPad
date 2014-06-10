@@ -3,16 +3,6 @@ var Alloy = require('alloy'), _ = require("alloy/underscore")._, Backbone = requ
 var utils = (function() {
     var methods = {};
     
-    methods.constructTweet = function (args) {
-        var string = "Tried this beer called " + args.name + ",";
-        if (args.brewery) {
-            string = " by " + args.brewery;
-        }
-        if (args.establishment) {
-            string = " at " + args.establishment; 
-        }
-    };
-    
     methods.updateObjectWithObject = function(obj1, obj2) {
         for (key in obj2) {
             if (obj2.hasOwnProperty(key)) {
@@ -83,6 +73,14 @@ var utils = (function() {
         timers[uniqueId] = setTimeout(callback, ms);
       };
     })();
+    
+    methods.lookUpResultsView = function () {
+        var view = Ti.UI.createView({
+            height: Ti.UI.SIZE, width: Ti.UI.SIZE, top: "46dp", bottom: "5dp",
+            backgroundColor: "#FFFFFF", borderColor: "#b0b0b0", borderRadius: "5dp"
+        });  
+        return view;    
+    };
     
     return methods;
 })();
