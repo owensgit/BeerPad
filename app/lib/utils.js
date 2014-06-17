@@ -82,6 +82,14 @@ var utils = (function() {
         return view;    
     };
     
+    methods.lookUpTableView = function (rows) {
+        var tableView = Ti.UI.createTableView({ data: rows, rowHeight: 36, width: "260dp" });   
+        var height = rows.length * tableView.getRowHeight();
+        if (rows.length > 4) { height = (4 * tableView.getRowHeight()) - 14; }
+        tableView.height = height;
+        return tableView;    
+    };
+    
     return methods;
 })();
 

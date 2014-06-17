@@ -24,7 +24,7 @@
 "TextField" : {
     top: "5dp", bottom: "5dp",
     height: "35dp",
-    width: "200dp",
+    width: "210dp",
     tintColor: Alloy.CFG.colour.tabsTint,
     font: { fontSize: "16dp" }
 },
@@ -44,15 +44,21 @@
     top: "18dp"
 }
 
-"#locationBox": {
-    width: "260dp",
-    height: Ti.UI.SIZE
-},
+".lookUpBox": {
+    width: Ti.UI.FILL,
+    height: Ti.UI.SIZE    
+}
+".lookUpActivityIndicator": {
+    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+    top: "15fdp", right: "30dp",
+    height: "15dp", width: "15dp"
+}
+
 "#locationLabel": {
     color: "#c8c8ce",
     top: "11dp",
     zIndex: 2,
-    width: "200dp",
+    width: "210dp",
     font: { fontSize: "17dp" }    
 }
 "#location": {
@@ -84,7 +90,7 @@
     borderWidth: "1dp",
     borderColor: "#888888",
     height: "80dp",
-    width: "200dp",
+    width: "210dp",
     font: {
         fontSize: "15dp"
     }
@@ -93,7 +99,7 @@
 "#addBeerButton" : {
     top: "40dp",
     bottom: "60dp",
-    width: "202dp",
+    width: "212dp",
     font: {
         fontSize: "18dp"
     }

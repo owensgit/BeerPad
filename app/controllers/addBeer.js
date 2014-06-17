@@ -1,6 +1,8 @@
 var utils = require("utils");
 var locationLookUp = require("locationLookUp");
+var beerAPI = require("beerAPI");
 var locLookUp = new locationLookUp();
+var beerLookUp = new beerAPI();
 
 var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
@@ -12,26 +14,16 @@ theBeers.fetch();
 var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 
 
-// Activity indcator used in the location box view
-
-var locActivityIndicator = Ti.UI.createActivityIndicator({
-  style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.iPhone.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
-  top: "15dp", right: "40dp",
-  height: "15dp", width: "15dp"
-});
-$.locationBox.add(locActivityIndicator);
-
-
-
 // Initial placeholder values
 
-var theImage;
-var rating;
-var coords;
+var theImage;                   // image returned from camreaMethods
+var rating;                     // rating set by rating stars
+var coords;                     // obj to store longitude/lattitude values  
 var locSearchResults = null;
+var beerSearchResults = null;
 
 
-   
+// Set hint text on text fields   
    
 $.name.hintText = L('add_name');
 $.brewery.hintText = L('add_brewery');
@@ -62,10 +54,6 @@ if (args.edit) {
     
     $.cameraImage.opacity = 0.7;
 }
-
-
-
-
 
 
 
@@ -103,7 +91,6 @@ function mapArgs() {
 
     return newArgs;
 };
-
 
 
 
@@ -227,6 +214,68 @@ $.imageView.addEventListener("click", function (e) {
 }); 
 
 
+
+// Beer Name Look Up
+
+function hideBeerSearchResults() {
+    if (beerSearchResults) {
+        $.nameBox.remove(beerSearchResults);
+        beerSearchResults = null;     
+    } 
+}
+
+$.name.addEventListener("focus", function (e) {
+    setTimeout(function() { $.scrollView.scrollTo(0, 200); }, 300);
+});
+
+$.name.addEventListener("blur", function (e) {
+   hideBeerSearchResults(); 
+});
+
+$.name.addEventListener("change", function (e) {
+    var searchTerm = this.getValue();
+    
+    if (searchTerm.length >= 3) { 
+        $.beerLookUpActivity.show(); 
+    };
+    
+    utils.waitForFinalEvent(function() {
+        if (searchTerm.length >= 3) {
+                  
+            hideBeerSearchResults();
+                    
+            beerLookUp.lookUpBeer(searchTerm, function (results) {
+                
+                if (!results) {
+                    $.beerLookUpActivity.hide();
+                    return;
+                }
+                
+                //console.log(results);
+                
+                beerSearchResults = utils.lookUpResultsView();
+                var resultsTable = beerLookUp.resultsTableData();
+                beerSearchResults.add(resultsTable);
+                $.nameBox.add(beerSearchResults);
+                $.beerLookUpActivity.hide();
+                
+                resultsTable.addEventListener("click", function (e) {
+                    hideBeerSearchResults();
+                    $.name.value = e.rowData.title;
+                    $.brewery.value = e.rowData.brewery;
+                    $.percent.value = e.rowData.abv;
+                    $.notes.value = e.rowData.notes;
+                });
+            });
+            
+        } else {
+            hideBeerSearchResults();
+            $.beerLookUpActivity.hide();
+        }
+    }, 600, "Perform beer search");
+});
+
+
 // Functions to show or hide location information
 
 function showHideLocationLabel() {
@@ -245,7 +294,6 @@ function showHideLocSearchResults() {
     } 
 }
 
-
 // Location Look Up
 
 $.location.addEventListener("focus", function (e) {
@@ -256,7 +304,7 @@ $.location.addEventListener("change", function (e) {
     var searchTerm = this.getValue();
     
     if (searchTerm.length >= 3) { 
-        locActivityIndicator.show(); 
+        $.locLookUpActivity.show(); 
     };
     
     showHideLocationLabel();
@@ -269,15 +317,15 @@ $.location.addEventListener("change", function (e) {
             locLookUp.lookUpAddress(searchTerm, function (results) {
                 
                 if (!results) {
-                    locActivityIndicator.hide();
+                    $.locLookUpActivity.hide();
                     return;
                 }
                 
-                var lookUpView = utils.lookUpResultsView();
+                locSearchResults = utils.lookUpResultsView();
                 var resultsTable = locLookUp.createResultsTable();
-                lookUpView.add(resultsTable);
-                $.locationBox.add(lookUpView);
-                locActivityIndicator.hide();
+                locSearchResults.add(resultsTable);
+                $.locationBox.add(locSearchResults);
+                $.locLookUpActivity.hide();
                 
                 resultsTable.addEventListener("click", function (e) {
                     showHideLocSearchResults();
@@ -288,7 +336,7 @@ $.location.addEventListener("change", function (e) {
             
         } else {
             showHideLocSearchResults(); 
-            locActivityIndicator.hide();   
+            $.locLookUpActivity.hide();   
         }
     }, 600, "Perform address search");
 });
@@ -302,7 +350,7 @@ function useGPS() {
     
     if (Ti.Geolocation.locationServicesEnabled) {
         $.location.touchEnabled = false;
-        locActivityIndicator.show();
+        $.locLookUpActivity.show();
         
         Ti.Geolocation.purpose = 'Determine Current Location';
         Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;

@@ -1,18 +1,18 @@
 var Alloy = require('alloy'), _ = require("alloy/underscore")._, Backbone = require("alloy/backbone");
+var utils = require('utils');
 
-var locationLookUp = function() {};
+var beerAPI = function() {};
 
-locationLookUp.prototype.lookUpAddress = function (query, callback) {
+beerAPI.prototype.lookUpBeer = function (query, callback) {
     
-    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + query + "&key=" + Alloy.CFG.forward_geocoding_api_key;
+    var url = "http://api.brewerydb.com/v2/search/?key=" + Alloy.CFG.brewery_db_api_key + "&withBreweries=Y&type=beer&q=" + query;
     var repsonse = {};
     var _that = this;
     var client = Ti.Network.createHTTPClient({
          
         onload : function(e) {
             var responseJSON = JSON.parse(this.responseText);
-            _that.results = responseJSON.results;
-            
+            _that.results = responseJSON.data;
             if (callback) {
                 callback(_that.results);
             }
@@ -32,18 +32,25 @@ locationLookUp.prototype.lookUpAddress = function (query, callback) {
     return query;
 };
     
-locationLookUp.prototype.createResultsTable = function () {
+beerAPI.prototype.resultsTableData = function () {
     
     if (!this.results) {
-        console.log("No locations set! Use the lookUpAddress method first.");
+        console.log("No beers found! Use the lookUpBeer method first.");
         return false;
     }    
     var rows = [];
     _.each(this.results, function (item) {
+        var brewery;
+        if (item.breweries) {
+            brewery = item.breweries[0].name;
+        }
+        
         var row = Ti.UI.createTableViewRow({
-            title: item.formatted_address,
-            location: item.formatted_address,
-            coords: { latitude: item.geometry.location.lat, longitude: item.geometry.location.lng },
+            title: item.name,
+            brewery: brewery || null,
+            abv: item.abv || null,
+            notes: item.description || null,
+            api_id: item.id,
             font: { fontSize: "12dp" }
         });
         rows.push(row);
@@ -53,4 +60,4 @@ locationLookUp.prototype.createResultsTable = function () {
 };
 
 
-module.exports = locationLookUp;
+module.exports = beerAPI;
