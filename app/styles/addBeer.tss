@@ -11,15 +11,15 @@
     backgroundColor: Alloy.CFG.colour.background,
     height: "90dp", width: "90dp",
     borderRadius: "45dp"  
-},
+}
 
 "#beerImage": {
     height: "90dp", width: "90dp"
-},
+}
 
 "#cameraImage": {
     height: "35dp", width: "35dp"  
-},
+}
 
 "TextField" : {
     top: "5dp", bottom: "5dp",
@@ -27,21 +27,25 @@
     width: "210dp",
     tintColor: Alloy.CFG.colour.tabsTint,
     font: { fontSize: "16dp" }
-},
+}
+
+"#name": {
+    clearButtonMode: Titanium.UI.INPUT_BUTTONMODE_ONFOCUS
+}
 
 ".ratingButtons": {
     top: "12dp",
     height: "35dp",
-    width: "215dp",
-    left: "55dp"
+    width: "230dp",
+    left: "46dp"
 }
 
 ".starImage": {
-    width: "35dp", height: "35dp",
+    width: "35dp", height: "35dp", right: "3dp"
 }
 
 "#percent": {
-    top: "18dp"
+    top: "19dp"
 }
 
 ".lookUpBox": {
@@ -50,7 +54,7 @@
 }
 ".lookUpActivityIndicator": {
     style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-    top: "15fdp", right: "30dp",
+    top: "14dp", right: "32dp",
     height: "15dp", width: "15dp"
 }
 
@@ -65,9 +69,10 @@
     borderColor: "#FFFFFF",
     height: Ti.UI.SIZE,
     scrollable: false,
+    clearButtonMode: Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
     font: { fontSize: "16dp" },
     top: "5dp", bottom: "5dp",
-    width: "210dp"
+    width: "218dp" // slightly wider to allow for padding
 }
 "#use_gps": {
     height: "28dp",
@@ -102,5 +107,23 @@
     width: "212dp",
     font: {
         fontSize: "18dp"
+    }
+}
+
+".iconInputBox": {
+    height: Ti.UI.SIZE,
+    width: "210dp"
+}
+".iconInput": {
+    left: "0dp",
+    width: "170dp"
+}
+".iconInputTextIcon": {
+    color: "#e5e5e5",
+    right: "1dp",
+    top: "25dp",
+    font: {
+        fontSize: "14dp",
+        fontWeight: "bold"
     }
 }

@@ -48,6 +48,7 @@
     top: "12dp",
     left: "18dp",
     textAlign: 'left',
+    height: "18dp",
     font: {
         fontSize: "18dp"
     } 

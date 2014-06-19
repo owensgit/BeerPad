@@ -1,8 +1,15 @@
 var utils = require("utils");
-var locationLookUp = require("locationLookUp");
-var beerAPI = require("beerAPI");
-var locLookUp = new locationLookUp();
-var beerLookUp = new beerAPI();
+var data = require("data");
+
+var lookUpView = require('lookUpView');
+
+var beerLookUpView = new lookUpView();
+beerLookUpView.init();
+$.nameBox.add(beerLookUpView.view);
+
+var locationLookUpView = new lookUpView();
+locationLookUpView.init();
+$.locationBox.add(locationLookUpView.view);
 
 var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
@@ -217,63 +224,64 @@ $.imageView.addEventListener("click", function (e) {
 
 // Beer Name Look Up
 
-function hideBeerSearchResults() {
-    if (beerSearchResults) {
-        $.nameBox.remove(beerSearchResults);
-        beerSearchResults = null;     
-    } 
-}
-
-$.name.addEventListener("focus", function (e) {
-    setTimeout(function() { $.scrollView.scrollTo(0, 200); }, 300);
-});
-
-$.name.addEventListener("blur", function (e) {
-   hideBeerSearchResults(); 
-});
-
-$.name.addEventListener("change", function (e) {
-    var searchTerm = this.getValue();
+function doBeerLookUp(textField) {
+    var searchTerm = textField.getValue();
     
+    if (searchTerm.length === 0) { 
+        beerLookUpView.hide(); 
+        $.beerLookUpActivity.hide();
+        return;
+    }
     if (searchTerm.length >= 3) { 
         $.beerLookUpActivity.show(); 
     };
     
     utils.waitForFinalEvent(function() {
         if (searchTerm.length >= 3) {
-                  
-            hideBeerSearchResults();
-                    
-            beerLookUp.lookUpBeer(searchTerm, function (results) {
+            $.beerLookUpActivity.show();        
+            data.lookUpBeer(searchTerm, function (results) {
                 
                 if (!results) {
                     $.beerLookUpActivity.hide();
                     return;
                 }
                 
-                //console.log(results);
-                
-                beerSearchResults = utils.lookUpResultsView();
-                var resultsTable = beerLookUp.resultsTableData();
-                beerSearchResults.add(resultsTable);
-                $.nameBox.add(beerSearchResults);
+                beerLookUpView.update(results);
                 $.beerLookUpActivity.hide();
                 
-                resultsTable.addEventListener("click", function (e) {
-                    hideBeerSearchResults();
-                    $.name.value = e.rowData.title;
-                    $.brewery.value = e.rowData.brewery;
-                    $.percent.value = e.rowData.abv;
-                    $.notes.value = e.rowData.notes;
+                beerLookUpView.table.addEventListener("click", function (e) {
+                    beerLookUpView.hide();
+                    setTimeout(function () {
+                        $.name.value = e.rowData.title;
+                        $.brewery.value = e.rowData.brewery;
+                        $.percent.value = e.rowData.abv;
+                        $.notes.value = e.rowData.notes;
+                    }, 100);
                 });
             });
             
         } else {
-            hideBeerSearchResults();
+            beerLookUpView.hide();
             $.beerLookUpActivity.hide();
         }
-    }, 600, "Perform beer search");
+    }, 600, "Perform beer search");    
+}
+
+$.name.addEventListener("focus", function (e) {
+    doBeerLookUp(this);
+    setTimeout(function() { 
+        $.scrollView.scrollTo(0, 200); 
+    }, 300);
 });
+
+$.name.addEventListener("blur", function (e) {
+   locationLookUpView.hide();  
+});
+
+$.name.addEventListener("change", function (e) {
+    doBeerLookUp(this);    
+});
+
 
 
 // Functions to show or hide location information
@@ -287,55 +295,49 @@ function showHideLocationLabel() {
 }
 showHideLocationLabel();
 
-function showHideLocSearchResults() {
-    if (locSearchResults) {
-        $.locationBox.remove(locSearchResults);
-        locSearchResults = null;     
-    } 
-}
 
 // Location Look Up
 
 $.location.addEventListener("focus", function (e) {
     setTimeout(function() { $.scrollView.scrollTo(0, 450); }, 300);
 });
+$.location.addEventListener("blur", function (e) {
+    locationLookUpView.hide();    
+});
 
 $.location.addEventListener("change", function (e) {
     var searchTerm = this.getValue();
+    
+    showHideLocationLabel();
     
     if (searchTerm.length >= 3) { 
         $.locLookUpActivity.show(); 
     };
     
-    showHideLocationLabel();
-    
     utils.waitForFinalEvent(function() {
         if (searchTerm.length >= 3) { 
-                  
-            showHideLocSearchResults();
-                    
-            locLookUp.lookUpAddress(searchTerm, function (results) {
+            
+            $.locLookUpActivity.show();
+                     
+            data.lookUpAddress(searchTerm, function (results) {
                 
                 if (!results) {
                     $.locLookUpActivity.hide();
                     return;
                 }
                 
-                locSearchResults = utils.lookUpResultsView();
-                var resultsTable = locLookUp.createResultsTable();
-                locSearchResults.add(resultsTable);
-                $.locationBox.add(locSearchResults);
+                locationLookUpView.update(results);
                 $.locLookUpActivity.hide();
                 
-                resultsTable.addEventListener("click", function (e) {
-                    showHideLocSearchResults();
+                locationLookUpView.table.addEventListener("click", function (e) {
+                    locationLookUpView.hide();
                     $.location.value = e.rowData.title;
                     coords = e.rowData.coords; 
                 });
             });
             
         } else {
-            showHideLocSearchResults(); 
+            locationLookUpView.hide(); 
             $.locLookUpActivity.hide();   
         }
     }, 600, "Perform address search");

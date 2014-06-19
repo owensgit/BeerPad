@@ -74,22 +74,6 @@ var utils = (function() {
       };
     })();
     
-    methods.lookUpResultsView = function () {
-        var view = Ti.UI.createView({
-            height: Ti.UI.SIZE, width: Ti.UI.SIZE, top: "46dp", bottom: "5dp",
-            backgroundColor: "#FFFFFF", borderColor: "#b0b0b0", borderRadius: "5dp"
-        });  
-        return view;    
-    };
-    
-    methods.lookUpTableView = function (rows) {
-        var tableView = Ti.UI.createTableView({ data: rows, rowHeight: 36, width: "260dp" });   
-        var height = rows.length * tableView.getRowHeight();
-        if (rows.length > 4) { height = (4 * tableView.getRowHeight()) - 14; }
-        tableView.height = height;
-        return tableView;    
-    };
-    
     return methods;
 })();
 

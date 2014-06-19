@@ -26,7 +26,10 @@
                 <ImageView id="star5" image="ratingStar.png" class="starImage"></ImageView>
             </View>
             
-            <TextField id="percent" keyboardType="Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION"></TextField>
+            <View class="iconInputBox">
+                <TextField id="percent" class="iconInput" keyboardType="Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION"></TextField>
+                <Label class="iconInputTextIcon" text="% abv" />
+            </View>
             
             <TextField id="establishment"></TextField>
                        
