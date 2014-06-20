@@ -11,8 +11,8 @@
     <string name="welcome_skip_button">Skip</string>
     <string name="welcome_slide1_text">Never forget that delicious beer or ale again. Keep them all in your very own Beer Pad!</string>
     
-    <string name="welcome_slide2_title">YOUR PERSONAL\n BEER DIARY</string>
-    <string name="welcome_slide2_text">Add new beers when you try them and see your list grow.</string>
+    <string name="welcome_slide2_title">AUTO-FULL YOUR\nBEER NOTES</string>
+    <string name="welcome_slide2_text">Start typing a beer name & Beer Pad will try to find it.</string>
         
     <string name="welcome_slide3_title">TRACK YOUR BEERS\nON A MAP</string>
     <string name="welcome_slide3_text">Add your current location to plot them on a map.</string>

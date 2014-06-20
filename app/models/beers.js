@@ -13,7 +13,8 @@ exports.definition = {
             "beer_image": "text",
             "latitude": "integer",
             "longitude": "integer",
-            "favourite": "boolean"  
+            "favourite": "boolean",
+            "is_sample": "boolean"  
 		},
 		adapter: {
 			type: "sql",

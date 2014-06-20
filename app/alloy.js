@@ -89,7 +89,11 @@ Alloy.Globals.openBeerDetails = function (event, collection, target) {
 
 Alloy.Globals.beerListTransform = function(modal) {
         
-    var result = modal.toJSON();  
+    var result = modal.toJSON();
+    
+    if (result.is_sample) {
+        result.tableMiddleLabel = "SAMPLE";
+    }
    
     if (!result.beer_image) { 
         result.list_image = "dafaultListImage.png";
@@ -112,6 +116,8 @@ Alloy.Globals.beerListTransform = function(modal) {
     } else {
         result.secondaryInfo = result[secValue];    
     }    
+    
+    console.log(result);
     return result;
 };
 
@@ -216,6 +222,7 @@ var sample_beers = require("samples");
 if (_.isEmpty(theBeers.toJSON())) {
     _.each(sample_beers, function (item) {
         item.date_string = utils.parseDateStringFromEpoch(item.date);
+        item.is_sample = true;
         var beer = Alloy.createModel('beers', item);
         theBeers.add(beer);    
         beer.save();

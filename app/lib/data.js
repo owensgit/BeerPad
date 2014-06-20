@@ -22,13 +22,14 @@ var data = (function () {
                     }
                     
                     result.title = item.name;
+                    result.name = item.name;
                     result.brewery = brewery || null;
                     result.abv = item.abv || null;
                     result.notes = item.description || null;
                     result.api_id = item.id;
                     
                     if (item.breweries) {
-                        result.brewery = item.breweries[0].name;
+                        result.title = item.name + " - " + brewery;
                     }
                     
                     results.push(result);
@@ -69,7 +70,7 @@ var data = (function () {
                     var result = {
                         title: item.formatted_address,
                         location: item.formatted_address,
-                        coords: { latitude: item.geometry.location.lat, longitude: item.geometry.location.lng } 
+                        coords: { latitude: item.geometry.location.lat, longitude: item.geometry.location.lng }
                     };
                     results.push(result);
                 });

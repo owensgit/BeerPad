@@ -69,6 +69,14 @@
         fontSize: "12dp"
     }
 }
+"#tableMiddleLabel": {
+    color: "#4da843",
+    textAlign: 'right',
+    right: "9dp",
+    font: {
+        fontSize: "8dp"
+    }    
+}
 
 ".button": {
     backgroundColor: Alloy.CFG.colour.background,

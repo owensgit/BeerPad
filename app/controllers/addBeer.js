@@ -252,10 +252,10 @@ function doBeerLookUp(textField) {
                 beerLookUpView.table.addEventListener("click", function (e) {
                     beerLookUpView.hide();
                     setTimeout(function () {
-                        $.name.value = e.rowData.title;
-                        $.brewery.value = e.rowData.brewery;
-                        $.percent.value = e.rowData.abv;
-                        $.notes.value = e.rowData.notes;
+                        $.name.value = e.rowData.name;
+                        $.brewery.value = e.rowData.brewery || "";
+                        $.percent.value = e.rowData.abv || "";
+                        $.notes.value = e.rowData.notes || "";
                     }, 100);
                 });
             });
