@@ -228,7 +228,7 @@ function doBeerLookUp(textField) {
     var searchTerm = textField.getValue();
     
     if (searchTerm.length === 0) { 
-        beerLookUpView.hide(); 
+        beerLookUpView.closeUp(); 
         $.beerLookUpActivity.hide();
         return;
     }
@@ -249,7 +249,7 @@ function doBeerLookUp(textField) {
             $.beerLookUpActivity.hide();
             
             beerLookUpView.table.addEventListener("click", function (e) {
-                beerLookUpView.hide();
+                beerLookUpView.closeUp();
                 setTimeout(function () {
                     $.name.value = e.rowData.name;
                     $.brewery.value = e.rowData.brewery || "";
@@ -260,7 +260,7 @@ function doBeerLookUp(textField) {
         });
         
     } else {
-        beerLookUpView.hide();
+        beerLookUpView.closeUp();
         $.beerLookUpActivity.hide();
     }   
 }
@@ -275,7 +275,7 @@ $.name.addEventListener("focus", function (e) {
 });
 
 $.name.addEventListener("blur", function (e) {
-   beerLookUpView.hide();  
+   beerLookUpView.closeUp();  
 });
 
 $.name.addEventListener("change", function (e) {
@@ -302,7 +302,7 @@ $.location.addEventListener("focus", function (e) {
     setTimeout(function() { $.scrollView.scrollTo(0, 450); }, 300);
 });
 $.location.addEventListener("blur", function (e) {
-    locationLookUpView.hide();    
+    locationLookUpView.closeUp();    
 });
 
 function doLocationLookUp(e) {
@@ -327,14 +327,14 @@ function doLocationLookUp(e) {
             $.locLookUpActivity.hide();
             
             locationLookUpView.table.addEventListener("click", function (e) {
-                locationLookUpView.hide();
+                locationLookUpView.closeUp();
                 $.location.value = e.rowData.title;
                 coords = e.rowData.coords; 
             });
         });
         
     } else {
-        locationLookUpView.hide(); 
+        locationLookUpView.closeUp(); 
         $.locLookUpActivity.hide();   
     }    
 }
@@ -351,7 +351,7 @@ $.location.addEventListener("change", function (e) {
 
 function useGPS() {
     
-    locationLookUpView.hide();
+    locationLookUpView.closeUp();
     
     if (Ti.Geolocation.locationServicesEnabled) {
         $.location.touchEnabled = false;

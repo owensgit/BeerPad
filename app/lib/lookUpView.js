@@ -28,7 +28,7 @@ lookUpView.prototype.init = function () {
     this.table = tableView;
 };
 
-lookUpView.prototype.hide = function () {
+lookUpView.prototype.closeUp = function () {
     this.view.applyProperties(lookUpView.viewPropsClosed);
 };
 
