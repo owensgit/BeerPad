@@ -7,7 +7,8 @@
 	   },
 	   "forward_geocoding_url": "",
 	   "forward_geocoding_api_key": "AIzaSyBc_H_-GTeeoYoNoQhDRWh2E0b_8xp_yTY",
-	   "brewery_db_api_key": "aa4423f8887ce03f2d18d94d75bc36b6"
+	   "brewery_db_api_key": "aa4423f8887ce03f2d18d94d75bc36b6",
+	   "api_call_debounce_delay": 500
 	}, 
 	"env:development": {}, 
 	"env:test": {}, 

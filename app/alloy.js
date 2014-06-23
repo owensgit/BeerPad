@@ -123,7 +123,6 @@ Alloy.Globals.beerListTransform = function(modal) {
         result.secondaryInfo = result[secValue];    
     }    
     
-    console.log(result);
     return result;
 };
 

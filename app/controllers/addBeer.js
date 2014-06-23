@@ -265,7 +265,7 @@ function doBeerLookUp(textField) {
     }   
 }
 
-var doBeerLookUp_debounced = _.debounce(doBeerLookUp, 400);
+var doBeerLookUp_debounced = _.debounce(doBeerLookUp, Alloy.CFG.api_call_debounce_delay);
 
 $.name.addEventListener("focus", function (e) {
     //doBeerLookUp(this);
@@ -339,7 +339,7 @@ function doLocationLookUp(e) {
     }    
 }
 
-var doLocationLookUp_debounced = _.debounce(doLocationLookUp, 400);
+var doLocationLookUp_debounced = _.debounce(doLocationLookUp, Alloy.CFG.api_call_debounce_delay);
 
 $.location.addEventListener("change", function (e) {
     //showHideLocationLabel();
