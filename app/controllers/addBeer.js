@@ -60,6 +60,13 @@ if (args.edit) {
     applyRating(args.rating === null ? 0 : args.rating);  
     
     $.cameraImage.opacity = 0.7;
+    
+    Alloy.Globals.GoogleAnalytics.trackScreen("Edit a beer");
+    
+} else {
+    
+    Alloy.Globals.GoogleAnalytics.trackScreen("Add a beer");
+    
 }
 
 
@@ -125,9 +132,9 @@ $.addBeerButton.addEventListener("click", function () {
     }
     
     // temporary overlay while beer is saved to database...
-    var loadingView = Ti.UI.createView({ backgroundColor: "rgba(255,255,255,0.6)", opacity: 0 });   
+    var loadingView = Ti.UI.createView({ backgroundColor: "rgba(255,255,255,0.6)", opacity: 1, zIndex: 1000 });   
     $.addBeerWin.add(loadingView);
-    loadingView.animate({ opacity: 1, duration: 400 });
+    //loadingView.animate({ opacity: 1, duration: 300 });
     
     
     // saving of the beer
@@ -160,6 +167,8 @@ $.addBeerButton.addEventListener("click", function () {
     this.touchEnabled = true;
     
     $.addBeerWin.close();
+    
+    Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.beer_added_action, value: 1 });
     
 });
 
@@ -245,6 +254,8 @@ function doBeerLookUp(textField) {
                 return;
             }
             
+            Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_api_request, value: 1 });
+            
             beerLookUpView.update(results);
             $.beerLookUpActivity.hide();
             
@@ -255,6 +266,8 @@ function doBeerLookUp(textField) {
                     $.brewery.value = e.rowData.brewery || "";
                     $.percent.value = e.rowData.abv || "";
                     $.notes.value = e.rowData.notes || "";
+                    
+                    Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_api_used, value: 1 });
                 }, 100);
             });
         });

@@ -50,6 +50,7 @@
     <modules>
         <module platform="ios">dk.napp.social</module>
         <module platform="iphone">ti.map</module>
+        <module platform="iphone">analytics.google</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
