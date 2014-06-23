@@ -42,10 +42,16 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
     if (!args.establishment) {
         $.buildingIcon.setImage('buildingGrey.png');
         $.pub.setColor('#b9b9b9');
-    };
+    } else {
+        $.buildingIcon.setImage('building.png'); 
+        $.pub.setColor('#000000');
+    }
     if (!args.location) {
         $.locationIcon.setImage('locationGrey.png');
         $.location.setColor('#b9b9b9');
+    } else {
+        $.locationIcon.setImage('location.png'); 
+        $.location.setColor('#000000');   
     }
 };
 
@@ -110,7 +116,7 @@ Alloy.Globals.beerListTransform = function(modal) {
     if (secValue === "rating") {
         result.secondaryInfo = result.rating === null ? "No rating" : result.rating + " stars";    
     } else if (secValue === "percent") {
-        result.secondaryInfo = "" + result.percent + "%";
+        result.secondaryInfo = result.percent ? "" + result.percent + "% abv" : "- - % abv";
     } else if (secValue === "date") {
         result.secondaryInfo = "" + result.date_string;
     } else {

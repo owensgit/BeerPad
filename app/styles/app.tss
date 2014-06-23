@@ -74,7 +74,7 @@
     textAlign: 'right',
     right: "9dp",
     font: {
-        fontSize: "8dp"
+        fontSize: "9dp"
     }    
 }
 

@@ -58,21 +58,21 @@
     height: "15dp", width: "15dp"
 }
 
-"#locationLabel": {
+/*"#locationLabel": {
     color: "#c8c8ce",
     top: "11dp",
     zIndex: 2,
     width: "210dp",
     font: { fontSize: "17dp" }    
-}
+}*/
 "#location": {
-    borderColor: "#FFFFFF",
-    height: Ti.UI.SIZE,
-    scrollable: false,
+    //borderColor: "#FFFFFF",
+    //height: Ti.UI.SIZE,
+    //scrollable: false,
     clearButtonMode: Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
-    font: { fontSize: "16dp" },
-    top: "5dp", bottom: "5dp",
-    width: "218dp" // slightly wider to allow for padding
+    //font: { fontSize: "16dp" },
+    //top: "5dp", bottom: "5dp",
+    //width: "218dp" // slightly wider to allow for padding
 }
 "#use_gps": {
     height: "28dp",

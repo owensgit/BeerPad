@@ -34,8 +34,8 @@
             <TextField id="establishment"></TextField>
                        
             <View id="locationBox" class="lookUpBox">
-                <TextArea id="location" autocorrect="false"></TextArea>
-                <Label id="locationLabel" textid="add_location" />
+                <TextField id="location" autocorrect="false"></TextField>
+                <!--Label id="locationLabel" textid="add_location" /-->
                 <ActivityIndicator class="lookUpActivityIndicator" id="locLookUpActivity">
             </View>
             
