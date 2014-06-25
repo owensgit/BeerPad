@@ -18,8 +18,8 @@
 	   "add_beer_geocoding_request": "Add Beer | Geocoding Request",
 	   "add_beer_geocoding_used": "Add Beer | Geocoding Used",
 	   "add_beer_gps_used": "Add Beer | GPS Used",
-	   "list_sorting_used": "List Sorting Used",
-	   "add_to_favourites": "Beer Added to Favourites"
+	   "list_sorting_used": "List Sorting",
+	   "add_to_favourites": "Add to Favourites"
 	},
 	"env:development": {}, 
 	"env:test": {}, 

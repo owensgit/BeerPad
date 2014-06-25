@@ -297,18 +297,6 @@ $.name.addEventListener("change", function (e) {
 
 
 
-// Functions to show or hide location information
-
-/*function showHideLocationLabel() {
-    if ($.location.value === "" || $.location.value === null) {
-        $.locationLabel.show();
-    } else {
-        $.locationLabel.hide();
-    }    
-}
-showHideLocationLabel();*/
-
-
 // Location Look Up
 
 $.location.addEventListener("focus", function (e) {

@@ -152,7 +152,9 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
     
     filterDialog.addEventListener("click", function (e) {
         
-        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.list_sorting_used, value: 1 });
+        if (e.index != 8) {
+            Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.list_sorting_used, value: 1 });
+        }
         
         if (e.index === 0) {
             Alloy.Globals.beerListSecondaryValue = "date";
