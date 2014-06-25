@@ -11,8 +11,7 @@
 	   "api_call_debounce_delay": 500
 	}, 
 	"analytics": {
-	   "google_analytics_id": "UA-50958937-2",
-	   "app_opened": "App opened",
+	   "google_analytics_id": "UA-50958937-2"
 	   "beer_added_action": "Add Beer | Beer Added",
 	   "add_beer_api_request": "Add Beer | API Request",
 	   "add_beer_api_used": "Add Beer | API Used",

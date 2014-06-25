@@ -27,12 +27,6 @@ GA.trackUncaughtExceptions = true;
 Alloy.Globals.GoogleAnalytics = GA.getTracker(Alloy.CFG.analytics.google_analytics_id);
 
 
-// Track opening of the App
-
-Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.app_opened, value: 1 });
-
-
-
 
 Alloy.Globals.mapLabelText = function($, args, shouldSetImage) { 
 

@@ -161,14 +161,14 @@ $.addBeerButton.addEventListener("click", function () {
         if (theImage) {
             Alloy.Globals.saveImage(beer.get('alloy_id'), theImage);  
             theImage = null;
-        }        
+        }  
+        
+        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.beer_added_action, value: 1 });      
     }
     
     this.touchEnabled = true;
     
     $.addBeerWin.close();
-    
-    Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.beer_added_action, value: 1 });
     
 });
 
