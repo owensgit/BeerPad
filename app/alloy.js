@@ -223,7 +223,7 @@ Ti.App.addEventListener("app:addToFavorites", function (e) {
     if (e.args.favourite === 1) {
         beer.set({favourite: 0});    
     } else {
-        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.beer_added_action, value: 1 });
+        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_to_favourites, value: 1 });
         beer.set({favourite: 1});    
     }      
     beer.save();
