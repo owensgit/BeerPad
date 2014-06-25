@@ -16,3 +16,7 @@ function rateButton() {
     console.log(url);
     Ti.Platform.openURL(url);    
 }
+
+$.about.addEventListener("focus", function () {
+    Alloy.Globals.GoogleAnalytics.trackScreen("About");  
+});

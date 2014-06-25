@@ -157,6 +157,9 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
     filterDialog.cancel = 8;
     
     filterDialog.addEventListener("click", function (e) {
+        
+        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.list_sorting_used, value: 1 });
+        
         if (e.index === 0) {
             Alloy.Globals.beerListSecondaryValue = "date";
             theBeers.setSortField("date", "DESC");
@@ -206,6 +209,7 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
 
 Alloy.Globals.addToFavourites = function (alloy_id) {
     console.log("Event fired add to favourites");
+    Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_to_favourites, value: 1 });
     var beerCollection = Alloy.Collections.beers;
     beerCollection.fetch();
     var theBeer = beerCollection.where({"alloy_id": alloy_id})[0];
@@ -225,6 +229,7 @@ Ti.App.addEventListener("app:addToFavorites", function (e) {
     if (e.args.favourite === 1) {
         beer.set({favourite: 0});    
     } else {
+        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.beer_added_action, value: 1 });
         beer.set({favourite: 1});    
     }      
     beer.save();

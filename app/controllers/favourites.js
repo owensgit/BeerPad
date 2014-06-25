@@ -73,11 +73,16 @@ $.favTable.addEventListener("delete", function(event) {
         alloy_id: event.rowData.alloy_id
    };
    if (favourites.length === 1) {
-     Ti.App.fireEvent("app:addToFavorites", { args: args });   
+     Ti.App.fireEvent("app:addToFavorites", { args: args }); 
    } else {
      setTimeout(function () {   
        Ti.App.fireEvent("app:addToFavorites", { args: args });
      }, 400);    
    };
    
+});
+
+
+$.favListWin.addEventListener("focus", function () {
+    Alloy.Globals.GoogleAnalytics.trackScreen("Favourites");  
 });

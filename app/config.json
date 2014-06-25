@@ -15,7 +15,12 @@
 	   "app_opened": "App opened",
 	   "beer_added_action": "Add Beer | Beer Added",
 	   "add_beer_api_request": "Add Beer | API Request",
-	   "add_beer_api_used": "Add Beer | API Used"
+	   "add_beer_api_used": "Add Beer | API Used",
+	   "add_beer_geocoding_request": "Add Beer | Geocoding Request",
+	   "add_beer_geocoding_used": "Add Beer | Geocoding Used",
+	   "add_beer_gps_used": "Add Beer | GPS Used",
+	   "list_sorting_used": "List Sorting Used",
+	   "add_to_favourites": "Beer Added to Favourites"
 	},
 	"env:development": {}, 
 	"env:test": {}, 

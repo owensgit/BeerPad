@@ -134,3 +134,10 @@ if (OS_IOS) {
     });
 
 } // end if OS_IOS
+
+
+
+
+$.map.addEventListener("focus", function () {
+    Alloy.Globals.GoogleAnalytics.trackScreen("Map");  
+});

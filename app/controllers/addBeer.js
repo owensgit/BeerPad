@@ -16,6 +16,13 @@ var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
 
+if (args.edit) {
+    Alloy.Globals.GoogleAnalytics.trackScreen("Edit a beer");    
+} else {
+    Alloy.Globals.GoogleAnalytics.trackScreen("Add a beer");
+}
+
+
 // Array of Star Images for use in applyRating() below
 
 var starArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
@@ -59,14 +66,7 @@ if (args.edit) {
     
     applyRating(args.rating === null ? 0 : args.rating);  
     
-    $.cameraImage.opacity = 0.7;
-    
-    Alloy.Globals.GoogleAnalytics.trackScreen("Edit a beer");
-    
-} else {
-    
-    Alloy.Globals.GoogleAnalytics.trackScreen("Add a beer");
-    
+    $.cameraImage.opacity = 0.7;  
 }
 
 
@@ -339,10 +339,13 @@ function doLocationLookUp(e) {
             locationLookUpView.update(results);
             $.locLookUpActivity.hide();
             
+            Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_geocoding_request, value: 1 });
+            
             locationLookUpView.table.addEventListener("click", function (e) {
                 locationLookUpView.closeUp();
                 $.location.value = e.rowData.title;
                 coords = e.rowData.coords; 
+                Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_geocoding_used, value: 1 });
             });
         });
         
@@ -388,6 +391,7 @@ function useGPS() {
                         var p = e.places[0];
                         $.location.value = p.street + ", " + p.city + ", " + p.country;
                         $.location.height = Ti.UI.SIZE;
+                        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_gps_used, value: 1 });
                         //$.locationLabel.hide();
                     } else {
                         alert(L("location_services_not_found"));
