@@ -1,7 +1,13 @@
 var utils = require("utils");
 var data = require("data");
-
 var lookUpView = require('lookUpView');
+
+var args = arguments[0] || {};
+var theBeers = Alloy.Collections.beers;
+theBeers.fetch();
+
+
+// Add look up views the screen
 
 var beerLookUpView = new lookUpView();
 beerLookUpView.init();
@@ -11,10 +17,8 @@ var locationLookUpView = new lookUpView();
 locationLookUpView.init();
 $.locationBox.add(locationLookUpView.view);
 
-var args = arguments[0] || {};
-var theBeers = Alloy.Collections.beers;
-theBeers.fetch();
 
+// Google Analytics track screen
 
 if (args.edit) {
     Alloy.Globals.GoogleAnalytics.trackScreen("Edit a beer");    

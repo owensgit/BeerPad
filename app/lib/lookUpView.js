@@ -2,7 +2,7 @@ var lookUpView = function() {};
 
 
 lookUpView.viewProps = {
-    height: "36dp", width: "260dp", top: "46dp", bottom: "5dp",
+    height: "36dp", width: "260dp", top: "46dp", //bottom: "5dp",
     backgroundColor: "#FFFFFF", borderColor: "#b0b0b0", borderRadius: "5dp"    
 };
 lookUpView.viewPropsClosed = {
