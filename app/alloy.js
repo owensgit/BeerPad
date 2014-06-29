@@ -11,7 +11,6 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 var utils = require("utils");
-var GA = require('analytics.google');
 
 
 var theBeers = Alloy.createCollection("beers");
@@ -22,9 +21,9 @@ Alloy.Globals.beerListSecondaryValue = 'brewery';
 
 
 // Set up Google Analytics...
-
-GA.trackUncaughtExceptions = true;
-Alloy.Globals.GoogleAnalytics = GA.getTracker(Alloy.CFG.analytics.google_analytics_id);
+//var GA = require('analytics.google');
+//GA.trackUncaughtExceptions = true;
+//Alloy.Globals.GoogleAnalytics = GA.getTracker(Alloy.CFG.analytics.google_analytics_id);
 
 
 
@@ -152,9 +151,9 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
     
     filterDialog.addEventListener("click", function (e) {
         
-        if (e.index != 8) {
+        /*if (e.index != 8) {
             Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.list_sorting_used, value: 1 });
-        }
+        }*/
         
         if (e.index === 0) {
             Alloy.Globals.beerListSecondaryValue = "date";
@@ -205,7 +204,7 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
 
 Alloy.Globals.addToFavourites = function (alloy_id) {
     console.log("Event fired add to favourites");
-    Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_to_favourites, value: 1 });
+    //Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_to_favourites, value: 1 });
     var beerCollection = Alloy.Collections.beers;
     beerCollection.fetch();
     var theBeer = beerCollection.where({"alloy_id": alloy_id})[0];
@@ -225,7 +224,7 @@ Ti.App.addEventListener("app:addToFavorites", function (e) {
     if (e.args.favourite === 1) {
         beer.set({favourite: 0});    
     } else {
-        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_to_favourites, value: 1 });
+        //Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_to_favourites, value: 1 });
         beer.set({favourite: 1});    
     }      
     beer.save();

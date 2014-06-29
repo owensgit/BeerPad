@@ -20,11 +20,11 @@ $.locationBox.add(locationLookUpView.view);
 
 // Google Analytics track screen
 
-if (args.edit) {
+/*if (args.edit) {
     Alloy.Globals.GoogleAnalytics.trackScreen("Edit a beer");    
 } else {
     Alloy.Globals.GoogleAnalytics.trackScreen("Add a beer");
-}
+}*/
 
 
 // Array of Star Images for use in applyRating() below
@@ -167,7 +167,7 @@ $.addBeerButton.addEventListener("click", function () {
             theImage = null;
         }  
         
-        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.beer_added_action, value: 1 });      
+        //Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.beer_added_action, value: 1 });      
     }
     
     this.touchEnabled = true;
@@ -258,7 +258,7 @@ function doBeerLookUp(textField) {
                 return;
             }
             
-            Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_api_request, value: 1 });
+            //Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_api_request, value: 1 });
             
             beerLookUpView.update(results);
             $.beerLookUpActivity.hide();
@@ -271,7 +271,7 @@ function doBeerLookUp(textField) {
                     $.percent.value = e.rowData.abv || "";
                     $.notes.value = e.rowData.notes || "";
                     
-                    Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_api_used, value: 1 });
+                    //Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_api_used, value: 1 });
                 }, 100);
             });
         });
@@ -331,13 +331,13 @@ function doLocationLookUp(e) {
             locationLookUpView.update(results);
             $.locLookUpActivity.hide();
             
-            Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_geocoding_request, value: 1 });
+            //Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_geocoding_request, value: 1 });
             
             locationLookUpView.table.addEventListener("click", function (e) {
                 locationLookUpView.closeUp();
                 $.location.value = e.rowData.title;
                 coords = e.rowData.coords; 
-                Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_geocoding_used, value: 1 });
+                //Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_geocoding_used, value: 1 });
             });
         });
         
@@ -383,7 +383,7 @@ function useGPS() {
                         var p = e.places[0];
                         $.location.value = p.street + ", " + p.city + ", " + p.country;
                         $.location.height = Ti.UI.SIZE;
-                        Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_gps_used, value: 1 });
+                        //Alloy.Globals.GoogleAnalytics.trackEvent({ category: "AppEvent", action: Alloy.CFG.analytics.add_beer_gps_used, value: 1 });
                         //$.locationLabel.hide();
                     } else {
                         alert(L("location_services_not_found"));

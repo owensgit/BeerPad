@@ -6,7 +6,7 @@ var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
-Alloy.Globals.GoogleAnalytics.trackScreen("Beer Detail");
+//Alloy.Globals.GoogleAnalytics.trackScreen("Beer Detail");
 
 
 // The Image

@@ -55,7 +55,7 @@ if (Ti.App.Properties.getString("welcomeDone") === "true") {
    welcome.open();
 }
 
-$.beersTable.addEventListener("focus", function () {
+/*$.beersTable.addEventListener("focus", function () {
     Alloy.Globals.GoogleAnalytics.trackScreen("Index"); 
-});
+});*/
 

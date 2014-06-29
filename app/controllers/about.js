@@ -17,6 +17,6 @@ function rateButton() {
     Ti.Platform.openURL(url);    
 }
 
-$.about.addEventListener("focus", function () {
+/*$.about.addEventListener("focus", function () {
     Alloy.Globals.GoogleAnalytics.trackScreen("About");  
-});
+});*/
