@@ -25,3 +25,10 @@
     height: "38dp",
     font: { fontSize: "15dp" }
 }
+"#versionNumber": {
+    color: "#9f9f9f",
+    top: "28dp",
+    font: {
+        fontSize: "10dp"
+    }
+}

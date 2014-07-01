@@ -17,6 +17,8 @@ function rateButton() {
     Ti.Platform.openURL(url);    
 }
 
+$.versionNumber.text = "Version " + Ti.App.getVersion();
+
 /*$.about.addEventListener("focus", function () {
     Alloy.Globals.GoogleAnalytics.trackScreen("About");  
 });*/
