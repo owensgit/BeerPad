@@ -2,7 +2,7 @@
     <Collection src="beers"/>
     <TabGroup id="mainTabGroup" backgroundColor="white" >
         <Tab id="tab1" titleid="tab_beers" icon="tabBeerIcon.png" activeIcon="tabBeerIconActive.png">
-            <Window titleid="app_name" id="beerListWin" class="container"> 
+            <Window id="beerListWin" class="container"> 
                        
                 <TableView id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
                     <TableViewRow 
