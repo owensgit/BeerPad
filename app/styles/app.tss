@@ -1,5 +1,7 @@
 "Window": {
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    barImage: "navigationBarBg.png",
+    shadowImage: "navigationBarBg.png"
 }
 ".container" : { 
    backgroundColor: 'white',
@@ -10,6 +12,10 @@
        color: Alloy.CFG.colour.tint
    }
 },
+
+"ActivityIndicator": {
+    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK
+}
 
 "Button": {
     color: Alloy.CFG.colour.background

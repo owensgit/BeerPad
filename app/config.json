@@ -32,6 +32,7 @@
 	"os:mobileweb": {},
 	"dependencies": {},
 	"colour": {
+	   "main": "#4ca843",
 	   "background": "#4da843",
 	   "tint": "#FFFFFF",
 	   "tabsTint": "#4da843",

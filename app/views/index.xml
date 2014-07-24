@@ -31,7 +31,10 @@
         <Tab id="tab3" titleid="tab_map" icon="tabPinIcon.png" activeIcon="tabPinIconActive.png">
            <Require src="map"></Require>
         </Tab>
-        <Tab id="tab4" titleid="tab_about" icon="tabAboutIcon.png" activeIcon="tabAboutIconActive.png">
+        <Tab id="tab4" titleid="tab_search" icon="tabSearchIcon.png" activeIcon="tabSearchIconActive.png">
+            <Require src="search"></Require>
+        </Tab>
+        <Tab id="tab5" titleid="tab_about" icon="tabAboutIcon.png" activeIcon="tabAboutIconActive.png">
             <Require src="about"></Require>
         </Tab>
     </TabGroup>

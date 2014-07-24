@@ -26,9 +26,10 @@
     <string name="welcome_finished_button">Get started</string>    
     
     <!-- Tabs -->
-    <string name="tab_beers">Beers</string>
+    <string name="tab_beers">My Beers</string>
     <string name="tab_fav">Favourites</string>
     <string name="tab_map">Map</string>
+    <string name="tab_search">Find</string>
     <string name="tab_about">About</string>
        
     <!-- Beer Index List -->
@@ -68,6 +69,14 @@
     <string name="about_rate_btn">Rate in the App Store</string>
     <string name="about_feedback_btn">Send feedback</string>
     
+    <!-- Search -->
+    <string name="search_title">Look up beers</string>
+    <string name="search_empty_title">FIND BEER</string>
+    <string name="search_empty_text">Find a beer from the BreweryDB database.</string>
+    <string name="search_hint">Beer name or brewery</string>
+    <string name="search_no_matches_title">NO MATCHES FOUND</string>
+    <string name="search_no_connection_title">NO INTERNET</string>
+    <string name="search_no_connection_text">Oh dear, looks like we can't connect to the web to get your beer results.</string>
     
     <!-- Add or edit a beer -->
     <string name="add_cancel">Cancel</string> 

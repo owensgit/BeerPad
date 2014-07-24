@@ -1,0 +1,26 @@
+
+".container" : {
+  
+}
+
+"#searchBar": {
+    barColor: Alloy.CFG.colour.main,
+    borderWidth: 1,
+    borderColor: Alloy.CFG.colour.main,
+    tintColor: Alloy.CFG.colour.main
+}
+".emptyText": {
+    textAlign: "center"
+}
+"#noMatchesMsg": {
+    opacity: 0
+}
+"#noConnectionMsg": {
+    opacity: 0
+}
+"#resultsTable": {
+    opacity: 0
+}
+"ActivityIndicator": {
+    top: "120dp"
+}
