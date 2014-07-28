@@ -7,8 +7,7 @@
                 <TableView id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
                     <TableViewRow 
                         hasChild="true" alloy_id="{alloy_id}" name="{name}" brewery="{brewery}" 
-                        rating="{rating}" percent="{percent}"
-                        establishment="{establishment}" location="{location}" 
+                        rating="{rating}" percent="{percent}" establishment="{establishment}" location="{location}" 
                         notes="{notes}" date="{date}" beer_image="{beer_image}" favourite="{favourite}"> 
                                               
                         <View class="tableRow">

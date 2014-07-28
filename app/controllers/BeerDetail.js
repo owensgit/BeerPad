@@ -76,12 +76,9 @@ $.ratingView.add(theStars);
 
 // View Image
 
-function viewImage() {
-    var beerImage = Alloy.createController("BeerImage");
-    beerImage.image.image = $.image.image;
-    beerImageView = beerImage.getView();
-    Alloy.Globals.mainTabGroup.getActiveTab().open(beerImageView);    
-}
+$.image.addEventListener("click", function () {
+   utils.viewBeerImage($.image.image); 
+});
 
 
 // Share Dialog

@@ -3,6 +3,9 @@ var Alloy = require('alloy'), _ = require("alloy/underscore")._, Backbone = requ
 var utils = (function() {
     var methods = {};
     
+    /**
+     *  Update properties in object 1 with matching properties from object 2
+     */
     methods.updateObjectWithObject = function(obj1, obj2) {
         for (key in obj2) {
             if (obj2.hasOwnProperty(key)) {
@@ -46,6 +49,19 @@ var utils = (function() {
         }
         return true;
     };
+    
+    /**
+     *  View a beer image from the Beer Detail screen
+     *  
+     *  @param image {Object} image object taken from an ImageView, by using theImageView.image
+     */
+    methods.viewBeerImage = function (image) {
+        var beerImage = Alloy.createController("BeerImage");
+        beerImage.image.image = image;
+        beerImageView = beerImage.getView();
+        Alloy.Globals.mainTabGroup.getActiveTab().open(beerImageView);
+    };
+    
     
     /**
      * Wait for the final event to finish inside an event listener to avoid multiple functions from running. Useful
