@@ -1,4 +1,4 @@
-
-".container" : {
-  
+"#favListWin": {
+    accessibilityLabel: "Your favourtie beers",
+    titleImage: "header-favourites.png"
 }

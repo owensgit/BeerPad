@@ -1,3 +1,7 @@
+"#search": {
+    accessibilityLabel: "Search for new beers",
+    titleImage: "header-search.png"
+}
 
 ".container" : {
   
@@ -19,7 +23,8 @@
     opacity: 0
 }
 "#resultsTable": {
-    opacity: 0
+    opacity: 0,
+    top: 0
 }
 "ActivityIndicator": {
     top: "120dp"

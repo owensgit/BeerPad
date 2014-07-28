@@ -1,6 +1,6 @@
 <Alloy>
     <Collection src="beers"/>
-    <Window id="favListWin" titleid="fav_title" class="container">
+    <Window id="favListWin" class="container">
     	<View class="container">
     	    <View class="emptySectionMessage">
     	        <ImageView image="defaultImageGrey.png" />

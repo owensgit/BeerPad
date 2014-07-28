@@ -10,6 +10,10 @@
 	   "brewery_db_api_key": "aa4423f8887ce03f2d18d94d75bc36b6",
 	   "api_call_debounce_delay": 500
 	}, 
+	"platform_values": {
+	   "ios_keyboard_height_iphone_portrait": 264,
+	   "ios_header_height_portrait": 65
+	},
 	"analytics": {
 	   "google_analytics_id": "UA-50958937-2",
 	   "beer_added_action": "Add Beer | Beer Added",

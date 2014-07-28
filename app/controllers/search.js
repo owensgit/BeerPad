@@ -1,10 +1,19 @@
 var args = arguments[0] || {};
 var data = require("data");
 
-var searchResults = Alloy.createCollection("searchResults");
+var searchResults = Alloy.Collections.searchResults;
 
 $.resultsView.addEventListener("click", function () {
-    $.searchBar.blur();
+    //$.searchBar.blur();
+});
+$.searchBar.addEventListener("blur", function () {
+    $.resultsTable.height = Ti.UI.FILL;    
+});
+$.searchBar.addEventListener("focus", function () {
+    setTimeout(function () {
+        var platformHeight = Ti.Platform.displayCaps.platformHeight;
+        $.resultsTable.height = platformHeight - 320;   
+    }, 200);
 });
 
 function showHideElements(msg) {
@@ -14,20 +23,30 @@ function showHideElements(msg) {
     $.introMsg.animate({opacity: msg === "introMsg" ? 1 : 0, duration: fadeTime});    
 }
 
+
+
 var fadeTime = 200;
 
 var doSearch = function(searchTerm) {
     data.lookUpBeer(searchTerm, function (results) {
+        searchResults.reset();
         if (results === null) {
             $.activityIndicator.hide();
             showHideElements('noConnection');
             return;
         }
-        if (!results) {
+        if (_.isEmpty(results)) {
             $.activityIndicator.hide();
             showHideElements('noMatch');
             return;
         }
+        $.resultsTable.scrollToTop(0, {animated: false});
+        _.each(results, function (item) {
+           var beer = Alloy.createModel('searchResults', item);
+           searchResults.push(beer);
+        });
+        console.log(searchResults.toJSON());
+        showHideElements("resultsTable");
     });
 };
 

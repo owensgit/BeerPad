@@ -1,5 +1,5 @@
 <Alloy>
-    <Window titleid="map_title" class="container">
+    <Window class="container">
     	<View id="mapContainer" class="container" zIndex="0">
     	    
     	</View>

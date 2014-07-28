@@ -134,20 +134,20 @@
 ".emptySectionMessage": {
     layout: "vertical",
     height: Ti.UI.SIZE,
-    top: "30dp"
+    top: "40dp"
 }
 ".emptyTitle": {
     color: Alloy.CFG.colour.grey,
-    top: "10dp",
+    top: "18dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
     font: {
-        fontSize: "40dp",
+        fontSize: "32dp",
         fontFamily: 'Dense-Regular'
     }
 }
 ".emptyText": {
     color: Alloy.CFG.colour.grey,
-    top: "10dp",
+    top: "15dp",
     width: "155dp",
     font: { fontSize: "14dp" }
 }

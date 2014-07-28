@@ -1,3 +1,7 @@
+"#about": {
+    accessibilityLabel: "Information about Beer Pad",
+    titleImage: "header-about.png"
+}
 
 ".container" : {
     layout: "vertical"

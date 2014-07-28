@@ -1,5 +1,5 @@
 <Alloy>
-	<Window titleid="search_title" class="container" layout="vertical">
+	<Window class="container" layout="vertical">
 	    <SearchBar id="searchBar" hinttextid="search_hint" showCancel="false" />
 	    <View id="resultsView" class="container">
 	        
@@ -20,15 +20,22 @@
                 <Label class="emptyText" textid="search_no_connection_text" />   
             </View>
             
-            <TableView id="resultsTable">
-                <TableViewRow>Item 1</TableViewRow>
-                <TableViewRow>Item 1</TableViewRow>
-                <TableViewRow>Item 1</TableViewRow>
-                <TableViewRow>Item 1</TableViewRow>
-                <TableViewRow>Item 1</TableViewRow>
-                <TableViewRow>Item 1</TableViewRow>
-                <TableViewRow>Item 1</TableViewRow>
-                <TableViewRow>Item 1</TableViewRow>    
+            <TableView id="resultsTable" dataCollection="searchResults" dataTransform="Alloy.Globals.beerListTransform">
+                <TableViewRow 
+                    hasChild="true" alloy_id="{alloy_id}" name="{name}" brewery="{brewery}" 
+                    rating="{rating}" percent="{percent}"
+                    establishment="{establishment}" location="{location}" 
+                    notes="{notes}" date="{date}" beer_image="{beer_image}" favourite="{favourite}"> 
+                                          
+                    <View class="tableRow">
+                        <Label id="tableRowName" text="{name}"></Label>
+                        <!--Label id="tableMiddleLabel" text="{tableMiddleLabel}"></Label-->
+                        <View id="secondaryInfo">
+                            <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery"></Label>
+                        </View>
+                    </View>    
+                                        
+                </TableViewRow>
             </TableView>
             
         </View>
