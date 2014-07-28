@@ -72,7 +72,7 @@
     <!-- Search -->
     <string name="search_title">Look up beers</string>
     <string name="search_empty_title">TAKE A LOOK AROUND</string>
-    <string name="search_empty_text">Discover new beers \nor check out favourites, all gathered from the BreweryDB database.</string>
+    <string name="search_empty_text">If you find the beer you are looking you, you can add it to your \n"My Beers" list.</string>
     <string name="search_hint">Beer name or brewery</string>
     <string name="search_no_matches_title">NO MATCHES FOUND</string>
     <string name="search_no_connection_title">NO INTERNET</string>

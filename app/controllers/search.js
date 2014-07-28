@@ -50,6 +50,10 @@ var doSearch = function(searchTerm) {
     });
 };
 
+$.resultsTable.addEventListener("click", function (event) {
+    Alloy.Globals.openBeerDetails(event); 
+});
+
 var doSearch_debounced = _.debounce(doSearch, Alloy.CFG.api_call_debounce_delay);
 
 $.searchBar.addEventListener("change", function(e) {

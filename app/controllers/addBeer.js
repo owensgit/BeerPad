@@ -75,42 +75,6 @@ if (args.edit) {
 
 
 
-// Func to map args to modal
-
-function mapArgs() {
-    var newArgs = {
-        name: $.name.value,
-        brewery: $.brewery.value,
-        rating: rating, // set by applyRating() func below
-        percent: $.percent.value,
-        establishment: $.establishment.value,
-        location: $.location.value,
-        notes: $.notes.value
-    };
-
-    if (coords) {
-        newArgs.latitude = coords.latitude;
-        newArgs.longitude = coords.longitude;
-    }
-    
-    if ($.location.value === "") {
-        newArgs.latitude = null;
-        newArgs.longitude = null;
-        newArgs.location = null;
-    }
-    
-    if (!args.date) {
-        var now = new Date();
-        var now_hours = now.getHours();
-        var now_epoch = Math.floor(now.setUTCHours(now_hours));
-        newArgs.date = now_epoch; 
-        newArgs.date_string = utils.parseDateStringFromEpoch(now_epoch);
-    }
-
-    return newArgs;
-};
-
-
 
 // Add Beer Function
 
@@ -144,7 +108,7 @@ $.addBeerButton.addEventListener("click", function () {
     // saving of the beer
     
     if (args.edit) {
-        var updatedData = mapArgs();
+        var updatedData = utils.mapLabelsToNewArgs($, args, rating, coords);
         editBeer.set(updatedData);
         var shouldSetImage = theImage ? true : false;
         editBeer.save();
@@ -158,7 +122,7 @@ $.addBeerButton.addEventListener("click", function () {
             shouldSetImage: shouldSetImage 
         });           
     } else {
-        var beer = Alloy.createModel('beers', mapArgs());
+        var beer = Alloy.createModel('beers', utils.mapLabelsToNewArgs($, args, rating, coords));
         beer.save();           
         theBeers.add(beer);
         

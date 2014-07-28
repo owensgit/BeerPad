@@ -22,7 +22,7 @@ Ti.App.addEventListener("toggleFavTable", function (e) {
 });
 
 $.favTable.addEventListener("click", function(event) {
-    Alloy.Globals.openBeerDetails(event, theBeers);
+    Alloy.Globals.openBeerDetails(event);
 });
 
 function transformFunction(modal) {

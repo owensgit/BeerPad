@@ -63,6 +63,39 @@ var utils = (function() {
     };
     
     
+    methods.mapLabelsToNewArgs = function ($, args, rating, coords) {
+            var newArgs = {
+                name: $.name.value,
+                brewery: $.brewery.value,
+                rating: rating, // set by applyRating() func below
+                percent: $.percent.value,
+                establishment: $.establishment.value,
+                location: $.location.value,
+                notes: $.notes.value
+            };
+        
+            if (coords) {
+                newArgs.latitude = coords.latitude;
+                newArgs.longitude = coords.longitude;
+            }
+            
+            if ($.location.value === "") {
+                newArgs.latitude = null;
+                newArgs.longitude = null;
+                newArgs.location = null;
+            }
+            
+            if (!args.date) {
+                var now = new Date();
+                var now_hours = now.getHours();
+                var now_epoch = Math.floor(now.setUTCHours(now_hours));
+                newArgs.date = now_epoch; 
+                newArgs.date_string = utils.parseDateStringFromEpoch(now_epoch);
+            }
+        
+            return newArgs;        
+    };
+    
     /**
      * Wait for the final event to finish inside an event listener to avoid multiple functions from running. Useful
      * when listening to keyboard events on user inputs, so ensure that the desired function doesn't rapidly fire many
