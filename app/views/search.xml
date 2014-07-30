@@ -1,5 +1,6 @@
 <Alloy>
 	<Window class="container" layout="vertical">
+	    <View height="1"></View>
 	    <SearchBar id="searchBar" hinttextid="search_hint" showCancel="false" />
 	    <View id="resultsView" class="container">
 	        

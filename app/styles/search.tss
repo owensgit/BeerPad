@@ -1,7 +1,7 @@
-"#search": {
+/*"#search": {
     accessibilityLabel: "Search for new beers",
     titleImage: "header-search.png"
-}
+}*/
 
 ".container" : {
   
@@ -14,7 +14,8 @@
     tintColor: Alloy.CFG.colour.main
 }
 ".emptyText": {
-    textAlign: "center"
+    textAlign: "center",
+    opacity: 0
 }
 "#noMatchesMsg": {
     opacity: 0
@@ -23,7 +24,7 @@
     opacity: 0
 }
 "#resultsTable": {
-    opacity: 0,
+    opacity: 1,
     top: 0
 }
 "ActivityIndicator": {
