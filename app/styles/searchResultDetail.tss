@@ -1,0 +1,72 @@
+
+".container" : {
+  
+},
+
+"#image": {
+    height: "130dp",
+    width: "130dp",
+    borderRadius: "65dp",
+    top: "15dp"
+},
+
+"Label": {
+    width: "220dp", 
+},
+"#name": {
+    top: "8dp",
+    width: "270dp",
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    font: {
+        fontSize: "52dp",
+        fontFamily: 'Dense-Regular'
+    }   
+},
+"#brewery": {
+    top: "1dp",
+    width: "300dp",
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
+}
+
+".ratingButtons": {
+    top: "14dp",
+    height: "22dp",
+    width: "145dp",
+    left: "84dp"
+}
+".starImage": {
+    height: "22dp",
+    width: "22dp"
+}
+
+".iconItem": {
+    top: "20dp",
+    layout: "composite",
+    height: Ti.UI.SIZE,
+    width: "220dp"
+}
+
+".icon": {
+    width: "20dp", height: "20dp",
+    left: "0dp", top: "2dp"
+},
+
+".iconTitle": {
+    width: "190dp",
+    left: "28dp", top: "1dp"
+}
+
+"#notes": {
+    top: "20dp"
+}
+
+"#toolbar": {
+    color: "#000",
+    backgroundColor: Alloy.CFG.colour.background,
+    barColor: Alloy.CFG.colour.background
+}
+
+"#spacer": {
+    height: 0,
+    top: "80dp"
+}

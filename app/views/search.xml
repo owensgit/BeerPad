@@ -25,7 +25,9 @@
                     hasChild="true" 
                     name="{name}"
                     brewery="{brewery}"
-                    percent="{abv}"> 
+                    percent="{abv}"
+                    beer_image="{beer_image}"
+                    notes="{notes}"> 
                                           
                     <View class="tableRow">
                         <Label id="tableRowName" text="{name}"></Label>

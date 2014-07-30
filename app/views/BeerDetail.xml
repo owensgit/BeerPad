@@ -10,12 +10,12 @@
           <!-- The rating stars get created in BeerDetail.js and placed in this view -->
           <View id="ratingView" height="30dp"></View>
               
-          <View class="iconItem">
+          <View id="pubBox" class="iconItem">
             <ImageView class="icon" id="buildingIcon" image="building.png" />
             <Label class="iconTitle" id="pub" />
           </View>
           
-          <View class="iconItem">
+          <View id="locationBox" class="iconItem">
             <ImageView class="icon" id="locationIcon" image="location.png" />
             <Label class="iconTitle" id="location" />
           </View>
@@ -31,6 +31,7 @@
             <FlexSpace/>
             <FlexSpace/>
             <Button id="deleteBtn" onClick="deleteBeer" title="Delete" systemButton="Ti.UI.iPhone.SystemButton.TRASH" />
+            
           </Items>
       </Toolbar>
       

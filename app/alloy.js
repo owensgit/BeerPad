@@ -35,13 +35,8 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
 
     $.name.text = args.name.toUpperCase();
     
-    var breweryAndPercentText = args.percent ? args.brewery + " | " + args.percent : args.brewery;
+    $.brewery.text = utils.buildBreweryAndPercentString(args.brewery, args.percent);
     
-    if (!args.percent  &&  args.brewery) breweryAndPercentText = args.brewery;
-    if ( args.percent  &&  args.brewery) breweryAndPercentText = args.brewery + " | " + args.percent + "%";
-    if ( args.percent  && !args.brewery) breweryAndPercentText = args.percent + "%";
-    
-    $.brewery.text = breweryAndPercentText;
     $.pub.text = args.establishment || L("detail_no_pub");
     $.location.text = args.location || L("detail_no_location");
     $.notes.text = args.notes;
@@ -89,16 +84,20 @@ Alloy.Globals.saveImage = function(alloy_id, theImage) {
 };
 
 
-Alloy.Globals.openBeerDetails = function (event) {
+Alloy.Globals.openBeerDetails = function (event, controller) {
     var selectedBeer = event.row;
+    
+    var controller = controller ? controller : "BeerDetail";
       
     var args = {};
     
     _.each(selectedBeer, function(value, key) {
-       args[key] = value; // store all info to pass to the view
+       args[key] = value;
     }); 
     
-    var view = Alloy.createController("BeerDetail", args).getView();
+    console.log(controller);
+    
+    var view = Alloy.createController(controller, args).getView();
     
     Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });      
 };

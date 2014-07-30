@@ -45,13 +45,12 @@ var doSearch = function(searchTerm) {
            var beer = Alloy.createModel('searchResults', item);
            searchResults.push(beer);
         });
-        console.log(searchResults.toJSON());
         showHideElements("resultsTable");
     });
 };
 
 $.resultsTable.addEventListener("click", function (event) {
-    Alloy.Globals.openBeerDetails(event); 
+    Alloy.Globals.openBeerDetails(event, "searchResultDetail"); 
 });
 
 var doSearch_debounced = _.debounce(doSearch, Alloy.CFG.api_call_debounce_delay);

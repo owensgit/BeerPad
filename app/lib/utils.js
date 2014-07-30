@@ -14,6 +14,16 @@ var utils = (function() {
         }
     };
     
+    methods.buildBreweryAndPercentString = function (brewery, percent) {
+        var breweryAndPercentText = percent ? brewery + " | " + percent : brewery;
+    
+        if (!percent  &&  brewery) breweryAndPercentText = brewery;
+        if ( percent  &&  brewery) breweryAndPercentText = brewery + " | " + percent + "%";
+        if ( percent  && !brewery) breweryAndPercentText = percent + "%";
+        
+        return breweryAndPercentText;
+    };
+    
     methods.parseDateStringFromEpoch = function(date_epoch) {
         var date = new Date(parseInt(date_epoch, 10));  
         var thisYear = new Date().getFullYear();
