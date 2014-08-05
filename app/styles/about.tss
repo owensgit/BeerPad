@@ -1,6 +1,5 @@
 "#about": {
-    accessibilityLabel: "Information about Beer Pad",
-    titleImage: "header-about.png"
+    accessibilityLabel: "Information about Beer Pad"
 }
 
 ".container" : {

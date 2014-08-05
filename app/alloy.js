@@ -17,7 +17,7 @@ var theBeers = Alloy.createCollection("beers");
 theBeers.fetch();
 
 
-Alloy.Collections.searchResults = Alloy.createCollection('searchResults');
+//Alloy.Collections.searchResults = Alloy.createCollection('searchResults');
 
 
 Alloy.Globals.beerListSecondaryValue = 'brewery';

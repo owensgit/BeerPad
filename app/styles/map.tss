@@ -1,4 +1,3 @@
 "#map": {
-    accessibilityLabel: "Map of your beer locations",
-    titleImage: "header-map.png"
+    accessibilityLabel: "Map of your beer locations"
 }

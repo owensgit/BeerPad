@@ -3,6 +3,11 @@ theBeers.fetch();
 
 Alloy.Globals.mainTabGroup = $.mainTabGroup;
 
+$.beerListWin.titleControl = Ti.UI.createImageView({
+    image: 'header-logo.png', 
+    height: Ti.UI.SIZE, 
+    width: Ti.UI.SIZE
+});
 
 $.beersTable.addEventListener("click", function(event) {
     Alloy.Globals.openBeerDetails(event);

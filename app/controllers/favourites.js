@@ -3,6 +3,13 @@ var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
+
+$.favListWin.titleControl = Ti.UI.createImageView({
+    image: 'header-favourites.png', 
+    height: Ti.UI.SIZE, 
+    width: Ti.UI.SIZE
+});
+
 if (!_.isEmpty(theBeers.where({favourite: 1 }))) {
     $.favTable.visible = true;
 } else {

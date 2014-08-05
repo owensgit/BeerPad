@@ -2,6 +2,8 @@ var args = arguments[0] || {};
 
 console.log(args);
 
+$.searchResultDetail.title = args.name;
+
 if (args.beer_image) {
     $.image.image = args.beer_image;
 }

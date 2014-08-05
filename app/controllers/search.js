@@ -1,6 +1,12 @@
 var args = arguments[0] || {};
 var data = require("data");
 
+
+$.searchWin.titleControl = Ti.UI.createImageView({
+    image: 'header-search.png', height: Ti.UI.SIZE, width: Ti.UI.SIZE
+});
+
+
 var searchResults = Alloy.Collections.searchResults;
 
 $.resultsView.addEventListener("click", function () {
@@ -15,6 +21,8 @@ $.searchBar.addEventListener("focus", function () {
         $.resultsTable.height = platformHeight - 320;   
     }, 200);
 });
+
+
 
 function showHideElements(msg) {
     $.noMatchesMsg.animate({opacity: msg === "noMatch" ? 1 : 0, duration: fadeTime});

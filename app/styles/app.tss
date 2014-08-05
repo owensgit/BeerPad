@@ -5,7 +5,6 @@
 }
 ".container" : { 
    backgroundColor: 'white',
-   barColor: Alloy.CFG.colour.background,
    tintColor: Alloy.CFG.colour.tint,
    backButtonTitle: 'Back',
    titleAttributes: {

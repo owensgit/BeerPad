@@ -1,4 +1,3 @@
 "#favListWin": {
-    accessibilityLabel: "Your favourtie beers",
-    titleImage: "header-favourites.png"
+    accessibilityLabel: "Your favourtie beers"
 }

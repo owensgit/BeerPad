@@ -1,5 +1,11 @@
 var args = arguments[0] || {};
 
+$.about.titleControl = Ti.UI.createImageView({
+    image: 'header-about.png', 
+    height: Ti.UI.SIZE, 
+    width: Ti.UI.SIZE
+});
+
 function sendFeedback() {
     var emailDialog = Titanium.UI.createEmailDialog();
     var appDetails = '<br><br><br><small><b>App Version:</b> ' + Titanium.App.version;

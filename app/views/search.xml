@@ -1,7 +1,13 @@
 <Alloy>
-	<Window class="container" layout="vertical">
+    <Collection src="searchResults"/>
+	<Window id="searchWin" class="container">
+	    <View layout="vertical">
+	    <!-- Hack: having this view with a height of 1 prevents the search bar
+	         from disappearing when the user navigates to the next window and comes back again -->
 	    <View height="1"></View>
+	    
 	    <SearchBar id="searchBar" hinttextid="search_hint" showCancel="false" />
+	    
 	    <View id="resultsView" class="container">
 	        
 	        <ActivityIndicator id="activityIndicator" />
@@ -40,7 +46,7 @@
                                         
                 </TableViewRow>
             </TableView>
-            
         </View>
+        </View> 
 	</Window>
 </Alloy>

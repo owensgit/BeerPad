@@ -1,5 +1,9 @@
 var args = arguments[0] || {};
 
+$.map.titleControl = Ti.UI.createImageView({
+    image: 'header-map.png', height: Ti.UI.SIZE, width: Ti.UI.SIZE
+});
+
 var theBeers = Alloy.Collections.beers;
 
 if (OS_IOS) {

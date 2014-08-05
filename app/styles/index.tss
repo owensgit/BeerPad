@@ -1,4 +1,3 @@
 "#beerListWin": {
-    accessibilityLabel: "List of your saved beers",
-    titleImage: "header-logo.png"
+    accessibilityLabel: "List of your saved beers"
 }
