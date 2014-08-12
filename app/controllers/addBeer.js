@@ -6,7 +6,6 @@ var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
-
 // Add look up views the screen
 
 var beerLookUpView = new lookUpView();
@@ -53,30 +52,36 @@ $.location.hintText = L('add_location');
 
 // Edit Mode
 
-if (args.edit) {
+if (args.edit || args.addingFromSearch) {
     var editBeer = theBeers.where({"alloy_id": args.alloy_id})[0];
-    $.title.text = L("edit_title");   
-    $.name.value = args.name;
+           
+    $.name.value = args.name || "";
     $.brewery.value = args.brewery || "";
     $.percent.value = args.percent || "";
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
     
     var beerImage = Alloy.Globals.getImage(args);
+    $.beerImage.image = beerImage;
     
-    if (args.notes) $.notes.value = args.notes;
-
-    $.addBeerButton.title = "Save beer"; 
+    if (args.notes) $.notes.value = args.notes; 
     
     applyRating(args.rating === null ? 0 : args.rating);  
     
     $.cameraImage.opacity = 0.7;  
 }
 
+if (args.edit) {
+    $.title.text = L("edit_title") || "";  
+    $.addBeerButton.title = "Save beer";
+}
 
 
 
-// Add Beer Function
+/**
+ *  Add / Save Beer
+ *  ---------------
+ */
 
 $.addBeerButton.addEventListener("click", function () {
     
@@ -125,6 +130,10 @@ $.addBeerButton.addEventListener("click", function () {
         var beer = Alloy.createModel('beers', utils.mapLabelsToNewArgs($, args, rating, coords));
         beer.save();           
         theBeers.add(beer);
+        
+        if (args.addingFromSearch) {
+            theImage = $.beerImage.toBlob();
+        }
         
         if (theImage) {
             Alloy.Globals.saveImage(beer.get('alloy_id'), theImage);  

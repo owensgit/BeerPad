@@ -74,6 +74,7 @@ Alloy.Globals.getImage = function(args) {
         if (args.beer_image.indexOf("sample_") === 0) {
             return args.beer_image;
         }
+        return args.beer_image;
     }
 };
 
@@ -94,8 +95,6 @@ Alloy.Globals.openBeerDetails = function (event, controller) {
     _.each(selectedBeer, function(value, key) {
        args[key] = value;
     }); 
-    
-    console.log(controller);
     
     var view = Alloy.createController(controller, args).getView();
     

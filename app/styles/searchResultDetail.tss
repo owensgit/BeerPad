@@ -23,7 +23,7 @@
     }   
 },
 "#brewery": {
-    top: "1dp",
+    top: "4dp",
     width: "300dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
 }
@@ -57,7 +57,11 @@
 }
 
 "#notes": {
-    top: "20dp"
+    top: "20dp",
+    width: "220dp",
+    font: {
+        fontSize: "15dp"
+    }
 }
 
 "#toolbar": {

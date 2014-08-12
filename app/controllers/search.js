@@ -10,7 +10,7 @@ $.searchWin.titleControl = Ti.UI.createImageView({
 var searchResults = Alloy.Collections.searchResults;
 
 $.resultsView.addEventListener("click", function () {
-    //$.searchBar.blur();
+    $.searchBar.blur();
 });
 $.searchBar.addEventListener("blur", function () {
     $.resultsTable.height = Ti.UI.FILL;    
@@ -58,7 +58,8 @@ var doSearch = function(searchTerm) {
 };
 
 $.resultsTable.addEventListener("click", function (event) {
-    Alloy.Globals.openBeerDetails(event, "searchResultDetail"); 
+    $.resultsTable.height = Ti.UI.FILL; 
+    Alloy.Globals.openBeerDetails(event, "searchResultDetail");
 });
 
 var doSearch_debounced = _.debounce(doSearch, Alloy.CFG.api_call_debounce_delay);

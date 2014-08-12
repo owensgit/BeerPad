@@ -1,5 +1,6 @@
 migration.up = function(migrator) {
-    migrator.db.execute('ALTER TABLE ' + migrator.table + ' ADD COLUMN is_sample BOOLEAN;');
+    migrator.db.execute('ALTER TABLE ' + migrator.table + ' ADD COLUMN ibu INTEGER;');
+    migrator.db.execute('ALTER TABLE ' + migrator.table + ' ADD COLUMN api_id TEXT;');
 };
 
 migration.down = function(migrator) {
@@ -22,10 +23,9 @@ migration.down = function(migrator) {
             "beer_image": "text",
             "latitude": "integer",
             "longitude": "integer",
-            "favourite": "boolean",
-            "is_sample": "boolean"
+            "favourite": "boolean"
         },
     });
-    db.execute('INSERT INTO ' + table + ' SELECT alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite,is_sample FROM beers_backup;');
+    db.execute('INSERT INTO ' + table + ' SELECT alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite FROM beers_backup;');
     db.execute('DROP TABLE beers_backup;');
 };

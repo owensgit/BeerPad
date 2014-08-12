@@ -9,6 +9,7 @@ exports.definition = {
             "location": "text",
             "notes": "text",
             "beer_image": "text",  
+            "api_id": "text"
         },
 		adapter: {
 			type: "sql",

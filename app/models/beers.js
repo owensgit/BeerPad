@@ -14,7 +14,8 @@ exports.definition = {
             "latitude": "integer",
             "longitude": "integer",
             "favourite": "boolean",
-            "is_sample": "boolean"  
+            "is_sample": "boolean",
+            "api_id": "text"  
 		},
 		adapter: {
 			type: "sql",

@@ -34,13 +34,14 @@
                     brewery="{brewery}"
                     percent="{abv}"
                     beer_image="{beer_image}"
-                    notes="{notes}"> 
+                    notes="{notes}"
+                    api_id="{api_id}"> 
                                           
                     <View class="tableRow">
-                        <Label id="tableRowName" text="{name}"></Label>
+                        <Label id="tableRowName" text="{name}" />
                         <!--Label id="tableMiddleLabel" text="{tableMiddleLabel}"></Label-->
                         <View id="secondaryInfo">
-                            <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery"></Label>
+                            <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery" />
                         </View>
                     </View>    
                                         

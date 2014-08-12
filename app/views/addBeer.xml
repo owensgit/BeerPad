@@ -13,7 +13,7 @@
 	        
 	        <View id="nameBox" class="lookUpBox">
                 <TextField id="name" autocorrect="false"></TextField>
-                <ActivityIndicator class="lookUpActivityIndicator" id="beerLookUpActivity">
+                <ActivityIndicator class="lookUpActivityIndicator" id="beerLookUpActivity" />
             </View>
             
             <TextField id="brewery" autocorrect="false"></TextField>
@@ -36,7 +36,7 @@
             <View id="locationBox" class="lookUpBox">
                 <TextField id="location" autocorrect="false"></TextField>
                 <!--Label id="locationLabel" textid="add_location" /-->
-                <ActivityIndicator class="lookUpActivityIndicator" id="locLookUpActivity">
+                <ActivityIndicator class="lookUpActivityIndicator" id="locLookUpActivity" />
             </View>
             
             <Button id="use_gps" class="buttonOutline" onClick="useGPS" titleid="add_location_use_gps"></Button>

@@ -74,36 +74,37 @@ var utils = (function() {
     
     
     methods.mapLabelsToNewArgs = function ($, args, rating, coords) {
-            var newArgs = {
-                name: $.name.value,
-                brewery: $.brewery.value,
-                rating: rating, // set by applyRating() func below
-                percent: $.percent.value,
-                establishment: $.establishment.value,
-                location: $.location.value,
-                notes: $.notes.value
-            };
+        var newArgs = {
+            name: $.name.value,
+            brewery: $.brewery.value,
+            rating: rating, // set by applyRating() func below
+            percent: $.percent.value,
+            establishment: $.establishment.value,
+            location: $.location.value,
+            notes: $.notes.value,
+            api_id: args.api_id || null
+        };
+    
+        if (coords) {
+            newArgs.latitude = coords.latitude;
+            newArgs.longitude = coords.longitude;
+        }
         
-            if (coords) {
-                newArgs.latitude = coords.latitude;
-                newArgs.longitude = coords.longitude;
-            }
-            
-            if ($.location.value === "") {
-                newArgs.latitude = null;
-                newArgs.longitude = null;
-                newArgs.location = null;
-            }
-            
-            if (!args.date) {
-                var now = new Date();
-                var now_hours = now.getHours();
-                var now_epoch = Math.floor(now.setUTCHours(now_hours));
-                newArgs.date = now_epoch; 
-                newArgs.date_string = utils.parseDateStringFromEpoch(now_epoch);
-            }
+        if ($.location.value === "") {
+            newArgs.latitude = null;
+            newArgs.longitude = null;
+            newArgs.location = null;
+        }
         
-            return newArgs;        
+        if (!args.date) {
+            var now = new Date();
+            var now_hours = now.getHours();
+            var now_epoch = Math.floor(now.setUTCHours(now_hours));
+            newArgs.date = now_epoch; 
+            newArgs.date_string = utils.parseDateStringFromEpoch(now_epoch);
+        }
+    
+        return newArgs;        
     };
     
     /**

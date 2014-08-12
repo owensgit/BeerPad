@@ -28,6 +28,8 @@ var data = (function () {
                     result.notes = item.description || null;
                     result.api_id = item.id;
                     
+                    console.log("API ID", typeof result.api_id);
+                    
                     if (item.labels && item.labels.large) {
                         result.beer_image = item.labels.large;
                     }
