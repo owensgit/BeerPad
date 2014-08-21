@@ -5,8 +5,8 @@ migration.up = function(migrator) {
 migration.down = function(migrator) {
     var db = migrator.db;
     var table = migrator.table;
-    db.execute('CREATE TEMPORARY TABLE beers_backup(alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite,is_sample);');
-    db.execute('INSERT INTO beers_backup SELECT alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite,is_sample FROM ' + table + ';');
+    db.execute('CREATE TEMPORARY TABLE beers_backup(alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite);');
+    db.execute('INSERT INTO beers_backup SELECT alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite FROM ' + table + ';');
     migrator.dropTable();
     migrator.createTable({
         columns: {
@@ -22,10 +22,9 @@ migration.down = function(migrator) {
             "beer_image": "text",
             "latitude": "integer",
             "longitude": "integer",
-            "favourite": "boolean",
-            "is_sample": "boolean"
+            "favourite": "boolean"
         },
     });
-    db.execute('INSERT INTO ' + table + ' SELECT alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite,is_sample FROM beers_backup;');
+    db.execute('INSERT INTO ' + table + ' SELECT alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite FROM beers_backup;');
     db.execute('DROP TABLE beers_backup;');
 };
