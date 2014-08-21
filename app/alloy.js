@@ -139,8 +139,9 @@ Alloy.Globals.beerListTransform = function(modal) {
 Alloy.Globals.returnSortingDialog = function (theBeers) {
     var opts = [
         L("sort_newest"), L("sort_oldest"), L("sort_rated_high"), L("sort_rated_low"), 
-        L("sort_percent_desc"), L("sort_percent_asc"), L("sort_name_asc"), L("sort_name_desc"), 
-        L("sort_brewery_asc"), L("sort_brewery_desc"),
+        L("sort_percent_desc"), L("sort_percent_asc"), 
+        L("sort_name_asc"),
+        L("sort_brewery_asc"),
         L("sort_cancel") 
     ];
     
@@ -148,7 +149,7 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
         options: opts
     });
     
-    filterDialog.cancel = 10;
+    filterDialog.cancel = 8;
     
     filterDialog.addEventListener("click", function (e) {
         
@@ -193,17 +194,7 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
         }
         if (e.index === 7) {
             Alloy.Globals.beerListSecondaryValue = "brewery";
-            theBeers.setSortField("name", "DESC");
-            theBeers.sort();
-        }
-        if (e.index === 8) {
-            Alloy.Globals.beerListSecondaryValue = "brewery";
             theBeers.setSortField("brewery", "ASC");
-            theBeers.sort();
-        }
-        if (e.index === 9) {
-            Alloy.Globals.beerListSecondaryValue = "brewery";
-            theBeers.setSortField("brewery", "DESC");
             theBeers.sort();
         }
     });    
