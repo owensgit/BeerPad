@@ -115,7 +115,6 @@
     <string name="location_services_not_found">Could not determine your location. Please enter manually.</string>
     
     <!-- Sort Dialog -->
-    <string name="sort_title">Sort those beers!</string>
     <string name="sort_newest">Newest</string>
     <string name="sort_oldest">Oldest</string>
     <string name="sort_rated_high">Rated High</string>
@@ -124,5 +123,7 @@
     <string name="sort_percent_asc">Weakest</string>
     <string name="sort_name_asc">Name A → Z</string>
     <string name="sort_name_desc">Name Z → A</string>
+    <string name="sort_brewery_asc">Brewery A → Z</string>
+    <string name="sort_brewery_desc">Brewery Z → A</string>
     <string name="sort_cancel">Cancel</string>
 </resources>
