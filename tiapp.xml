@@ -62,6 +62,6 @@
     </deployment-targets>
     <sdk-version>3.3.0.GA</sdk-version>
     <plugins>
-        <plugin version="1.0">ti.alloy</plugin>
+        <plugin version="1.4">ti.alloy</plugin>
     </plugins>
 </ti:app>
