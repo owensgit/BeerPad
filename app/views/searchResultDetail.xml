@@ -1,5 +1,6 @@
 <Alloy>
 	<Window class="container" tabBarHidden="true">
+	
       <ScrollView id="scrollView" showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true" layout="vertical">
           
           <ImageView id="image" image="dafaultBeerImage.png"></ImageView>
@@ -9,20 +10,8 @@
           <Label id="brewery"></Label>
           
           <Label id="notes"></Label>
-
-          <!-- <View id="spacer"></View> -->
           
       </ScrollView>
-      
-      <!--Toolbar id="toolbar" platform="ios" bottom="0" borderTop="true" borderBottom="false">
-          <Items>
-            <Button id="shareBtn" onClick="share" title="Share" systemButton="Ti.UI.iPhone.SystemButton.ACTION" />
-            <FlexSpace/>
-            <Button id="addToMyBeersBtn" onClick="deleteBeer" title="Delete" title="Add to My Beers" />
-            <FlexSpace/>
-            <Button id="deleteBtn" onClick="deleteBeer" title="Delete" systemButton="Ti.UI.iPhone.SystemButton.TRASH" />        
-          </Items>
-      </Toolbar-->
 
    </Window>
 </Alloy>

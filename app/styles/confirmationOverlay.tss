@@ -1,0 +1,17 @@
+".beerAddedView" : {
+    backgroundColor: "#F2FFFFFF"
+},
+".beerAddedViewInner": {
+    top: "100dp",
+    width: "220dp",
+    layout: "vertical",
+    height: Ti.UI.SIZE,
+}
+".beerAddedTitle": {
+    textAlign: "center",
+    top: "30dp",
+    font: {
+        fontSize: "42dp",
+        fontFamily: 'Dense-Regular'
+    } 
+}

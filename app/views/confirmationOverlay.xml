@@ -1,0 +1,8 @@
+<Alloy>
+  <View class="beerAddedView">
+      <View class="beerAddedViewInner">
+            <ImageView image="beerAddedTick.png" />
+            <Label class="beerAddedTitle" textid="search_beer_added_overlay_title" /> 
+      </View>
+  </View>
+</Alloy>

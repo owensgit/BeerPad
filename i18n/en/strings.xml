@@ -76,9 +76,10 @@
     <string name="search_hint">Beer name or brewery</string>
     <string name="search_no_matches_title">NO MATCHES FOUND</string>
     <string name="search_no_connection_title">NO INTERNET</string>
-    <string name="search_no_connection_text">Oh dear, looks like we can't connect to the web to get your beer results.</string>
+    <string name="search_no_connection_text">Oh dear, we can't connect to the web to get your beer results.</string>
     <string name="search_detail_add_button">Add to My Beers</string>
     <string name="search_detail_no_notes">No notes available</string>
+    <string name="search_beer_added_overlay_title">ADDED TO MY BEERS</string>
     
     <!-- Add or edit a beer -->
     <string name="add_cancel">Cancel</string> 

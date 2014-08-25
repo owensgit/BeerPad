@@ -35,6 +35,13 @@ if (OS_IOS) {
 
 addBeerButton.addEventListener("click", function () {
     args.addingFromSearch = true;
-    var addBeerWin = Alloy.createController("addBeer", args).getView();
-    addBeerWin.open();
+    var addBeerWin = Alloy.createController("addBeer", args);
+    var confirm = Alloy.createController("confirmationOverlay").getView();   
+    addBeerWin.addBeerButton.addEventListener("click", function () {
+       $.searchResultDetail.add(confirm); 
+    });
+    addBeerWin.getView().open();
+    
+    
+    
 });
