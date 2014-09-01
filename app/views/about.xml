@@ -2,7 +2,14 @@
     <Window class="container">
         <ScrollView layout="vertical">
             <ImageView id="logo" image="logoHorizontal.png"></ImageView>
-            <Label id="text" textid="about_text" />
+            <Label id="aboutText" textid="about_text" />
+            
+            <View id="beerCountBox">
+                <View id="countBoxLineTop"></View>
+                <Label id="beerCount" />
+                <View id="countBoxLineBottom"></View>
+            </View>
+            
             <Button id="feedbackButton" onClick="sendFeedback" class="buttonOutline" titleid="about_feedback_btn" />
             <Button id="rateButton" onClick="rateButton" class="buttonOutline" titleid="about_rate_btn" />
             <Label id="versionNumber" />

@@ -6,6 +6,13 @@ $.about.titleControl = Ti.UI.createImageView({
     width: Ti.UI.SIZE
 });
 
+function updateBeerCount() {
+    var numBeers = Alloy.Collections.beers.length;
+    $.beerCount.text = "Your beer count:  " + numBeers;
+}
+
+updateBeerCount();
+
 function sendFeedback() {
     var emailDialog = Titanium.UI.createEmailDialog();
     var appDetails = '<br><br><br><small><b>App Version:</b> ' + Titanium.App.version;
@@ -25,6 +32,7 @@ function rateButton() {
 
 $.versionNumber.text = "Version " + Ti.App.getVersion();
 
-/*$.about.addEventListener("focus", function () {
-    Alloy.Globals.GoogleAnalytics.trackScreen("About");  
-});*/
+$.about.addEventListener("focus", function () {
+    //Alloy.Globals.GoogleAnalytics.trackScreen("About");
+    updateBeerCount();  
+});

@@ -10,14 +10,36 @@
     top: "30dp",
     left: "30dp"
 }
-"#text": {
+"#aboutText": {
     top: "25dp",
     width: "260dp",
     color: "#444444",
     font: { fontSize: "15dp" }
 }
+"#beerCountBox": {
+    top: "28dp",
+    width: "190dp",
+    height: Ti.UI.SIZE,
+    layout: "vertical"
+}
+"#countBoxLineTop": {
+    backgroundColor: "#999999",
+    height: "0.5dp"
+}
+"#beerCount": {
+    top: "10dp",
+    //color: Alloy.CFG.colour.main,
+    color: "#888888",
+    //font: { fontFamily: "Dense-Regular", fontSize: "25dp" }
+    font: { fontSize: "13dp" }
+}
+"#countBoxLineBottom": {
+    top: "10dp",
+    backgroundColor: "#999999",
+    height: "0.5dp"
+}
 "#feedbackButton": {
-    top: "40dp",
+    top: "24dp",
     width: "190dp",
     height: "38dp",
     font: { fontSize: "15dp" }
@@ -30,7 +52,7 @@
 }
 "#versionNumber": {
     color: "#9f9f9f",
-    top: "28dp",
+    top: "20dp",
     font: {
         fontSize: "10dp"
     }
