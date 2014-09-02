@@ -19,6 +19,11 @@ var data = (function () {
                     
                     if (item.breweries) {
                         brewery = item.breweries[0].name;
+                        
+                        
+                        if (item.breweries[0].images) {
+                            result.brewery_image = item.breweries[0].images.large || item.breweries[0].images.medium || null;    
+                        }   
                     }
                     
                     result.title = item.name;
@@ -28,6 +33,7 @@ var data = (function () {
                     result.notes = item.description || null;
                     result.api_id = item.id;
                     
+                    
                     console.log("API ID", typeof result.api_id);
                     
                     if (item.labels && item.labels.large) {
@@ -36,6 +42,8 @@ var data = (function () {
                     
                     if (item.breweries) {
                         result.title = item.name + " - " + brewery;
+                      
+                        
                     }
                     
                     results.push(result);

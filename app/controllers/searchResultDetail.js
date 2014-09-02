@@ -1,15 +1,19 @@
 var args = arguments[0] || {};
 
-
+var activityIndicator = Ti.UI.createActivityIndicator({
+  style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.iPhone.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
+  height:Ti.UI.SIZE, width:Ti.UI.SIZE,
+  top: 50
+});
+    
 if (args.beer_image) {
-    var activityIndicator = Ti.UI.createActivityIndicator({
-      style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.iPhone.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
-      height:Ti.UI.SIZE, width:Ti.UI.SIZE,
-      top: 50
-    });
     $.image.add(activityIndicator);
     activityIndicator.show();
     $.image.image = args.beer_image;
+} else if (args.brewery_image) {
+   $.image.add(activityIndicator);
+    activityIndicator.show();
+    $.image.image = args.brewery_image; 
 }
 
 $.name.text = args.name.toUpperCase();

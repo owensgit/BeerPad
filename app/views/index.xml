@@ -2,9 +2,9 @@
     <Collection src="beers"/>
     <TabGroup id="mainTabGroup" backgroundColor="white" >
         <Tab id="tab1" titleid="tab_beers" icon="tabBeerIcon.png" activeIcon="tabBeerIconActive.png">
-            <Window id="beerListWin" class="container"> 
-                       
-                <TableView id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
+            <Window id="beerListWin" class="container">      
+                <TableView searchHidden="true" id="beersTable" dataCollection="beers" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
+                    <SearchBar platform="ios" hinttextid="index_search_bar_hint"></SearchBar>
                     <TableViewRow 
                         hasChild="true" alloy_id="{alloy_id}" name="{name}" brewery="{brewery}" 
                         rating="{rating}" percent="{percent}" establishment="{establishment}" location="{location}" 

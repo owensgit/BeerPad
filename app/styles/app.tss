@@ -32,6 +32,13 @@
     tintColor: Alloy.CFG.colour.tabsTint,  
 }
 
+"SearchBar": {
+    barColor: Alloy.CFG.colour.main,
+    borderWidth: 1,
+    borderColor: Alloy.CFG.colour.main,
+    tintColor: Alloy.CFG.colour.main
+}
+
 "TableViewRow": {
     selectedBackgroundColor: Alloy.CFG.colour.background,
     selectedColor: '#FFFFFF'

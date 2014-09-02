@@ -3,7 +3,7 @@
 	
       <ScrollView id="scrollView" showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true" layout="vertical">
           
-          <ImageView id="image" image="dafaultBeerImage.png"></ImageView>
+          <ImageView id="image" image="dafaultBeerImage.png" defaultImage="dafaultImageGrey.png"></ImageView>
           
           <Label id="name"></Label>
           

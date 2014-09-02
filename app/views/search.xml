@@ -32,6 +32,7 @@
                     hasChild="true" 
                     name="{name}"
                     brewery="{brewery}"
+                    brewery_image="{brewery_image}"
                     percent="{abv}"
                     beer_image="{beer_image}"
                     notes="{notes}"
