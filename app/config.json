@@ -35,6 +35,9 @@
 	},
 	"os:mobileweb": {},
 	"dependencies": {},
+	"xy": {
+		"beerDetailLabelWidth": "65%"
+	},
 	"colour": {
 	   "main": "#4ca843",
 	   "background": "#4da843",

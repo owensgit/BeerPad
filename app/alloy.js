@@ -23,6 +23,7 @@ theBeers.fetch();
 Alloy.Globals.beerListSecondaryValue = 'brewery';
 
 
+Alloy.Globals.fa = require('fa'); 
 
 // Set up Google Analytics...
 //var GA = require('analytics.google');
@@ -48,17 +49,17 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
     }
 
     if (!args.establishment) {
-        $.buildingIcon.setImage('buildingGrey.png');
-        $.pub.setColor('#b9b9b9');
+        $.buildingIcon.setColor('#c7c7c7');
+        $.pub.setColor('#c7c7c7');
     } else {
-        $.buildingIcon.setImage('building.png'); 
+        $.buildingIcon.setColor(Alloy.CFG.colour.main); 
         $.pub.setColor('#000000');
     }
     if (!args.location) {
-        $.locationIcon.setImage('locationGrey.png');
-        $.location.setColor('#b9b9b9');
+        $.locationIcon.setColor('#c7c7c7');
+        $.location.setColor('#c7c7c7');
     } else {
-        $.locationIcon.setImage('location.png'); 
+        $.locationIcon.setColor(Alloy.CFG.colour.main);	
         $.location.setColor('#000000');   
     }
 };

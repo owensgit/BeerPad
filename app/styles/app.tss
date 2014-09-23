@@ -129,6 +129,31 @@
 
 
 
+/*
+ *	Icons
+ *  -----
+ */
+".iconItem": {
+    layout: "composite", top: "20dp",   
+    height: Ti.UI.SIZE, width: Alloy.CFG.xy.beerDetailLabelWidth
+}
+".iconItemIcon": {
+	color: Alloy.CFG.colour.main,
+    width: "20dp", height: "20dp",
+    left: "0dp", top: "2dp",
+    font: { fontFamily: 'FontAwesome', fontSize: "19dp" },
+    textAlign: "center"
+},
+".iconItemTitle": {
+    width: Ti.UI.SIZE,
+    left: "28dp", top: "1dp"
+}
+"#buildingIcon": { text: Alloy.Globals.fa.buildingO }
+"#locationIcon": { text: Alloy.Globals.fa.mapMarker }
+
+
+
+
 "OptionDialog": {
     color: Alloy.CFG.colour.background
 }

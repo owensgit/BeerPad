@@ -13,13 +13,13 @@
           <View id="ratingView" height="30dp"></View>
               
           <View id="pubBox" class="iconItem">
-            <ImageView class="icon" id="buildingIcon" image="building.png" />
-            <Label class="iconTitle" id="pub" />
+          	<Label class="iconItemIcon" id="buildingIcon" />
+            <Label class="iconItemTitle" id="pub" />
           </View>
           
           <View id="locationBox" class="iconItem">
-            <ImageView class="icon" id="locationIcon" image="location.png" />
-            <Label class="iconTitle" id="location" />
+            <Label class="iconItemIcon" id="locationIcon" />
+            <Label class="iconItemTitle" id="location" />
           </View>
           
           <Label id="notes"></Label>

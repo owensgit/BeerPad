@@ -1,6 +1,6 @@
 
 "Label": {
-    width: "65%", 
+    width: Alloy.CFG.xy.beerDetailLabelWidth, 
 },
 "#name": {
     top: "8dp",
@@ -28,22 +28,6 @@
     width: "22dp"
 }
 
-".iconItem": {
-    top: "20dp",
-    layout: "composite",
-    height: Ti.UI.SIZE,
-    width: "220dp"
-}
-
-".icon": {
-    width: "20dp", height: "20dp",
-    left: "0dp", top: "2dp"
-},
-
-".iconTitle": {
-    width: "190dp",
-    left: "28dp", top: "1dp"
-}
 
 "#notes": {
     top: "20dp"
