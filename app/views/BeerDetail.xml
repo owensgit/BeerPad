@@ -2,7 +2,9 @@
    <Window class="container" tabBarHidden="true">
       <ScrollView showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true" layout="vertical">
           
-          <ImageView id="image" image="dafaultBeerImage.png"></ImageView>
+          <View class="beerImageContainer">
+          	<ImageView class="beerImage" id="image" image="dafaultBeerImage.png"></ImageView>
+          </View>
           
           <Label id="name"></Label>
           <Label id="brewery"></Label>

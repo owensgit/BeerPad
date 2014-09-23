@@ -48,14 +48,6 @@
     height: "65dp"
 },
 
-"#listImage": {
-    top: "7dp",
-    left: "11dp",
-    height: "50dp",
-    width: "50dp",
-    borderRadius: "25dp"
-}
-
 "#tableRowName": {
     top: "12dp",
     left: "18dp",
@@ -118,6 +110,24 @@
 ".starImage": {
     left: "7dp"
 }
+
+
+
+// Beer Images on Beer Details and Result Details
+".beerImageContainer": {
+	height: "130dp",
+    width: "130dp",
+    borderRadius: "65dp",
+    top: "15dp",
+    clipMode: Titanium.UI.iOS.CLIP_MODE_ENABLED 
+}
+".beerImage": {
+   height: Ti.UI.SIZE,
+   width: Ti.UI.SIZE 
+},
+
+
+
 
 "OptionDialog": {
     color: Alloy.CFG.colour.background

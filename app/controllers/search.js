@@ -74,3 +74,10 @@ $.searchBar.addEventListener("change", function(e) {
     $.activityIndicator.show();
     doSearch_debounced(searchTerm);
 });
+
+$.searchBar.addEventListener("return", function(e) {
+    var searchTerm = this.getValue();
+    showHideElements(null);
+    $.activityIndicator.show();
+    doSearch_debounced(searchTerm);
+});

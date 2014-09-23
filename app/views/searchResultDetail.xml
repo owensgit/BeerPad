@@ -3,7 +3,9 @@
 	
       <ScrollView id="scrollView" showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true" layout="vertical">
           
-          <ImageView id="image" image="dafaultBeerImage.png" defaultImage="dafaultImageGrey.png"></ImageView>
+          <View class="beerImageContainer">
+          	<ImageView id="image" class="beerImage" image="defaultBeerImage.png" defaultImage="defaultImageGrey.png"></ImageView>
+          </View>
           
           <Label id="name"></Label>
           

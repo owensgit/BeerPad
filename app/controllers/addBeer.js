@@ -60,10 +60,7 @@ if (args.edit || args.addingFromSearch) {
     $.percent.value = args.percent || "";
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
-    
-    var beerImage = Alloy.Globals.getImage(args);
-    $.beerImage.image = beerImage;
-    
+
     if (args.notes) $.notes.value = args.notes; 
     
     applyRating(args.rating === null ? 0 : args.rating);  
@@ -71,9 +68,15 @@ if (args.edit || args.addingFromSearch) {
     $.cameraImage.opacity = 0.7;  
 }
 
-if (args.edit) {
+if (args.edit) {	
+	var beerImage = Alloy.Globals.getImage(args);
+    $.beerImage.image = beerImage;
     $.title.text = L("edit_title") || "";  
     $.addBeerButton.title = "Save beer";
+}
+
+if (args.addingFromSearch) {
+	$.beerImage.image = args.beer_image || args.brewery_image || null;		
 }
 
 

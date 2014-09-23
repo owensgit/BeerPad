@@ -5,10 +5,13 @@
 ".container" : {
     layout: "vertical"
 }
-
+".logoContainer": {
+	top: "30dp",
+	width: "260dp",
+	height: Ti.UI.SIZE
+}
 "#logo": {
-    top: "30dp",
-    left: "30dp"
+    left: "0dp"
 }
 "#aboutText": {
     top: "25dp",

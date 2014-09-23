@@ -20,7 +20,6 @@ var data = (function () {
                     if (item.breweries) {
                         brewery = item.breweries[0].name;
                         
-                        
                         if (item.breweries[0].images) {
                             result.brewery_image = item.breweries[0].images.large || item.breweries[0].images.medium || null;    
                         }   
@@ -33,17 +32,12 @@ var data = (function () {
                     result.notes = item.description || null;
                     result.api_id = item.id;
                     
-                    
-                    console.log("API ID", typeof result.api_id);
-                    
-                    if (item.labels && item.labels.large) {
-                        result.beer_image = item.labels.large;
+                    if (item.labels) {
+                        result.beer_image = item.labels.large || item.labels.medium || item.labels.small || null;
                     }
                     
                     if (item.breweries) {
-                        result.title = item.name + " - " + brewery;
-                      
-                        
+                        result.title = item.name + " - " + brewery;      
                     }
                     
                     results.push(result);

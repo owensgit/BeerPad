@@ -1,7 +1,9 @@
 <Alloy>
     <Window class="container">
         <ScrollView layout="vertical">
-            <ImageView id="logo" image="logoHorizontal.png"></ImageView>
+        	<View class="logoContainer">
+            	<ImageView id="logo" image="logoHorizontal.png"></ImageView>
+            </View>
             <Label id="aboutText" textid="about_text" />
             
             <View id="beerCountBox">

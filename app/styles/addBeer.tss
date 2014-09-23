@@ -13,10 +13,6 @@
     borderRadius: "45dp"  
 }
 
-"#beerImage": {
-    height: "90dp", width: "90dp"
-}
-
 "#cameraImage": {
     height: "35dp", width: "35dp"  
 }

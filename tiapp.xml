@@ -48,8 +48,9 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="ios">dk.napp.social</module>
+        <!--module platform="ios">dk.napp.social</module-->
         <module platform="iphone">ti.map</module>
+        <!--module platform="iphone">dk.napp.social</module-->
         <!--module platform="iphone">analytics.google</module-->
     </modules>
     <deployment-targets>
@@ -60,8 +61,8 @@
         <target device="mobileweb">false</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.3.0.GA</sdk-version>
+    <sdk-version>3.4.0.v20140916181713</sdk-version>
     <plugins>
-        <plugin version="1.4">ti.alloy</plugin>
+        <plugin version="1.5">ti.alloy</plugin>
     </plugins>
 </ti:app>

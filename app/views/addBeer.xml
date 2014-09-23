@@ -6,8 +6,8 @@
 	        
 	        <Label id="title" class="dense" textid="add_title" />
 	        
-	        <View id="imageView">
-	            <ImageView id="beerImage"></ImageView>
+	        <View id="imageView" class="beerImageContainer">
+	            <ImageView id="beerImage" class="beerImage"></ImageView>
 	            <ImageView id="cameraImage" image="camera.png" height="35" width="35"></ImageView>
 	        </View>        
 	        
