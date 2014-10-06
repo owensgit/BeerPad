@@ -1,7 +1,8 @@
 "Window": {
     backgroundColor: "#fff",
     barImage: "navigationBarBg.png",
-    shadowImage: "navigationBarBg.png"
+    shadowImage: "navigationBarBg.png",
+    color: "#1a1a1a"
 }
 ".container" : { 
    backgroundColor: 'white',
@@ -118,7 +119,7 @@
 	height: "130dp",
     width: "130dp",
     borderRadius: "65dp",
-    top: "15dp",
+    top: "18dp",
     clipMode: Titanium.UI.iOS.CLIP_MODE_ENABLED 
 }
 ".beerImage": {
@@ -174,8 +175,7 @@
 
 ".emptySectionMessage": {
     layout: "vertical",
-    height: Ti.UI.SIZE,
-    top: "40dp"
+    height: Ti.UI.SIZE
 }
 ".emptyTitle": {
     color: Alloy.CFG.colour.grey,
@@ -194,4 +194,7 @@
 }
 ".emptySecImage": {
     top: "15dp"
+}
+".emptySecSpacer": {
+	height: "50dp"
 }

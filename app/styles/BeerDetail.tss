@@ -3,8 +3,8 @@
     width: Alloy.CFG.xy.beerDetailLabelWidth, 
 },
 "#name": {
-    top: "8dp",
-    width: "80%",
+    top: "12dp",
+    width: "85%",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
     font: {
         fontSize: "51dp",
@@ -12,22 +12,14 @@
     }   
 },
 "#brewery": {
-    top: "1dp",
+    top: "3dp",
     width: "80%",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
 }
 
-".ratingButtons": {
-    top: "14dp",
-    height: "22dp",
-    width: "145dp",
-    left: "84dp"
+"#pubBox": {
+	top: "30dp"
 }
-".starImage": {
-    height: "22dp",
-    width: "22dp"
-}
-
 
 "#notes": {
     top: "20dp"

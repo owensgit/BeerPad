@@ -66,6 +66,8 @@ if (args.edit || args.addingFromSearch) {
     applyRating(args.rating === null ? 0 : args.rating);  
     
     $.cameraImage.opacity = 0.7;  
+} else {
+	applyRating(0);
 }
 
 if (args.edit) {	
@@ -382,10 +384,10 @@ function useGPS() {
 function applyRating(number) {
     rating = number;
     for (var i = 0; i < number; i++) {
-        starArray[i].setImage('ratingStarON.png');
+        starArray[i].color = Alloy.CFG.colour.main;
     }
     for (var i = number; i < 5; i++) {
-        starArray[i].setImage('ratingStar.png');
+        starArray[i].color = "#e6e6e5";
     }
 }
 

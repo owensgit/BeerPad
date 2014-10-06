@@ -7,6 +7,7 @@
     	        <Label class="emptyTitle" textid="fav_empty_title" />
     	        <Label class="emptyText" textid="fav_empty_text" />
     	        <ImageView class="emptySecImage" image="shareHeart.png" />
+    	        <View class="emptySecSpacer"></View>
     	    </View>
     	    <TableView visible="false" id="favTable" dataCollection="beers" dataFilter="filterFunction" dataTransform="transformFunction" editable="true" allowsSelectionDuringEditing="true">
                 <TableViewRow 

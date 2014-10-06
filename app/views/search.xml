@@ -16,15 +16,18 @@
                 <ImageView image="searchImageGrey.png" />
                 <Label class="emptyTitle" textid="search_empty_title" />
                 <Label class="emptyText" textid="search_empty_text" />
+                <View class="emptySecSpacer"></View>
             </View>
             
             <View id="noMatchesMsg" class="emptySectionMessage">
-                <Label class="emptyTitle" textid="search_no_matches_title" />   
+                <Label class="emptyTitle" textid="search_no_matches_title" />  
+                <View class="emptySecSpacer"></View> 
             </View>
             
             <View id="noConnectionMsg" class="emptySectionMessage">
                 <Label class="emptyTitle" textid="search_no_connection_title" />
                 <Label class="emptyText" textid="search_no_connection_text" />   
+                <View class="emptySecSpacer"></View>
             </View>
             
             <TableView id="resultsTable" dataCollection="searchResults" dataTransform="Alloy.Globals.beerListTransform">

@@ -8,13 +8,12 @@ var ratingStars = (function () {
         var s = {
            rating: 0,
            starSize: 22,
-           starHeight: 22,
-           starWidth: 22,
+           starColor: Alloy.CFG.colour.main,
            marginRight: 7,
            width: 200,
            imageOff: 'ratingStar',
            imageOn: 'ratingStarON',
-           top: 10,
+           top: 15,
         };
         
         if (settings) {
@@ -25,22 +24,26 @@ var ratingStars = (function () {
             }
         }
         
-        totalWidth = ((s.starWidth + s.marginRight) * 5) - s.marginRight;
+        //totalWidth = ((s.starWidth + s.marginRight) * 5) - s.marginRight;
+        totalWidth = Ti.UI.SIZE;
                
         var starView = Ti.UI.createView({ 
-            height: s.starHeight, width: totalWidth, layout: "horizontal",
+            height: s.starHeight, 
+            width: totalWidth, 
+            layout: "horizontal",
             top: s.top
         });
         
         function createStar(onOff, i) {
-            var star = Ti.UI.createImageView({
-                height: s.starHeight, 
-                width: s.starWidth, 
-                right: s.marginRight
+            var star = Ti.UI.createLabel({
+                font: { fontSize: s.starSize, fontFamily: 'FontAwesome' },  
+                text: onOff ? Alloy.Globals.fa.star : Alloy.Globals.fa.starO,
+                right: s.marginRight,
+                color: s.starColor
             });
             if (i === 4) { star.right = 0; }; 
-            var image = onOff ? s.imageOn : s.imageOff;
-            star.image = image + ".png";
+            //var image = onOff ? s.imageOn : s.imageOff;
+            //star.image = image + ".png";
             return star;
         }
         for (var i = 0; i < s.rating; i++) {

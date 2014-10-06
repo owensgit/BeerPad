@@ -19,11 +19,11 @@
             <TextField id="brewery" autocorrect="false"></TextField>
             
             <View class="ratingButtons">
-                <ImageView id="star1" image="ratingStar.png" class="starImage"></ImageView>
-                <ImageView id="star2" image="ratingStar.png" class="starImage"></ImageView>
-                <ImageView id="star3" image="ratingStar.png" class="starImage"></ImageView>
-                <ImageView id="star4" image="ratingStar.png" class="starImage"></ImageView>
-                <ImageView id="star5" image="ratingStar.png" class="starImage"></ImageView>
+                <Label id="star1" class="starImage" />
+                <Label id="star2" class="starImage" />
+                <Label id="star3" class="starImage" />
+                <Label id="star4" class="starImage" />
+                <Label id="star5" class="starImage" />
             </View>
             
             <View class="iconInputBox">

@@ -34,16 +34,6 @@
     width: "220dp"
 }
 
-".icon": {
-    width: "20dp", height: "20dp",
-    left: "0dp", top: "2dp"
-},
-
-".iconTitle": {
-    width: "190dp",
-    left: "28dp", top: "1dp"
-}
-
 "#notes": {
     top: "20dp",
     width: "220dp",
