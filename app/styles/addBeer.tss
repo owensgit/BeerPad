@@ -20,7 +20,7 @@
 "TextField" : {
     top: "5dp", bottom: "5dp",
     height: "35dp",
-    width: "210dp",
+    width: "65%",
     tintColor: Alloy.CFG.colour.tabsTint,
     font: { fontSize: "16dp" }
 }
@@ -75,7 +75,7 @@
 }
 "#use_gps": {
     height: "28dp",
-    width: "50%",
+    width: "45%",
     top: "5dp",
     font: { fontSize: "14dp" }
 },
@@ -93,8 +93,9 @@
     top: "10dp", bottom: "5dp",
     borderWidth: "1dp",
     borderColor: "#888888",
-    height: "80dp",
-    width: "210dp",
+    height: "95dp",
+    width: "64%",
+    suppressReturn: false,
     font: {
         fontSize: "15dp"
     }
@@ -111,7 +112,7 @@
 
 ".iconInputBox": {
     height: Ti.UI.SIZE,
-    width: "210dp"
+    width: "65%"
 }
 ".iconInput": {
     left: "0dp",
@@ -119,8 +120,8 @@
 }
 ".iconInputTextIcon": {
     color: "#e5e5e5",
-    right: "1dp",
-    top: "25dp",
+    right: "2dp",
+    top: "26dp",
     font: {
         fontSize: "14dp",
         fontWeight: "bold"
