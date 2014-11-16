@@ -128,4 +128,10 @@
     <string name="sort_brewery_asc">Brewery A → Z</string>
     <string name="sort_brewery_desc">Brewery Z → A</string>
     <string name="sort_cancel">Cancel</string>
+    
+    <!-- Review Prompt -->
+    <string name="review_prompt_title">Are you enjoying Beer Pad?</string>
+    <string name="review_prompt_message">\nPlease leave a review to support new versions and improvements.</string>
+    <string name="review_prompt_btn_review">Write review</string>
+    <string name="review_prompt_btn_cancel">No thanks</string>
 </resources>
