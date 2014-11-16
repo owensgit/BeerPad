@@ -1,6 +1,13 @@
 var ratingStars = require('ratingStars');
 var utils = require('utils');
 
+setTimeout(function () {
+	$.scrollView.animate({
+		opacity: 1,
+		duration: 500
+	});
+}, 200);
+
 var args = arguments[0] || {};
 
 var theBeers = Alloy.Collections.beers;

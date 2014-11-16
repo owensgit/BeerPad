@@ -141,7 +141,6 @@ if (OS_IOS) {
 
 
 
-
-/*$.map.addEventListener("focus", function () {
-    Alloy.Globals.GoogleAnalytics.trackScreen("Map");  
-});*/
+$.map.addEventListener("focus", function () {
+	Alloy.Globals.tracker.trackScreen("Map");
+});

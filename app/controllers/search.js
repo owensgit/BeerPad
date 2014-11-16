@@ -81,3 +81,10 @@ $.searchBar.addEventListener("return", function(e) {
     $.activityIndicator.show();
     doSearch_debounced(searchTerm);
 });
+
+
+
+
+$.searchWin.addEventListener("focus", function () {
+	Alloy.Globals.tracker.trackScreen("Look Up");
+});

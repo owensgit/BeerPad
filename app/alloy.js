@@ -26,9 +26,15 @@ Alloy.Globals.beerListSecondaryValue = 'brewery';
 Alloy.Globals.fa = require('fa'); 
 
 // Set up Google Analytics...
-//var GA = require('analytics.google');
-//GA.trackUncaughtExceptions = true;
-//Alloy.Globals.GoogleAnalytics = GA.getTracker(Alloy.CFG.analytics.google_analytics_id);
+var GA = require('analytics.google');
+GA.trackUncaughtExceptions = true;
+Alloy.Globals.tracker = GA.getTracker("UA-50958937-2");
+Alloy.Globals.tracker.trackEvent({
+    category: "AppEvent",
+    action: "opened",
+    label: "1",
+    value: 1
+});
 
 
 

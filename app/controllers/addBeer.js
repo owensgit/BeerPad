@@ -19,11 +19,11 @@ $.locationBox.add(locationLookUpView.view);
 
 // Google Analytics track screen
 
-/*if (args.edit) {
-    Alloy.Globals.GoogleAnalytics.trackScreen("Edit a beer");    
+if (args.edit) {
+    Alloy.Globals.tracker.trackScreen("Edit Beer");    
 } else {
-    Alloy.Globals.GoogleAnalytics.trackScreen("Add a beer");
-}*/
+    Alloy.Globals.tracker.trackScreen("Add Beer");
+}
 
 
 // Array of Star Images for use in applyRating() below
@@ -61,9 +61,7 @@ if (args.edit || args.addingFromSearch) {
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
 
-    if (args.notes) $.notes.value = args.notes; 
-    
-    applyRating(args.rating === null ? 0 : args.rating);  
+    if (args.notes) $.notes.value = args.notes;   
     
     $.cameraImage.opacity = 0.7;  
 } else {
@@ -71,6 +69,7 @@ if (args.edit || args.addingFromSearch) {
 }
 
 if (args.edit) {	
+	applyRating(args.rating === null ? 0 : args.rating);
 	var beerImage = Alloy.Globals.getImage(args);
     $.beerImage.image = beerImage;
     $.title.text = L("edit_title") || "";  
@@ -78,6 +77,7 @@ if (args.edit) {
 }
 
 if (args.addingFromSearch) {
+	applyRating(0);
 	$.beerImage.image = args.beer_image || args.brewery_image || null;		
 }
 

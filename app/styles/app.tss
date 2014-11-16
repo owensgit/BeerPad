@@ -29,7 +29,6 @@
    activeTabIconTint: Alloy.CFG.colour.tabsTint,
 },
 "Tab": {
-    iconIsmask: "false",
     tintColor: Alloy.CFG.colour.tabsTint,  
 }
 
@@ -41,8 +40,10 @@
 }
 
 "TableViewRow": {
+	height: "65dp",
     selectedBackgroundColor: Alloy.CFG.colour.background,
-    selectedColor: '#FFFFFF'
+    selectedColor: Alloy.CFG.colour.background,
+    color: "#FFFFFF"
 },
 
 ".tableRow": {
