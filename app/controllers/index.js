@@ -1,4 +1,6 @@
 var theBeers = Alloy.Collections.beers;
+
+
 theBeers.fetch();
 
 Alloy.Globals.mainTabGroup = $.mainTabGroup;
@@ -60,7 +62,7 @@ if (Ti.App.Properties.getString("welcomeDone") === "true") {
    welcome.open();
 }
 
-/*$.beersTable.addEventListener("focus", function () {
-    Alloy.Globals.GoogleAnalytics.trackScreen("Index"); 
+/*$.beerListWin.addEventListener("focus", function () {
+	Alloy.Globals.tracker.trackScreen("My Beers");
 });*/
 

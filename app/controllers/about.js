@@ -33,6 +33,6 @@ function rateButton() {
 $.versionNumber.text = "Version " + Ti.App.getVersion();
 
 $.about.addEventListener("focus", function () {
-    Alloy.Globals.tracker.trackScreen("About");
+    //Alloy.Globals.tracker.trackScreen("About");
     updateBeerCount();  
 });

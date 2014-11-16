@@ -1,6 +1,7 @@
 var utils = require("utils");
 var data = require("data");
 var lookUpView = require('lookUpView');
+var reviewPrompt = require('reviewPrompt');
 
 var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
@@ -19,11 +20,11 @@ $.locationBox.add(locationLookUpView.view);
 
 // Google Analytics track screen
 
-if (args.edit) {
+/*if (args.edit) {
     Alloy.Globals.tracker.trackScreen("Edit Beer");    
 } else {
     Alloy.Globals.tracker.trackScreen("Add Beer");
-}
+}*/
 
 
 // Array of Star Images for use in applyRating() below
@@ -149,6 +150,10 @@ $.addBeerButton.addEventListener("click", function () {
     }
     
     this.touchEnabled = true;
+    
+    if (theBeers.length > 4) {
+    	setTimeout(function () { reviewPrompt.show(); }, 400);
+    }
     
     $.addBeerWin.close();
     

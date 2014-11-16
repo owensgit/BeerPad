@@ -90,6 +90,6 @@ $.favTable.addEventListener("delete", function(event) {
 });
 
 
-$.favListWin.addEventListener("focus", function () {
+/*$.favListWin.addEventListener("focus", function () {
 	Alloy.Globals.tracker.trackScreen("Favourites");
-});
+});*/

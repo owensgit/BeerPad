@@ -85,6 +85,6 @@ $.searchBar.addEventListener("return", function(e) {
 
 
 
-$.searchWin.addEventListener("focus", function () {
+/*$.searchWin.addEventListener("focus", function () {
 	Alloy.Globals.tracker.trackScreen("Look Up");
-});
+});*/
