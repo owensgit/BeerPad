@@ -151,7 +151,7 @@ $.addBeerButton.addEventListener("click", function () {
     
     this.touchEnabled = true;
     
-    if (theBeers.length > 4) {
+    if (theBeers.length > Alloy.Globals.num_beers_saved_before_review_prompt) {
     	setTimeout(function () { reviewPrompt.show(); }, 400);
     }
     
