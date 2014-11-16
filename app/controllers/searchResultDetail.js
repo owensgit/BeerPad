@@ -44,9 +44,22 @@ if (OS_IOS) {
 addBeerButton.addEventListener("click", function () {
     args.addingFromSearch = true;
     var addBeerWin = Alloy.createController("addBeer", args);
-    var confirm = Alloy.createController("confirmationOverlay").getView();   
+    var confirm = Alloy.createController("confirmationOverlay");
+    confirm.overlayBtnLookAgain.addEventListener("click", function () {
+		$.searchResultDetail.close();
+	});
+	confirm.overlayBtnMyBeers.addEventListener("click", function () {
+		$.searchResultDetail.close();
+		Alloy.Globals.mainTabGroup.setActiveTab(0);
+	});
     addBeerWin.addBeerButton.addEventListener("click", function () {
-       $.searchResultDetail.add(confirm); 
+       	$.searchResultDetail.add(confirm.getView()); 
     });
     addBeerWin.getView().open();   
+});
+
+
+
+$.searchResultDetail.addEventListener("close", function () {
+	$.destroy();
 });

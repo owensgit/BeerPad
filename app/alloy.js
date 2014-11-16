@@ -102,6 +102,7 @@ Alloy.Globals.openBeerDetails = function (event, controller) {
     _.each(selectedBeer, function(value, key) {
        args[key] = value;
     }); 
+   
     
     var view = Alloy.createController(controller, args).getView();
     

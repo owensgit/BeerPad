@@ -18,7 +18,7 @@
     <string name="welcome_slide3_text">Add your current location to plot them on a map.</string>
     
     <string name="welcome_slide4_title">ADD TO FAVOURITES AND SHARE</string>
-    <string name="welcome_slide4_text">Share by email, Twitter, Facebook and add to a favourites list.</string>
+    <string name="welcome_slide4_text">Share by email, Twitter, Facebook or add to a favourites list.</string>
     
     <string name="welcome_slide5_title">READY?</string>
     <string name="welcome_slide5_text">There's a few examples to get you started, feel free to delete and add your own!</string>
@@ -81,6 +81,8 @@
     <string name="search_detail_add_button">Add to My Beers</string>
     <string name="search_detail_no_notes">No notes available</string>
     <string name="search_beer_added_overlay_title">ADDED TO MY BEERS</string>
+    <string name="search_beer_added_overlay_look_again_btn">Find another beer</string>
+    <string name="search_beer_added_overlay_my_beers_btn">My beers</string>
     
     <!-- Add or edit a beer -->
     <string name="add_cancel">Cancel</string> 

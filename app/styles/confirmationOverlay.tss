@@ -15,3 +15,10 @@
         fontFamily: 'Dense-Regular'
     } 
 }
+"#overlayBtnLookAgain": {
+	top: "35dp"
+}
+"Button": {
+	top: "20dp",
+	width: "170dp"
+}

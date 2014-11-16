@@ -3,6 +3,8 @@
       <View class="beerAddedViewInner">
             <ImageView image="beerAddedTick.png" />
             <Label class="beerAddedTitle" textid="search_beer_added_overlay_title" /> 
+            <Button id="overlayBtnLookAgain" class="buttonOutline" titleid="search_beer_added_overlay_look_again_btn" />
+            <Button id="overlayBtnMyBeers" class="buttonOutline" titleid="search_beer_added_overlay_my_beers_btn" />
       </View>
   </View>
 </Alloy>

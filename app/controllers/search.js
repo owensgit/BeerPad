@@ -58,7 +58,7 @@ var doSearch = function(searchTerm) {
 };
 
 $.resultsTable.addEventListener("click", function (event) {
-    $.resultsTable.height = Ti.UI.FILL; 
+    $.resultsTable.height = Ti.UI.FILL;
     Alloy.Globals.openBeerDetails(event, "searchResultDetail");
 });
 
