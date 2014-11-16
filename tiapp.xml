@@ -35,6 +35,8 @@
                 <false/>
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
+                <key>NSLocationWhenInUseUsageDescription</key>
+                <string>When you add a new beer, you can use your current location to save the exact location where you tried it, which is then plotted to your beer map.</string>
             </dict>
         </plist>
     </ios>
@@ -51,7 +53,6 @@
         <!--module platform="ios">dk.napp.social</module-->
         <module platform="iphone">ti.map</module>
         <module platform="iphone">dk.napp.social</module>
-        <!--module platform="iphone">analytics.google</module-->
     </modules>
     <deployment-targets>
         <target device="android">true</target>
@@ -63,6 +64,6 @@
     </deployment-targets>
     <sdk-version>3.4.0.v20140916181713</sdk-version>
     <plugins>
-        <plugin version="1.5">ti.alloy</plugin>
+        <plugin version="1.4.1">ti.alloy</plugin>
     </plugins>
 </ti:app>
