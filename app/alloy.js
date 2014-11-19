@@ -16,8 +16,11 @@ var utils = require("utils");
 var theBeers = Alloy.createCollection("beers");
 theBeers.fetch();
 
-
-//Alloy.Collections.searchResults = Alloy.createCollection('searchResults');
+var platformHeight = Ti.Platform.displayCaps.platformHeight;
+Alloy.Globals.is_iPhone4 = platformHeight === 480;
+Alloy.Globals.is_iPhone5 = platformHeight === 568;
+Alloy.Globals.is_iPhone6 = platformHeight === 667;
+Alloy.Globals.is_iPhone6plus = platformHeight === 736;
 
 
 Alloy.Globals.beerListSecondaryValue = 'brewery';
