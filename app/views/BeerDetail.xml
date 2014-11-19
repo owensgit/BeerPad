@@ -10,7 +10,7 @@
           <Label id="brewery"></Label>
          
           <!-- The rating stars get created in BeerDetail.js and placed in this view -->
-          <View id="ratingView" height="30dp"></View>
+          <View id="ratingView" height="40dp"></View>
               
           <View id="pubBox" class="iconItem">
           	<Label class="iconItemIcon" id="buildingIcon" />

@@ -17,8 +17,12 @@
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
 }
 
+"#ratingView": {
+	top: "1dp"
+}
+
 "#pubBox": {
-	top: "30dp"
+	top: "20dp"
 }
 
 "#notes": {

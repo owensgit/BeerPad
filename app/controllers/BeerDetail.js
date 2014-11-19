@@ -57,7 +57,7 @@ Ti.App.addEventListener("app:updateBeer", function(event) {
     
     var updatedStars = ratingStars.drawStars({
         rating: args.rating,
-        starHeight: 22,
+        starHeight: 25,
         starWidth: 22
     });
     if (theStars) { $.ratingView.remove(theStars); theStars = null; };
@@ -74,7 +74,7 @@ Ti.App.addEventListener("app:updateBeer", function(event) {
 
 var theStars = ratingStars.drawStars({
     rating: args.rating,
-    starHeight: 22,
+    starHeight: 25,
     starWidth: 22
 });
 
