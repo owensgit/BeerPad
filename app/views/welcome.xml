@@ -19,7 +19,7 @@
            </View> 
            <View id="view4">   
                <Label class="title" textid="welcome_slide4_title" />
-               <Label class="text" textid="welcome_slide4_text" />
+               <Label class="text" id="text4" textid="welcome_slide4_text" />
                <ImageView id="image" image="welcome4.png" />
            </View>  
            <View id="view5">

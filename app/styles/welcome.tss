@@ -7,6 +7,12 @@
     top: "50dp",
     pagingControlColor: "transparent"
 }
+"#ScrollableView[if=Alloy.Globals.is_iPhone6]": {
+    bottom: "15dp"
+}
+"#ScrollableView[if=Alloy.Globals.is_iPhone6plus]": {
+    bottom: "35dp"
+}
 
 "#close": {
     color: "#FFFFFF",
@@ -21,37 +27,71 @@
 "#logo": {
     top: "20dp"
 }
+"#logo[if=Alloy.Globals.is_iPhone6]": {
+	top: "40dp"
+}
+"#logo[if=Alloy.Globals.is_iPhone6plus]": {
+	top: "80dp"
+}
 
 ".title": {
     top: "22dp",
-    width: "80%",
+    width: "230dp",
     textAlign: "center",
-    font: {
-        fontSize: "45dp",
-        fontFamily: 'Dense-Regular'
-    }
+    font: { fontSize: "45dp", fontFamily: 'Dense-Regular' }
+}
+".title[if=Alloy.Globals.is_iPhone6]": {
+	top: "38dp"
+}
+".title[if=Alloy.Globals.is_iPhone6plus]": {
+	top: "80dp"
 }
 
 
 ".text": {
     top: "150dp",
-    width: "75%",
+    width: "230dp",
     textAlign: "center",
-    font: {
-        fontSize: "17dp"
-    }
+    font: { fontSize: "17dp" }
+}
+".text[if=Alloy.Globals.is_iPhone6]": {
+	top: "180dp"
+}
+".text[if=Alloy.Globals.is_iPhone6plus]": {
+	top: "220dp"
 }
 "#text1": {
-    top: "140dp",
+    top: "135dp",
+}
+"#text1[if=Alloy.Globals.is_iPhone6]": {
+	top: "175dp"
+}
+"#text1[if=Alloy.Globals.is_iPhone6plus]": {
+	top: "220dp"
 }
 
 "#image": {
     top: "250dp"
 }
+"#image[if=Alloy.Globals.is_iPhone6]": {
+	top: "auto",
+    bottom: "30dp"
+}
+"#image[if=Alloy.Globals.is_iPhone6plus]": {
+	top: "auto",
+    bottom: "40dp"
+}
+
 
 "#finish": {
-    width: "60%",
+    width: "200dp",
     height: "50dp",
     top: "300dp"
+}
+"#finish[if=Alloy.Globals.is_iPhone6]": {
+    top: "380dp"
+}
+"#finish[if=Alloy.Globals.is_iPhone6plus]": {
+    top: "410dp"
 }
 

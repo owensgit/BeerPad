@@ -3,7 +3,7 @@ var args = arguments[0] || {};
 function closeWelcome() {
     var index = Alloy.createController("index").getView();
     index.open();
-    setTimeout(function () { $.welcome.close(); }, 300);
+    setTimeout(function () { $.welcome.close(); }, 500);
     Ti.App.Properties.setString("welcomeDone", "true");
 };
 
