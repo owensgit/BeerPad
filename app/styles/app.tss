@@ -199,3 +199,6 @@
 ".emptySecSpacer": {
 	height: "50dp"
 }
+".emptySecSpacer[if=Alloy.Globals.is_iPhone4]": {
+	height: "10dp"
+}
