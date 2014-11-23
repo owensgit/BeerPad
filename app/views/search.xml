@@ -45,7 +45,7 @@
                         <Label id="tableRowName" text="{name}" />
                         <!--Label id="tableMiddleLabel" text="{tableMiddleLabel}"></Label-->
                         <View id="secondaryInfo">
-                            <Label id="secondaryLabel" text="{secondaryInfo}" defaultText="No brewery" />
+                            <Label id="secondaryLabel" text="{brewery}" defaultText="No brewery" />
                         </View>
                     </View>    
                                         
