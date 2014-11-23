@@ -62,8 +62,8 @@
         <target device="mobileweb">false</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.4.0.v20140916181713</sdk-version>
+    <sdk-version>3.4.1.GA</sdk-version>
     <plugins>
-        <plugin version="1.4.1">ti.alloy</plugin>
+        <plugin version="1.5.1">ti.alloy</plugin>
     </plugins>
 </ti:app>
