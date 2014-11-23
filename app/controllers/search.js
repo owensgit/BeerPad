@@ -83,6 +83,12 @@ $.searchBar.addEventListener("return", function(e) {
 });
 
 
+Ti.App.addEventListener("app:clearLookUpResults", function(event) {
+	searchResults.reset();
+	showHideElements('introMsg');	
+	$.searchBar.setValue("");
+});
+
 
 
 /*$.searchWin.addEventListener("focus", function () {

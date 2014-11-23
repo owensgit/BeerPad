@@ -20,5 +20,6 @@
 }
 "Button": {
 	top: "20dp",
-	width: "170dp"
+	width: "170dp",
+	height: "38dp"
 }

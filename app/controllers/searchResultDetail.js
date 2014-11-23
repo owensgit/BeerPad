@@ -46,9 +46,11 @@ addBeerButton.addEventListener("click", function () {
     var addBeerWin = Alloy.createController("addBeer", args);
     var confirm = Alloy.createController("confirmationOverlay");
     confirm.overlayBtnLookAgain.addEventListener("click", function () {
+    	Ti.App.fireEvent("app:clearLookUpResults");
 		$.searchResultDetail.close();
 	});
 	confirm.overlayBtnMyBeers.addEventListener("click", function () {
+		Ti.App.fireEvent("app:clearLookUpResults");
 		$.searchResultDetail.close();
 		Alloy.Globals.mainTabGroup.setActiveTab(0);
 	});
