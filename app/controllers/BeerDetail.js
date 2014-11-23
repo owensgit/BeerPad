@@ -120,6 +120,7 @@ function share() {
                 Ti.App.fireEvent("app:addToFavorites", {
                     args: args
                 });
+                args.favourite = args.favourite ? 0 : 1;
             }
         }
    ]);  
