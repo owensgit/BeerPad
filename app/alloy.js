@@ -20,8 +20,8 @@ var platformHeight = Ti.Platform.displayCaps.platformHeight;
 Alloy.Globals.is_iPhone4 = platformHeight === 480;
 Alloy.Globals.is_iPhone5 = platformHeight === 568;
 Alloy.Globals.is_iPhone6 = platformHeight === 667;
+Alloy.Globals.is_iPhone6andAbove = platformHeight >= 667;
 Alloy.Globals.is_iPhone6plus = platformHeight === 736;
-
 
 Alloy.Globals.beerListSecondaryValue = 'brewery';
 
@@ -222,7 +222,7 @@ Alloy.Globals.addToFavourites = function (alloy_id) {
     beerCollection.fetch();
     var theBeer = beerCollection.where({"alloy_id": alloy_id})[0];
     theBeer.set({favourite: 1});
-    theBeer.save();  
+    theBeer.save();
 };
 
 

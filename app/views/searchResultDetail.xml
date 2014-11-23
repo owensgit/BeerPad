@@ -13,6 +13,8 @@
           
           <Label id="notes"></Label>
           
+          <View id="spacer"></View>
+          
       </ScrollView>
 
    </Window>

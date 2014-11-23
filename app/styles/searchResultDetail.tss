@@ -50,5 +50,5 @@
 
 "#spacer": {
     height: 0,
-    top: "80dp"
+    top: "50dp"
 }

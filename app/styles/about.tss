@@ -10,14 +10,24 @@
 	width: "260dp",
 	height: Ti.UI.SIZE
 }
+".logoContainer[if=Alloy.Globals.is_iPhone6andAbove]": {
+	top: "40dp"
+}
 "#logo": {
     left: "0dp"
 }
+"#logo[if=Alloy.Globals.is_iPhone6andAbove]": {
+	left: "12dp"
+}
+
 "#aboutText": {
     top: "25dp",
     width: "260dp",
     color: "#444444",
     font: { fontSize: "15dp" }
+}
+"#aboutText[if=Alloy.Globals.is_iPhone6andAbove]": {
+	top: "36dp"
 }
 "#beerCountBox": {
     top: "28dp",
@@ -25,13 +35,16 @@
     height: Ti.UI.SIZE,
     layout: "vertical"
 }
+"#beerCountBox[if=Alloy.Globals.is_iPhone6andAbove]": {
+	top: "43dp"
+}
 "#countBoxLineTop": {
     backgroundColor: "#999999",
     height: "0.5dp"
 }
 "#beerCount": {
     top: "10dp",
-    //color: Alloy.CFG.colour.main,
+    //color: Alloy.CFG.colour.main
     color: "#888888",
     //font: { fontFamily: "Dense-Regular", fontSize: "25dp" }
     font: { fontSize: "13dp" }
@@ -47,11 +60,17 @@
     height: "38dp",
     font: { fontSize: "15dp" }
 }
+"#feedbackButton[if=Alloy.Globals.is_iPhone6andAbove]": {
+	top: "38dp"
+}
 "#rateButton": {
     top: "20dp",
     width: "190dp",
     height: "38dp",
     font: { fontSize: "15dp" }
+}
+"#rateButton[if=Alloy.Globals.is_iPhone6andAbove]": {
+	top: "30dp"
 }
 "#versionNumber": {
     color: "#9f9f9f",
