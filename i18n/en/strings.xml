@@ -133,7 +133,7 @@
     
     <!-- Review Prompt -->
     <string name="review_prompt_title">Are you enjoying Beer Pad?</string>
-    <string name="review_prompt_message">\nPlease leave a rating to support new versions and improvements.</string>
+    <string name="review_prompt_message">\nPlease leave a rating, it'll help support new versions & improvements!</string>
     <string name="review_prompt_btn_review">Rate now</string>
     <string name="review_prompt_btn_cancel">No thanks</string>
 </resources>
