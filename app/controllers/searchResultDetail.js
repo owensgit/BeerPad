@@ -51,8 +51,8 @@ addBeerButton.addEventListener("click", function () {
 	});
 	confirm.overlayBtnMyBeers.addEventListener("click", function () {
 		Ti.App.fireEvent("app:clearLookUpResults");
-		$.searchResultDetail.close();
 		Alloy.Globals.mainTabGroup.setActiveTab(0);
+		$.searchResultDetail.close();
 	});
     addBeerWin.addBeerButton.addEventListener("click", function () {
        	$.searchResultDetail.add(confirm.getView()); 

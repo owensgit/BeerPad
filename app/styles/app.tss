@@ -191,7 +191,8 @@
     color: Alloy.CFG.colour.grey,
     top: "15dp",
     width: "155dp",
-    font: { fontSize: "14dp" }
+    font: { fontSize: "14dp" },
+    textAlign: "left"
 }
 ".emptySecImage": {
     top: "15dp"
