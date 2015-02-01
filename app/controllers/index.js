@@ -62,7 +62,7 @@ if (Ti.App.Properties.getString("welcomeDone") === "true") {
    welcome.open();
 }
 
-/*$.beerListWin.addEventListener("focus", function () {
-	Alloy.Globals.tracker.trackScreen("My Beers");
-});*/
+$.beerListWin.addEventListener("focus", function () {
+	Alloy.Globals.GA.trackScreen({ screenName: "My Beers" });
+});
 

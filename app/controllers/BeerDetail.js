@@ -13,7 +13,7 @@ var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
-//Alloy.Globals.GoogleAnalytics.trackScreen("Beer Detail");
+Alloy.Globals.GA.trackScreen({ screenName: "Beer Detail" });
 
 
 // The Image

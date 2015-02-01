@@ -52,7 +52,8 @@
     <modules>
         <module platform="iphone">ti.map</module>
         <module platform="iphone">dk.napp.social</module>
-        <!--module platform="iphone">analytics.google</module-->
+        <module platform="iphone">analytics.google</module>
+        <module platform="android">analytics.google</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>

@@ -15,16 +15,20 @@
 	   "ios_keyboard_height_iphone_portrait": 264,
 	   "ios_header_height_portrait": 65
 	},
-	"analytics": {
+	"GA": {
 	   "google_analytics_id": "UA-50958937-2",
-	   "beer_added_action": "Add Beer | Beer Added",
+	   "beer_added": "Add Beer | Beer Added",
+	   "beer_edited": "Add Beer | Beer Edited",
 	   "add_beer_api_request": "Add Beer | API Request",
 	   "add_beer_api_used": "Add Beer | API Used",
 	   "add_beer_geocoding_request": "Add Beer | Geocoding Request",
 	   "add_beer_geocoding_used": "Add Beer | Geocoding Used",
 	   "add_beer_gps_used": "Add Beer | GPS Used",
 	   "list_sorting_used": "List Sorting",
-	   "add_to_favourites": "Add to Favourites"
+	   "add_to_favourites": "Add to Favourites",
+	   "lookup_api_request": "Look Up Beer | API Request",
+	   "lookup_api_used": "Look Up Beer | API Used",
+	   "lookup_beer_added": "Look Up Beer | Beer Added from API"
 	},
 	"env:development": {}, 
 	"env:test": {}, 
