@@ -113,17 +113,7 @@ Alloy.Globals.beerListTransform = function(modal) {
     
     if (result.is_sample) {
         result.tableMiddleLabel = "SAMPLE";
-    }
-      
-    /*if (!result.beer_image) { 
-        result.list_image = "dafaultListImage.png";
-    } else {
-        if (result.beer_image.indexOf('sample_') === 0) {
-            result.list_image = result.beer_image;
-        } else {
-            result.list_image = Alloy.Globals.getImage(result.alloy_id);   
-        }
-    }*/   
+    }  
     
     var secValue = Alloy.Globals.beerListSecondaryValue;
 

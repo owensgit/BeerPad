@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var data = require("data");
+var searchResults = Alloy.Collections.searchResults;
 
 
 $.searchWin.titleControl = Ti.UI.createImageView({
@@ -7,7 +8,6 @@ $.searchWin.titleControl = Ti.UI.createImageView({
 });
 
 
-var searchResults = Alloy.Collections.searchResults;
 
 $.resultsView.addEventListener("click", function () {
     $.searchBar.blur();
@@ -58,12 +58,6 @@ var doSearch = function(searchTerm) {
     });
 };
 
-$.resultsTable.addEventListener("click", function (event) {
-    $.resultsTable.height = Ti.UI.FILL;
-    Alloy.Globals.openBeerDetails(event, "searchResultDetail");
-    Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.lookup_api_used, value: 1 });
-});
-
 var doSearch_debounced = _.debounce(doSearch, Alloy.CFG.api_call_debounce_delay);
 
 $.searchBar.addEventListener("change", function(e) {
@@ -82,6 +76,13 @@ $.searchBar.addEventListener("return", function(e) {
     showHideElements(null);
     $.activityIndicator.show();
     doSearch_debounced(searchTerm);
+});
+
+
+$.resultsTable.addEventListener("click", function (event) {
+    $.resultsTable.height = Ti.UI.FILL;
+    Alloy.Globals.openBeerDetails(event, "searchResultDetail");
+    Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.lookup_api_used, value: 1 });
 });
 
 

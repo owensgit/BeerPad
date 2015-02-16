@@ -1,5 +1,5 @@
 <Alloy>
-    <Window class="container">
+    <Window id="about" class="container">
         <ScrollView layout="vertical">
         	<View class="logoContainer">
             	<ImageView id="logo" image="logoHorizontal.png"></ImageView>

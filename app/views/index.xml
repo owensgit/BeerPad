@@ -19,8 +19,7 @@
                         </View>    
                                             
                     </TableViewRow>
-                </TableView>  
-                        
+                </TableView>        
             </Window>
         </Tab>
         <Tab id="tab2" titleid="tab_fav"  icon="tabStarIcon.png" activeIcon="tabStarIconActive.png">

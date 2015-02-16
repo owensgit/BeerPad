@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 $.about.titleControl = Ti.UI.createImageView({
-    image: 'header-about.png', 
+    image: 'header-info.png', 
     height: Ti.UI.SIZE, 
     width: Ti.UI.SIZE
 });
