@@ -142,5 +142,5 @@ if (OS_IOS) {
 
 
 $.map.addEventListener("focus", function () {
-	Alloy.Globals.GA.trackScreen({ screenName: "Map" });
+	//Alloy.Globals.GA.trackScreen({ screenName: "Map" });
 });

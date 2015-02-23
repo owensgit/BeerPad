@@ -21,9 +21,9 @@ $.locationBox.add(locationLookUpView.view);
 // Google Analytics track screen
 
 /*if (args.edit) {
-    Alloy.Globals.GA.trackScreen("Edit Beer");    
+    //Alloy.Globals.GA.trackScreen("Edit Beer");    
 } else {
-    Alloy.Globals.GA.trackScreen("Add Beer");
+    //Alloy.Globals.GA.trackScreen("Add Beer");
 }*/
 
 
@@ -148,10 +148,10 @@ $.addBeerButton.addEventListener("click", function () {
             theImage = null;
         }  
         
-        Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.beer_added, value: 1 }); 
+        //Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.beer_added, value: 1 }); 
         
         if (args.addingFromSearch) {
-        	Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.lookup_beer_added, value: 1 });
+        	//Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.lookup_beer_added, value: 1 });
         }     
     }
     
@@ -247,7 +247,7 @@ function doBeerLookUp(textField) {
                 return;
             }
             
-            Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_api_request, value: 1 });
+            //Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_api_request, value: 1 });
             
             beerLookUpView.update(results);
             $.beerLookUpActivity.hide();
@@ -260,7 +260,7 @@ function doBeerLookUp(textField) {
                     $.percent.value = e.rowData.abv || "";
                     $.notes.value = e.rowData.notes || "";
                     
-                    Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_api_used, value: 1 });
+                    //Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_api_used, value: 1 });
                 }, 100);
             });
         });
@@ -320,13 +320,13 @@ function doLocationLookUp(e) {
             locationLookUpView.update(results);
             $.locLookUpActivity.hide();
             
-            Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_geocoding_request, value: 1 });
+            //Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_geocoding_request, value: 1 });
             
             locationLookUpView.table.addEventListener("click", function (e) {
                 locationLookUpView.closeUp();
                 $.location.value = e.rowData.title;
                 coords = e.rowData.coords; 
-                Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_geocoding_used, value: 1 });
+                //Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_geocoding_used, value: 1 });
             });
         });
         
@@ -372,7 +372,7 @@ function useGPS() {
                         var p = e.places[0];
                         $.location.value = p.street + ", " + p.city + ", " + p.country;
                         $.location.height = Ti.UI.SIZE;
-                        Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_gps_used, value: 1 });
+                        //Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.add_beer_gps_used, value: 1 });
                         //$.locationLabel.hide();
                     } else {
                         alert(L("location_services_not_found"));

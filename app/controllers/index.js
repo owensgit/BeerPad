@@ -31,7 +31,7 @@ var sortButton = Ti.UI.createButton({ titleid: "index_sort_btn" });
 var filterButton = Ti.UI.createButton({ title: "Filter" });
 
 if (OS_IOS) {       
-    $.beerListWin.setRightNavButton(searchButton);
+    $.beerListWin.setRightNavButton(addButton);
     $.beerListWin.setLeftNavButtons([sortButton, filterButton]);
 }
 
@@ -92,6 +92,6 @@ if (Ti.App.Properties.getString("welcomeDone") === "true") {
 
 
 $.beerListWin.addEventListener("focus", function () {
-  Alloy.Globals.GA.trackScreen({ screenName: "My Beers" });
+  //Alloy.Globals.GA.trackScreen({ screenName: "My Beers" });
 });
 

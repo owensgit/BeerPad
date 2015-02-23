@@ -91,5 +91,5 @@ $.favTable.addEventListener("delete", function(event) {
 
 
 $.favListWin.addEventListener("focus", function () {
-	Alloy.Globals.GA.trackScreen({ screenName: "Favourties" });
+	//Alloy.Globals.GA.trackScreen({ screenName: "Favourties" });
 });

@@ -54,7 +54,7 @@ var doSearch = function(searchTerm) {
            searchResults.push(beer);
         });
         showHideElements("resultsTable");
-        Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.lookup_api_request, value: 1 });
+        //Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.lookup_api_request, value: 1 });
     });
 };
 
@@ -82,7 +82,7 @@ $.searchBar.addEventListener("return", function(e) {
 $.resultsTable.addEventListener("click", function (event) {
     $.resultsTable.height = Ti.UI.FILL;
     Alloy.Globals.openBeerDetails(event, "searchResultDetail");
-    Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.lookup_api_used, value: 1 });
+    //Alloy.Globals.GA.trackEvent({ category: "AppEvent", action: Alloy.CFG.GA.lookup_api_used, value: 1 });
 });
 
 
@@ -95,5 +95,5 @@ Ti.App.addEventListener("app:clearLookUpResults", function(event) {
 
 
 $.searchWin.addEventListener("focus", function () {
-	Alloy.Globals.GA.trackScreen({ screenName: "Look Up" });
+	//Alloy.Globals.GA.trackScreen({ screenName: "Look Up" });
 });

@@ -30,9 +30,9 @@ Alloy.Globals.fa = require('fa');
 
 
 // Set up Google Analytics...
-var GA = require('analytics.google');
-GA.trackUncaughtExceptions = true;
-Alloy.Globals.GA = GA.getTracker("UA-50958937-2");
+//var GA = require('analytics.google');
+//GA.trackUncaughtExceptions = true;
+//Alloy.Globals.GA = GA.getTracker("UA-50958937-2");
 
 
 Alloy.Globals.mapLabelText = function($, args, shouldSetImage) { 
