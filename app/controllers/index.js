@@ -32,37 +32,9 @@ var filterButton = Ti.UI.createButton({ title: "Filter" });
 
 if (OS_IOS) {       
     $.beerListWin.setRightNavButton(addButton);
-    $.beerListWin.setLeftNavButtons([sortButton, filterButton]);
+    $.beerListWin.setLeftNavButton(sortButton);
 }
 
-
-var searchBar = Titanium.UI.createSearchBar({
-    barColor:'#000', 
-    showCancel: true,
-    height: 43
-});
-$.beersTable.setSearchHidden(true);
-$.beersTable.setSearch(searchBar);
-
-
-$.beerListWin.addEventListener("focus",function(){
-    $.beersTable.setSearchHidden(true);
-
-    setTimeout(function () {
-        searchBar.show();
-    },1000);
-});
-
-/*searchBar.addEventListener("cancel", function () {
-	searchBar.animate({ opacity: 0, height: 0, duration: 500 }, function () {
-		$.beersTable.setSearch(null);
-	});	
-});
-searchButton.addEventListener("click", function () {
-	searchBar.opacity = 1;
-  $.beersTable.setSearch(searchBar);
-  searchBar.focus();
-});*/
 
 // Add a new beer
 addButton.addEventListener("click", function () {
