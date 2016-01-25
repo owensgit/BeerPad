@@ -11,7 +11,7 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>2cd3a67a-9983-4e1d-90a6-332649f1c9ac</guid>
+    <guid>14cc3b87-fa9c-48ae-9888-c36abcef0909</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
@@ -54,6 +54,7 @@
         <module platform="iphone">dk.napp.social</module>
         <module platform="iphone">analytics.google</module>
         <module platform="android">analytics.google</module>
+        <module platform="commonjs">ti.cloud</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
@@ -63,8 +64,25 @@
         <target device="mobileweb">false</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>4.0.0.GA</sdk-version>
+    <sdk-version>5.1.2.GA</sdk-version>
     <plugins>
         <plugin version="1.5.1">ti.alloy</plugin>
     </plugins>
+    <property name="appc-app-id" type="string">56a653e39affa6e079e92292</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">YbRpQ8DkN60DFGpd9riwNuuUNcrCEgDe</property>
+    <property name="acs-oauth-key-development" type="string">OLgrvXyJc7tkUaoqmfRJta1AXFZonYsZ</property>
+    <property name="acs-api-key-development" type="string">GAtTPuHlvUpFaynZisIisds0cOIjHEw6</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">bS7VaDC74zQlqOl7lI</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">JFRbXYCeJ96woq8s4hTZWH2qjy19nXkx</property>
+    <property name="acs-oauth-key-production" type="string">xo4YLA1w97fqSeweHCGCzhNbyZLFkhpt</property>
+    <property name="acs-api-key-production" type="string">OIYdyzCIpJVXOOpdJmRPUvXCOdaepbxx</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">UuxNMKENZyDNQ6nTZO</property>
+    <property name="appc-org-id" type="string">100014914</property>
+    <property name="appc-creator-user-id" type="string">395fa8a2-e472-40f3-8e0d-37a53b76816d</property>
 </ti:app>
