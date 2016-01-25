@@ -1,6 +1,15 @@
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
+
+
+var DB_NAME = L("framework_database_name", "_alloy_");
+
+var db = Titanium.Database.open(DB_NAME);
+
+console.log("DB remote backup is ", db.file.remoteBackup);
+
+
 Alloy.Globals.mainTabGroup = $.mainTabGroup;
 
 $.beerListWin.titleControl = Ti.UI.createImageView({
