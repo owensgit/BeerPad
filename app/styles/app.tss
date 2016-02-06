@@ -152,6 +152,7 @@
 }
 "#buildingIcon": { text: Alloy.Globals.fa.buildingO }
 "#locationIcon": { text: Alloy.Globals.fa.mapMarker }
+"#calendarIcon": { text: Alloy.Globals.fa.calendar }
 
 
 

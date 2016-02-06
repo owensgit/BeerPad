@@ -29,11 +29,18 @@
     top: "20dp"
 }
 
+"#dateBox": {
+	top: "30dp",
+	width: Ti.UI.SIZE
+}
+"#calendarIcon": {
+	width: "15dp", height: "15dp", top: "1dp",
+	font: { fontFamily: 'FontAwesome', fontSize: "13dp" }
+}
 "#date": {
-	color: "#888888",
-    font: { fontSize: "13dp" },
-    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top: "30dp",	
+	color: "#999999",
+    font: { fontSize: "14dp" },
+    left: "22dp"
 }
 
 "#toolbar": {

@@ -25,6 +25,11 @@
           <Label id="notes"></Label>
           
           <Label id="date"></Label>
+          
+          <View id="dateBox" class="iconItem">
+          	<Label class="iconItemIcon" id="calendarIcon" />
+            <Label class="iconItemTitle" id="date" />
+          </View>
 
           <View id="spacer"></View>
       </ScrollView>
@@ -35,7 +40,6 @@
             <FlexSpace/>
             <FlexSpace/>
             <Button id="deleteBtn" onClick="deleteBeer" title="Delete" systemButton="Ti.UI.iPhone.SystemButton.TRASH" />
-            
           </Items>
       </Toolbar>
       

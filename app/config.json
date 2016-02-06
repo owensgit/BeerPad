@@ -41,7 +41,8 @@
 	"os:mobileweb": {},
 	"dependencies": {},
 	"xy": {
-		"beerDetailLabelWidth": "65%"
+		"beerDetailLabelWidth": "65%",
+		"beerDetailDateWidth": "45%"
 	},
 	"colour": {
 	   "main": "#4ca843",
