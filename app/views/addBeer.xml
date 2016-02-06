@@ -44,6 +44,8 @@
             <Label class="textAreaLabel" id="notesLabel" textid="add_notes" />
             <TextArea id="notes" />
             
+            <TextField id="date"></TextField>
+            
             <Button id="addBeerButton" class="button" titleid="add_save" />
             
         </ScrollView>

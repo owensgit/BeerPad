@@ -1,3 +1,4 @@
+var moment = require('alloy/moment');
 var utils = require("utils");
 var data = require("data");
 var lookUpView = require('lookUpView');
@@ -73,8 +74,14 @@ if (args.edit) {
 	applyRating(args.rating === null ? 0 : args.rating);
 	var beerImage = Alloy.Globals.getImage(args);
     $.beerImage.image = beerImage;
-    $.title.text = L("edit_title") || "";  
+    $.title.text = L("edit_title") || "";
+    $.date.value = args.date_string;  
     $.addBeerButton.title = "Save beer";
+} else {
+	//var current_date_epoch = Math.floor(new Date().getTime()/1000);
+	//var current_date_epoch = moment().valueOf();
+	var current_date = new Date();
+	$.date.value = current_date.toDateString();
 }
 
 if (args.addingFromSearch) {
