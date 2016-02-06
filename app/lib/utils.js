@@ -24,11 +24,13 @@ var utils = (function() {
         return breweryAndPercentText;
     };
     
-    methods.parseDateStringFromEpoch = function(date_epoch) {
+    methods.parseDateStringFromEpoch = function(date_epoch, trimCurrentYear) {
         var date = new Date(parseInt(date_epoch, 10));  
         var thisYear = new Date().getFullYear();
         var date_string = date.toDateString();
-        if (date.getFullYear() === thisYear) date_string = date_string.substring(0, date_string.length - 5); // trim year off end if current year
+        if (trimCurrentYear && date.getFullYear() === thisYear) { 
+        	date_string = date_string.substring(0, date_string.length - 5);
+        }
         return date_string;
     };
     

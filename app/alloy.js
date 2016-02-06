@@ -11,6 +11,7 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 var utils = require("utils");
+var sample_beers = require("samples");
 
 
 var theBeers = Alloy.createCollection("beers");
@@ -33,6 +34,21 @@ Alloy.Globals.fa = require('fa');
 //var GA = require('analytics.google');
 //GA.trackUncaughtExceptions = true;
 //Alloy.Globals.GA = GA.getTracker("UA-50958937-2");
+
+
+
+// If no current data is present, load up the sample beers
+
+if (_.isEmpty(theBeers.toJSON())) {
+    _.each(sample_beers, function (item) {
+        item.date_string = utils.parseDateStringFromEpoch(item.date);
+        item.is_sample = true;
+        var beer = Alloy.createModel('beers', item);
+        theBeers.add(beer);    
+        beer.save();
+    });
+}
+
 
 
 Alloy.Globals.mapLabelText = function($, args, shouldSetImage) { 
@@ -122,7 +138,7 @@ Alloy.Globals.beerListTransform = function(modal) {
     } else if (secValue === "percent") {
         result.secondaryInfo = result.percent ? "" + result.percent + "% abv" : "- - % abv";
     } else if (secValue === "date") {
-        result.secondaryInfo = "" + result.date_string;
+        result.secondaryInfo = "" + utils.parseDateStringFromEpoch(result.date, true);
     } else {
         result.secondaryInfo = result[secValue];    
     }    
@@ -228,24 +244,6 @@ Ti.App.addEventListener("app:addToFavorites", function (e) {
     //console.log("Now set to: ", beer.toJSON().favourite);   
 });
 
-
-// Set of defaults to load if no current data is present
-
-var sample_beers = require("samples");
-
-
-
-// If no current data is present, load up the default data
-
-if (_.isEmpty(theBeers.toJSON())) {
-    _.each(sample_beers, function (item) {
-        item.date_string = utils.parseDateStringFromEpoch(item.date);
-        item.is_sample = true;
-        var beer = Alloy.createModel('beers', item);
-        theBeers.add(beer);    
-        beer.save();
-    });
-}
 
 
 /**
