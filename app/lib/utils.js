@@ -34,6 +34,11 @@ var utils = (function() {
         return string;
     };
     
+    methods.parseTimeFromUnix = function(date_epoch) {
+    	var date = new Date(parseInt(date_epoch, 10));
+    	return date.getHours() + ':' + date.getMinutes();
+    };
+    
     methods.perentageIsValid = function (percent) {
         function percentNotANumber(percent) {
             var regEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
@@ -76,6 +81,7 @@ var utils = (function() {
     
     
     methods.mapLabelsToNewArgs = function ($, args, rating, coords) {
+    	
         var newArgs = {
             name: $.name.value,
             brewery: $.brewery.value,
@@ -86,6 +92,13 @@ var utils = (function() {
             notes: $.notes.value,
             api_id: args.api_id || null
         };
+        
+        var date = new Date($.date.value);
+        var date_hours = date.getHours();
+        var date_unix = Math.floor(date.setUTCHours(date_hours));
+        newArgs.date = date_unix;
+        
+        Ti.API.info("date_unix", date_unix);
     
         if (coords) {
             newArgs.latitude = coords.latitude;
@@ -96,13 +109,6 @@ var utils = (function() {
             newArgs.latitude = null;
             newArgs.longitude = null;
             newArgs.location = null;
-        }
-        
-        if (!args.date) {
-            var now = new Date();
-            var now_hours = now.getHours();
-            var now_epoch = Math.floor(now.setUTCHours(now_hours));
-            newArgs.date = now_epoch;
         }
     
         return newArgs;        

@@ -29,9 +29,14 @@
     top: "20dp"
 }
 
+
+"#dateAndTime": {
+	width: Ti.UI.SIZE,
+	layout: "horizontal"
+}
 "#dateBox": {
-	top: "30dp",
-	width: Ti.UI.SIZE
+	width: Ti.UI.SIZE,
+	left: 0
 }
 "#calendarIcon": {
 	width: "15dp", height: "15dp", top: "1dp",
@@ -41,6 +46,19 @@
 	color: "#999999",
     font: { fontSize: "14dp" },
     left: "22dp"
+}
+"#timeBox": {
+	width: Ti.UI.SIZE,
+	left: "11dp"
+}
+"#timeIcon": {
+	width: "15dp", height: "15dp", top: "1dp",
+	font: { fontFamily: 'FontAwesome', fontSize: "13dp" }
+}
+"#time": {
+	color: "#999999",
+    font: { fontSize: "14dp" },
+    left: "18dp"
 }
 
 "#toolbar": {

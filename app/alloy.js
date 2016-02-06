@@ -60,6 +60,7 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
     $.location.text = args.location || L("detail_no_location");
     $.notes.text = args.notes;
     $.date.text = utils.parseDateStringFromEpoch(args.date);
+    $.time.text = utils.parseTimeFromUnix(args.date);
      
     var theImage = Alloy.Globals.getImage(args);
 
