@@ -3,30 +3,30 @@
 	    <!-- <Button id="close" onClick="closeWelcome" class="modalOutline" titleid="welcome_skip_button" /> -->
 	    <ScrollableView id="ScrollableView" showPagingControl="true" pagingControlHeight="40dp">
 	       <View id="view1">
-	           <ImageView id="logo" image="logoHorizontalWhite.png" />
+	           <ImageView id="logo" image="/logoHorizontalWhite.png" />
 	           <Label class="text" id="text1" textid="welcome_slide1_text" />
-	           <ImageView id="image" image="welcome1.png" />
+	           <ImageView id="image" image="/welcome1.png" />
 	       </View> 
 	       <View id="view2">
                <Label class="title" textid="welcome_slide2_title" />
                <Label class="text" textid="welcome_slide2_text" />
-               <ImageView id="image" image="welcome2.png" />
+               <ImageView id="image" image="/welcome2.png" />
            </View>
            <View id="view3">
                <Label class="title" textid="welcome_slide3_title" />
                <Label class="text" textid="welcome_slide3_text" />
-               <ImageView id="image" image="welcome3.png" />
+               <ImageView id="image" image="/welcome3.png" />
            </View> 
            <View id="view4">   
                <Label class="title" textid="welcome_slide4_title" />
                <Label class="text" id="text4" textid="welcome_slide4_text" />
-               <ImageView id="image" image="welcome4.png" />
+               <ImageView id="image" image="/welcome4.png" />
            </View>  
            <View id="view5">
                <Label class="title" textid="welcome_slide5_title" />
                <Label class="text" textid="welcome_slide5_text" />
                <!--View class="bullet">
-                   <ImageView class="bulletImage" image="pin.png" />
+                   <ImageView class="bulletImage" image="/pin.png" />
                    <Label class="bulletLabel" text="Plot your beers on a map using geo-location" />
                </View-->
                <Button id="finish" onClick="closeWelcome" class="buttonOutlineWhite" titleid="welcome_finished_button" />
