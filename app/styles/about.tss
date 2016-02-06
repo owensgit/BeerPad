@@ -44,9 +44,7 @@
 }
 "#beerCount": {
     top: "10dp",
-    //color: Alloy.CFG.colour.main
     color: "#888888",
-    //font: { fontFamily: "Dense-Regular", fontSize: "25dp" }
     font: { fontSize: "13dp" }
 }
 "#countBoxLineBottom": {

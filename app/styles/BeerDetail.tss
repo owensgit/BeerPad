@@ -29,6 +29,13 @@
     top: "20dp"
 }
 
+"#date": {
+	color: "#888888",
+    font: { fontSize: "13dp" },
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	top: "30dp",	
+}
+
 "#toolbar": {
     color: "#000",
     backgroundColor: Alloy.CFG.colour.background,

@@ -44,6 +44,7 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
     $.pub.text = args.establishment || L("detail_no_pub");
     $.location.text = args.location || L("detail_no_location");
     $.notes.text = args.notes;
+    $.date.text = args.date_string;
     
     var theImage = Alloy.Globals.getImage(args);
 
@@ -100,7 +101,6 @@ Alloy.Globals.openBeerDetails = function (event, controller) {
        args[key] = value;
     }); 
    
-    
     var view = Alloy.createController(controller, args).getView();
     
     Alloy.Globals.mainTabGroup.getActiveTab().open(view, { animated: true });      

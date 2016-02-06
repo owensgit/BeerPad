@@ -23,6 +23,8 @@
           </View>
           
           <Label id="notes"></Label>
+          
+          <Label id="date"></Label>
 
           <View id="spacer"></View>
       </ScrollView>
