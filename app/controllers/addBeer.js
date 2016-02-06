@@ -75,7 +75,7 @@ if (args.edit) {
 	var beerImage = Alloy.Globals.getImage(args);
     $.beerImage.image = beerImage;
     $.title.text = L("edit_title") || "";
-    $.date.value = args.date_string;  
+    $.date.value = utils.parseDateStringFromEpoch(args.date, false);  
     $.addBeerButton.title = "Save beer";
 } else {
 	//var current_date_epoch = Math.floor(new Date().getTime()/1000);

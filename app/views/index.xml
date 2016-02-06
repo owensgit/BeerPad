@@ -7,7 +7,7 @@
                     <TableViewRow 
                         hasChild="true" alloy_id="{alloy_id}" name="{name}" brewery="{brewery}" 
                         rating="{rating}" percent="{percent}" establishment="{establishment}" location="{location}" 
-                        notes="{notes}" date="{date}" date_string="{date_string}" beer_image="{beer_image}" favourite="{favourite}"> 
+                        notes="{notes}" date="{date}" beer_image="{beer_image}" favourite="{favourite}"> 
                                               
                         <View class="tableRow">
                             <!--ImageView id="listImage" image="{list_image}"></ImageView-->

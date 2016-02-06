@@ -27,11 +27,11 @@ var utils = (function() {
     methods.parseDateStringFromEpoch = function(date_epoch, trimCurrentYear) {
         var date = new Date(parseInt(date_epoch, 10));  
         var thisYear = new Date().getFullYear();
-        var date_string = date.toDateString();
+        var string = date.toDateString();
         if (trimCurrentYear && date.getFullYear() === thisYear) { 
-        	date_string = date_string.substring(0, date_string.length - 5);
+        	string = string.substring(0, string.length - 5);
         }
-        return date_string;
+        return string;
     };
     
     methods.perentageIsValid = function (percent) {
@@ -102,8 +102,7 @@ var utils = (function() {
             var now = new Date();
             var now_hours = now.getHours();
             var now_epoch = Math.floor(now.setUTCHours(now_hours));
-            newArgs.date = now_epoch; 
-            newArgs.date_string = utils.parseDateStringFromEpoch(now_epoch);
+            newArgs.date = now_epoch;
         }
     
         return newArgs;        

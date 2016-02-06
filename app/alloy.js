@@ -41,7 +41,6 @@ Alloy.Globals.fa = require('fa');
 
 if (_.isEmpty(theBeers.toJSON())) {
     _.each(sample_beers, function (item) {
-        item.date_string = utils.parseDateStringFromEpoch(item.date);
         item.is_sample = true;
         var beer = Alloy.createModel('beers', item);
         theBeers.add(beer);    
@@ -60,8 +59,8 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
     $.pub.text = args.establishment || L("detail_no_pub");
     $.location.text = args.location || L("detail_no_location");
     $.notes.text = args.notes;
-    $.date.text = args.date_string;
-    
+    $.date.text = utils.parseDateStringFromEpoch(args.date_string);
+     
     var theImage = Alloy.Globals.getImage(args);
 
     if (theImage && shouldSetImage) {
