@@ -10,7 +10,7 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
-var utils = require("utils");
+var utils = require("/utils");
 var sample_beers = require("samples");
 
 

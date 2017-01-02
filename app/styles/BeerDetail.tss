@@ -30,13 +30,17 @@
 }
 
 
-"#dateAndTime": {
-	width: Ti.UI.SIZE,
-	layout: "horizontal"
+/*
+ * Date & Time
+ */
+"#dateAndTimeBox": {
+	width: Ti.UI.SIZE, height: Ti.UI.SIZE,
+	layout: "horizontal",
+	top: 25
 }
 "#dateBox": {
 	width: Ti.UI.SIZE,
-	left: 0
+	left: 0, top: 0
 }
 "#calendarIcon": {
 	width: "15dp", height: "15dp", top: "1dp",
@@ -49,7 +53,7 @@
 }
 "#timeBox": {
 	width: Ti.UI.SIZE,
-	left: "11dp"
+	left: "11dp", top: 0
 }
 "#timeIcon": {
 	width: "15dp", height: "15dp", top: "1dp",
@@ -61,6 +65,9 @@
     left: "18dp"
 }
 
+
+
+
 "#toolbar": {
     color: "#000",
     backgroundColor: Alloy.CFG.colour.background,
@@ -69,5 +76,5 @@
 
 "#spacer": {
     height: 0,
-    top: "80dp"
+    top: "50dp"
 }

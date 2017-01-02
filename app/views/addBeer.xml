@@ -44,7 +44,16 @@
             <Label class="textAreaLabel" id="notesLabel" textid="add_notes" />
             <TextArea id="notes" />
             
-            <TextField id="date"></TextField>
+            <View id="dateAndTimeBox">
+	          <View id="dateBox" class="iconItem">
+	          	<Label class="iconItemIcon" id="calendarIcon" />
+	            <Label class="iconItemTitle" id="date" />
+	          </View>
+	          <View id="timeBox" class="iconItem">
+	          	<Label class="iconItemIcon" id="timeIcon" />
+	            <Label class="iconItemTitle" id="time" />
+	          </View>
+          	</View>
             
             <Button id="addBeerButton" class="button" titleid="add_save" />
             

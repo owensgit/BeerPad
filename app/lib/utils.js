@@ -4,7 +4,7 @@ var utils = (function() {
     var methods = {};
     
     /**
-     *  Update properties in object 1 with matching properties from object 2
+     * Update properties in object 1 with matching properties from object 2
      */
     methods.updateObjectWithObject = function(obj1, obj2) {
         for (key in obj2) {
@@ -37,6 +37,15 @@ var utils = (function() {
     methods.parseTimeFromUnix = function(date_epoch) {
     	var date = new Date(parseInt(date_epoch, 10));
     	return date.getHours() + ':' + date.getMinutes();
+    };
+    
+    methods.createUnixTimeStamp = function(dateObj) {
+    	if (!dateObj) {
+    		dateObj = new Date();
+    	}
+        var hours = dateObj.getHours();
+        var unix = Math.floor(dateObj.setUTCHours(hours));
+        return unix;	
     };
     
     methods.perentageIsValid = function (percent) {
@@ -92,13 +101,10 @@ var utils = (function() {
             notes: $.notes.value,
             api_id: args.api_id || null
         };
-        
-        var date = new Date($.date.value);
+        var date = new Date($.date.value || $.date.text);
         var date_hours = date.getHours();
         var date_unix = Math.floor(date.setUTCHours(date_hours));
         newArgs.date = date_unix;
-        
-        Ti.API.info("date_unix", date_unix);
     
         if (coords) {
             newArgs.latitude = coords.latitude;

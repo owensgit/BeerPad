@@ -26,7 +26,7 @@
           
           <Label id="date"></Label>
           
-          <View id="dateAndTime">
+          <View id="dateAndTimeBox">
 	          <View id="dateBox" class="iconItem">
 	          	<Label class="iconItemIcon" id="calendarIcon" />
 	            <Label class="iconItemTitle" id="date" />

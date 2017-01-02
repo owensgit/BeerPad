@@ -1,5 +1,5 @@
 var ratingStars = require('ratingStars');
-var utils = require('utils');
+var utils = require('/utils');
 
 setTimeout(function () {
 	$.scrollView.animate({

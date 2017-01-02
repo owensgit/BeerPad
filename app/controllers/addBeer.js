@@ -1,5 +1,5 @@
 var moment = require('alloy/moment');
-var utils = require("utils");
+var utils = require("/utils");
 var data = require("data");
 var lookUpView = require('lookUpView');
 var reviewPrompt = require('reviewPrompt');
@@ -7,6 +7,14 @@ var reviewPrompt = require('reviewPrompt');
 var args = arguments[0] || {};
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
+
+
+// date vars used for editing & saving the date
+// on the beers model
+
+var the_date;
+var the_date_unix;
+
 
 // Add look up views the screen
 
@@ -19,6 +27,7 @@ locationLookUpView.init();
 $.locationBox.add(locationLookUpView.view);
 
 
+
 // Google Analytics track screen
 
 /*if (args.edit) {
@@ -26,6 +35,7 @@ $.locationBox.add(locationLookUpView.view);
 } else {
     //Alloy.Globals.GA.trackScreen("Add Beer");
 }*/
+
 
 
 // Array of Star Images for use in applyRating() below
@@ -75,13 +85,18 @@ if (args.edit) {
 	var beerImage = Alloy.Globals.getImage(args);
     $.beerImage.image = beerImage;
     $.title.text = L("edit_title") || "";
-    $.date.value = utils.parseDateStringFromEpoch(args.date, false);  
+    
+    // get date beer was added
+    the_date = new Date(args.date);
+    $.date.text = utils.parseDateStringFromEpoch(args.date, false); 
+    $.time.text = utils.parseTimeFromUnix(args.date); 
     $.addBeerButton.title = "Save beer";
 } else {
-	//var current_date_epoch = Math.floor(new Date().getTime()/1000);
-	//var current_date_epoch = moment().valueOf();
-	var current_date = new Date();
-	$.date.value = current_date.toDateString();
+	// set current date
+	the_date = new Date();
+	the_date_unix = utils.createUnixTimeStamp(the_date);
+	$.date.text = utils.parseDateStringFromEpoch(the_date_unix);
+	$.time.text = utils.parseTimeFromUnix(the_date_unix);
 }
 
 if (args.addingFromSearch) {
@@ -172,6 +187,57 @@ $.addBeerButton.addEventListener("click", function () {
     
 });
 
+
+// Change Date
+
+$.date.addEventListener('click', function(e) {
+	
+	var pickerView = Titanium.UI.createView({
+		backgroundColor: "#FFF",
+		height: 280,
+		bottom :-280,
+		zIndex: 1000
+	});	
+	
+	var cancel = Ti.UI.createButton({
+		title:'Cancel',
+		style: Ti.UI.iPhone.SystemButtonStyle.BORDERED
+	});	
+	var done = Ti.UI.createButton({	
+		title:'Done',	
+		style: Ti.UI.iPhone.SystemButtonStyle.DONE
+	});		
+	var spacer = Ti.UI.createButton({
+		systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+	});
+	var toolbar = Ti.UI.iOS.createToolbar({
+		top: 0,
+		barColor: Alloy.CFG.colour.main,
+		items:[cancel,spacer,done]
+	});
+	
+	var picker = Ti.UI.createPicker({
+	    type : Ti.UI.PICKER_TYPE_DATE,
+        value : new Date($.date.text),
+        top: 45
+	});
+	
+	cancel.addEventListener("click", function () {
+		pickerView.animate({bottom: -280, duration: 500});
+	});
+	
+	done.addEventListener("click", function () {
+		Ti.API.info("Picker value:", picker.getValue());
+        $.date.setText(picker.getValue().toDateString()); 
+		pickerView.animate({bottom: -280, duration: 500});
+	});
+	
+	pickerView.add(toolbar);
+	pickerView.add(picker);
+	$.addBeerWin.add(pickerView);
+	
+	pickerView.animate({bottom: 0, duration: 500});
+}); 
 
 
 // Add Photo
