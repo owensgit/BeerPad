@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENGLISH -->
+
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Beer Pad</string>
+    <string name="app_version">1.0.1</string>
+    
+    <!-- Welcome Screens -->
+    <string name="welcome_skip_button">Skip</string>
+    <string name="welcome_slide1_text">Never forget that delicious beer or ale again. Keep them all in your very own Beer Pad!</string>
+    
+    <string name="welcome_slide2_title">AUTO-FILL YOUR\nBEER NOTES</string>
+    <string name="welcome_slide2_text">Start typing a beer name & Beer Pad will try to find it.</string>
+        
+    <string name="welcome_slide3_title">TRACK YOUR BEERS\nON A MAP</string>
+    <string name="welcome_slide3_text">Add your current location to plot them on a map.</string>
+    
+    <string name="welcome_slide4_title">ADD TO FAVOURITES AND SHARE</string>
+    <string name="welcome_slide4_text">Share by email, Twitter, Facebook or add to a favourites list.</string>
+    
+    <string name="welcome_slide5_title">READY?</string>
+    <string name="welcome_slide5_text">There's a few examples to get you started, feel free to delete and add your own!</string>
+    
+    <string name="welcome_finished_button">Get started</string>    
+    
+    <!-- Tabs -->
+    <string name="tab_beers">My Beers</string>
+    <string name="tab_fav">Favourites</string>
+    <string name="tab_map">Map</string>
+    <string name="tab_search">Look Up</string>
+    <string name="tab_about">About</string>
+       
+    <!-- Beer Index List -->
+    <string name="index_sort_btn">Sort</string>
+    <string name="index_search_bar_hint">Search My Beers</string>
+    
+    
+    <!-- Beer Details -->
+    <string name="detail_edit_btn">Edit</string>
+    <string name="detail_no_pub">No establishment set</string>
+    <string name="detail_no_location">No location set</string>
+    <string name="detail_add_to_favourites">Add to favourties</string>
+    <string name="detail_remove_from_favourites">Remove from favourties</string>
+        
+    <!-- Share Dialog -->
+    <string name="share_beer_name">Just tried this beer called</string>
+    
+    <!-- Delete beer dialog -->
+    <string name="delete_beer_title">Delete</string>
+    <string name="delete_beer_message">Ready to say good bye to this beer?</string>
+    <string name="delete_beer_yes">Do it!</string>
+    <string name="delete_beer_no">Cancel</string>   
+    
+    <!-- Favourite List -->
+    <string name="fav_title">Favourites</string>
+    <string name="fav_empty_title">NO FAVOURITES... YET</string>
+    <string name="fav_empty_text">Add a favourtie when you're viewing your beer info, hit share and then "add to favourites"</string>
+    <string name="fav_delete_alert_title">Favourite removed!</string>
+    <string name="fav_delete_alert_msg">It wasn't deleted from your \ndevice, just from this list.</string>
+    <string name="fav_delete_alert_ok">Okay, got it!</string>
+    
+    <!-- Map View -->
+    <string name="map_title">Your Beer Map</string>
+    
+    <!-- About -->
+    <string name="about_title">About Beer Pad</string>
+    <string name="about_text">Beer Pad helps you to keep track of all those amazing beers out there. Next time you try a delicious beer or ale, jot it down in your Beer Pad. And then get straight back to enjoying it.</string>
+    <string name="about_rate_btn">Rate in the App Store</string>
+    <string name="about_feedback_btn">Send feedback</string>
+    
+    <!-- Search -->
+    <string name="search_title">Look up beers</string>
+    <string name="search_empty_title">FIND NEW BEERS ONLINE</string>
+    <string name="search_empty_text">If you find the beer you're looking for, you can add it to your \n"My Beers" list.</string>
+    <string name="search_hint">Beer name or brewery</string>
+    <string name="search_no_matches_title">NO MATCHES FOUND</string>
+    <string name="search_no_connection_title">NO INTERNET</string>
+    <string name="search_no_connection_text">Oh dear, we can't connect to the web to get your beer results.</string>
+    <string name="search_detail_add_button">Add to My Beers</string>
+    <string name="search_detail_no_notes">No notes available</string>
+    <string name="search_beer_added_overlay_title">ADDED TO MY BEERS</string>
+    <string name="search_beer_added_overlay_look_again_btn">Find another beer</string>
+    <string name="search_beer_added_overlay_my_beers_btn">My beers</string>
+    
+    <!-- Add or edit a beer -->
+    <string name="add_cancel">Cancel</string> 
+    <string name="add_title">ADD A BEER</string> 
+    <string name="edit_title">EDIT THIS BEER</string> 
+    
+    <string name="add_name">Name</string>
+    <string name="add_brewery">Brewery</string>
+    <string name="add_percent">Percent</string>
+    <string name="add_pub">Pub, bar or establishment</string>
+    <string name="add_location">Location</string>
+    <string name="add_notes">Notes</string> 
+    <string name="add_save">Save beer</string> 
+    
+    <string name="add_photo_title">Fire up those beer goggles!</string>
+    <string name="add_photo_camera">Take a photo</string> 
+    <string name="add_photo_gallery">Choose from gallery</string> 
+    <string name="add_photo_cancel">Cancel</string> 
+    
+    <string name="add_error_forgot_name_title">Had one beer too many?</string>
+    <string name="add_error_forgot_name_msg">You forgot to add a name!\n</string>
+    <string name="add_error_forgot_name_ok">Whoops!</string>
+    <string name="add_error_percent_not_num_title">Percent not a number!</string>
+    <string name="add_error_percent_not_num_msg">You can use decimals too\n</string>
+    <string name="add_error_percent_not_num_ok">Change percentage</string>
+    <string name="add_error_percent_too_high_title">More than 100%!?</string>
+    <string name="add_error_percent_too_high_msg">You can\'t have a beer with a percentage higher than 100!\n</string>
+    <string name="add_error_percent_too_high_ok">Change percentage</string>
+    
+    <!-- Add Beer - Determine Location -->
+    <string name="add_location_use_gps">Use my location</string>
+    <string name="location_services_disabled">Beer Pad can't trianglate your location because your location services are disabled!</string>
+    <string name="location_services_error">There was an error trying to determine your location. Please check your connection or try later.</string>
+    <string name="location_services_not_found">Could not determine your location. Please enter manually.</string>
+    
+    <!-- Sort Dialog -->
+    <string name="sort_newest">Newest</string>
+    <string name="sort_oldest">Oldest</string>
+    <string name="sort_rated_high">Rated High</string>
+    <string name="sort_rated_low">Rated Low</string>
+    <string name="sort_percent_desc">Strongest</string>
+    <string name="sort_percent_asc">Weakest</string>
+    <string name="sort_name_asc">Name A → Z</string>
+    <string name="sort_name_desc">Name Z → A</string>
+    <string name="sort_brewery_asc">Brewery A → Z</string>
+    <string name="sort_brewery_desc">Brewery Z → A</string>
+    <string name="sort_cancel">Cancel</string>
+    
+    <!-- Review Prompt -->
+    <string name="review_prompt_title">Are you enjoying Beer Pad?</string>
+    <string name="review_prompt_message">\nPlease leave a rating, it'll help support new versions & improvements!</string>
+    <string name="review_prompt_btn_review">Rate now</string>
+    <string name="review_prompt_btn_cancel">No thanks</string>
+</resources>
