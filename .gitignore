@@ -5,6 +5,7 @@ build
 Resources
 
 /i18n
+/platform
 
 npm-debug.log
 tmp
