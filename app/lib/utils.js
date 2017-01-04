@@ -89,7 +89,7 @@ var utils = (function() {
     };
     
     
-    methods.mapLabelsToNewArgs = function ($, args, rating, coords) {
+    methods.mapLabelsToNewArgs = function ($, args, rating, coords, dateObj) {
     	
         var newArgs = {
             name: $.name.value,
@@ -101,9 +101,11 @@ var utils = (function() {
             notes: $.notes.value,
             api_id: args.api_id || null
         };
-        var date = new Date($.date.value || $.date.text);
-        var date_hours = date.getHours();
-        var date_unix = Math.floor(date.setUTCHours(date_hours));
+        if (!dateObj && $.date.value) {
+            var dateObj = new Date($.date.value || $.date.text);
+        }
+        var date_hours = dateObj.getHours();
+        var date_unix = Math.floor(dateObj.setUTCHours(date_hours));
         newArgs.date = date_unix;
     
         if (coords) {

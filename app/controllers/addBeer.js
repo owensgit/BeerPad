@@ -1,5 +1,6 @@
 var moment = require('alloy/moment');
 var utils = require("/utils");
+var datePicker = require("/datePicker");
 var data = require("data");
 var lookUpView = require('lookUpView');
 var reviewPrompt = require('reviewPrompt');
@@ -11,7 +12,6 @@ theBeers.fetch();
 
 // date vars used for editing & saving the date
 // on the beers model
-
 var the_date;
 var the_date_unix;
 
@@ -26,15 +26,6 @@ var locationLookUpView = new lookUpView();
 locationLookUpView.init();
 $.locationBox.add(locationLookUpView.view);
 
-
-
-// Google Analytics track screen
-
-/*if (args.edit) {
-    //Alloy.Globals.GA.trackScreen("Edit Beer");    
-} else {
-    //Alloy.Globals.GA.trackScreen("Add Beer");
-}*/
 
 
 
@@ -87,7 +78,12 @@ if (args.edit) {
     $.title.text = L("edit_title") || "";
     
     // get date beer was added
-    the_date = new Date(args.date);
+    the_date = new Date(parseInt(args.date, 10));
+    the_date_unix = utils.createUnixTimeStamp(the_date);
+
+    Ti.API.info('args.date: ', args.date);
+    Ti.API.info('parsed time: ', utils.parseTimeFromUnix(args.date));
+    
     $.date.text = utils.parseDateStringFromEpoch(args.date, false); 
     $.time.text = utils.parseTimeFromUnix(args.date); 
     $.addBeerButton.title = "Save beer";
@@ -95,6 +91,7 @@ if (args.edit) {
 	// set current date
 	the_date = new Date();
 	the_date_unix = utils.createUnixTimeStamp(the_date);
+
 	$.date.text = utils.parseDateStringFromEpoch(the_date_unix);
 	$.time.text = utils.parseTimeFromUnix(the_date_unix);
 }
@@ -110,7 +107,6 @@ if (args.addingFromSearch) {
  *  Add / Save Beer
  *  ---------------
  */
-
 $.addBeerButton.addEventListener("click", function () {
     
     this.touchEnabled = false;
@@ -141,7 +137,9 @@ $.addBeerButton.addEventListener("click", function () {
     // saving of the beer
     
     if (args.edit) {
-        var updatedData = utils.mapLabelsToNewArgs($, args, rating, coords);
+        Ti.API.info('the_date', the_date);
+        Ti.API.info('typeof the_date', typeof the_date);
+        var updatedData = utils.mapLabelsToNewArgs($, args, rating, coords, the_date);
         editBeer.set(updatedData);
         var shouldSetImage = theImage ? true : false;
         editBeer.save();
@@ -154,8 +152,7 @@ $.addBeerButton.addEventListener("click", function () {
             updatedData: updatedData,
             shouldSetImage: shouldSetImage 
         });           
-         
-        
+    
     } else {
         var beer = Alloy.createModel('beers', utils.mapLabelsToNewArgs($, args, rating, coords));
         beer.save();           
@@ -188,56 +185,63 @@ $.addBeerButton.addEventListener("click", function () {
 });
 
 
-// Change Date
 
-$.date.addEventListener('click', function(e) {
-	
-	var pickerView = Titanium.UI.createView({
-		backgroundColor: "#FFF",
-		height: 280,
-		bottom :-280,
-		zIndex: 1000
-	});	
-	
-	var cancel = Ti.UI.createButton({
-		title:'Cancel',
-		style: Ti.UI.iPhone.SystemButtonStyle.BORDERED
-	});	
-	var done = Ti.UI.createButton({	
-		title:'Done',	
-		style: Ti.UI.iPhone.SystemButtonStyle.DONE
-	});		
-	var spacer = Ti.UI.createButton({
-		systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-	});
-	var toolbar = Ti.UI.iOS.createToolbar({
-		top: 0,
-		barColor: Alloy.CFG.colour.main,
-		items:[cancel,spacer,done]
-	});
-	
-	var picker = Ti.UI.createPicker({
-	    type : Ti.UI.PICKER_TYPE_DATE,
-        value : new Date($.date.text),
-        top: 45
-	});
-	
-	cancel.addEventListener("click", function () {
-		pickerView.animate({bottom: -280, duration: 500});
-	});
-	
-	done.addEventListener("click", function () {
-		Ti.API.info("Picker value:", picker.getValue());
-        $.date.setText(picker.getValue().toDateString()); 
-		pickerView.animate({bottom: -280, duration: 500});
-	});
-	
-	pickerView.add(toolbar);
-	pickerView.add(picker);
-	$.addBeerWin.add(pickerView);
-	
+/**
+ *  Change Date
+ *  -----------
+ */
+$.dateBox.addEventListener('click', function(e) {
+	var pickerView = datePicker.getPicker({
+        props: {
+            type: Ti.UI.PICKER_TYPE_DATE,
+            value: the_date
+        },
+        onCancel: function () {
+            pickerView.animate({bottom: -280, duration: 500});
+        },
+        onDone: function (e, picker) {
+            Ti.API.info("Picker value:", picker.getValue());
+            var newDate = picker.getValue();
+            // Update global date values
+            the_date = newDate;
+            the_date_unix = utils.createUnixTimeStamp(the_date);
+            $.date.setText(newDate.toDateString()); 
+            $.time.text = utils.parseTimeFromUnix(the_date_unix);
+            pickerView.animate({bottom: -280, duration: 500});
+        }
+    });
+	$.addBeerWin.add(pickerView)
 	pickerView.animate({bottom: 0, duration: 500});
 }); 
+
+
+/*
+ * Change Time
+ * -----------
+ */
+$.timeBox.addEventListener('click', function(e) {
+    var pickerView = datePicker.getPicker({
+        props: {
+            type: Ti.UI.PICKER_TYPE_TIME,
+            value: the_date
+        },
+        onCancel: function () {
+            pickerView.animate({bottom: -280, duration: 500});
+        },
+        onDone: function (e, picker) {
+            Ti.API.info("Picker value:", picker.getValue());
+            var newDate = picker.getValue();
+            // Update global date values
+            the_date = newDate;
+            the_date_unix = utils.createUnixTimeStamp(the_date);
+            $.date.setText(newDate.toDateString()); 
+            $.time.text = utils.parseTimeFromUnix(the_date_unix);
+            pickerView.animate({bottom: -280, duration: 500});
+        }
+    });
+    $.addBeerWin.add(pickerView);  
+    pickerView.animate({bottom: 0, duration: 500});
+});
 
 
 // Add Photo
