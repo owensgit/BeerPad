@@ -210,7 +210,7 @@ $.dateBox.addEventListener('click', function(e) {
             pickerView.animate({bottom: -280, duration: 500});
         }
     });
-	$.addBeerWin.add(pickerView)
+	$.addBeerWin.add(pickerView);
 	pickerView.animate({bottom: 0, duration: 500});
 }); 
 
