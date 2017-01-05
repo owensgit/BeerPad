@@ -11,7 +11,7 @@
 	height: Ti.UI.SIZE
 }
 ".logoContainer[if=Alloy.Globals.is_iPhone6andAbove]": {
-	top: "40dp"
+	top: "35dp"
 }
 "#logo": {
     left: "0dp"
@@ -20,6 +20,7 @@
 	left: "12dp"
 }
 
+
 "#aboutText": {
     top: "20dp",
     width: "260dp",
@@ -27,23 +28,25 @@
     font: { fontSize: "15dp" }
 }
 "#aboutText[if=Alloy.Globals.is_iPhone6andAbove]": {
-	top: "36dp"
+	top: "32dp"
 }
+
+
 "#beerCountBox": {
-    top: "20dp",
+    top: "18dp",
     width: "190dp",
     height: Ti.UI.SIZE,
     layout: "vertical"
 }
 "#beerCountBox[if=Alloy.Globals.is_iPhone6andAbove]": {
-	top: "43dp"
+	top: "35dp"
 }
 "#countBoxLineTop": {
     backgroundColor: "#999999",
     height: "0.5dp"
 }
 "#beerCount": {
-    top: "7dp",
+    top: "9dp",
     color: "#888888",
     font: { fontSize: "13dp" }
 }
@@ -52,37 +55,44 @@
     backgroundColor: "#999999",
     height: "0.5dp"
 }
+
+
+
 "#feedbackButton": {
-    top: "15dp",
+    top: "18dp",
     width: "190dp",
     height: "38dp",
     font: { fontSize: "15dp" }
 }
 "#feedbackButton[if=Alloy.Globals.is_iPhone6andAbove]": {
-	top: "38dp"
+	top: "35dp"
 }
 "#rateButton": {
-    top: "15dp",
+    top: "10dp",
     width: "190dp",
     height: "38dp",
     font: { fontSize: "15dp" }
 }
 "#rateButton[if=Alloy.Globals.is_iPhone6andAbove]": {
-	top: "25dp"
+	top: "20dp"
 }
 "#backupButton": {
-    top: "15dp",
+    top: "10dp",
     width: "190dp",
     height: "38dp",
     font: { fontSize: "15dp" }
 }
 "#backupButton[if=Alloy.Globals.is_iPhone6andAbove]": {
-    top: "25dp"
+    top: "20dp"
 }
+
 "#versionNumber": {
     color: "#9f9f9f",
-    top: "20dp",
+    top: "15dp",
     font: {
         fontSize: "10dp"
     }
+}
+"#versionNumber[if=Alloy.Globals.is_iPhone6andAbove]": {
+    top: "20dp",
 }
