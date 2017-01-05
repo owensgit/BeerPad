@@ -6,7 +6,7 @@
     layout: "vertical"
 }
 ".logoContainer": {
-	top: "30dp",
+	top: "25dp",
 	width: "260dp",
 	height: Ti.UI.SIZE
 }
@@ -21,7 +21,7 @@
 }
 
 "#aboutText": {
-    top: "25dp",
+    top: "20dp",
     width: "260dp",
     color: "#444444",
     font: { fontSize: "15dp" }
@@ -30,7 +30,7 @@
 	top: "36dp"
 }
 "#beerCountBox": {
-    top: "28dp",
+    top: "20dp",
     width: "190dp",
     height: Ti.UI.SIZE,
     layout: "vertical"
@@ -43,7 +43,7 @@
     height: "0.5dp"
 }
 "#beerCount": {
-    top: "10dp",
+    top: "7dp",
     color: "#888888",
     font: { fontSize: "13dp" }
 }
@@ -53,7 +53,7 @@
     height: "0.5dp"
 }
 "#feedbackButton": {
-    top: "24dp",
+    top: "15dp",
     width: "190dp",
     height: "38dp",
     font: { fontSize: "15dp" }
@@ -62,13 +62,22 @@
 	top: "38dp"
 }
 "#rateButton": {
-    top: "20dp",
+    top: "15dp",
     width: "190dp",
     height: "38dp",
     font: { fontSize: "15dp" }
 }
 "#rateButton[if=Alloy.Globals.is_iPhone6andAbove]": {
-	top: "30dp"
+	top: "25dp"
+}
+"#backupButton": {
+    top: "15dp",
+    width: "190dp",
+    height: "38dp",
+    font: { fontSize: "15dp" }
+}
+"#backupButton[if=Alloy.Globals.is_iPhone6andAbove]": {
+    top: "25dp"
 }
 "#versionNumber": {
     color: "#9f9f9f",

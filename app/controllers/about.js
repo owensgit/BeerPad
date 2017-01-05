@@ -30,6 +30,11 @@ function rateButton() {
     Ti.Platform.openURL(url);    
 }
 
+function backupButton() {
+    var view = Alloy.createController('howToBackUp').getView();
+    view.open();
+}
+
 $.versionNumber.text = "Version " + Ti.App.getVersion();
 
 $.about.addEventListener("focus", function () {

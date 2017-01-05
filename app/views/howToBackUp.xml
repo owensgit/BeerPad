@@ -1,0 +1,5 @@
+<Alloy>
+    <Window id="howToBackUpWin" modal="true" title="How to back up">
+        <WebView id="content" url="/html/howToBackUP.html" />
+    </Window>
+</Alloy>

@@ -14,6 +14,7 @@
             
             <Button id="feedbackButton" onClick="sendFeedback" class="buttonOutline" titleid="about_feedback_btn" />
             <Button id="rateButton" onClick="rateButton" class="buttonOutline" titleid="about_rate_btn" />
+            <Button id="backupButton" onClick="backupButton" class="buttonOutline" titleid="about_backup_btn" />
             <Label id="versionNumber" />
         </ScrollView>
     </Window>

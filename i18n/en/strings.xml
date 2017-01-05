@@ -69,6 +69,7 @@
     <string name="about_text">Beer Pad helps you to keep track of all those amazing beers out there. Next time you try a delicious beer or ale, jot it down in your Beer Pad. And then get straight back to enjoying it.</string>
     <string name="about_rate_btn">Rate in the App Store</string>
     <string name="about_feedback_btn">Send feedback</string>
+    <string name="about_backup_btn">How to back up</string>
     
     <!-- Search -->
     <string name="search_title">Look up beers</string>
