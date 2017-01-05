@@ -1,3 +1,6 @@
+"#close": {
+    right: "10dp"
+}
 "#content": {
-    top: "30"
+    top: "65dp"
 }

@@ -1,5 +1,6 @@
 <Alloy>
     <Window id="howToBackUpWin" modal="true" title="How to back up">
+        <Button id="close" class="modalOutline" onClick="closeWindow" title="close" />
         <WebView id="content" url="/html/howToBackUP.html" />
     </Window>
 </Alloy>
