@@ -10,6 +10,7 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
+var moment = require('alloy/moment');
 var utils = require("/utils");
 var sample_beers = require("samples");
 
@@ -59,8 +60,9 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
     $.pub.text = args.establishment || L("detail_no_pub");
     $.location.text = args.location || L("detail_no_location");
     $.notes.text = args.notes;
-    $.date.text = utils.parseDateStringFromEpoch(args.date);
-    $.time.text = utils.parseTimeFromUnix(args.date);
+
+    $.date.text = moment.utc(parseInt(args.date)).format('DD MMM YYYY');
+    $.time.text = moment.utc(parseInt(args.date)).format('HH:mm');
      
     var theImage = Alloy.Globals.getImage(args);
 

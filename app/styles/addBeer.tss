@@ -119,24 +119,26 @@
 	left: 0, top: 0
 }
 "#calendarIcon": {
+    color: Alloy.CFG.colour.grey,
 	width: "18dp", height: "18dp", top: "1dp",
 	font: { fontFamily: 'FontAwesome', fontSize: "17dp" }
 }
 "#date": {
-	// color: "#999999",
+	color: Alloy.CFG.colour.main,
     font: { fontSize: "16dp" }
-    // left: "22dp"
+    //left: "22dp"
 }
 "#timeBox": {
 	width: Ti.UI.SIZE,
 	left: "15dp", top: 0
 }
 "#timeIcon": {
+    color: Alloy.CFG.colour.grey,
 	width: "18dp", height: "18dp", top: "1dp",
 	font: { fontFamily: 'FontAwesome', fontSize: "17dp" }
 }
 "#time": {
-	// color: "#999999",
+	color: Alloy.CFG.colour.main,
     font: { fontSize: "16dp" },
     left: "22dp"
 }

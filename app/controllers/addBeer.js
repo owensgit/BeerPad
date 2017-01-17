@@ -10,10 +10,8 @@ var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
 
-// date vars used for editing & saving the date
-// on the beers model
+// will hold moment.js date object used for editing/saving the beer
 var the_date;
-var the_date_unix;
 
 
 // Add look up views the screen
@@ -76,24 +74,16 @@ if (args.edit) {
 	var beerImage = Alloy.Globals.getImage(args);
     $.beerImage.image = beerImage;
     $.title.text = L("edit_title") || "";
-    
-    // get date beer was added
-    the_date = new Date(parseInt(args.date, 10));
-    the_date_unix = utils.createUnixTimeStamp(the_date);
 
-    Ti.API.info('args.date: ', args.date);
-    Ti.API.info('parsed time: ', utils.parseTimeFromUnix(args.date));
+    the_date = moment.utc(parseInt(args.date));
     
-    $.date.text = utils.parseDateStringFromEpoch(args.date, false); 
-    $.time.text = utils.parseTimeFromUnix(args.date); 
+    updateDateAndTimeLabels();
     $.addBeerButton.title = "Save beer";
 } else {
 	// set current date
-	the_date = new Date();
-	the_date_unix = utils.createUnixTimeStamp(the_date);
+	the_date = moment();
 
-	$.date.text = utils.parseDateStringFromEpoch(the_date_unix);
-	$.time.text = utils.parseTimeFromUnix(the_date_unix);
+	updateDateAndTimeLabels();
 }
 
 if (args.addingFromSearch) {
@@ -137,9 +127,7 @@ $.addBeerButton.addEventListener("click", function () {
     // saving of the beer
     
     if (args.edit) {
-        Ti.API.info('the_date', the_date);
-        Ti.API.info('typeof the_date', typeof the_date);
-        var updatedData = utils.mapLabelsToNewArgs($, args, rating, coords, the_date);
+        var updatedData = utils.mapLabelsToNewArgs($, args, rating, coords, the_date.valueOf());
         editBeer.set(updatedData);
         var shouldSetImage = theImage ? true : false;
         editBeer.save();
@@ -154,7 +142,7 @@ $.addBeerButton.addEventListener("click", function () {
         });           
     
     } else {
-        var beer = Alloy.createModel('beers', utils.mapLabelsToNewArgs($, args, rating, coords));
+        var beer = Alloy.createModel('beers', utils.mapLabelsToNewArgs($, args, rating, coords, the_date.valueOf()));
         beer.save();           
         theBeers.add(beer);
         
@@ -184,6 +172,10 @@ $.addBeerButton.addEventListener("click", function () {
     
 });
 
+function updateDateAndTimeLabels() {
+    $.date.text = the_date.format('DD MMM YYYY');
+    $.time.text = the_date.format('HH:mm');
+}
 
 
 /**
@@ -191,27 +183,32 @@ $.addBeerButton.addEventListener("click", function () {
  *  -----------
  */
 $.dateBox.addEventListener('click', function(e) {
-	var pickerView = datePicker.getPicker({
+    var picker = new datePicker();
+    var pickerView = picker.getPicker({
         props: {
             type: Ti.UI.PICKER_TYPE_DATE,
-            value: the_date
+            value: the_date.toDate()
         },
         onCancel: function () {
-            pickerView.animate({bottom: -280, duration: 500});
+            picker.animateOut(function (e, thePicker) {
+                $.addBeerWin.remove(pickerView);
+                picker = null;
+            });
         },
-        onDone: function (e, picker) {
-            Ti.API.info("Picker value:", picker.getValue());
-            var newDate = picker.getValue();
-            // Update global date values
-            the_date = newDate;
-            the_date_unix = utils.createUnixTimeStamp(the_date);
-            $.date.setText(newDate.toDateString()); 
-            $.time.text = utils.parseTimeFromUnix(the_date_unix);
-            pickerView.animate({bottom: -280, duration: 500});
+        onDone: function (e,thePicker) {
+            var result = thePicker.getValue();
+            the_date.date(result.getDate());
+            the_date.month(result.getMonth());
+            the_date.year(result.getFullYear());
+            updateDateAndTimeLabels();
+            picker.animateOut(function () {
+                $.addBeerWin.remove(pickerView);
+                picker = null;
+            });
         }
     });
-	$.addBeerWin.add(pickerView);
-	pickerView.animate({bottom: 0, duration: 500});
+    $.addBeerWin.add(pickerView);
+    picker.animateIn();
 }); 
 
 
@@ -220,32 +217,40 @@ $.dateBox.addEventListener('click', function(e) {
  * -----------
  */
 $.timeBox.addEventListener('click', function(e) {
-    var pickerView = datePicker.getPicker({
+    var picker = new datePicker();
+    var dateValue = moment.utc(the_date);
+    var pickerView = picker.getPicker({
         props: {
             type: Ti.UI.PICKER_TYPE_TIME,
-            value: the_date
+            value: dateValue.toDate()
         },
         onCancel: function () {
-            pickerView.animate({bottom: -280, duration: 500});
+            picker.animateOut(function (e, thePicker) {
+                $.addBeerWin.remove(pickerView);
+                picker = null;
+            });
         },
-        onDone: function (e, picker) {
-            Ti.API.info("Picker value:", picker.getValue());
-            var newDate = picker.getValue();
-            // Update global date values
-            the_date = newDate;
-            the_date_unix = utils.createUnixTimeStamp(the_date);
-            $.date.setText(newDate.toDateString()); 
-            $.time.text = utils.parseTimeFromUnix(the_date_unix);
-            pickerView.animate({bottom: -280, duration: 500});
+        onDone: function (e,thePicker) {
+            var result = thePicker.getValue();
+            the_date.hours(result.getHours());
+            the_date.minutes(result.getMinutes());
+            updateDateAndTimeLabels();
+            picker.animateOut(function () {
+                $.addBeerWin.remove(pickerView);
+                picker = null;
+            });
         }
     });
-    $.addBeerWin.add(pickerView);  
-    pickerView.animate({bottom: 0, duration: 500});
+    $.addBeerWin.add(pickerView);
+    picker.animateIn();
 });
 
 
-// Add Photo
 
+/*
+ * Add photo
+ * ---------
+ */
 var cameraMethods = {
     onSuccess: function (e, imageViewID) {
         if (e.mediaType === Ti.Media.MEDIA_TYPE_PHOTO) {
@@ -301,8 +306,10 @@ $.imageView.addEventListener("click", function (e) {
 
 
 
-// Beer Name Look Up
-
+/*
+ * Beer name look up
+ * -----------------
+ */
 function doBeerLookUp(textField) {
     var searchTerm = textField.getValue();
     
@@ -367,8 +374,10 @@ $.name.addEventListener("change", function (e) {
 
 
 
-// Location Look Up
-
+/*
+ * Location look up
+ * ----------------
+ */
 $.location.addEventListener("focus", function (e) {
     setTimeout(function() { $.scrollView.scrollTo(0, 450); }, 300);
 });
@@ -467,8 +476,10 @@ function useGPS() {
 
 
 
-// Rating
-
+/*
+ * Apply rating
+ * ------------
+ */
 function applyRating(number) {
     rating = number;
     for (var i = 0; i < number; i++) {
@@ -487,8 +498,10 @@ for (var i = 0; i < 5; i++) {
 
 
 
-// Misc
-
+/*
+ * Misc
+ * ----
+ */
 $.addBeerWin.addEventListener("close", function() {
     $.destroy();
 });

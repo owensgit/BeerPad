@@ -1,14 +1,15 @@
 var Alloy = require('alloy'), _ = require("alloy/underscore")._, Backbone = require("alloy/backbone");
 
-var datePicker = (function() {
+var datePicker = function() {
 
     var methods = {};
 
-    methods.getPicker = function (opts) {
+    this.picker;
+
+    this.getPicker = function (opts) {
 
         opts = opts || {};
         opts.props = opts.props || {};
-
 
         // create default maxDate 50 years from now
         function getMaxDate() {
@@ -22,9 +23,6 @@ var datePicker = (function() {
         if (typeof opts.props.type === 'undefined') {
             opts.props.type = Ti.UI.PICKER_TYPE_DATE;
         }
-
-        Ti.API.info('opts.props', opts.props);
-        Ti.API.info('opts.props', JSON.stringify(opts.props));
 
         var pickerView = Titanium.UI.createView({
             backgroundColor: "#FFF",
@@ -48,7 +46,7 @@ var datePicker = (function() {
             barColor: Alloy.CFG.colour.main,
             items:[cancel,spacer,done]
         });
-        var picker = Ti.UI.createPicker({
+        this.picker = Ti.UI.createPicker({
             type: opts.props.type,
             value: opts.props.value || new Date(),
             minDate: opts.props.minDate || new Date('1900-01-01'),
@@ -67,17 +65,57 @@ var datePicker = (function() {
             
         });
 
+        var self = this;
         done.addEventListener("click", function (e) {
-            opts.onDone(e, picker);
+            result = self.picker.getValue();
+            opts.onDone(e, self.picker);
         });
 
         pickerView.add(toolbar);
-        pickerView.add(picker);
-        return pickerView;
+        pickerView.add(this.picker);
+        this.pickerView = pickerView;
+        return this.pickerView;
     }
 
-    return methods;
+    /*
+     * Adds a column to the picker with numbers within a given range. An increment can
+     * be added, if the range is not divisible by the increment then the final increment
+     * be the different between the increment and final number.
+     * @param fromNum {Number} starting number
+     * @param toNum {Number} ending number
+     * @param increment {Number} how much to increment by, default is 1
+     * @param selected {Number} 
+     */
+    this.addNumberColumnWithRange = function (fromNum, toNum, increment) {
+        var column = Ti.UI.createPickerColumn()
+        function formatNum(n){
+            return n > 9 ? "" + n: "0" + n;
+        }
+        for (var i = fromNum; i<=toNum; i++) {
+            var row = Ti.UI.createPickerRow({
+                title: formatNum(i)
+            });
+            column.addRow(row);
+        }
+        this.picker.add(column);
+    }
 
-})();
+    this.animateIn = function () {
+        this.pickerView.animate({bottom: 0, duration: 500});
+    }
+
+    this.animateOut = function (callback) {
+        this.pickerView.animate(
+            {bottom: -280, duration: 500},
+            function () {
+                if (typeof callback === 'function') {
+                    callback();
+                }
+                this.pickerView = null;
+            }
+        );
+    }
+
+};
 
 module.exports = datePicker;

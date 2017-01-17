@@ -76,5 +76,5 @@
 
 "#spacer": {
     height: 0,
-    top: "50dp"
+    top: "100dp"
 }

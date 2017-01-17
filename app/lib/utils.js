@@ -47,6 +47,14 @@ var utils = (function() {
         var unix = Math.floor(dateObj.setUTCHours(hours));
         return unix;	
     };
+
+    /*
+     * Takes a date object and converts it to UTC date
+     */
+    methods.convertDateToUTC = function (date) {
+        return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+    }
+    
     
     methods.perentageIsValid = function (percent) {
         function percentNotANumber(percent) {
@@ -89,7 +97,7 @@ var utils = (function() {
     };
     
     
-    methods.mapLabelsToNewArgs = function ($, args, rating, coords, dateObj) {
+    methods.mapLabelsToNewArgs = function ($, args, rating, coords, dateUTC) {
     	
         var newArgs = {
             name: $.name.value,
@@ -101,12 +109,13 @@ var utils = (function() {
             notes: $.notes.value,
             api_id: args.api_id || null
         };
-        if (!dateObj && $.date.value) {
-            var dateObj = new Date($.date.value || $.date.text);
+        if (dateUTC) {
+            newArgs.date = dateUTC;
+            Ti.API.info('Saving date for beer: ', dateUTC);
+        } else {
+            newArgs.date = methods.convertDateToUTC(new Date());
+            Ti.API.info('Saving date for beer: ', newArgs.date);
         }
-        var date_hours = dateObj.getHours();
-        var date_unix = Math.floor(dateObj.setUTCHours(date_hours));
-        newArgs.date = date_unix;
     
         if (coords) {
             newArgs.latitude = coords.latitude;
