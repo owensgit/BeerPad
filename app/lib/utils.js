@@ -24,37 +24,6 @@ var utils = (function() {
         return breweryAndPercentText;
     };
     
-    methods.parseDateStringFromEpoch = function(date_epoch, trimCurrentYear) {
-        var date = new Date(parseInt(date_epoch, 10));  
-        var thisYear = new Date().getFullYear();
-        var string = date.toDateString();
-        if (trimCurrentYear && date.getFullYear() === thisYear) { 
-        	string = string.substring(0, string.length - 5);
-        }
-        return string;
-    };
-    
-    methods.parseTimeFromUnix = function(date_epoch) {
-    	var date = new Date(parseInt(date_epoch, 10));
-    	return date.getHours() + ':' + date.getMinutes();
-    };
-    
-    methods.createUnixTimeStamp = function(dateObj) {
-    	if (!dateObj) {
-    		dateObj = new Date();
-    	}
-        var hours = dateObj.getHours();
-        var unix = Math.floor(dateObj.setUTCHours(hours));
-        return unix;	
-    };
-
-    /*
-     * Takes a date object and converts it to UTC date
-     */
-    methods.convertDateToUTC = function (date) {
-        return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
-    }
-    
     
     methods.perentageIsValid = function (percent) {
         function percentNotANumber(percent) {
@@ -109,13 +78,8 @@ var utils = (function() {
             notes: $.notes.value,
             api_id: args.api_id || null
         };
-        if (dateUTC) {
-            newArgs.date = dateUTC;
-            Ti.API.info('Saving date for beer: ', dateUTC);
-        } else {
-            newArgs.date = methods.convertDateToUTC(new Date());
-            Ti.API.info('Saving date for beer: ', newArgs.date);
-        }
+        
+        newArgs.date = dateUTC;
     
         if (coords) {
             newArgs.latitude = coords.latitude;
