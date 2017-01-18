@@ -34,7 +34,7 @@
 
 "#beerCountBox": {
     top: "18dp",
-    width: "190dp",
+    width: "205dp",
     height: Ti.UI.SIZE,
     layout: "vertical"
 }
@@ -60,7 +60,7 @@
 
 "#feedbackButton": {
     top: "18dp",
-    width: "190dp",
+    width: "205dp",
     height: "38dp",
     font: { fontSize: "15dp" }
 }
@@ -69,7 +69,7 @@
 }
 "#rateButton": {
     top: "10dp",
-    width: "190dp",
+    width: "205dp",
     height: "38dp",
     font: { fontSize: "15dp" }
 }
@@ -78,7 +78,7 @@
 }
 "#backupButton": {
     top: "10dp",
-    width: "190dp",
+    width: "205dp",
     height: "38dp",
     font: { fontSize: "15dp" }
 }
