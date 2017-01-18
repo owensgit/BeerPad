@@ -17,6 +17,9 @@ var sample_beers = require("samples");
 
 var theBeers = Alloy.createCollection("beers");
 theBeers.fetch();
+theBeers.forEach(function (b) {
+    b.date = parseInt(b.date);
+});
 
 var platformHeight = Ti.Platform.displayCaps.platformHeight;
 Alloy.Globals.is_iPhone4 = platformHeight === 480;
@@ -140,7 +143,7 @@ Alloy.Globals.beerListTransform = function(modal) {
     } else if (secValue === "percent") {
         result.secondaryInfo = result.percent ? "" + result.percent + "% abv" : "- - % abv";
     } else if (secValue === "date") {
-        result.secondaryInfo = "" + utils.parseDateStringFromEpoch(result.date, true);
+        result.secondaryInfo = "" + moment(parseInt(result.date)).format('DD MMM YYYY');
     } else {
         result.secondaryInfo = result[secValue];    
     }    
@@ -173,6 +176,9 @@ Alloy.Globals.returnSortingDialog = function (theBeers) {
         if (e.index === 0) {
             Alloy.Globals.beerListSecondaryValue = "date";
             theBeers.setSortField("date", "DESC");
+            theBeers.forEach(function (b) {
+                console.log('b.date', typeof b.date);
+            });
             theBeers.sort();  
         }
         if (e.index === 1) {
