@@ -2,6 +2,7 @@
 "http://www.w3.org/TR/html4/strict.dtd">
   <head>
      <title>How to back up</title>
+     <meta name="viewport" content="width=device-width">
      <style type="text/css">
       @font-face {
           font-family: 'dense';
@@ -16,7 +17,12 @@
       body {
         font-family: "Verdana", "Arial", sans-serif;
         font-size: 14px;
-        padding: 0 48px 100px 48px;
+        padding: 0 30px 100px 30px;
+      }
+      @media only screen and (min-device-width: 370px) {
+        body {
+          padding: 0 48px 100px 48px;
+        }
       }
       h1 {
         color: #333;
