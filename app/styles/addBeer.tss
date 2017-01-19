@@ -110,7 +110,7 @@
  * Date & Time
  */
 "#dateAndTimeBox": {
-	width: "65%", height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE, height: Ti.UI.SIZE,
 	layout: "horizontal",
 	top: 25
 }

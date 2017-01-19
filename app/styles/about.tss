@@ -39,7 +39,7 @@
     layout: "vertical"
 }
 "#beerCountBox[if=Alloy.Globals.is_iPhone6andAbove]": {
-	top: "35dp"
+	top: "30dp"
 }
 "#countBoxLineTop": {
     backgroundColor: "#999999",
@@ -65,7 +65,7 @@
     font: { fontSize: "15dp" }
 }
 "#feedbackButton[if=Alloy.Globals.is_iPhone6andAbove]": {
-	top: "35dp"
+	top: "30dp"
 }
 "#rateButton": {
     top: "10dp",
