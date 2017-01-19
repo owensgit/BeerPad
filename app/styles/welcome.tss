@@ -69,6 +69,15 @@
 "#text1[if=Alloy.Globals.is_iPhone6plus]": {
 	top: "220dp"
 }
+"#text5": {
+    top: "135dp",
+}
+"#text5[if=Alloy.Globals.is_iPhone6]": {
+    top: "165dp"
+}
+"#text5[if=Alloy.Globals.is_iPhone6plus]": {
+    top: "200dp"
+}
 
 "#image": {
     top: "250dp"

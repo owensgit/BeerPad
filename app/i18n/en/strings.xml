@@ -20,8 +20,11 @@
     <string name="welcome_slide4_title">ADD TO FAVOURITES AND SHARE</string>
     <string name="welcome_slide4_text">Share by email, Twitter, Facebook or add to a favourites list.</string>
     
-    <string name="welcome_slide5_title">READY?</string>
-    <string name="welcome_slide5_text">There's a few examples to get you started, feel free to delete and add your own!</string>
+    <string name="welcome_slide5_title">DON'T FORGET\nTO BACKUP!</string>
+    <string name="welcome_slide5_text">Keep your beers safe in a regular iPhone backup &amp; restore from a backup when you get a new iPhone.</string>
+
+    <string name="welcome_slide6_title">READY?</string>
+    <string name="welcome_slide6_text">There's a few examples to get you started, feel free to delete and add your own!</string>
     
     <string name="welcome_finished_button">Get started</string>    
     
@@ -69,7 +72,7 @@
     <string name="about_text">Beer Pad helps you to keep track of all those amazing beers out there. Next time you try a delicious beer or ale, jot it down in your Beer Pad. And then get straight back to enjoying it.</string>
     <string name="about_rate_btn">Rate in the App Store</string>
     <string name="about_feedback_btn">Send feedback</string>
-    <string name="about_backup_btn">How to back up</string>
+    <string name="about_backup_btn">How to back up &amp; restore</string>
     
     <!-- Search -->
     <string name="search_title">Look up beers</string>
