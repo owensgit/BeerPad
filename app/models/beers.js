@@ -50,7 +50,8 @@ exports.definition = {
         
             sortBy: function (iterator, context) {
                 var obj = this.models;
-                var direction = this.sortDirection;
+                var direction = this.sortDirection; 
+                var self = this;
  
                 return _.pluck(_.map(obj, function (value, index, list) {
                     return {
@@ -62,6 +63,12 @@ exports.definition = {
                     // swap a and b for reverse sort
                     var a = direction === "ASC" ? left.criteria : right.criteria;
                     var b = direction === "ASC" ? right.criteria : left.criteria;
+
+                    // turn value into numbers if sorting the date UTC timestamp
+                    if (self.sortField === "date") {
+                        a = parseInt(a);
+                        b = parseInt(b);
+                    }
  
                     if (a !== b) {
                         if (a > b || a === void 0) return 1;
