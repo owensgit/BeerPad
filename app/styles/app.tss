@@ -13,7 +13,7 @@
    }
 },
 
-"ActivityIndicator": {
+"ActivityIndicator[platform=ios]": {
     style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK
 }
 
