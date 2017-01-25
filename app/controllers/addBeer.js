@@ -66,6 +66,7 @@ if (args.edit || args.addingFromSearch) {
     
     $.cameraImage.opacity = 0.7;  
 } else {
+    $.dateAndTimeBox.hide();
 	applyRating(0);
 }
 
