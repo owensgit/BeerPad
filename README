@@ -1,4 +1,4 @@
-# Beer Pad
+#Beer Pad
 
 Beer Pad is an iOS app created using Appcelerator/Titanium. It allows users to create a personal notebook of beers that they've tried, and it uses many of Appcelerators APIs to accesses core mobile functionality such as the SQL Lite data base, networking, camera, photo gallary, location services and built-in maps.
 
