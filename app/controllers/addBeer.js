@@ -64,9 +64,12 @@ if (args.edit || args.addingFromSearch) {
 
     if (args.notes) $.notes.value = args.notes;   
     
-    $.cameraImage.opacity = 0.7;  
+    $.cameraImage.opacity = 0.7;
+
+    $.dateAndTimeBox.show();
+    $.dateAndTimeBox.setTop(25);
+    $.dateAndTimeBox.setHeight(Ti.UI.SIZE);
 } else {
-    $.dateAndTimeBox.hide();
 	applyRating(0);
 }
 
@@ -192,6 +195,7 @@ $.dateBox.addEventListener('click', function(e) {
         },
         onCancel: function () {
             picker.animateOut(function (e, thePicker) {
+                $.scrollView.setTouchEnabled(true);
                 $.addBeerWin.remove(pickerView);
                 picker = null;
             });
@@ -203,11 +207,13 @@ $.dateBox.addEventListener('click', function(e) {
             the_date.year(result.getFullYear());
             updateDateAndTimeLabels();
             picker.animateOut(function () {
+                $.scrollView.setTouchEnabled(true);
                 $.addBeerWin.remove(pickerView);
                 picker = null;
             });
         }
     });
+    $.scrollView.setTouchEnabled(false);
     $.addBeerWin.add(pickerView);
     picker.animateIn();
 }); 
@@ -227,6 +233,7 @@ $.timeBox.addEventListener('click', function(e) {
         },
         onCancel: function () {
             picker.animateOut(function (e, thePicker) {
+                $.scrollView.setTouchEnabled(true);
                 $.addBeerWin.remove(pickerView);
                 picker = null;
             });
@@ -237,11 +244,13 @@ $.timeBox.addEventListener('click', function(e) {
             the_date.minutes(result.getMinutes());
             updateDateAndTimeLabels();
             picker.animateOut(function () {
+                $.scrollView.setTouchEnabled(true);
                 $.addBeerWin.remove(pickerView);
                 picker = null;
             });
         }
     });
+    $.scrollView.setTouchEnabled(false);
     $.addBeerWin.add(pickerView);
     picker.animateIn();
 });

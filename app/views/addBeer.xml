@@ -58,13 +58,5 @@
             <Button id="addBeerButton" class="button" titleid="add_save" />
             
         </ScrollView>
-        
-        <!-- <OptionDialog id="imageDialog" title="Beer picture">
-           <Options>
-               <Option>Take photo</Option>
-               <Option>Choose existing</Option
-               <Option>Cancel</Option>
-           </Options>
-        </OptionDialog> -->
 	</Window>
 </Alloy>
