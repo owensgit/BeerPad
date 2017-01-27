@@ -43,7 +43,7 @@ function filterFunction(collection) {
 var filterDialog = Alloy.Globals.returnSortingDialog(theBeers);
 
 var sortButton = Ti.UI.createButton({ titleid: "index_sort_btn" });
-var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iPhone.SystemButton.ADD });
+var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iOS.SystemButton.ADD });
 
 if (OS_IOS) {
     $.favListWin.setLeftNavButton(sortButton);   
@@ -54,8 +54,8 @@ addButton.addEventListener("click", function () {
     var window = Alloy.createController('addBeer').getView();
         window.open({
             modal:true,
-            modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
-            modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+            modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+            modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_FORMSHEET
     });
 });
 

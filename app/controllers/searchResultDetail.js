@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 var activityIndicator = Ti.UI.createActivityIndicator({
-  style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.iPhone.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
+  style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
   height:Ti.UI.SIZE, width:Ti.UI.SIZE,
   top: 62
 });

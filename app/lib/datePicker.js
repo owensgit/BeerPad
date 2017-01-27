@@ -32,14 +32,14 @@ var datePicker = function() {
         }); 
         var cancel = Ti.UI.createButton({
             title:'Cancel',
-            style: Ti.UI.iPhone.SystemButtonStyle.BORDERED
+            style: Ti.UI.iOS.SystemButtonStyle.BORDERED
         }); 
         var done = Ti.UI.createButton({ 
             title:'Done',   
-            style: Ti.UI.iPhone.SystemButtonStyle.DONE
+            style: Ti.UI.iOS.SystemButtonStyle.DONE
         });     
         var spacer = Ti.UI.createButton({
-            systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+            systemButton: Ti.UI.iOS.SystemButton.FLEXIBLE_SPACE
         });
         var toolbar = Ti.UI.iOS.createToolbar({
             top: 0,

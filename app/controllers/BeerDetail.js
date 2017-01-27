@@ -38,8 +38,8 @@ if (OS_IOS) {
         var window = Alloy.createController('addBeer', args).getView();
         window.open({
             modal:true,
-            modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
-            modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+            modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+            modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_FORMSHEET
         });   
     });
 }

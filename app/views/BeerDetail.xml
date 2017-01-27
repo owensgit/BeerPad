@@ -42,10 +42,10 @@
       
       <Toolbar id="toolbar" platform="ios" bottom="0" borderTop="true" borderBottom="false">
           <Items>
-            <Button id="shareBtn" onClick="share" title="Share" systemButton="Ti.UI.iPhone.SystemButton.ACTION" />
+            <Button id="shareBtn" onClick="share" title="Share" systemButton="Ti.UI.iOS.SystemButton.ACTION" />
             <FlexSpace/>
             <FlexSpace/>
-            <Button id="deleteBtn" onClick="deleteBeer" title="Delete" systemButton="Ti.UI.iPhone.SystemButton.TRASH" />
+            <Button id="deleteBtn" onClick="deleteBeer" title="Delete" systemButton="Ti.UI.iOS.SystemButton.TRASH" />
           </Items>
       </Toolbar>
       

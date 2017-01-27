@@ -52,7 +52,7 @@
     height: Ti.UI.SIZE    
 }
 ".lookUpActivityIndicator": {
-    style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+    style: Ti.UI.ActivityIndicatorStyle.DARK,
     top: "14dp", right: "32dp",
     height: "15dp", width: "15dp"
 }
