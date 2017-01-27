@@ -35,8 +35,15 @@
                 <false/>
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
+
                 <key>NSLocationWhenInUseUsageDescription</key>
                 <string>When you add a new beer, you can use your current location to save the exact location where you tried it, which is then plotted to your beer map.</string>
+
+                <key>NSPhotoLibraryUsageDescription</key>
+                <string>Add a picture of the beer you've tried!</string>
+
+                <key>NSCameraUsageDescription</key>
+                <string>Add a picture of the beer you've tried!</string>
             </dict>
         </plist>
     </ios>
