@@ -30,12 +30,7 @@
            <View id="view6">
                <Label class="title" textid="welcome_slide6_title" />
                <Label class="text" textid="welcome_slide6_text" />
-               <!--View class="bullet">
-                   <ImageView class="bulletImage" image="/pin.png" />
-                   <Label class="bulletLabel" text="Plot your beers on a map using geo-location" />
-               </View-->
                <Button id="finish" onClick="closeWelcome" class="buttonOutlineWhite" titleid="welcome_finished_button" />
-               <!-- Image examples -->
            </View>  
 	    </ScrollableView>
 	</Window>

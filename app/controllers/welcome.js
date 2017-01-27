@@ -3,23 +3,12 @@ var args = arguments[0] || {};
 function closeWelcome() {
     var index = Alloy.createController("index").getView();
     index.open();
-    setTimeout(function () { $.welcome.close(); }, 500);
+    setTimeout(function () { $.welcome.close(); }, 400);
     Ti.App.Properties.setString("welcomeDone", "true");
 };
 
 $.welcome.addEventListener("close", function () {
-    $.destroy();
+    setTimeout(function () {
+      $.destroy();
+    }, 0);
 });
-
-
-/*$.ScrollableView.addEventListener("scroll", function (e) {
-   if (e.currentPage === 4) {
-       $.close.animate({
-           opacity: 0
-       });
-   } else {
-      $.close.animate({
-           opacity: 1
-       }); 
-   }
-});*/
