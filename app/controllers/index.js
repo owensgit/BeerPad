@@ -34,12 +34,14 @@ $.beersTable.addEventListener("delete", function(event) {
 
 
 // Left & Right buttons in title bar: Edit & New
-var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iOS.SystemButton.ADD });
-var searchButton = Ti.UI.createButton({ systemButton: Ti.UI.iOS.SystemButton.SEARCH });
+var addButton = Ti.UI.createButton();
+var searchButton = Ti.UI.createButton();
 var sortButton = Ti.UI.createButton({ titleid: "index_sort_btn" });
 var filterButton = Ti.UI.createButton({ title: "Filter" });
 
-if (OS_IOS) {       
+if (OS_IOS) {    
+    addButton.setSystemButton(Ti.UI.iOS.SystemButton.ADD);
+    searchButton.setSystemButton(Ti.UI.iOS.SystemButton.SEARCH); 
     $.beerListWin.setRightNavButton(addButton);
     $.beerListWin.setLeftNavButton(sortButton);
 }

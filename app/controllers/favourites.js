@@ -43,9 +43,10 @@ function filterFunction(collection) {
 var filterDialog = Alloy.Globals.returnSortingDialog(theBeers);
 
 var sortButton = Ti.UI.createButton({ titleid: "index_sort_btn" });
-var addButton = Ti.UI.createButton({ systemButton: Ti.UI.iOS.SystemButton.ADD });
+var addButton = Ti.UI.createButton();
 
 if (OS_IOS) {
+    addButton.setSystemButton(Ti.UI.iOS.SystemButton.ADD);
     $.favListWin.setLeftNavButton(sortButton);   
     $.favListWin.setRightNavButton(addButton);
 }
