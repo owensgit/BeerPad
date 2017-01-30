@@ -83,11 +83,9 @@
     top: "250dp"
 }
 "#image[if=Alloy.Globals.is_iPhone6]": {
-	top: "auto",
     bottom: "30dp"
 }
 "#image[if=Alloy.Globals.is_iPhone6plus]": {
-	top: "auto",
     bottom: "40dp"
 }
 
