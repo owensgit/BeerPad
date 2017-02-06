@@ -167,6 +167,9 @@ $.addBeerButton.addEventListener("click", function () {
     if (theBeers.length > Alloy.CFG.num_beers_saved_before_review_prompt) {
     	setTimeout(function () { reviewPrompt.show(); }, 400);
     }
+    if (theBeers.length > Alloy.CFG.num_beers_saved_before_second_review_prompt) {
+        setTimeout(function () { reviewPrompt.show(); }, 400);
+    }
     
     $.addBeerWin.close();
     
