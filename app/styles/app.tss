@@ -120,8 +120,10 @@
 	height: "130dp",
     width: "130dp",
     borderRadius: "65dp",
-    top: "18dp",
-    clipMode: Titanium.UI.iOS.CLIP_MODE_ENABLED 
+    top: "18dp"
+}
+".beerImageContainer[platform=ios]": {
+    clipMode: Titanium.UI.iOS.CLIP_MODE_ENABLED
 }
 ".beerImage": {
    height: Ti.UI.SIZE,

@@ -1,6 +1,6 @@
 <Alloy> 
    <Window class="container" tabBarHidden="true">
-      <ScrollView id="scrollView" showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true" layout="vertical" opacity="0">
+      <ScrollView id="scrollView">
           
           <View class="beerImageContainer" height="130" width="130">
           	<ImageView class="beerImage" id="image" image="dafaultBeerImage.png"></ImageView>

@@ -1,4 +1,12 @@
 
+"#scrollView": {
+    showHorizontalScrollIndicator: false,
+    showVerticalScrollIndicator: true,
+    scrollType: "vertical",
+    layout: "vertical",
+    opacity: 0
+}
+
 "Label": {
     width: Alloy.CFG.xy.beerDetailLabelWidth, 
 },
