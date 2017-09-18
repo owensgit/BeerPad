@@ -1,0 +1,11 @@
+"#view": {
+  height: Ti.UI.SIZE,
+  width: "65%",
+  top: "9dp"
+}
+
+"#inner": {
+  height: Ti.UI.SIZE,
+  width: Ti.UI.SIZE,
+  layout: "horizontal"
+}

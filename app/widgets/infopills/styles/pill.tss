@@ -1,0 +1,22 @@
+".infopill": {
+  borderRadius: "5dp",
+  backgroundColor: "#919191",
+  width: Ti.UI.SIZE,
+  height: Ti.UI.SIZE,
+  right: "6dp",
+  top: "3dp"
+}
+
+// Who said you can't do padding in Titanium (Alloy)?
+// https://gist.github.com/FokkeZB/5084675
+".infopill-label": {
+  color: "#FFFFFF",
+  font: { fontSize: "14dp" },
+  height: Ti.UI.SIZE,
+  width: Ti.UI.SIZE,
+  // padding...
+  top: "2dp",
+  right: "10dp",
+  bottom: "2dp",
+  left: "10dp"
+}

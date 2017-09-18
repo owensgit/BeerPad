@@ -1,0 +1,5 @@
+<Alloy>
+  <View class="infopill" id="view">
+    <Label id="textLabel" class="infopill-label" />
+  </View>
+</Alloy>
