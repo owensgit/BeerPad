@@ -37,9 +37,11 @@
                     brewery="{brewery}"
                     brewery_image="{brewery_image}"
                     percent="{abv}"
+                    ibu="{ibu}" 
                     beer_image="{beer_image}"
                     notes="{notes}"
-                    api_id="{api_id}"> 
+                    api_id="{api_id}"
+                    style="{style}"> 
                                           
                     <View class="tableRow">
                         <Label id="tableRowName" text="{name}" />

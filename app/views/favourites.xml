@@ -22,7 +22,9 @@
                     notes="{notes}"
                     date="{date}"
                     beer_image="{beer_image}"
-                    favourite="{favourite}">
+                    favourite="{favourite}"
+                    ibu="{ibu}" 
+                    style="{style}">
                     
                     <View class="tableRow">
                         <!--ImageView id="listImage" image="{list_image}"></ImageView-->

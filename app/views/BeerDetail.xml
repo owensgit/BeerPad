@@ -1,31 +1,35 @@
-<Alloy> 
+<Alloy>
    <Window class="container" tabBarHidden="true">
       <ScrollView id="scrollView">
-          
+
           <View class="beerImageContainer" height="130" width="130">
           	<ImageView class="beerImage" id="image" image="dafaultBeerImage.png"></ImageView>
           </View>
-          
-          <Label id="name"></Label>
-          <Label id="brewery"></Label>
-         
+
+          <Label id="name" />
+          <Label id="brewery" />
+
+          <Label id="style" />
+
+          <Widget src="infopills" id="infopills" />
+
           <!-- The rating stars get created in BeerDetail.js and placed in this view -->
-          <View id="ratingView" height="40dp"></View>
-              
+          <View id="ratingView" height="40dp" />
+
           <View id="pubBox" class="iconItem">
           	<Label class="iconItemIcon" id="buildingIcon" />
             <Label class="iconItemTitle" id="pub" />
           </View>
-          
+
           <View id="locationBox" class="iconItem">
             <Label class="iconItemIcon" id="locationIcon" />
             <Label class="iconItemTitle" id="location" />
           </View>
-          
+
           <Label id="notes"></Label>
-          
+
           <Label id="date"></Label>
-          
+
           <View id="dateAndTimeBox">
 	          <View id="dateBox" class="iconItem">
 	          	<Label class="iconItemIcon" id="calendarIcon" />
@@ -39,7 +43,7 @@
 
           <View id="spacer"></View>
       </ScrollView>
-      
+
       <Toolbar id="toolbar" platform="ios" bottom="0" borderTop="true" borderBottom="false">
           <Items>
             <Button id="shareBtn" onClick="share" title="Share" systemButton="Ti.UI.iOS.SystemButton.ACTION" />
@@ -48,7 +52,7 @@
             <Button id="deleteBtn" onClick="deleteBeer" title="Delete" systemButton="Ti.UI.iOS.SystemButton.TRASH" />
           </Items>
       </Toolbar>
-      
+
       <!--AlertDialog id="deleteDialog" onClick="confirmDeleteBeer" title="Delete"
             message="Ready to say good bye to this beer?" cancel="0">
 
@@ -57,6 +61,6 @@
                 <ButtonName id="confirm"></ButtonName>
             </ButtonNames>
         </AlertDialog-->
-        
-   </Window> 
+
+   </Window>
 </Alloy>

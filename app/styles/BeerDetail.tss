@@ -8,8 +8,9 @@
 }
 
 "Label": {
-    width: Alloy.CFG.xy.beerDetailLabelWidth, 
+    width: Alloy.CFG.xy.beerDetailLabelWidth,
 },
+
 "#name": {
     top: "12dp",
     width: "85%",
@@ -17,20 +18,25 @@
     font: {
         fontSize: "51dp",
         fontFamily: 'Dense-Regular'
-    }   
+    }
 },
 "#brewery": {
     top: "3dp",
     width: "80%",
-    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+}
+"#style": {
+  top: "5dp",
+  width: "80%",
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 }
 
-"#ratingView": {
-	top: "1dp"
+"#infopills": {
+    
 }
 
 "#pubBox": {
-	top: "20dp"
+	top: "22dp"
 }
 
 "#notes": {

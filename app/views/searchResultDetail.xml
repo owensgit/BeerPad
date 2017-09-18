@@ -10,6 +10,10 @@
           <Label id="name"></Label>
           
           <Label id="brewery"></Label>
+
+          <Label id="style" />
+
+          <Widget src="infopills" id="infopills" />
           
           <Label id="notes"></Label>
           

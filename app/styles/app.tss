@@ -42,6 +42,7 @@
 "TableViewRow": {
 	height: "65dp",
     backgroundSelectedColor: Alloy.CFG.colour.background,
+    selectedBackgroundColor: Alloy.CFG.colour.background,
     selectedColor: Alloy.CFG.colour.background,
     color: "#FFFFFF"
 },

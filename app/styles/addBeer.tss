@@ -43,10 +43,6 @@
     font: { fontFamily: 'FontAwesome', fontSize: "32dp" }
 }
 
-"#percent": {
-    top: "19dp"
-}
-
 ".lookUpBox": {
     width: Ti.UI.FILL,
     height: Ti.UI.SIZE    
@@ -57,21 +53,9 @@
     height: "15dp", width: "15dp"
 }
 
-/*"#locationLabel": {
-    color: "#c8c8ce",
-    top: "11dp",
-    zIndex: 2,
-    width: "210dp",
-    font: { fontSize: "17dp" }    
-}*/
+
 "#location": {
-    //borderColor: "#FFFFFF",
-    //height: Ti.UI.SIZE,
-    //scrollable: false,
     clearButtonMode: Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
-    //font: { fontSize: "16dp" },
-    //top: "5dp", bottom: "5dp",
-    //width: "218dp" // slightly wider to allow for padding
 }
 "#use_gps": {
     height: "28dp",
@@ -143,9 +127,6 @@
     left: "22dp"
 }
 
-
-
-
 "#addBeerButton" : {
     top: "40dp",
     bottom: "60dp",
@@ -155,20 +136,38 @@
     }
 }
 
-".iconInputBox": {
+".doubleInputBox": {
     height: Ti.UI.SIZE,
-    width: "65%"
+    layout: "horizontal",
+    width: "65%",
+    top: "19dp"
 }
-".iconInput": {
-    left: "0dp",
-    width: "170dp"
-}
-".iconInputTextIcon": {
-    color: "#e5e5e5",
-    right: "2dp",
-    top: "26dp",
-    font: {
-        fontSize: "14dp",
-        fontWeight: "bold"
+    ".iconInputBox": {
+        height: Ti.UI.SIZE,
+        width: "43%"
     }
+        ".iconInput": {
+            left: "0dp",
+            width: "170dp"
+        }
+        ".iconInputTextIcon": {
+            color: "#e5e5e5",
+            right: "4dp",
+            font: {
+                fontSize: "14dp",
+                fontWeight: "bold"
+            }
+        }
+
+
+"#percent": {
+    //right: "15dp",
+    //top: "19dp"
 }
+"#ibuBox": {
+    left: "12%",
+    //top: "19dp"
+}
+
+
+

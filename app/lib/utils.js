@@ -53,6 +53,31 @@ var utils = (function() {
         return true;
     };
     
+    methods.ibuIsValid = function (ibu) {
+      if (ibu === "") {
+        return true;
+      }
+      var numRegEx = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/;
+      if (!numRegEx.test(ibu)) {
+        var dialog = Ti.UI.createAlertDialog({
+            title: L('add_error_ibu_not_number_title'),
+            message: L('add_error_ibu_not_number_msg'),
+            ok: L('add_error_ibu_not_number_ok'),
+        }).show();
+        return false;
+      }
+      ibu = parseInt(ibu, 10);
+      if (ibu < 0 || ibu > 120) {
+        var dialog = Ti.UI.createAlertDialog({
+            title: L('add_error_ibu_out_of_range_title'),
+            message: L('add_error_ibu_out_of_range_msg'),
+            ok: L('add_error_ibu_out_of_range_ok'),
+        }).show();
+        return false;
+      }
+      return true;
+    };
+
     /**
      *  View a beer image from the Beer Detail screen
      *  
@@ -71,11 +96,13 @@ var utils = (function() {
         var newArgs = {
             name: $.name.value,
             brewery: $.brewery.value,
+            style: $.style.value,
             rating: rating, // set by applyRating() func below
             percent: $.percent.value,
             establishment: $.establishment.value,
             location: $.location.value,
             notes: $.notes.value,
+            ibu: $.ibu.value,
             api_id: args.api_id || null
         };
         

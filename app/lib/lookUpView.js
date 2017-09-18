@@ -11,7 +11,7 @@ lookUpView.viewPropsClosed = {
 lookUpView.viewPropsOpen = {
     bottom: "5dp"  
 };
-lookUpView.tableRowHeight = 36;
+lookUpView.tableRowHeight = 40;
 
 lookUpView.rowProps = {
     font: { fontSize: "12dp" }

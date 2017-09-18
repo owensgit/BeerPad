@@ -1,5 +1,7 @@
 var args = arguments[0] || {};
 
+//console.log('Search result detail args', args);
+
 var activityIndicator = Ti.UI.createActivityIndicator({
   style: Ti.Platform.name === 'iPhone OS' ? Ti.UI.ActivityIndicatorStyle.DARK : Ti.UI.ActivityIndicatorStyle.DARK,
   height:Ti.UI.SIZE, width:Ti.UI.SIZE,
@@ -21,7 +23,13 @@ $.image.addEventListener("load", function () {
 });
 
 $.name.text = args.name.toUpperCase();
-$.brewery.text = utils.buildBreweryAndPercentString(args.brewery, args.percent);
+$.brewery.text = args.brewery;
+
+if (args.style) {
+  $.style.text = args.style;
+} else {
+  $.style.remove();
+}
 
 
 if (args.notes) {
@@ -30,6 +38,17 @@ if (args.notes) {
     $.notes.textAlign = "center";
     $.notes.color = Alloy.CFG.colour.grey;
     $.notes.text = L("search_detail_no_notes");
+}
+
+var infoPillsData = [];
+if (args.percent) {
+    infoPillsData.push({text: args.percent+' % abv'});
+}
+if (args.ibu) {
+    infoPillsData.push({text: args.ibu+' ibu'});
+}
+if (infoPillsData.length) {
+    $.infopills.createPills(infoPillsData);
 }
 
 var addBeerButton = Ti.UI.createButton({ titleid: "search_detail_add_button" });

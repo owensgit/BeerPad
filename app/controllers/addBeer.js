@@ -25,7 +25,7 @@ locationLookUpView.init();
 $.locationBox.add(locationLookUpView.view);
 
 // Initial place holder values
-var theDate;                 // will hold moment.js date object
+var theDate;                  // will hold moment.js date object
 var theImage;                 // image returned from camreaMethods
 var rating;                   // rating set by rating stars
 var coords;                   // obj to store longitude/lattitude values  
@@ -36,7 +36,9 @@ var ratingStarArray = [$.star1, $.star2, $.star3, $.star4, $.star5];
 // Set hint text on text fields
 $.name.hintText = L('add_name');
 $.brewery.hintText = L('add_brewery');
+$.style.hintText = L('add_style');
 $.percent.hintText = L('add_percent');
+$.ibu.hintText = L('add_ibu');
 $.establishment.hintText = L('add_pub');
 $.location.hintText = L('add_location');
 
@@ -86,7 +88,9 @@ if (args.addingFromSearch) {
 if (args.edit || args.addingFromSearch) {
     $.name.value = args.name || "";
     $.brewery.value = args.brewery || "";
+    $.style.value = args.style || "";
     $.percent.value = args.percent || "";
+    $.ibu.value = args.ibu || "";
     $.establishment.value = args.establishment || "";
     $.location.value = args.location || "";
 
@@ -120,6 +124,11 @@ $.addBeerButton.addEventListener("click", function () {
     }
     
     if (utils.perentageIsValid($.percent.value) === false) {
+        this.touchEnabled = true;
+        return;
+    }
+
+    if (utils.ibuIsValid($.ibu.value) === false) {
         this.touchEnabled = true;
         return;
     }
@@ -279,7 +288,9 @@ function doBeerLookUp(textField) {
                 setTimeout(function () {
                     $.name.value = e.rowData.name;
                     $.brewery.value = e.rowData.brewery || "";
+                    $.style.value = e.rowData.style || "";
                     $.percent.value = e.rowData.abv || "";
+                    $.ibu.value = e.rowData.ibu || "";
                     $.notes.value = e.rowData.notes || "";
                 }, 100);
             });

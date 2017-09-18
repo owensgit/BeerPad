@@ -15,6 +15,8 @@ exports.definition = {
             "longitude": "integer",
             "favourite": "boolean",
             "is_sample": "boolean",
+            "ibu": "integer",
+            "style": "string",
             "api_id": "text"  
 		},
 		adapter: {

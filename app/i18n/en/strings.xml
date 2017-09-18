@@ -42,10 +42,11 @@
     
     <!-- Beer Details -->
     <string name="detail_edit_btn">Edit</string>
+    <string name="detail_no_style">No style set</string>
     <string name="detail_no_pub">No establishment set</string>
     <string name="detail_no_location">No location set</string>
-    <string name="detail_add_to_favourites">Add to favourties</string>
-    <string name="detail_remove_from_favourites">Remove from favourties</string>
+    <string name="detail_add_to_favourites">Add to favourites</string>
+    <string name="detail_remove_from_favourites">Remove from favourites</string>
         
     <!-- Share Dialog -->
     <string name="share_beer_name">Just tried this beer called</string>
@@ -95,7 +96,9 @@
     
     <string name="add_name">Name</string>
     <string name="add_brewery">Brewery</string>
+    <string name="add_style">Style (e.g. IPA)</string>
     <string name="add_percent">Percent</string>
+    <string name="add_ibu">Bitterness</string>
     <string name="add_pub">Pub, bar or establishment</string>
     <string name="add_location">Location</string>
     <string name="add_notes">Notes</string> 
@@ -115,6 +118,13 @@
     <string name="add_error_percent_too_high_title">More than 100%!?</string>
     <string name="add_error_percent_too_high_msg">You can\'t have a beer with a percentage higher than 100!\n</string>
     <string name="add_error_percent_too_high_ok">Change percentage</string>
+
+    <string name="add_error_ibu_not_number_title">IBU is not a number!</string>
+    <string name="add_error_ibu_not_number_msg">IBU should be a number between 0 and 120.</string>
+    <string name="add_error_ibu_not_number_ok">Change IBU</string>
+    <string name="add_error_ibu_out_of_range_title">IBU is out of range!</string>
+    <string name="add_error_ibu_out_of_range_msg">IBU can only be a number between 0 and 120.</string>
+    <string name="add_error_ibu_out_of_range_ok">Change IBU</string>
     
     <!-- Add Beer - Determine Location -->
     <string name="add_location_use_gps">Use my location</string>

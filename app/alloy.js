@@ -13,6 +13,7 @@
 var moment = require('alloy/moment');
 var utils = require("/utils");
 var sample_beers = require("samples");
+var _ = require("alloy/underscore");
 
 
 var theBeers = Alloy.createCollection("beers");
@@ -57,9 +58,8 @@ if (_.isEmpty(theBeers.toJSON())) {
 Alloy.Globals.mapLabelText = function($, args, shouldSetImage) { 
 
     $.name.text = args.name.toUpperCase();
-    
-    $.brewery.text = utils.buildBreweryAndPercentString(args.brewery, args.percent);
-    
+    $.brewery.text = args.brewery;
+    $.style.text = args.style || L("detail_no_style");
     $.pub.text = args.establishment || L("detail_no_pub");
     $.location.text = args.location || L("detail_no_location");
     $.notes.text = args.notes;
@@ -73,6 +73,21 @@ Alloy.Globals.mapLabelText = function($, args, shouldSetImage) {
         $.image.setImage(theImage);   
     }
 
+    var infoPillsData = [];
+    if (args.percent) {
+        infoPillsData.push({text: args.percent+' % abv'});
+    }
+    if (args.ibu) {
+        infoPillsData.push({text: args.ibu+' ibu'});
+    }
+
+    $.infopills.createPills(infoPillsData);
+
+    if (!args.style) {
+        $.style.setColor('#c7c7c7');
+    } else {
+        $.style.setColor('#000000');
+    }
     if (!args.establishment) {
         $.buildingIcon.setColor('#c7c7c7');
         $.pub.setColor('#c7c7c7');
@@ -121,6 +136,8 @@ Alloy.Globals.openBeerDetails = function (event, controller) {
     _.each(selectedBeer, function(value, key) {
        args[key] = value;
     }); 
+
+    //console.log('openBeerDetails args', args);
    
     var view = Alloy.createController(controller, args).getView();
     

@@ -6,6 +6,11 @@ var data = (function () {
         var url = "http://api.brewerydb.com/v2/search/?key=" + Alloy.CFG.brewery_db_api_key + "&withBreweries=Y&type=beer&q=" + query;
         var repsonse = {};
         var _that = this;
+
+        // Example search:
+        // http://api.brewerydb.com/v2/search/?key=aa4423f8887ce03f2d18d94d75bc36b6&withBreweries=Y&type=beer&q=Sun
+        //console.log('Search URL: ', url);
+
         var client = Ti.Network.createHTTPClient({
              
             onload : function(e) {
@@ -13,6 +18,8 @@ var data = (function () {
                 _that.results = responseJSON.data;
                 
                 var results = [];
+
+                //console.log('responseJSON.data', responseJSON.data);
     
                 _.each(responseJSON.data, function (item) {
                     var result = {}, brewery;
@@ -30,7 +37,9 @@ var data = (function () {
                     result.brewery = brewery || null;
                     result.abv = item.abv || null;
                     result.notes = item.description || null;
+                    result.ibu = item.ibu || null;
                     result.api_id = item.id;
+                    result.style = item.style && item.style.shortName || null;
                     
                     if (item.labels) {
                         result.beer_image = item.labels.large || item.labels.medium || item.labels.small || null;

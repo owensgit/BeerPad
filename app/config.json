@@ -11,7 +11,7 @@
 	   "api_call_debounce_delay": 500,
 	   "num_beers_saved_before_review_prompt": 7,
 	   "num_beers_saved_before_second_review_prompt": 30
-	}, 
+	},
 	"platform_values": {
 	   "ios_keyboard_height_iphone_portrait": 264,
 	   "ios_header_height_portrait": 65
@@ -31,16 +31,18 @@
 	   "lookup_api_used": "Look Up Beer | API Used",
 	   "lookup_beer_added": "Look Up Beer | Beer Added from API"
 	},
-	"env:development": {}, 
-	"env:test": {}, 
-	"env:production": {}, 
+	"env:development": {},
+	"env:test": {},
+	"env:production": {},
 	"os:android": {},
 	"os:blackberry": {},
 	"os:ios": {
 	   "app_store_url": "itms://itunes.apple.com/us/app/beer-pad/id877781786?ls=1&mt=8"
 	},
 	"os:mobileweb": {},
-	"dependencies": {},
+	"dependencies": {
+		"infopills": "1.0"
+	},
 	"xy": {
 		"beerDetailLabelWidth": "65%",
 		"beerDetailDateWidth": "45%"

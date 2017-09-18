@@ -17,6 +17,8 @@
             </View>
             
             <TextField id="brewery" autocorrect="false"></TextField>
+
+            <TextField id="style" autocorrect="false"></TextField>
             
             <View class="ratingButtons">
                 <Label id="star1" class="starImage" />
@@ -26,16 +28,21 @@
                 <Label id="star5" class="starImage" />
             </View>
             
-            <View class="iconInputBox">
-                <TextField id="percent" class="iconInput" keyboardType="Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION"></TextField>
-                <Label class="iconInputTextIcon" text="% abv" />
+            <View class="doubleInputBox">
+                <View class="iconInputBox">
+                    <TextField id="percent" class="iconInput" keyboardType="Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION"></TextField>
+                    <Label class="iconInputTextIcon" text="% abv" />
+                </View>
+                <View class="iconInputBox" id="ibuBox">
+                    <TextField id="ibu" class="iconInput" keyboardType="Ti.UI.KEYBOARD_TYPE_NUMBER_PAD"></TextField>
+                    <Label class="iconInputTextIcon" text="ibu" />
+                </View>
             </View>
             
             <TextField id="establishment"></TextField>
                        
             <View id="locationBox" class="lookUpBox">
                 <TextField id="location" autocorrect="false"></TextField>
-                <!--Label id="locationLabel" textid="add_location" /-->
                 <ActivityIndicator class="lookUpActivityIndicator" id="locLookUpActivity" />
             </View>
             

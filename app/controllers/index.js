@@ -1,7 +1,7 @@
 var theBeers = Alloy.Collections.beers;
 theBeers.fetch();
 
-
+//console.log('theBeers', theBeers.toJSON());
 
 /*var DB_NAME = L("framework_database_name", "_alloy_");
 
@@ -72,9 +72,4 @@ if (Ti.App.Properties.getString("welcomeDone") === "true") {
 } else {
    welcome.open();
 }
-
-
-$.beerListWin.addEventListener("focus", function () {
-  //Alloy.Globals.GA.trackScreen({ screenName: "My Beers" });
-});
 

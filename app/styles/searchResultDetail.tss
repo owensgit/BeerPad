@@ -15,6 +15,11 @@
     width: "300dp",
     textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
 }
+"#style": {
+    top: "2dp",
+    width: "300dp",
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER, 
+}
 
 ".ratingButtons": {
     top: "14dp",

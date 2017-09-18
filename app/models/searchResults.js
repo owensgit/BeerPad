@@ -3,12 +3,14 @@ exports.definition = {
         columns: {
             "name": "text",
             "brewery": "text",
+            "style": "text",
             "rating": "integer",
             "percent": "integer",
             "establishment": "text",
             "location": "text",
             "notes": "text",
-            "beer_image": "text",  
+            "beer_image": "text", 
+            "ibu": "integer", 
             "api_id": "text"
         },
 		adapter: {
