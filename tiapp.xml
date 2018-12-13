@@ -1,96 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ti:app 
-  xmlns:ti="http://ti.appcelerator.org">
-  <id>com.owenevans.BeerPad</id>
-  <name>Beer Pad</name>
-  <version>1.5.0</version>
-  <publisher>Owen Evans</publisher>
-  <url>http://beerpadapp.com/</url>
-  <description>Beer Pad is a simple app that let’s you keep a personal note book of all those amazing beers and ales that you try from all over the world.</description>
-  <copyright>2014 Owen Evans</copyright>
-  <icon>appicon.png</icon>
-  <fullscreen>false</fullscreen>
-  <navbar-hidden>false</navbar-hidden>
-  <analytics>true</analytics>
-  <guid>de95e960-407b-4ded-9aaa-c36abcef0909</guid>
-  <property name="ti.ui.defaultunit" type="string">dp</property>
-  <ios>
-    <plist>
-      <dict>
-        <key>UISupportedInterfaceOrientations~iphone</key>
-        <array>
-          <string>UIInterfaceOrientationPortrait</string>
-        </array>
-        <key>UISupportedInterfaceOrientations~ipad</key>
-        <array>
-          <string>UIInterfaceOrientationPortrait</string>
-          <string>UIInterfaceOrientationPortraitUpsideDown</string>
-          <string>UIInterfaceOrientationLandscapeLeft</string>
-          <string>UIInterfaceOrientationLandscapeRight</string>
-        </array>
-        <key>UIRequiresPersistentWiFi</key>
-        <false/>
-        <key>UIPrerenderedIcon</key>
-        <false/>
-        <key>UIStatusBarHidden</key>
-        <false/>
-        <key>UIStatusBarStyle</key>
-        <string>UIStatusBarStyleDefault</string>
-        <key>NSLocationWhenInUseUsageDescription</key>
-        <string>When you add a new beer, you can use your current location to save the exact location where you tried it, which is then plotted to your beer map.</string>
-        <key>NSPhotoLibraryUsageDescription</key>
-        <string>Add a picture of the beer you've tried!</string>
-        <key>NSCameraUsageDescription</key>
-        <string>Add a picture of the beer you've tried!</string>
-      </dict>
-    </plist>
-  </ios>
-  <android 
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <manifest>
-      <application android:theme="@style/Theme.Beerpad"/>
-    </manifest>
-  </android>
-  <mobileweb>
-    <precache/>
-    <splash>
-      <enabled>true</enabled>
-      <inline-css-images>true</inline-css-images>
-    </splash>
-    <theme>default</theme>
-  </mobileweb>
-  <modules>
-    <module platform="iphone">ti.map</module>
-    <module platform="iphone">dk.napp.social</module>
-    <module platform="commonjs">ti.cloud</module>
-  </modules>
-  <deployment-targets>
-    <target device="android">true</target>
-    <target device="blackberry">false</target>
-    <target device="ipad">false</target>
-    <target device="iphone">true</target>
-    <target device="mobileweb">false</target>
-    <target device="tizen">false</target>
-  </deployment-targets>
-  <sdk-version>6.0.1.GA</sdk-version>
-  <plugins>
-    <plugin version="1.5.1">ti.alloy</plugin>
-  </plugins>
-  <property name="appc-app-id" type="string">59b186c022d5d065ea7f89ad</property>
-  <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
-  <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
-  <property name="acs-oauth-secret-development" type="string">YbRpQ8DkN60DFGpd9riwNuuUNcrCEgDe</property>
-  <property name="acs-oauth-key-development" type="string">OLgrvXyJc7tkUaoqmfRJta1AXFZonYsZ</property>
-  <property name="acs-api-key-development" type="string">GAtTPuHlvUpFaynZisIisds0cOIjHEw6</property>
-  <property name="acs-username-development" type="string">appc_app_user_dev</property>
-  <property name="acs-password-development" type="string">bS7VaDC74zQlqOl7lI</property>
-  <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
-  <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
-  <property name="acs-oauth-secret-production" type="string">JFRbXYCeJ96woq8s4hTZWH2qjy19nXkx</property>
-  <property name="acs-oauth-key-production" type="string">xo4YLA1w97fqSeweHCGCzhNbyZLFkhpt</property>
-  <property name="acs-api-key-production" type="string">OIYdyzCIpJVXOOpdJmRPUvXCOdaepbxx</property>
-  <property name="acs-username-production" type="string">appc_app_user</property>
-  <property name="acs-password-production" type="string">UuxNMKENZyDNQ6nTZO</property>
-  <property name="appc-org-id" type="string">100014914</property>
-  <property name="appc-creator-user-id" type="string">395fa8a2-e472-40f3-8e0d-37a53b76816d</property>
+<?xml version="1.0" encoding="UTF-8"?><ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.owenevans.BeerPad</id>
+    <name>Beer Pad</name>
+    <version>1.5.0</version>
+    <publisher>Owen Evans</publisher>
+    <url>http://beerpadapp.com/</url>
+    <description>Beer Pad is a simple app that let’s you keep a personal note book of all those amazing beers and ales that you try from all over the world.</description>
+    <copyright>2014 Owen Evans</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>de95e960-407b-4ded-9aaa-c36abcef0909</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+                <key>NSLocationWhenInUseUsageDescription</key>
+                <string>When you add a new beer, you can use your current location to save the exact location where you tried it, which is then plotted to your beer map.</string>
+                <key>NSPhotoLibraryUsageDescription</key>
+                <string>Add a picture of the beer you've tried!</string>
+                <key>NSCameraUsageDescription</key>
+                <string>Add a picture of the beer you've tried!</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest>
+            <application android:theme="@style/Theme.Beerpad"/>
+        </manifest>
+    </android>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="iphone">ti.map</module>
+        <module platform="iphone">dk.napp.social</module>
+        <module platform="commonjs">ti.cloud</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="blackberry">false</target>
+        <target device="ipad">false</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">false</target>
+        <target device="tizen">false</target>
+    </deployment-targets>
+    <sdk-version>7.5.0.GA</sdk-version>
+    <plugins>
+        <plugin version="1.5.1">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">59b186c022d5d065ea7f89ad</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">YbRpQ8DkN60DFGpd9riwNuuUNcrCEgDe</property>
+    <property name="acs-oauth-key-development" type="string">OLgrvXyJc7tkUaoqmfRJta1AXFZonYsZ</property>
+    <property name="acs-api-key-development" type="string">GAtTPuHlvUpFaynZisIisds0cOIjHEw6</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">bS7VaDC74zQlqOl7lI</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">JFRbXYCeJ96woq8s4hTZWH2qjy19nXkx</property>
+    <property name="acs-oauth-key-production" type="string">xo4YLA1w97fqSeweHCGCzhNbyZLFkhpt</property>
+    <property name="acs-api-key-production" type="string">OIYdyzCIpJVXOOpdJmRPUvXCOdaepbxx</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">UuxNMKENZyDNQ6nTZO</property>
+    <property name="appc-org-id" type="string">100014914</property>
+    <property name="appc-creator-user-id" type="string">395fa8a2-e472-40f3-8e0d-37a53b76816d</property>
 </ti:app>

@@ -43,6 +43,7 @@ exports.init = function (logger, config, cli, appc) {
 
 		var cRequire = afs.resolvePath(__dirname, '..', 'Alloy', 'commands', 'compile', 'index.js'),
 			config = {
+				theme: cli.argv['theme'] ? cli.argv['theme'] : null,
 				platform: /(?:iphone|ipad)/.test(cli.argv.platform) ? 'ios' : cli.argv.platform,
 				version: '0',
 				simtype: 'none',
@@ -152,10 +153,9 @@ exports.init = function (logger, config, cli, appc) {
 						cmd.map(function(a) {
 							if (/^[^"].* .*[^"]/.test(a)) return '"' + a + '"'; return a;
 						}).join(' ') + '"'].join(' ')], {
-							stdio: 'inherit',
-							windowsVerbatimArguments: true
-						}
-					);
+						stdio: 'inherit',
+						windowsVerbatimArguments: true
+					});
 				} else {
 					logger.info(__('Executing Alloy compile: %s', cmd.join(' ').cyan));
 					child = spawn(cmd.shift(), cmd);
