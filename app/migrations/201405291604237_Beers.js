@@ -1,4 +1,5 @@
 migration.up = function(migrator) {
+	console.log('migrator 2');
     migrator.db.execute('ALTER TABLE ' + migrator.table + ' ADD COLUMN is_sample BOOLEAN;');
 };
 

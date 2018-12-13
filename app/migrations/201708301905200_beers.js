@@ -1,8 +1,10 @@
 migration.up = function(migrator) {
+	console.log('migrator 4 = up');
     migrator.db.execute('ALTER TABLE ' + migrator.table + ' ADD COLUMN style TEXT;');
 };
 
 migration.down = function(migrator) {
+	console.log('migrator 4 = down');
     var db = migrator.db;
     var table = migrator.table;
     db.execute('CREATE TEMPORARY TABLE beers_backup(alloy_id,name,brewery,rating,percent,establishment,location,notes,date,date_string,beer_image,latitude,longitude,favourite,is_sample,ibu,api_id);');
