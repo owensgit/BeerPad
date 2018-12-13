@@ -75,7 +75,7 @@ var datePicker = function() {
         pickerView.add(this.picker);
         this.pickerView = pickerView;
         return this.pickerView;
-    }
+    };
 
     /*
      * Adds a column to the picker with numbers within a given range. An increment can
