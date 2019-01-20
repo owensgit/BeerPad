@@ -2,7 +2,11 @@
     backgroundColor: "#fff",
     barImage: "navigationBarBg.png",
     shadowImage: "navigationBarBg.png",
-    color: "#1a1a1a"
+    color: "#1a1a1a",
+    tintColor: Alloy.CFG.colour.tint,
+    titleAttributes: {
+       color: Alloy.CFG.colour.tint
+   }
 }
 ".container" : { 
    backgroundColor: 'white',
@@ -169,12 +173,16 @@
     borderWidth: "1dp",
     borderRadius: "3dp",
     top: "30dp",
-    right: "6dp",
+    right: "8dp",
     height: "26dp",
     width: "65dp",
     font: {
         fontSize: "13dp"
     } 
+}
+".modalOutline[if=Alloy.Globals.is_iPhoneXandAbove]" : {
+	right: "14dp",
+	top: 0
 }
 
 

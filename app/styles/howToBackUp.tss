@@ -1,6 +1,7 @@
 "#close": {
+	top: "50dp",
     right: "10dp"
 }
 "#content": {
-    top: "65dp"
+    top: "80dp"
 }

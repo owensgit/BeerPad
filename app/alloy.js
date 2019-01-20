@@ -28,6 +28,8 @@ Alloy.Globals.is_iPhone5 = platformHeight === 568;
 Alloy.Globals.is_iPhone6 = platformHeight === 667;
 Alloy.Globals.is_iPhone6andAbove = platformHeight >= 667;
 Alloy.Globals.is_iPhone6plus = platformHeight === 736;
+Alloy.Globals.is_iPhoneXandAbove = platformHeight >= 812 && Ti.Platform.displayCaps.platformWidth >= 375;
+
 
 Alloy.Globals.beerListSecondaryValue = 'brewery';
 

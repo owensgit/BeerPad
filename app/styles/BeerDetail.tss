@@ -1,10 +1,30 @@
-
+".window": {
+	backgroundColor: Alloy.CFG.colour.plainBackground	
+},
 "#scrollView": {
+	backgroundColor: Alloy.CFG.colour.plainBackground,
     showHorizontalScrollIndicator: false,
     showVerticalScrollIndicator: true,
     scrollType: "vertical",
     layout: "vertical",
     opacity: 0
+}
+"#toolbar": {
+	backgroundColor: Alloy.CFG.colour.background,
+    barColor: Alloy.CFG.colour.background,
+	bottom: 0,
+	borderTop: true,
+	borderBottom: false,
+	color: "#000",
+}
+"#toolbar[if=Alloy.Globals.is_iPhoneXandAbove]": {
+	bottom: 36
+}
+"#toolbarFiller[if=Alloy.Globals.is_iPhoneXandAbove]": {
+	backgroundColor: Alloy.CFG.colour.background,
+	bottom: 0,
+	height: 36,
+	width: "100%"
 }
 
 "Label": {
@@ -29,10 +49,6 @@
   top: "5dp",
   width: "80%",
   textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-}
-
-"#infopills": {
-    
 }
 
 "#pubBox": {
@@ -79,14 +95,6 @@
     left: "18dp"
 }
 
-
-
-
-"#toolbar": {
-    color: "#000",
-    backgroundColor: Alloy.CFG.colour.background,
-    barColor: Alloy.CFG.colour.background
-}
 
 "#spacer": {
     height: 0,

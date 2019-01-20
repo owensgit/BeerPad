@@ -50,6 +50,7 @@
 	"colour": {
 	   "main": "#4ca843",
 	   "background": "#4da843",
+	   "plainBackground": "#FFFFFF",
 	   "tint": "#FFFFFF",
 	   "tabsTint": "#4da843",
 	   "grey": "#888888"

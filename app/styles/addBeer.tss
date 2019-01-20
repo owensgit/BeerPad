@@ -4,7 +4,7 @@
         fontSize: "55dp",
         fontFamily: 'Dense-Regular'
     }  
-},
+}
 
 "#imageView": {
     top: "10dp", bottom: "5dp",
@@ -128,7 +128,7 @@
 }
 
 "#addBeerButton" : {
-    top: "40dp",
+    top: "30dp",
     bottom: "60dp",
     width: "212dp",
     font: {

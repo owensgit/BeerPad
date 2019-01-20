@@ -81,7 +81,7 @@ $.ratingView.add(theStars);
 // View Image
 
 $.image.addEventListener("click", function () {
-   utils.viewBeerImage($.image.image); 
+   utils.viewBeerImage($.image.image, Alloy.Globals.mainTabGroup); 
 });
 
 

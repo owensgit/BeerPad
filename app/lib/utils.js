@@ -83,11 +83,12 @@ var utils = (function() {
      *  
      *  @param image {Object} image object taken from an ImageView, by using theImageView.image
      */
-    methods.viewBeerImage = function (image) {
+    methods.viewBeerImage = function (image, mainTabGroup) {
         var beerImage = Alloy.createController("BeerImage");
         beerImage.image.image = image;
         beerImageView = beerImage.getView();
-        Alloy.Globals.mainTabGroup.getActiveTab().open(beerImageView);
+        console.log('mainTabGroup', mainTabGroup);
+        mainTabGroup.getActiveTab().open(beerImageView);
     };
     
     

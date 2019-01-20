@@ -1,10 +1,10 @@
 <Alloy>
-	<Window id="addBeerWin" title="Add a beer" modal="true" class="container">
+	<Window id="addBeerWin" title="Add a beer" modal="true" class="container" extendSafeArea="false">
 	    <ScrollView id="scrollView" layout="vertical" zIndex="1">
 	        
 	        <Button id="close" class="modalOutline" titleid="add_cancel" />
 	        
-	        <Label id="title" class="dense" textid="add_title" />
+	        <Label id="title" textid="add_title" />
 	        
 	        <View id="imageView" class="beerImageContainer">
 	            <ImageView id="beerImage" class="beerImage"></ImageView>

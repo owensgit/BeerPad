@@ -1,5 +1,5 @@
 <Alloy>
-   <Window class="container" tabBarHidden="true">
+   <Window class="window" tabBarHidden="true">
       <ScrollView id="scrollView">
 
           <View class="beerImageContainer" height="130" width="130">
@@ -44,7 +44,7 @@
           <View id="spacer"></View>
       </ScrollView>
 
-      <Toolbar id="toolbar" platform="ios" bottom="0" borderTop="true" borderBottom="false">
+      <Toolbar id="toolbar" platform="ios">
           <Items>
             <Button id="shareBtn" onClick="share" title="Share" systemButton="Ti.UI.iOS.SystemButton.ACTION" />
             <FlexSpace/>
@@ -52,6 +52,8 @@
             <Button id="deleteBtn" onClick="deleteBeer" title="Delete" systemButton="Ti.UI.iOS.SystemButton.TRASH" />
           </Items>
       </Toolbar>
+
+	  <View id="toolbarFiller" platform="ios" if="Alloy.Globals.is_iPhoneXandAbove"></View> 
 
       <!--AlertDialog id="deleteDialog" onClick="confirmDeleteBeer" title="Delete"
             message="Ready to say good bye to this beer?" cancel="0">
@@ -61,6 +63,5 @@
                 <ButtonName id="confirm"></ButtonName>
             </ButtonNames>
         </AlertDialog-->
-
    </Window>
 </Alloy>
